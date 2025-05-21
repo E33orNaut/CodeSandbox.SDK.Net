@@ -42,19 +42,59 @@ dotnet add package CodeSandbox.SDK.Net
 ## Quick Start
 
 ```csharp
-using CodeSandbox.SDK;
-using CodeSandbox.SDK.Services;
+var client = new ApiClient("api-token");
 
-var client = new CodeSandboxClient("your-api-token");
+// ContainerService example
+var containerService = new ContainerService(client);
+var containerRequest = new ContainerSetupRequest { TemplateId = "template-id" };
+var containerResponse = await containerService.SetupContainerAsync(containerRequest);
+Console.WriteLine($"Container setup result: {containerResponse.Result}");
 
-// FS API Example
-var files = await client.FS.ListFilesAsync("sandbox-id");
+// GitService examples
+var gitService = new GitService(client);
+await gitService.PostCommitAsync("Initial commit");
 
-// Git API Example
-var commits = await client.Git.ListCommitsAsync("sandbox-id");
+var gitStatus = await gitService.GetStatusAsync();
+Console.WriteLine($"Git status: {gitStatus.Status}");
 
-// Port API Example
-var result = await client.Port.SendMessageAsync("sandbox-id", 3000, "ping");
+var gitRemotes = await gitService.GetRemotesAsync();
+Console.WriteLine($"Git remotes: {gitRemotes.Status}");
+
+var gitDiff = await gitService.GetTargetDiffAsync("main");
+Console.WriteLine($"Git diff: {gitDiff.Status}");
+
+await gitService.PostPullAsync("main");
+await gitService.PostDiscardAsync(new[] { "file.txt" });
+await gitService.PostRemoteAddAsync("https://github.com/user/repo.git");
+
+// PortService example
+var portService = new PortService(client);
+var portList = await portService.GetPortListAsync();
+foreach (var port in portList.Result.List)
+    Console.WriteLine($"Port: {port.PortNumber}, Url: {port.Url}");
+
+// SandboxFsService examples
+var fsService = new SandboxFsService(client);
+await fsService.WriteFileAsync(new WriteFileRequest { Path = "file.txt", Content = "Hello World" });
+await fsService.FsReadFileAsync(new FSReadFileParams { Path = "file.txt" });
+await fsService.FsUploadAsync(new UploadRequest { ParentId = "root", Content = "data" });
+await fsService.FsDownloadAsync(new DownloadRequest { Path = "file.txt" });
+await fsService.FsPathSearchAsync(new PathSearchParams());
+await fsService.StatAsync(new FSStatParams { Path = "file.txt" });
+await fsService.CopyAsync(new FSCopyParams { SourcePath = "file.txt" });
+await fsService.RenameAsync(new FSRenameParams { /* fill as needed */ });
+await fsService.RemoveAsync(new FSRemoveParams { Path = "file.txt" });
+await fsService.ReadDirAsync(new FSReadDirParams { Path = "." });
+
+// SetupService examples
+var setupService = new SetupService(client);
+await setupService.InitializeSetupAsync();
+await setupService.GetSetupProgressAsync();
+await setupService.SkipStepAsync(0);
+await setupService.SkipAllStepsAsync();
+await setupService.EnableSetupAsync();
+await setupService.DisableSetupAsync();
+await setupService.SetStepAsync(0);
 ```
 
 ---
