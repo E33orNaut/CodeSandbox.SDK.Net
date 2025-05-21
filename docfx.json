@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": [ "CodeSandbox.SDK.Net" ],
+          "files": [ "CodeSandbox.SDK.Net/CodeSandbox.SDK.Net.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
         }
       ],
