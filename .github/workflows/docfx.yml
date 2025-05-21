@@ -1,0 +1,52 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Restore .NET packages
+      run: nuget restore CodeSandbox.SDK.Net.sln
+
+    - name: Build the project (Release)
+      run: msbuild CodeSandbox.SDK.Net.csproj /p:Configuration=Release
+
+    - name: Install DocFX
+      run: dotnet tool install -g docfx
+
+    - name: Generate Metadata
+      run: docfx metadata docfx.json
+
+    - name: Build Documentation
+      run: docfx build docfx.json
+
+    - name: Upload GitHub Pages Artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v2
