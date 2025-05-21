@@ -10,10 +10,10 @@ namespace CodeSandbox.SDK.Net.Interfaces
     public interface IPortService
     {
         /// <summary>
-        /// Retrieves the list of ports asynchronously.
+        /// Asynchronously retrieves the list of ports.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>The port list response.</returns>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>A task that returns the <see cref="PortListResponse"/> containing the list of ports.</returns>
         Task<PortListResponse> GetPortListAsync(CancellationToken cancellationToken = default);
     }
 }

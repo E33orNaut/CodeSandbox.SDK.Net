@@ -27,7 +27,12 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the current Git status.
+        /// </summary>
+        /// <param name="cancellationToken">Token to cancel the asynchronous operation.</param>
+        /// <returns>The current <see cref="GitStatus"/>.</returns>
+        /// <exception cref="Exception">Throws on API or unexpected errors.</exception>
         public async Task<GitStatus> GetStatusAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetStatusAsync...");
@@ -55,7 +60,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the Git target diff.
+        /// </summary>
+        /// <param name="cancellationToken">Token to cancel the asynchronous operation.</param>
+        /// <returns>The <see cref="GitTargetDiff"/>.</returns>
+        /// <exception cref="Exception">Throws on API or unexpected errors.</exception>
         public async Task<GitTargetDiff> GetTargetDiffAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetTargetDiffAsync...");
@@ -83,7 +93,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the Git remotes.
+        /// </summary>
+        /// <param name="cancellationToken">Token to cancel the asynchronous operation.</param>
+        /// <returns>The <see cref="GitRemotes"/>.</returns>
+        /// <exception cref="Exception">Throws on API or unexpected errors.</exception>
         public async Task<GitRemotes> GetRemotesAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetRemotesAsync...");
@@ -111,7 +126,15 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the parameters for a specific Git remote reference and path.
+        /// </summary>
+        /// <param name="reference">The Git reference (cannot be null or empty).</param>
+        /// <param name="path">The file path (cannot be null or empty).</param>
+        /// <param name="cancellationToken">Token to cancel the asynchronous operation.</param>
+        /// <returns>The <see cref="GitRemoteParams"/> for the given reference and path.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="reference"/> or <paramref name="path"/> is null or empty.</exception>
+        /// <exception cref="Exception">Throws on API or unexpected errors.</exception>
         public async Task<GitRemoteParams> GetRemoteParamsAsync(string reference, string path, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(reference))
@@ -151,7 +174,15 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the diff status between two Git references.
+        /// </summary>
+        /// <param name="baseRef">The base Git reference (cannot be null or empty).</param>
+        /// <param name="headRef">The head Git reference (cannot be null or empty).</param>
+        /// <param name="cancellationToken">Token to cancel the asynchronous operation.</param>
+        /// <returns>The <see cref="GitDiffStatusResult"/> representing the diff status.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="baseRef"/> or <paramref name="headRef"/> is null or empty.</exception>
+        /// <exception cref="Exception">Throws on API or unexpected errors.</exception>
         public async Task<GitDiffStatusResult> GetDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(baseRef))

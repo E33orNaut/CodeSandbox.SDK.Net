@@ -16,18 +16,23 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="SetupService"/>.
+        /// Initializes a new instance of the <see cref="SetupService"/> class.
         /// </summary>
         /// <param name="client">API client to send requests.</param>
-        /// <param name="logger">Logger service for logging.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
+        /// <param name="logger">Logger service for logging. If <c>null</c>, a default logger with trace level is used.</param>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
         public SetupService(ApiClient client, LoggerService logger = null)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the current setup progress.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the current setup progress.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> GetSetupProgressAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetSetupProgressAsync called.");
@@ -44,7 +49,13 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Skips a specific step in the setup process.
+        /// </summary>
+        /// <param name="stepIndexToSkip">The zero-based index of the step to skip.</param>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the updated setup progress.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> SkipStepAsync(int stepIndexToSkip, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace($"SkipStepAsync called with stepIndexToSkip={stepIndexToSkip}.");
@@ -62,7 +73,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Skips all setup steps.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the updated setup progress after skipping all steps.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> SkipAllStepsAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("SkipAllStepsAsync called.");
@@ -79,7 +95,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Disables the setup process.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the updated setup progress after disabling setup.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> DisableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("DisableSetupAsync called.");
@@ -96,7 +117,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Enables the setup process.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the updated setup progress after enabling setup.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> EnableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("EnableSetupAsync called.");
@@ -113,7 +139,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes the setup process.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the initialized setup progress.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> InitializeSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("InitializeSetupAsync called.");
@@ -130,7 +161,13 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Sets the current step in the setup process.
+        /// </summary>
+        /// <param name="stepIndex">The zero-based index of the step to set.</param>
+        /// <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SetupProgress"/> object representing the updated setup progress.</returns>
+        /// <exception cref="Exception">Throws if the API call fails.</exception>
         public async Task<SetupProgress> SetStepAsync(int stepIndex, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace($"SetStepAsync called with stepIndex={stepIndex}.");
@@ -150,14 +187,19 @@ namespace CodeSandbox.SDK.Net.Services
     }
 
     /// <summary>
-    /// Generic API response wrapper.
+    /// Represents a generic API response wrapper.
     /// </summary>
-    /// <typeparam name="TResult">Result type.</typeparam>
+    /// <typeparam name="TResult">The type of the result contained in the response.</typeparam>
     public class ApiResponse<TResult>
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets or sets the status code of the API response.
+        /// </summary>
         public int Status { get; set; }
-        /// <inheritdoc/>
+
+        /// <summary>
+        /// Gets or sets the result payload of the API response.
+        /// </summary>
         public TResult Result { get; set; }
     }
 }

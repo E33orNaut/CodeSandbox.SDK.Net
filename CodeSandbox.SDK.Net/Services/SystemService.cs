@@ -19,11 +19,11 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="SystemService"/>.
+        /// Initializes a new instance of the <see cref="SystemService"/> class.
         /// </summary>
         /// <param name="httpClient">HTTP client for sending requests.</param>
         /// <param name="logger">Logger service for logging.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
         public SystemService(HttpClient httpClient, LoggerService logger)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -35,7 +35,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
-        /// <exception cref="Exception">Throws on any failure with detailed message.</exception>
+        /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("UpdateSystemAsync called.");
@@ -93,7 +94,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
-        /// <exception cref="Exception">Throws on any failure with detailed message.</exception>
+        /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("HibernateSystemAsync called.");
@@ -151,7 +153,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>A <see cref="SuccessResponse"/> containing system metrics.</returns>
-        /// <exception cref="Exception">Throws on any failure with detailed message.</exception>
+        /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SuccessResponse> GetSystemMetricsAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetSystemMetricsAsync called.");
@@ -209,11 +212,20 @@ namespace CodeSandbox.SDK.Net.Services
         }
     }
 
+    /// <summary>
+    /// Wrapper for the success response containing system metrics.
+    /// </summary>
     public class SuccessResponseWithMetrics
     {
+        /// <summary>
+        /// Gets or sets the status code returned by the API.
+        /// </summary>
         [JsonProperty("status")]
         public int Status { get; set; }
 
+        /// <summary>
+        /// Gets or sets the system metrics result.
+        /// </summary>
         [JsonProperty("result")]
         public SystemMetricsStatus Result { get; set; }
     }

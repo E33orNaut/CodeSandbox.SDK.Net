@@ -13,7 +13,7 @@ namespace CodeSandbox.SDK.Net.Example
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             // nuget install CodeSandbox.SDK.Net
             // dotnet add package CodeSandbox.SDK.Net --version 0.0.11
@@ -25,10 +25,14 @@ namespace CodeSandbox.SDK.Net.Example
 
             // CREATE CONTAINER EXAMPLE
             // Configure the containerSetupRequest with the template ID and features
-            ContainerSetupRequest request = new ContainerSetupRequest();
-            request.TemplateId = "something-i-dont-actually-know";
-            List<ContainerSetupFeature> features = new List<ContainerSetupFeature>();
-            features.Add(new ContainerSetupFeature());
+            ContainerSetupRequest request = new ContainerSetupRequest
+            {
+                TemplateId = "something-i-dont-actually-know"
+            };
+            _ = new List<ContainerSetupFeature>
+            {
+                new ContainerSetupFeature()
+            };
 
             // Execut the container setup request and get the result
             var files = await new ContainerService(client).SetupContainerAsync(request);

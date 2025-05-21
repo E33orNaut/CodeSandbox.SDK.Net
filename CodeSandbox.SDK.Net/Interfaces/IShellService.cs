@@ -12,9 +12,9 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <summary>
         /// Renames a shell asynchronously.
         /// </summary>
-        /// <param name="request">Shell rename request.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>Success response from the API.</returns>
+        /// <param name="request">The request containing the shell rename details.</param>
+        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the success response from the API.</returns>
         Task<SuccessResponse> RenameShellAsync(ShellRenameRequest request, CancellationToken cancellationToken = default);
     }
 }

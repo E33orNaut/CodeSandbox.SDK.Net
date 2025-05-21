@@ -16,10 +16,10 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="PortService"/>.
+        /// Initializes a new instance of the <see cref="PortService"/> class.
         /// </summary>
         /// <param name="client">API client instance (required).</param>
-        /// <param name="logger">Optional logger instance.</param>
+        /// <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         public PortService(ApiClient client, LoggerService logger = null)
         {
@@ -28,6 +28,12 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <inheritdoc />
+        /// <summary>
+        /// Asynchronously retrieves the list of ports from the API.
+        /// </summary>
+        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+        /// <returns>A <see cref="Task{PortListResponse}"/> representing the asynchronous operation, containing the port list response.</returns>
+        /// <exception cref="Exception">Throws if the API call fails or an unexpected error occurs.</exception>
         public async Task<PortListResponse> GetPortListAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetPortListAsync...");

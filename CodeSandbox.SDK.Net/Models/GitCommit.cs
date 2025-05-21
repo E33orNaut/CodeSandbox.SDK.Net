@@ -1,10 +1,28 @@
 ﻿namespace CodeSandbox.SDK.Net.Models
 {
+    /// <summary>
+    /// Represents a Git commit with its basic details.
+    /// </summary>
     public class GitCommit
     {
+        /// <summary>
+        /// Gets or sets the commit hash.
+        /// </summary>
         public string Hash { get; set; }
+
+        /// <summary>
+        /// Gets or sets the commit date as a string.
+        /// </summary>
         public string Date { get; set; }
+
+        /// <summary>
+        /// Gets or sets the commit message.
+        /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        /// Gets or sets the author of the commit.
+        /// </summary>
         public string Author { get; set; }
     }
 }

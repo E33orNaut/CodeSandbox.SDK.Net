@@ -19,11 +19,11 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="ShellService"/>.
+        /// Initializes a new instance of the <see cref="ShellService"/> class.
         /// </summary>
         /// <param name="httpClient">HTTP client for requests.</param>
         /// <param name="logger">Logger service.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
         public ShellService(HttpClient httpClient, LoggerService logger)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -31,12 +31,13 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Renames a shell asynchronously.
+        /// Renames a shell asynchronously by sending a rename request to the API.
         /// </summary>
-        /// <param name="request">Shell rename request.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>Success response from the API.</returns>
-        /// <exception cref="Exception">Throws with detailed message if errors occur.</exception>
+        /// <param name="request">The shell rename request containing necessary information.</param>
+        /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+        /// <returns>A <see cref="SuccessResponse"/> indicating the result of the rename operation.</returns>
+        /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Throws when HTTP request fails, JSON deserialization fails, or an unexpected error occurs.</exception>
         public async Task<SuccessResponse> RenameShellAsync(ShellRenameRequest request, CancellationToken cancellationToken = default)
         {
             string url = "/shell/rename";
@@ -95,7 +96,7 @@ namespace CodeSandbox.SDK.Net.Services
     }
 
     /// <summary>
-    /// Exception thrown when API returns an error.
+    /// Exception thrown when the API returns an error response.
     /// </summary>
     public class ApiException : Exception
     {
@@ -104,6 +105,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         public string ErrorCode { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiException"/> class with a specified error code and message.
+        /// </summary>
+        /// <param name="code">The error code returned by the API.</param>
+        /// <param name="message">The error message returned by the API.</param>
         public ApiException(string code, string message) : base(message)
         {
             ErrorCode = code;

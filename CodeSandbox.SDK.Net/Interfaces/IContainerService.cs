@@ -5,16 +5,16 @@ using CodeSandbox.SDK.Net.Models;
 namespace CodeSandbox.SDK.Net.Interfaces
 {
     /// <summary>
-    /// Interface for managing container-related operations.
+    /// Defines operations related to managing containers.
     /// </summary>
     public interface IContainerService
     {
         /// <summary>
-        /// Sets up a container asynchronously.
+        /// Asynchronously sets up a container using the specified setup request.
         /// </summary>
-        /// <param name="request">Container setup request payload.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>Container setup response.</returns>
+        /// <param name="request">The container setup request containing configuration details.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>A task representing the asynchronous operation, with a <see cref="ContainerSetupResponse"/> result containing setup details.</returns>
         Task<ContainerSetupResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default);
     }
 }

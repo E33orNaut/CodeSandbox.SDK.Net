@@ -10,13 +10,32 @@ namespace CodeSandbox.SDK.Net.Internal
 {
     /// <summary>
     /// Exception thrown when API calls fail.
+    /// Contains status code, response content, and optional detailed error info.
     /// </summary>
     public class ApiException : Exception
     {
+        /// <summary>
+        /// Gets the HTTP status code returned by the API.
+        /// </summary>
         public int StatusCode { get; }
+
+        /// <summary>
+        /// Gets the raw response content from the API.
+        /// </summary>
         public string ResponseContent { get; }
+
+        /// <summary>
+        /// Gets the deserialized error details from the API response, if any.
+        /// </summary>
         public object ApiErrorDetails { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiException"/> class.
+        /// </summary>
+        /// <param name="message">Exception message.</param>
+        /// <param name="statusCode">HTTP status code.</param>
+        /// <param name="responseContent">Raw response content.</param>
+        /// <param name="apiErrorDetails">Deserialized error details (optional).</param>
         public ApiException(string message, int statusCode, string responseContent, object apiErrorDetails = null)
             : base(message)
         {
@@ -28,6 +47,7 @@ namespace CodeSandbox.SDK.Net.Internal
 
     /// <summary>
     /// Client to call CodeSandbox API endpoints.
+    /// Supports GET, POST, PUT, and DELETE requests with JSON serialization and detailed error handling.
     /// </summary>
     public class ApiClient : IDisposable
     {
@@ -79,8 +99,13 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Sends a GET request.
+        /// Sends a GET request asynchronously and deserializes the JSON response to type <typeparamref name="T"/>.
         /// </summary>
+        /// <typeparam name="T">Type to deserialize the response content to.</typeparam>
+        /// <param name="path">API endpoint path relative to base URL.</param>
+        /// <param name="cancellationToken">Cancellation token (optional).</param>
+        /// <returns>Deserialized response of type <typeparamref name="T"/>.</returns>
+        /// <exception cref="ApiException">Thrown if response is not JSON or unsuccessful.</exception>
         public async Task<T> GetAsync<T>(string path, CancellationToken cancellationToken = default)
         {
             ValidatePath(path);
@@ -114,8 +139,14 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Sends a POST request.
+        /// Sends a POST request asynchronously with a JSON payload and deserializes the JSON response to type <typeparamref name="T"/>.
         /// </summary>
+        /// <typeparam name="T">Type to deserialize the response content to.</typeparam>
+        /// <param name="path">API endpoint path relative to base URL.</param>
+        /// <param name="payload">Object payload to serialize to JSON and send.</param>
+        /// <param name="cancellationToken">Cancellation token (optional).</param>
+        /// <returns>Deserialized response of type <typeparamref name="T"/>.</returns>
+        /// <exception cref="ApiException">Thrown if response is not JSON or unsuccessful.</exception>
         public async Task<T> PostAsync<T>(string path, object payload, CancellationToken cancellationToken = default)
         {
             ValidatePath(path);
@@ -153,8 +184,14 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Sends a PUT request.
+        /// Sends a PUT request asynchronously with a JSON payload and deserializes the JSON response to type <typeparamref name="T"/>.
         /// </summary>
+        /// <typeparam name="T">Type to deserialize the response content to.</typeparam>
+        /// <param name="path">API endpoint path relative to base URL.</param>
+        /// <param name="payload">Object payload to serialize to JSON and send.</param>
+        /// <param name="cancellationToken">Cancellation token (optional).</param>
+        /// <returns>Deserialized response of type <typeparamref name="T"/>.</returns>
+        /// <exception cref="ApiException">Thrown if response is not JSON or unsuccessful.</exception>
         public async Task<T> PutAsync<T>(string path, object payload, CancellationToken cancellationToken = default)
         {
             ValidatePath(path);
@@ -192,8 +229,12 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Sends a DELETE request.
+        /// Sends a DELETE request asynchronously.
         /// </summary>
+        /// <param name="path">API endpoint path relative to base URL.</param>
+        /// <param name="cancellationToken">Cancellation token (optional).</param>
+        /// <returns>A task representing the asynchronous delete operation.</returns>
+        /// <exception cref="ApiException">Thrown if the response status is unsuccessful.</exception>
         public async Task DeleteAsync(string path, CancellationToken cancellationToken = default)
         {
             ValidatePath(path);
@@ -222,7 +263,7 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Dispose the ApiClient and its resources.
+        /// Disposes the ApiClient and its resources.
         /// </summary>
         public void Dispose()
         {
@@ -231,8 +272,9 @@ namespace CodeSandbox.SDK.Net.Internal
         }
 
         /// <summary>
-        /// Dispose pattern implementation.
+        /// Implements the dispose pattern to release managed and unmanaged resources.
         /// </summary>
+        /// <param name="disposing">Indicates whether the method is called from Dispose.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (_disposed)
@@ -249,6 +291,12 @@ namespace CodeSandbox.SDK.Net.Internal
             _disposed = true;
         }
 
+        /// <summary>
+        /// Logs exception details with method and path context.
+        /// </summary>
+        /// <param name="method">HTTP method used.</param>
+        /// <param name="path">API endpoint path.</param>
+        /// <param name="ex">Exception to log.</param>
         private void LogException(string method, string path, Exception ex)
         {
             _logger.LogError($"{method} exception on path: {path}", ex);
@@ -262,11 +310,22 @@ namespace CodeSandbox.SDK.Net.Internal
 #endif
         }
 
+        /// <summary>
+        /// Truncates a string to a maximum length with ellipsis if necessary.
+        /// </summary>
+        /// <param name="input">Input string to truncate.</param>
+        /// <param name="max">Maximum length allowed.</param>
+        /// <returns>Truncated string with ellipsis if longer than max.</returns>
         private string Truncate(string input, int max = 200)
         {
             return string.IsNullOrWhiteSpace(input) ? string.Empty : input.Length <= max ? input : input.Substring(0, max) + "...";
         }
 
+        /// <summary>
+        /// Validates the API path is not null or empty.
+        /// </summary>
+        /// <param name="path">API path to validate.</param>
+        /// <exception cref="ArgumentException">Thrown if path is null or whitespace.</exception>
         private void ValidatePath(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
@@ -275,11 +334,21 @@ namespace CodeSandbox.SDK.Net.Internal
             }
         }
 
+        /// <summary>
+        /// Checks if the HTTP response content type is JSON.
+        /// </summary>
+        /// <param name="response">HTTP response message.</param>
+        /// <returns>True if Content-Type is application/json, false otherwise.</returns>
         private bool IsJsonResponse(HttpResponseMessage response)
         {
             return (response.Content?.Headers?.ContentType) != null && response.Content.Headers.ContentType.MediaType.Equals("application/json", StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Attempts to parse error details from JSON content.
+        /// </summary>
+        /// <param name="content">Response content string.</param>
+        /// <returns>Deserialized error object or null if parsing fails.</returns>
         private object TryParseErrorDetails(string content)
         {
             try
