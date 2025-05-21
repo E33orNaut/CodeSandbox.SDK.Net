@@ -1,4 +1,8 @@
-﻿# CodeSandbox.SDK.Net
+﻿### CodeSandbox.SDK.Net
+HIGHLY EXPERIMENTAL: Use at your own risk, its not yet complete but the frames here, most of it will work or should work. This is FOSS so fork it do what ya like. I said id help and i have :)
+
+ 
+ # CodeSandbox.SDK.Net
 
 **CodeSandbox.SDK.Net** is a .NET Standard / .NET Framework-compatible client library for interacting with the [CodeSandbox](https://codesandbox.io) API from C# and .NET-based applications. It provides a strongly-typed, developer-friendly interface to CodeSandbox's FS, Port, and Git APIs with full IntelliSense support and extensible configuration.
 
