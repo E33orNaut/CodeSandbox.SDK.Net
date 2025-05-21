@@ -8,6 +8,6 @@ namespace CodeSandbox.SDK.Net.Models
         public int? Port { get; set; }
 
         [JsonPropertyName("pr-link")]
-        public string PrLink { get; set; }  
+        public string PrLink { get; set; }
     }
 }

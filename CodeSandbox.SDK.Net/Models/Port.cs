@@ -2,7 +2,7 @@
 {
     public class Port
     {
-        public int PortNumber { get; set; }   
+        public int PortNumber { get; set; }
         public string Url { get; set; }
     }
 }

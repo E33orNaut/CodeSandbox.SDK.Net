@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Interfaces;   
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models;
 
@@ -27,6 +27,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> GetSetupProgressAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetSetupProgressAsync called.");
@@ -43,6 +44,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> SkipStepAsync(int stepIndexToSkip, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace($"SkipStepAsync called with stepIndexToSkip={stepIndexToSkip}.");
@@ -60,6 +62,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> SkipAllStepsAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("SkipAllStepsAsync called.");
@@ -76,6 +79,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> DisableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("DisableSetupAsync called.");
@@ -92,6 +96,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> EnableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("EnableSetupAsync called.");
@@ -108,6 +113,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> InitializeSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("InitializeSetupAsync called.");
@@ -124,6 +130,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SetupProgress> SetStepAsync(int stepIndex, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace($"SetStepAsync called with stepIndex={stepIndex}.");
@@ -148,7 +155,9 @@ namespace CodeSandbox.SDK.Net.Services
     /// <typeparam name="TResult">Result type.</typeparam>
     public class ApiResponse<TResult>
     {
+        /// <inheritdoc/>
         public int Status { get; set; }
+        /// <inheritdoc/>
         public TResult Result { get; set; }
     }
 }

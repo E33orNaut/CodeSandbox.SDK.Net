@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Interfaces;   
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models;
 using Newtonsoft.Json;
@@ -50,7 +50,7 @@ namespace CodeSandbox.SDK.Net.Services
 
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
 
-                 string responseJson = await response.Content.ReadAsStringAsync();
+                string responseJson = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {

@@ -30,6 +30,7 @@ namespace CodeSandbox.SDK.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<object>> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting WriteFileAsync...");
@@ -58,6 +59,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<PathSearchResult>> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsPathSearchAsync...");
@@ -86,6 +88,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<UploadResult>> FsUploadAsync(UploadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsUploadAsync...");
@@ -114,6 +117,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<DownloadResult>> FsDownloadAsync(DownloadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsDownloadAsync...");
@@ -142,6 +146,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<FSReadFileResult>> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsReadFileAsync...");
@@ -170,6 +175,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<FSReadDirResult>> ReadDirAsync(FSReadDirParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting ReadDirAsync...");
@@ -190,6 +196,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<FSStatResult>> StatAsync(FSStatParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting StatAsync...");
@@ -210,6 +217,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<object>> CopyAsync(FSCopyParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting CopyAsync...");
@@ -230,6 +238,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<object>> RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RenameAsync...");
@@ -250,6 +259,7 @@ namespace CodeSandbox.SDK.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<SuccessResponse<object>> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RemoveAsync...");
@@ -269,13 +279,13 @@ namespace CodeSandbox.SDK.Services
                 throw new Exception($"Error in RemoveAsync: {ex.Message}", ex);
             }
         }
-         
+
         private StringContent ToJsonContent<T>(T obj)
         {
             string json = JsonConvert.SerializeObject(obj);
             return new StringContent(json, Encoding.UTF8, "application/json");
         }
-         
+
         private async Task<T> FromJsonAsync<T>(HttpResponseMessage response, CancellationToken cancellationToken)
         {
             try

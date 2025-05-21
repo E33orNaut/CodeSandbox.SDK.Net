@@ -52,7 +52,7 @@ namespace CodeSandbox.SDK.Net.Services
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
-                string responseString = await response.Content.ReadAsStringAsync();  
+                string responseString = await response.Content.ReadAsStringAsync();
 
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {

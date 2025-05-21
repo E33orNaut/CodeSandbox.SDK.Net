@@ -45,7 +45,7 @@ namespace CodeSandbox.SDK.Models
         public string Content { get; set; }
     }
 
-     
+
     public class FSReadDirParams
     {
         public string Path { get; set; }
@@ -61,9 +61,9 @@ namespace CodeSandbox.SDK.Models
         public string Name { get; set; }
         public bool IsDirectory { get; set; }
         public long Size { get; set; }
-        public string ModifiedAt { get; set; } 
+        public string ModifiedAt { get; set; }
     }
-     
+
     public class FSStatParams
     {
         public string Path { get; set; }
@@ -77,19 +77,19 @@ namespace CodeSandbox.SDK.Models
         public string CreatedAt { get; set; }
         public string ModifiedAt { get; set; }
     }
-     
+
     public class FSCopyParams
     {
         public string SourcePath { get; set; }
         public string DestinationPath { get; set; }
     }
-     
+
     public class FSRenameParams
     {
         public string SourcePath { get; set; }
         public string DestinationPath { get; set; }
     }
-     
+
     public class FSRemoveParams
     {
         public string Path { get; set; }

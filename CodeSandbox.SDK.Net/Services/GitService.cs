@@ -29,6 +29,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
+        /// <inheritdoc/>
         public async Task<GitStatusResult> GetStatusAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetStatusAsync...");
@@ -56,6 +57,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<GitRemotesResult> GetRemotesAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetRemotesAsync...");
@@ -83,6 +85,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<GitTargetDiffResult> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
@@ -115,6 +118,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task PostPullAsync(string branch, bool force = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
@@ -146,6 +150,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task<List<string>> PostDiscardAsync(string[] paths, CancellationToken cancellationToken = default)
         {
             if (paths == null)
@@ -178,6 +183,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task PostCommitAsync(string message, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(message))
@@ -209,6 +215,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <inheritdoc/>
         public async Task PostRemoteAddAsync(string url, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(url))
@@ -239,7 +246,7 @@ namespace CodeSandbox.SDK.Net.Services
                 throw new Exception($"Unexpected error while adding remote: {ex.Message}", ex);
             }
         }
-         
+
         private class DiscardResult
         {
             [JsonProperty("result")]

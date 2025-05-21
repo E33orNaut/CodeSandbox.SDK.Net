@@ -8,6 +8,6 @@ namespace CodeSandbox.SDK.Net.Models
 
         public string TemplateId { get; set; }
         public Dictionary<string, string> TemplateArgs { get; set; }
-        public List<ContainerSetupFeature> Features { get; set; }  
+        public List<ContainerSetupFeature> Features { get; set; }
     }
 }
