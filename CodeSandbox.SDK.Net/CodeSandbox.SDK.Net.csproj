@@ -156,7 +156,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Docs\CodeSandbox.SDK.Net.xml" />
+    <Content Include="Docs\Codesandbox.SDK.Net.xml" />
     <Content Include="nuget.exe" />
   </ItemGroup>
   <ItemGroup />
