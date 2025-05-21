@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.11] - Initial Release
+### Added
+- Updated required deps.
+- Cleaned up FS
+- Cleaned up nutget
+- Code Cleanup and refactoring for better readability and maintainability.
+
+
 ## [0.0.10] - Initial Release
 ### Added
 - Initial release of the CodeSandbox.SDK.Net package.
