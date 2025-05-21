@@ -18,19 +18,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install .NET Framework 4.7 Developer Pack
+        run: choco install netfx-4.7-devpack -y
+
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
 
       - name: Restore NuGet packages
         run: nuget restore CodeSandbox.SDK.Net.sln
 
-      - name: Setup MSBuild (for .NET Framework 4.7)
+      - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.3.1
 
       - name: Build .NET Framework 4.7 project (Release)
-        run: msbuild CodeSandbox.SDK.Net.csproj /p:Configuration=Release /p:TargetFrameworkVersion=v4.7
+        run: msbuild CodeSandbox.SDK.Net/CodeSandbox.SDK.Net.csproj /p:Configuration=Release /p:TargetFrameworkVersion=v4.7
 
-      - name: Setup .NET SDK (required for DocFX)
+      - name: Setup .NET SDK (for DocFX)
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '6.0.x'
@@ -47,10 +50,7 @@ jobs:
       - name: Build documentation site with DocFX
         run: docfx build docfx.json -v diagnostic
 
-      - name: List contents of _site
-        run: dir _site
-
-      - name: Fail if _site is missing or empty
+      - name: Check _site directory
         shell: powershell
         run: |
           if (!(Test-Path "_site") -or !(Get-ChildItem "_site")) {
