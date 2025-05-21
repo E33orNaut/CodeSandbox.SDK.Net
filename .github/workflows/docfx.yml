@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install .NET Framework 4.7 Developer Pack
+        run: choco install netfx-4.7-devpack -y
+
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
 
@@ -29,9 +32,6 @@ jobs:
 
       - name: Build .NET Framework 4.7 project (Release)
         run: msbuild CodeSandbox.SDK.Net/CodeSandbox.SDK.Net.csproj /p:Configuration=Release /p:TargetFrameworkVersion=v4.7
-
-      - name: Install .NET Framework 4.7 Developer Pack
-        run: choco install netfx-4.7-devpack -y
 
       - name: Setup .NET SDK (for DocFX)
         uses: actions/setup-dotnet@v4
