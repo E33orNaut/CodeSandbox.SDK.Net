@@ -96,7 +96,6 @@
     <Compile Include="Interfaces\ISystemService.cs" />
     <Compile Include="Interfaces\ITaskService.cs" />
     <Compile Include="Internal\APIClient.cs" />
-    <Compile Include="CodeSandboxExamples.cs" />
     <Compile Include="Internal\Logger.cs" />
     <Compile Include="Models\ContainerSetupFeature.cs" />
     <Compile Include="Models\ContainerSetupRequest.cs" />
