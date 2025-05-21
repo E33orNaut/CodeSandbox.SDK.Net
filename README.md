@@ -1,6 +1,7 @@
 ﻿### CodeSandbox.SDK.Net
 HIGHLY EXPERIMENTAL: Use at your own risk, its not yet complete but the frames here, most of it will work or should work. This is FOSS so fork it do what ya like. I said id help and i have :)
 
+[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg?event=status)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
  
  # CodeSandbox.SDK.Net
 
