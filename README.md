@@ -1,7 +1,16 @@
 ﻿### CodeSandbox.SDK.Net
 HIGHLY EXPERIMENTAL: Use at your own risk, its not yet complete but the frames here, most of it will work or should work. This is FOSS so fork it do what ya like. I said id help and i have :)
 
- 
+[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg?event=status)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
+
+ [![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)
+
+![License](https://img.shields.io/github/license/e33ornaut/codesandbox.sdk.net)
+
+![Last Commit](https://img.shields.io/github/last-commit/e33ornaut/codesandbox.sdk.net)
+
+![Issues](https://img.shields.io/github/issues/e33ornaut/codesandbox.sdk.net)
+
  # CodeSandbox.SDK.Net
 
 **CodeSandbox.SDK.Net** is a .NET Standard / .NET Framework-compatible client library for interacting with the [CodeSandbox](https://codesandbox.io) API from C# and .NET-based applications. It provides a strongly-typed, developer-friendly interface to CodeSandbox's FS, Port, and Git APIs with full IntelliSense support and extensible configuration.
