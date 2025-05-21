@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Models;
 using CodeSandbox.SDK.Net;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models;
-using CodeSandbox.SDK.Net.Services; 
+using CodeSandbox.SDK.Net.Services;
+using CodeSandbox.SDK.Services;
 namespace CodeSandbox.SDK.Net.Example
 {
     internal class Program
@@ -48,7 +50,18 @@ namespace CodeSandbox.SDK.Net.Example
                 Console.WriteLine($"Port: {x.PortNumber}, Url: {x.Url} ");
             }
 
-             
+            // WRITE A FILE IN SANDBOX
+            WriteFileRequest writeRequest = new WriteFileRequest
+            {
+                Content = "Hello World!",
+                Path = "path/to/file.txt",
+            };
+            await new SandboxFsService(client).WriteFileAsync(writeRequest);
+
+            // INITALIZE SETUP EXAMPLE
+            await new SetupService(client).InitializeSetupAsync();
+
+
         }
     }
 }
