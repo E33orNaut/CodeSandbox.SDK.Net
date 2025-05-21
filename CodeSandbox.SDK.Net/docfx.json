@@ -7,7 +7,7 @@
                     "exclude": [ "**/bin/**", "**/obj/**" ]
                 }
             ],
-            "dest": "api"
+            "dest": "DOcs"
         }
     ],
     "build": {
