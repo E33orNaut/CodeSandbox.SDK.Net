@@ -3,8 +3,19 @@
     {
       "src": [
         {
-          "files": [ "CodeSandbox.SDK.Net/CodeSandbox.SDK.Net.csproj" ],
+          "files": [ "CodeSandbox.SDK.Net.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
+        }
+      ],
+      "dest": "obj/api",
+      "properties": {
+        "TargetFramework": "net47"
+      }
+    },
+    {
+      "src": [
+        {
+          "files": [ "Docs/CodeSandbox.SDK.Net.xml" ]
         }
       ],
       "dest": "obj/api"
@@ -12,28 +23,17 @@
   ],
   "build": {
     "content": [
-      {
-        "files": [ "api/**.yml" ]
-      },
-      {
-        "files": [ "articles/**.md" ],
-        "exclude": [ "**/obj/**" ]
-      },
-      {
-        "files": [ "index.md" ]
-      }
+      { "files": [ "api/**.yml" ] },
+      { "files": [ "articles/**.md" ], "exclude": [ "**/obj/**" ] },
+      { "files": [ "index.md" ] }
     ],
     "resource": [
-      {
-        "files": [ "images/**" ]
-      }
+      { "files": [ "images/**" ] }
     ],
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "CodeSandbox.SDK.Net Documentation"
     },
-    "template": [
-      "default"
-    ]
+    "template": [ "default" ]
   }
 }
