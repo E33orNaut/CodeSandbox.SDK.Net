@@ -45,7 +45,19 @@ jobs:
         run: docfx metadata docfx.json
 
       - name: Build documentation site with DocFX
-        run: docfx build docfx.json
+        run: docfx build docfx.json -v diagnostic
+
+      - name: List contents of _site
+        run: dir _site
+
+      - name: Fail if _site is missing or empty
+        shell: powershell
+        run: |
+          if (!(Test-Path "_site") -or !(Get-ChildItem "_site")) {
+            Write-Error "_site folder does not exist or is empty"
+            exit 1
+          }
+          Write-Host "_site folder exists and has contents."
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v2
