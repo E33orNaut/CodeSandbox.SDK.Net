@@ -1,0 +1,334 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISystemService
+  id: ISystemService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  children:
+  - CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISystemService
+  nameWithType: ISystemService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  type: Interface
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISystemService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ISystemService
+    path: Interfaces/ISystemService.cs
+    startLine: 9
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Interface for system-related API operations.
+  example: []
+  syntax:
+    content: public interface ISystemService
+    content.vb: Public Interface ISystemService
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync(System.Threading.CancellationToken)
+  id: UpdateSystemAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  langs:
+  - csharp
+  - vb
+  name: UpdateSystemAsync(CancellationToken)
+  nameWithType: ISystemService.UpdateSystemAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISystemService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: UpdateSystemAsync
+    path: Interfaces/ISystemService.cs
+    startLine: 16
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Sends a request to update the system asynchronously.
+  example: []
+  syntax:
+    content: Task<SuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SuccessResponse" data-throw-if-not-resolved="false"></xref> indicating the result.
+    content.vb: Function UpdateSystemAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync(System.Threading.CancellationToken)
+  id: HibernateSystemAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  langs:
+  - csharp
+  - vb
+  name: HibernateSystemAsync(CancellationToken)
+  nameWithType: ISystemService.HibernateSystemAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISystemService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: HibernateSystemAsync
+    path: Interfaces/ISystemService.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Sends a request to hibernate the system asynchronously.
+  example: []
+  syntax:
+    content: Task<SuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SuccessResponse" data-throw-if-not-resolved="false"></xref> indicating the result.
+    content.vb: Function HibernateSystemAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync(System.Threading.CancellationToken)
+  id: GetSystemMetricsAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  langs:
+  - csharp
+  - vb
+  name: GetSystemMetricsAsync(CancellationToken)
+  nameWithType: ISystemService.GetSystemMetricsAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISystemService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetSystemMetricsAsync
+    path: Interfaces/ISystemService.cs
+    startLine: 30
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Retrieves system metrics asynchronously.
+  example: []
+  syntax:
+    content: Task<SuccessResponse> GetSystemMetricsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SuccessResponse" data-throw-if-not-resolved="false"></xref> containing system metrics.
+    content.vb: Function GetSystemMetricsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync*
+references:
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+  commentId: T:CodeSandbox.SDK.Net.Models.SuccessResponse
+  href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  name: SuccessResponse
+  nameWithType: SuccessResponse
+  fullName: CodeSandbox.SDK.Net.Models.SuccessResponse
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISystemService.html#CodeSandbox_SDK_Net_Interfaces_ISystemService_UpdateSystemAsync_System_Threading_CancellationToken_
+  name: UpdateSystemAsync
+  nameWithType: ISystemService.UpdateSystemAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.UpdateSystemAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse>
+  nameWithType: Task<SuccessResponse>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.SuccessResponse>
+  nameWithType.vb: Task(Of SuccessResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.SuccessResponse)
+  name.vb: Task(Of SuccessResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISystemService.html#CodeSandbox_SDK_Net_Interfaces_ISystemService_HibernateSystemAsync_System_Threading_CancellationToken_
+  name: HibernateSystemAsync
+  nameWithType: ISystemService.HibernateSystemAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.HibernateSystemAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISystemService.html#CodeSandbox_SDK_Net_Interfaces_ISystemService_GetSystemMetricsAsync_System_Threading_CancellationToken_
+  name: GetSystemMetricsAsync
+  nameWithType: ISystemService.GetSystemMetricsAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService.GetSystemMetricsAsync

@@ -1,0 +1,348 @@
+### YamlMime:TableOfContent
+items:
+- uid: CodeSandbox.SDK.Models
+  name: CodeSandbox.SDK.Models
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Models.DownloadRequest
+    name: DownloadRequest
+    type: Class
+  - uid: CodeSandbox.SDK.Models.DownloadResult
+    name: DownloadResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSCopyParams
+    name: FSCopyParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSMkdirParams
+    name: FSMkdirParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSReadDirParams
+    name: FSReadDirParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSReadDirResult
+    name: FSReadDirResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSReadFileParams
+    name: FSReadFileParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSReadFileResult
+    name: FSReadFileResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSRemoveParams
+    name: FSRemoveParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSRenameParams
+    name: FSRenameParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSStatParams
+    name: FSStatParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSStatResult
+    name: FSStatResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSUnwatchParams
+    name: FSUnwatchParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSWatchParams
+    name: FSWatchParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FSWatchResult
+    name: FSWatchResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.FileInfo
+    name: FileInfo
+    type: Class
+  - uid: CodeSandbox.SDK.Models.PathSearchParams
+    name: PathSearchParams
+    type: Class
+  - uid: CodeSandbox.SDK.Models.PathSearchResult
+    name: PathSearchResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse<T>
+    type: Class
+  - uid: CodeSandbox.SDK.Models.UploadRequest
+    name: UploadRequest
+    type: Class
+  - uid: CodeSandbox.SDK.Models.UploadResult
+    name: UploadResult
+    type: Class
+  - uid: CodeSandbox.SDK.Models.WriteFileRequest
+    name: WriteFileRequest
+    type: Class
+- uid: CodeSandbox.SDK.Net.Interfaces
+  name: CodeSandbox.SDK.Net.Interfaces
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IContainerService
+    name: IContainerService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitService
+    name: IGitService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+    name: IGitStatusService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.IPortService
+    name: IPortService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+    name: ISandboxFsService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService
+    name: ISetupService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.IShellService
+    name: IShellService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISystemService
+    name: ISystemService
+    type: Interface
+- uid: CodeSandbox.SDK.Net.Internal
+  name: CodeSandbox.SDK.Net.Internal
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Net.Internal.ApiClient
+    name: ApiClient
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Internal.ApiException
+    name: ApiException
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Internal.LogLevel
+    name: LogLevel
+    type: Enum
+  - uid: CodeSandbox.SDK.Net.Internal.LoggerService
+    name: LoggerService
+    type: Class
+- uid: CodeSandbox.SDK.Net.Models
+  name: CodeSandbox.SDK.Net.Models
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Net.Models.CommitResult
+    name: CommitResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.CommitResultData
+    name: CommitResultData
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.CommonError
+    name: CommonError
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ContainerSetupFeature
+    name: ContainerSetupFeature
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ContainerSetupRequest
+    name: ContainerSetupRequest
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ContainerSetupResponse
+    name: ContainerSetupResponse
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.CpuInfo
+    name: CpuInfo
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.CreateSetupTasksRequest
+    name: CreateSetupTasksRequest
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.DiscardResult
+    name: DiscardResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.DiscardResultData
+    name: DiscardResultData
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ErrorResponse
+    name: ErrorResponse
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ErrorResult
+    name: ErrorResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitBranchProperties
+    name: GitBranchProperties
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitChangedFiles
+    name: GitChangedFiles
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitCommit
+    name: GitCommit
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusData
+    name: GitDiffStatusData
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+    name: GitDiffStatusItem
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusParams
+    name: GitDiffStatusParams
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+    name: GitDiffStatusResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitItem
+    name: GitItem
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitRemoteParams
+    name: GitRemoteParams
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitRemotes
+    name: GitRemotes
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitRemotesResult
+    name: GitRemotesResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitStatus
+    name: GitStatus
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitStatusResult
+    name: GitStatusResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    name: GitStatusShortFormat
+    type: Enum
+  - uid: CodeSandbox.SDK.Net.Models.GitTargetDiff
+    name: GitTargetDiff
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.GitTargetDiffResult
+    name: GitTargetDiffResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.Hunk
+    name: Hunk
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.MemoryInfo
+    name: MemoryInfo
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.Port
+    name: Port
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.PortListResponse
+    name: PortListResponse
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.PortListResult
+    name: PortListResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.ProtocolError
+    name: ProtocolError
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.Range
+    name: Range
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.RemoteContentData
+    name: RemoteContentData
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.RemoteContentResult
+    name: RemoteContentResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.SetupProgress
+    name: SetupProgress
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.SetupShellStatus
+    name: SetupShellStatus
+    type: Enum
+  - uid: CodeSandbox.SDK.Net.Models.SetupState
+    name: SetupState
+    type: Enum
+  - uid: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+    name: ShellRenameRequest
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.Step
+    name: Step
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.StorageInfo
+    name: StorageInfo
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+    name: SuccessResponse
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.SystemError
+    name: SystemError
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+    name: SystemMetricsStatus
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TaskDTO
+    name: TaskDTO
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TaskDefinitionDTO
+    name: TaskDefinitionDTO
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TaskError
+    name: TaskError
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TaskPreviewDTO
+    name: TaskPreviewDTO
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TransposeLineResultItem
+    name: TransposeLineResultItem
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Models.TransposeLinesResult
+    name: TransposeLinesResult
+    type: Class
+- uid: CodeSandbox.SDK.Net.Services
+  name: CodeSandbox.SDK.Net.Services
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Net.Services.ApiException
+    name: ApiException
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.ApiResponse`1
+    name: ApiResponse<TResult>
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.ContainerService
+    name: ContainerService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.DiscardInnerResult
+    name: DiscardInnerResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.DiscardResult
+    name: DiscardResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitChange
+    name: GitChange
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitRemote
+    name: GitRemote
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitRemotesResult
+    name: GitRemotesResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitService
+    name: GitService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitStatusResult
+    name: GitStatusResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitStatusService
+    name: GitStatusService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.GitTargetDiffResult
+    name: GitTargetDiffResult
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.ITaskService
+    name: ITaskService
+    type: Interface
+  - uid: CodeSandbox.SDK.Net.Services.PortService
+    name: PortService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.SetupService
+    name: SetupService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.ShellService
+    name: ShellService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics
+    name: SuccessResponseWithMetrics
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.SystemService
+    name: SystemService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.TaskService
+    name: TaskService
+    type: Class
+  - uid: CodeSandbox.SDK.Net.Services.TaskServiceException
+    name: TaskServiceException
+    type: Class
+- uid: CodeSandbox.SDK.Services
+  name: CodeSandbox.SDK.Services
+  type: Namespace
+  items:
+  - uid: CodeSandbox.SDK.Services.SandboxFsService
+    name: SandboxFsService
+    type: Class
+memberLayout: SamePage

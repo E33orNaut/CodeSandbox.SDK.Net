@@ -1,0 +1,31 @@
+{
+    "metadata": [
+        {
+            "src": [
+                {
+                    "files": [ "CodeSandbox.SDK.Net.csproj" ],
+                    "exclude": [ "**/bin/**", "**/obj/**" ]
+                }
+            ],
+            "dest": "api"
+        }
+    ],
+    "build": {
+        "content": [
+            {
+                "files": [ "api/**.yml", "api/index.md" ]
+            },
+            {
+                "files": [ "articles/**.md", "toc.yml", "*.md" ],
+                "exclude": [ "bin/**", "obj/**" ]
+            }
+        ],
+        "dest": "_site",
+        "globalMetadata": {
+            "_appTitle": "CodeSandbox.SDK.Net API Documentation"
+        },
+        "template": [
+            "default"
+        ]
+    }
+}

@@ -1,0 +1,580 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  commentId: T:CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  id: GitDiffStatusItem
+  parent: CodeSandbox.SDK.Net.Models
+  children:
+  - CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+  - CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+  - CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+  - CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+  langs:
+  - csharp
+  - vb
+  name: GitDiffStatusItem
+  nameWithType: GitDiffStatusItem
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitDiffStatusResult.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GitDiffStatusItem
+    path: Models/GitDiffStatusResult.cs
+    startLine: 34
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Represents the diff status information for a single file.
+  example: []
+  syntax:
+    content: public class GitDiffStatusItem
+    content.vb: Public Class GitDiffStatusItem
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+  commentId: P:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+  id: Status
+  parent: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: GitDiffStatusItem.Status
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitDiffStatusResult.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Status
+    path: Models/GitDiffStatusResult.cs
+    startLine: 40
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: >-
+    Gets or sets the file status code.
+
+    Examples include "", "M" (modified), "A" (added), etc.
+  example: []
+  syntax:
+    content: public string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Status As String
+  overload: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status*
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+  commentId: P:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+  id: Path
+  parent: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: GitDiffStatusItem.Path
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitDiffStatusResult.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Path
+    path: Models/GitDiffStatusResult.cs
+    startLine: 45
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the current file path.
+  example: []
+  syntax:
+    content: public string Path { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Path As String
+  overload: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path*
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+  commentId: P:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+  id: OldPath
+  parent: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  langs:
+  - csharp
+  - vb
+  name: OldPath
+  nameWithType: GitDiffStatusItem.OldPath
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitDiffStatusResult.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: OldPath
+    path: Models/GitDiffStatusResult.cs
+    startLine: 50
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the old file path (if renamed or moved).
+  example: []
+  syntax:
+    content: public string OldPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OldPath As String
+  overload: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath*
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+  commentId: P:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+  id: Hunks
+  parent: CodeSandbox.SDK.Net.Models.GitDiffStatusItem
+  langs:
+  - csharp
+  - vb
+  name: Hunks
+  nameWithType: GitDiffStatusItem.Hunks
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitDiffStatusResult.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Hunks
+    path: Models/GitDiffStatusResult.cs
+    startLine: 55
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the list of hunks (sections of changes) in the file.
+  example: []
+  syntax:
+    content: public List<Hunk> Hunks { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.Hunk}
+    content.vb: Public Property Hunks As List(Of Hunk)
+  overload: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks*
+references:
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+  href: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.html#CodeSandbox_SDK_Net_Models_GitDiffStatusItem_Status
+  name: Status
+  nameWithType: GitDiffStatusItem.Status
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Status
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+  href: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.html#CodeSandbox_SDK_Net_Models_GitDiffStatusItem_Path
+  name: Path
+  nameWithType: GitDiffStatusItem.Path
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Path
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+  href: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.html#CodeSandbox_SDK_Net_Models_GitDiffStatusItem_OldPath
+  name: OldPath
+  nameWithType: GitDiffStatusItem.OldPath
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.OldPath
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+  href: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.html#CodeSandbox_SDK_Net_Models_GitDiffStatusItem_Hunks
+  name: Hunks
+  nameWithType: GitDiffStatusItem.Hunks
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusItem.Hunks
+- uid: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.Hunk}
+  commentId: T:System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.Hunk}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Hunk>
+  nameWithType: List<Hunk>
+  fullName: System.Collections.Generic.List<CodeSandbox.SDK.Net.Models.Hunk>
+  nameWithType.vb: List(Of Hunk)
+  fullName.vb: System.Collections.Generic.List(Of CodeSandbox.SDK.Net.Models.Hunk)
+  name.vb: List(Of Hunk)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.Hunk
+    name: Hunk
+    href: CodeSandbox.SDK.Net.Models.Hunk.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.Hunk
+    name: Hunk
+    href: CodeSandbox.SDK.Net.Models.Hunk.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

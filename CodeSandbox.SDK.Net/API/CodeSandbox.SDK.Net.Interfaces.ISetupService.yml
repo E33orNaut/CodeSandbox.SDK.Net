@@ -1,0 +1,526 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISetupService
+  id: ISetupService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  children:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISetupService
+  nameWithType: ISetupService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  type: Interface
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ISetupService
+    path: Interfaces/ISetupService.cs
+    startLine: 9
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Interface for managing setup-related API endpoints.
+  example: []
+  syntax:
+    content: public interface ISetupService
+    content.vb: Public Interface ISetupService
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  id: GetSetupProgressAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: GetSetupProgressAsync(CancellationToken)
+  nameWithType: ISetupService.GetSetupProgressAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetSetupProgressAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 16
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously gets the current setup progress.
+  example: []
+  syntax:
+    content: Task<SetupProgress> GetSetupProgressAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the current setup progress.
+    content.vb: Function GetSetupProgressAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  id: SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: SkipStepAsync(int, CancellationToken)
+  nameWithType: ISetupService.SkipStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SkipStepAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 24
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously skips a specific setup step.
+  example: []
+  syntax:
+    content: Task<SetupProgress> SkipStepAsync(int stepIndexToSkip, CancellationToken cancellationToken = default)
+    parameters:
+    - id: stepIndexToSkip
+      type: System.Int32
+      description: The zero-based index of the step to skip.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after skipping the step.
+    content.vb: Function SkipStepAsync(stepIndexToSkip As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync*
+  nameWithType.vb: ISetupService.SkipStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SkipStepAsync(Integer, CancellationToken)
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  id: SkipAllStepsAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: SkipAllStepsAsync(CancellationToken)
+  nameWithType: ISetupService.SkipAllStepsAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SkipAllStepsAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 31
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously skips all remaining setup steps.
+  example: []
+  syntax:
+    content: Task<SetupProgress> SkipAllStepsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after skipping all steps.
+    content.vb: Function SkipAllStepsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  id: DisableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: DisableSetupAsync(CancellationToken)
+  nameWithType: ISetupService.DisableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: DisableSetupAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 38
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously disables the setup process.
+  example: []
+  syntax:
+    content: Task<SetupProgress> DisableSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after disabling setup.
+    content.vb: Function DisableSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  id: EnableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: EnableSetupAsync(CancellationToken)
+  nameWithType: ISetupService.EnableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: EnableSetupAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 45
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously enables the setup process.
+  example: []
+  syntax:
+    content: Task<SetupProgress> EnableSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after enabling setup.
+    content.vb: Function EnableSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  id: InitializeSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: InitializeSetupAsync(CancellationToken)
+  nameWithType: ISetupService.InitializeSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: InitializeSetupAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 52
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously initializes the setup process.
+  example: []
+  syntax:
+    content: Task<SetupProgress> InitializeSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after initialization.
+    content.vb: Function InitializeSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync*
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  id: SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  langs:
+  - csharp
+  - vb
+  name: SetStepAsync(int, CancellationToken)
+  nameWithType: ISetupService.SetStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/ISetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SetStepAsync
+    path: Interfaces/ISetupService.cs
+    startLine: 60
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously sets the current step of the setup process.
+  example: []
+  syntax:
+    content: Task<SetupProgress> SetStepAsync(int stepIndex, CancellationToken cancellationToken = default)
+    parameters:
+    - id: stepIndex
+      type: System.Int32
+      description: The zero-based index of the step to set as current.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A task returning the updated setup progress after setting the step.
+    content.vb: Function SetStepAsync(stepIndex As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync*
+  nameWithType.vb: ISetupService.SetStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SetStepAsync(Integer, CancellationToken)
+references:
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_GetSetupProgressAsync_System_Threading_CancellationToken_
+  name: GetSetupProgressAsync
+  nameWithType: ISetupService.GetSetupProgressAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SetupProgress>
+  nameWithType: Task<SetupProgress>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.SetupProgress>
+  nameWithType.vb: Task(Of SetupProgress)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.SetupProgress)
+  name.vb: Task(Of SetupProgress)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.SetupProgress
+    name: SetupProgress
+    href: CodeSandbox.SDK.Net.Models.SetupProgress.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.SetupProgress
+    name: SetupProgress
+    href: CodeSandbox.SDK.Net.Models.SetupProgress.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SkipStepAsync
+  nameWithType: ISetupService.SkipStepAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipAllStepsAsync_System_Threading_CancellationToken_
+  name: SkipAllStepsAsync
+  nameWithType: ISetupService.SkipAllStepsAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_DisableSetupAsync_System_Threading_CancellationToken_
+  name: DisableSetupAsync
+  nameWithType: ISetupService.DisableSetupAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_EnableSetupAsync_System_Threading_CancellationToken_
+  name: EnableSetupAsync
+  nameWithType: ISetupService.EnableSetupAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_InitializeSetupAsync_System_Threading_CancellationToken_
+  name: InitializeSetupAsync
+  nameWithType: ISetupService.InitializeSetupAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SetStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SetStepAsync
+  nameWithType: ISetupService.SetStepAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync

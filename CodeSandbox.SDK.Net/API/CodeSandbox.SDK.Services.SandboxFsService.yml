@@ -1,0 +1,1887 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Services.SandboxFsService
+  commentId: T:CodeSandbox.SDK.Services.SandboxFsService
+  id: SandboxFsService
+  parent: CodeSandbox.SDK.Services
+  children:
+  - CodeSandbox.SDK.Services.SandboxFsService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  - CodeSandbox.SDK.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SandboxFsService
+  nameWithType: SandboxFsService
+  fullName: CodeSandbox.SDK.Services.SandboxFsService
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SandboxFsService
+    path: Services/SandboxFSService.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Provides file system related operations via the sandbox FS API.
+  example: []
+  syntax:
+    content: 'public class SandboxFsService : ISandboxFsService'
+    content.vb: Public Class SandboxFsService Implements ISandboxFsService
+  inheritance:
+  - System.Object
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Services.SandboxFsService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  id: '#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)'
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: SandboxFsService(ApiClient, LoggerService)
+  nameWithType: SandboxFsService.SandboxFsService(ApiClient, LoggerService)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.SandboxFsService(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Services/SandboxFSService.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Initializes a new instance of <xref href="CodeSandbox.SDK.Services.SandboxFsService" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public SandboxFsService(ApiClient apiClient, LoggerService logger = null)
+    parameters:
+    - id: apiClient
+      type: CodeSandbox.SDK.Net.Internal.ApiClient
+      description: The API client instance (required).
+    - id: logger
+      type: CodeSandbox.SDK.Net.Internal.LoggerService
+      description: Optional logger instance. If null, a default logger with Trace level is used.
+    content.vb: Public Sub New(apiClient As ApiClient, logger As LoggerService = Nothing)
+  overload: CodeSandbox.SDK.Services.SandboxFsService.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">apiClient</code> is null.
+  nameWithType.vb: SandboxFsService.New(ApiClient, LoggerService)
+  fullName.vb: CodeSandbox.SDK.Services.SandboxFsService.New(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  name.vb: New(ApiClient, LoggerService)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  id: WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: WriteFileAsync(WriteFileRequest, CancellationToken)
+  nameWithType: SandboxFsService.WriteFileAsync(WriteFileRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: WriteFileAsync
+    path: Services/SandboxFSService.cs
+    startLine: 36
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Writes a file asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<object>> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.WriteFileRequest
+      description: The request data for writing the file.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> representing the operation result.
+    content.vb: Public Function WriteFileAsync(request As WriteFileRequest, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of Object))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  id: FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: FsPathSearchAsync(PathSearchParams, CancellationToken)
+  nameWithType: SandboxFsService.FsPathSearchAsync(PathSearchParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: FsPathSearchAsync
+    path: Services/SandboxFSService.cs
+    startLine: 62
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Searches for paths asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<PathSearchResult>> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.PathSearchParams
+      description: The search parameters.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.PathSearchResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing the search results.
+    content.vb: Public Function FsPathSearchAsync(request As PathSearchParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of PathSearchResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  id: FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: FsUploadAsync(UploadRequest, CancellationToken)
+  nameWithType: SandboxFsService.FsUploadAsync(UploadRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: FsUploadAsync
+    path: Services/SandboxFSService.cs
+    startLine: 88
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Uploads a file asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<UploadResult>> FsUploadAsync(UploadRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.UploadRequest
+      description: The upload request data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.UploadResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing the upload results.
+    content.vb: Public Function FsUploadAsync(request As UploadRequest, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of UploadResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  id: FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: FsDownloadAsync(DownloadRequest, CancellationToken)
+  nameWithType: SandboxFsService.FsDownloadAsync(DownloadRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: FsDownloadAsync
+    path: Services/SandboxFSService.cs
+    startLine: 114
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Downloads a file asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<DownloadResult>> FsDownloadAsync(DownloadRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.DownloadRequest
+      description: The download request data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.DownloadResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing the download results.
+    content.vb: Public Function FsDownloadAsync(request As DownloadRequest, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of DownloadResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  id: FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: FsReadFileAsync(FSReadFileParams, CancellationToken)
+  nameWithType: SandboxFsService.FsReadFileAsync(FSReadFileParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: FsReadFileAsync
+    path: Services/SandboxFSService.cs
+    startLine: 140
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Reads a file asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<FSReadFileResult>> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSReadFileParams
+      description: Parameters for reading the file.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadFileResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing the file contents.
+    content.vb: Public Function FsReadFileAsync(request As FSReadFileParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of FSReadFileResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  id: ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: ReadDirAsync(FSReadDirParams, CancellationToken)
+  nameWithType: SandboxFsService.ReadDirAsync(FSReadDirParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ReadDirAsync
+    path: Services/SandboxFSService.cs
+    startLine: 166
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Reads a directory asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<FSReadDirResult>> ReadDirAsync(FSReadDirParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSReadDirParams
+      description: Parameters for reading the directory.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadDirResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing directory entries.
+    content.vb: Public Function ReadDirAsync(request As FSReadDirParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of FSReadDirResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  id: StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: StatAsync(FSStatParams, CancellationToken)
+  nameWithType: SandboxFsService.StatAsync(FSStatParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: StatAsync
+    path: Services/SandboxFSService.cs
+    startLine: 192
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Gets file or directory statistics asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<FSStatResult>> StatAsync(FSStatParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSStatParams
+      description: Parameters for the stat operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSStatResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> containing the stat results.
+    content.vb: Public Function StatAsync(request As FSStatParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of FSStatResult))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.StatAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  id: CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: CopyAsync(FSCopyParams, CancellationToken)
+  nameWithType: SandboxFsService.CopyAsync(FSCopyParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: CopyAsync
+    path: Services/SandboxFSService.cs
+    startLine: 218
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Copies a file or directory asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<object>> CopyAsync(FSCopyParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSCopyParams
+      description: Parameters for the copy operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> representing the operation result.
+    content.vb: Public Function CopyAsync(request As FSCopyParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of Object))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.CopyAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  id: RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: RenameAsync(FSRenameParams, CancellationToken)
+  nameWithType: SandboxFsService.RenameAsync(FSRenameParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: RenameAsync
+    path: Services/SandboxFSService.cs
+    startLine: 244
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Renames a file or directory asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<object>> RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSRenameParams
+      description: Parameters for the rename operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> representing the operation result.
+    content.vb: Public Function RenameAsync(request As FSRenameParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of Object))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.RenameAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  id: RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: RemoveAsync(FSRemoveParams, CancellationToken)
+  nameWithType: SandboxFsService.RemoveAsync(FSRemoveParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SandboxFSService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: RemoveAsync
+    path: Services/SandboxFSService.cs
+    startLine: 270
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Services
+  summary: Removes a file or directory asynchronously using the sandbox FS API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse<object>> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Models.FSRemoveParams
+      description: Parameters for the remove operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> representing the operation result.
+    content.vb: Public Function RemoveAsync(request As FSRemoveParams, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse(Of Object))
+  overload: CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the operation fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+references:
+- uid: CodeSandbox.SDK.Services
+  commentId: N:CodeSandbox.SDK.Services
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Services
+  nameWithType: CodeSandbox.SDK.Services
+  fullName: CodeSandbox.SDK.Services
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Services
+    name: Services
+    href: CodeSandbox.SDK.Services.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Services
+    name: Services
+    href: CodeSandbox.SDK.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html
+  name: ISandboxFsService
+  nameWithType: ISandboxFsService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Services.SandboxFsService
+  commentId: T:CodeSandbox.SDK.Services.SandboxFsService
+  href: CodeSandbox.SDK.Services.SandboxFsService.html
+  name: SandboxFsService
+  nameWithType: SandboxFsService
+  fullName: CodeSandbox.SDK.Services.SandboxFsService
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: CodeSandbox.SDK.Services.SandboxFsService.#ctor*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.#ctor
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService__ctor_CodeSandbox_SDK_Net_Internal_ApiClient_CodeSandbox_SDK_Net_Internal_LoggerService_
+  name: SandboxFsService
+  nameWithType: SandboxFsService.SandboxFsService
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.SandboxFsService
+  nameWithType.vb: SandboxFsService.New
+  fullName.vb: CodeSandbox.SDK.Services.SandboxFsService.New
+  name.vb: New
+- uid: CodeSandbox.SDK.Net.Internal.ApiClient
+  commentId: T:CodeSandbox.SDK.Net.Internal.ApiClient
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.ApiClient.html
+  name: ApiClient
+  nameWithType: ApiClient
+  fullName: CodeSandbox.SDK.Net.Internal.ApiClient
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_WriteFileAsync_CodeSandbox_SDK_Models_WriteFileRequest_System_Threading_CancellationToken_
+  name: WriteFileAsync
+  nameWithType: SandboxFsService.WriteFileAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_WriteFileAsync_CodeSandbox_SDK_Models_WriteFileRequest_System_Threading_CancellationToken_
+  name: WriteFileAsync(WriteFileRequest, CancellationToken)
+  nameWithType: ISandboxFsService.WriteFileAsync(WriteFileRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+    name: WriteFileAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_WriteFileAsync_CodeSandbox_SDK_Models_WriteFileRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.WriteFileRequest
+    name: WriteFileRequest
+    href: CodeSandbox.SDK.Models.WriteFileRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.WriteFileAsync(CodeSandbox.SDK.Models.WriteFileRequest,System.Threading.CancellationToken)
+    name: WriteFileAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_WriteFileAsync_CodeSandbox_SDK_Models_WriteFileRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.WriteFileRequest
+    name: WriteFileRequest
+    href: CodeSandbox.SDK.Models.WriteFileRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.WriteFileRequest
+  commentId: T:CodeSandbox.SDK.Models.WriteFileRequest
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.WriteFileRequest.html
+  name: WriteFileRequest
+  nameWithType: WriteFileRequest
+  fullName: CodeSandbox.SDK.Models.WriteFileRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{System.Object}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<object>>
+  nameWithType: Task<SuccessResponse<object>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<object>>
+  nameWithType.vb: Task(Of SuccessResponse(Of Object))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of Object))
+  name.vb: Task(Of SuccessResponse(Of Object))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Models
+  commentId: N:CodeSandbox.SDK.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Models
+  nameWithType: CodeSandbox.SDK.Models
+  fullName: CodeSandbox.SDK.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Models
+    name: Models
+    href: CodeSandbox.SDK.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Models
+    name: Models
+    href: CodeSandbox.SDK.Models.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_FsPathSearchAsync_CodeSandbox_SDK_Models_PathSearchParams_System_Threading_CancellationToken_
+  name: FsPathSearchAsync
+  nameWithType: SandboxFsService.FsPathSearchAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsPathSearchAsync_CodeSandbox_SDK_Models_PathSearchParams_System_Threading_CancellationToken_
+  name: FsPathSearchAsync(PathSearchParams, CancellationToken)
+  nameWithType: ISandboxFsService.FsPathSearchAsync(PathSearchParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+    name: FsPathSearchAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsPathSearchAsync_CodeSandbox_SDK_Models_PathSearchParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.PathSearchParams
+    name: PathSearchParams
+    href: CodeSandbox.SDK.Models.PathSearchParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Models.PathSearchParams,System.Threading.CancellationToken)
+    name: FsPathSearchAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsPathSearchAsync_CodeSandbox_SDK_Models_PathSearchParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.PathSearchParams
+    name: PathSearchParams
+    href: CodeSandbox.SDK.Models.PathSearchParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.PathSearchParams
+  commentId: T:CodeSandbox.SDK.Models.PathSearchParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.PathSearchParams.html
+  name: PathSearchParams
+  nameWithType: PathSearchParams
+  fullName: CodeSandbox.SDK.Models.PathSearchParams
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.PathSearchResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.PathSearchResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<PathSearchResult>>
+  nameWithType: Task<SuccessResponse<PathSearchResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.PathSearchResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of PathSearchResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.PathSearchResult))
+  name.vb: Task(Of SuccessResponse(Of PathSearchResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.PathSearchResult
+    name: PathSearchResult
+    href: CodeSandbox.SDK.Models.PathSearchResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.PathSearchResult
+    name: PathSearchResult
+    href: CodeSandbox.SDK.Models.PathSearchResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_FsUploadAsync_CodeSandbox_SDK_Models_UploadRequest_System_Threading_CancellationToken_
+  name: FsUploadAsync
+  nameWithType: SandboxFsService.FsUploadAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsUploadAsync_CodeSandbox_SDK_Models_UploadRequest_System_Threading_CancellationToken_
+  name: FsUploadAsync(UploadRequest, CancellationToken)
+  nameWithType: ISandboxFsService.FsUploadAsync(UploadRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+    name: FsUploadAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsUploadAsync_CodeSandbox_SDK_Models_UploadRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.UploadRequest
+    name: UploadRequest
+    href: CodeSandbox.SDK.Models.UploadRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsUploadAsync(CodeSandbox.SDK.Models.UploadRequest,System.Threading.CancellationToken)
+    name: FsUploadAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsUploadAsync_CodeSandbox_SDK_Models_UploadRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.UploadRequest
+    name: UploadRequest
+    href: CodeSandbox.SDK.Models.UploadRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.UploadRequest
+  commentId: T:CodeSandbox.SDK.Models.UploadRequest
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.UploadRequest.html
+  name: UploadRequest
+  nameWithType: UploadRequest
+  fullName: CodeSandbox.SDK.Models.UploadRequest
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.UploadResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.UploadResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<UploadResult>>
+  nameWithType: Task<SuccessResponse<UploadResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.UploadResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of UploadResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.UploadResult))
+  name.vb: Task(Of SuccessResponse(Of UploadResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.UploadResult
+    name: UploadResult
+    href: CodeSandbox.SDK.Models.UploadResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.UploadResult
+    name: UploadResult
+    href: CodeSandbox.SDK.Models.UploadResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_FsDownloadAsync_CodeSandbox_SDK_Models_DownloadRequest_System_Threading_CancellationToken_
+  name: FsDownloadAsync
+  nameWithType: SandboxFsService.FsDownloadAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsDownloadAsync_CodeSandbox_SDK_Models_DownloadRequest_System_Threading_CancellationToken_
+  name: FsDownloadAsync(DownloadRequest, CancellationToken)
+  nameWithType: ISandboxFsService.FsDownloadAsync(DownloadRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+    name: FsDownloadAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsDownloadAsync_CodeSandbox_SDK_Models_DownloadRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.DownloadRequest
+    name: DownloadRequest
+    href: CodeSandbox.SDK.Models.DownloadRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Models.DownloadRequest,System.Threading.CancellationToken)
+    name: FsDownloadAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsDownloadAsync_CodeSandbox_SDK_Models_DownloadRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.DownloadRequest
+    name: DownloadRequest
+    href: CodeSandbox.SDK.Models.DownloadRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.DownloadRequest
+  commentId: T:CodeSandbox.SDK.Models.DownloadRequest
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.DownloadRequest.html
+  name: DownloadRequest
+  nameWithType: DownloadRequest
+  fullName: CodeSandbox.SDK.Models.DownloadRequest
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.DownloadResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.DownloadResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<DownloadResult>>
+  nameWithType: Task<SuccessResponse<DownloadResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.DownloadResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of DownloadResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.DownloadResult))
+  name.vb: Task(Of SuccessResponse(Of DownloadResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.DownloadResult
+    name: DownloadResult
+    href: CodeSandbox.SDK.Models.DownloadResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.DownloadResult
+    name: DownloadResult
+    href: CodeSandbox.SDK.Models.DownloadResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_FsReadFileAsync_CodeSandbox_SDK_Models_FSReadFileParams_System_Threading_CancellationToken_
+  name: FsReadFileAsync
+  nameWithType: SandboxFsService.FsReadFileAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsReadFileAsync_CodeSandbox_SDK_Models_FSReadFileParams_System_Threading_CancellationToken_
+  name: FsReadFileAsync(FSReadFileParams, CancellationToken)
+  nameWithType: ISandboxFsService.FsReadFileAsync(FSReadFileParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+    name: FsReadFileAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsReadFileAsync_CodeSandbox_SDK_Models_FSReadFileParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSReadFileParams
+    name: FSReadFileParams
+    href: CodeSandbox.SDK.Models.FSReadFileParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Models.FSReadFileParams,System.Threading.CancellationToken)
+    name: FsReadFileAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_FsReadFileAsync_CodeSandbox_SDK_Models_FSReadFileParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSReadFileParams
+    name: FSReadFileParams
+    href: CodeSandbox.SDK.Models.FSReadFileParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSReadFileParams
+  commentId: T:CodeSandbox.SDK.Models.FSReadFileParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSReadFileParams.html
+  name: FSReadFileParams
+  nameWithType: FSReadFileParams
+  fullName: CodeSandbox.SDK.Models.FSReadFileParams
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadFileResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadFileResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<FSReadFileResult>>
+  nameWithType: Task<SuccessResponse<FSReadFileResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.FSReadFileResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of FSReadFileResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.FSReadFileResult))
+  name.vb: Task(Of SuccessResponse(Of FSReadFileResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.FSReadFileResult
+    name: FSReadFileResult
+    href: CodeSandbox.SDK.Models.FSReadFileResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.FSReadFileResult
+    name: FSReadFileResult
+    href: CodeSandbox.SDK.Models.FSReadFileResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_ReadDirAsync_CodeSandbox_SDK_Models_FSReadDirParams_System_Threading_CancellationToken_
+  name: ReadDirAsync
+  nameWithType: SandboxFsService.ReadDirAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_ReadDirAsync_CodeSandbox_SDK_Models_FSReadDirParams_System_Threading_CancellationToken_
+  name: ReadDirAsync(FSReadDirParams, CancellationToken)
+  nameWithType: ISandboxFsService.ReadDirAsync(FSReadDirParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+    name: ReadDirAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_ReadDirAsync_CodeSandbox_SDK_Models_FSReadDirParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSReadDirParams
+    name: FSReadDirParams
+    href: CodeSandbox.SDK.Models.FSReadDirParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.ReadDirAsync(CodeSandbox.SDK.Models.FSReadDirParams,System.Threading.CancellationToken)
+    name: ReadDirAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_ReadDirAsync_CodeSandbox_SDK_Models_FSReadDirParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSReadDirParams
+    name: FSReadDirParams
+    href: CodeSandbox.SDK.Models.FSReadDirParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSReadDirParams
+  commentId: T:CodeSandbox.SDK.Models.FSReadDirParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSReadDirParams.html
+  name: FSReadDirParams
+  nameWithType: FSReadDirParams
+  fullName: CodeSandbox.SDK.Models.FSReadDirParams
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadDirResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSReadDirResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<FSReadDirResult>>
+  nameWithType: Task<SuccessResponse<FSReadDirResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.FSReadDirResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of FSReadDirResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.FSReadDirResult))
+  name.vb: Task(Of SuccessResponse(Of FSReadDirResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.FSReadDirResult
+    name: FSReadDirResult
+    href: CodeSandbox.SDK.Models.FSReadDirResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.FSReadDirResult
+    name: FSReadDirResult
+    href: CodeSandbox.SDK.Models.FSReadDirResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.StatAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.StatAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_StatAsync_CodeSandbox_SDK_Models_FSStatParams_System_Threading_CancellationToken_
+  name: StatAsync
+  nameWithType: SandboxFsService.StatAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.StatAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_StatAsync_CodeSandbox_SDK_Models_FSStatParams_System_Threading_CancellationToken_
+  name: StatAsync(FSStatParams, CancellationToken)
+  nameWithType: ISandboxFsService.StatAsync(FSStatParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+    name: StatAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_StatAsync_CodeSandbox_SDK_Models_FSStatParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSStatParams
+    name: FSStatParams
+    href: CodeSandbox.SDK.Models.FSStatParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.StatAsync(CodeSandbox.SDK.Models.FSStatParams,System.Threading.CancellationToken)
+    name: StatAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_StatAsync_CodeSandbox_SDK_Models_FSStatParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSStatParams
+    name: FSStatParams
+    href: CodeSandbox.SDK.Models.FSStatParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSStatParams
+  commentId: T:CodeSandbox.SDK.Models.FSStatParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSStatParams.html
+  name: FSStatParams
+  nameWithType: FSStatParams
+  fullName: CodeSandbox.SDK.Models.FSStatParams
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSStatResult}}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Models.SuccessResponse{CodeSandbox.SDK.Models.FSStatResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse<FSStatResult>>
+  nameWithType: Task<SuccessResponse<FSStatResult>>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Models.SuccessResponse<CodeSandbox.SDK.Models.FSStatResult>>
+  nameWithType.vb: Task(Of SuccessResponse(Of FSStatResult))
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Models.SuccessResponse(Of CodeSandbox.SDK.Models.FSStatResult))
+  name.vb: Task(Of SuccessResponse(Of FSStatResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: <
+  - uid: CodeSandbox.SDK.Models.FSStatResult
+    name: FSStatResult
+    href: CodeSandbox.SDK.Models.FSStatResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.SuccessResponse`1
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Models.SuccessResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Models.FSStatResult
+    name: FSStatResult
+    href: CodeSandbox.SDK.Models.FSStatResult.html
+  - name: )
+  - name: )
+- uid: CodeSandbox.SDK.Services.SandboxFsService.CopyAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.CopyAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_CopyAsync_CodeSandbox_SDK_Models_FSCopyParams_System_Threading_CancellationToken_
+  name: CopyAsync
+  nameWithType: SandboxFsService.CopyAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.CopyAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_CopyAsync_CodeSandbox_SDK_Models_FSCopyParams_System_Threading_CancellationToken_
+  name: CopyAsync(FSCopyParams, CancellationToken)
+  nameWithType: ISandboxFsService.CopyAsync(FSCopyParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+    name: CopyAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_CopyAsync_CodeSandbox_SDK_Models_FSCopyParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSCopyParams
+    name: FSCopyParams
+    href: CodeSandbox.SDK.Models.FSCopyParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.CopyAsync(CodeSandbox.SDK.Models.FSCopyParams,System.Threading.CancellationToken)
+    name: CopyAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_CopyAsync_CodeSandbox_SDK_Models_FSCopyParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSCopyParams
+    name: FSCopyParams
+    href: CodeSandbox.SDK.Models.FSCopyParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSCopyParams
+  commentId: T:CodeSandbox.SDK.Models.FSCopyParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSCopyParams.html
+  name: FSCopyParams
+  nameWithType: FSCopyParams
+  fullName: CodeSandbox.SDK.Models.FSCopyParams
+- uid: CodeSandbox.SDK.Services.SandboxFsService.RenameAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.RenameAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_RenameAsync_CodeSandbox_SDK_Models_FSRenameParams_System_Threading_CancellationToken_
+  name: RenameAsync
+  nameWithType: SandboxFsService.RenameAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.RenameAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RenameAsync_CodeSandbox_SDK_Models_FSRenameParams_System_Threading_CancellationToken_
+  name: RenameAsync(FSRenameParams, CancellationToken)
+  nameWithType: ISandboxFsService.RenameAsync(FSRenameParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+    name: RenameAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RenameAsync_CodeSandbox_SDK_Models_FSRenameParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSRenameParams
+    name: FSRenameParams
+    href: CodeSandbox.SDK.Models.FSRenameParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RenameAsync(CodeSandbox.SDK.Models.FSRenameParams,System.Threading.CancellationToken)
+    name: RenameAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RenameAsync_CodeSandbox_SDK_Models_FSRenameParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSRenameParams
+    name: FSRenameParams
+    href: CodeSandbox.SDK.Models.FSRenameParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSRenameParams
+  commentId: T:CodeSandbox.SDK.Models.FSRenameParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSRenameParams.html
+  name: FSRenameParams
+  nameWithType: FSRenameParams
+  fullName: CodeSandbox.SDK.Models.FSRenameParams
+- uid: CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync*
+  commentId: Overload:CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync
+  href: CodeSandbox.SDK.Services.SandboxFsService.html#CodeSandbox_SDK_Services_SandboxFsService_RemoveAsync_CodeSandbox_SDK_Models_FSRemoveParams_System_Threading_CancellationToken_
+  name: RemoveAsync
+  nameWithType: SandboxFsService.RemoveAsync
+  fullName: CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RemoveAsync_CodeSandbox_SDK_Models_FSRemoveParams_System_Threading_CancellationToken_
+  name: RemoveAsync(FSRemoveParams, CancellationToken)
+  nameWithType: ISandboxFsService.RemoveAsync(FSRemoveParams, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+    name: RemoveAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RemoveAsync_CodeSandbox_SDK_Models_FSRemoveParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSRemoveParams
+    name: FSRemoveParams
+    href: CodeSandbox.SDK.Models.FSRemoveParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.RemoveAsync(CodeSandbox.SDK.Models.FSRemoveParams,System.Threading.CancellationToken)
+    name: RemoveAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html#CodeSandbox_SDK_Net_Interfaces_ISandboxFsService_RemoveAsync_CodeSandbox_SDK_Models_FSRemoveParams_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Models.FSRemoveParams
+    name: FSRemoveParams
+    href: CodeSandbox.SDK.Models.FSRemoveParams.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Models.FSRemoveParams
+  commentId: T:CodeSandbox.SDK.Models.FSRemoveParams
+  parent: CodeSandbox.SDK.Models
+  href: CodeSandbox.SDK.Models.FSRemoveParams.html
+  name: FSRemoveParams
+  nameWithType: FSRemoveParams
+  fullName: CodeSandbox.SDK.Models.FSRemoveParams

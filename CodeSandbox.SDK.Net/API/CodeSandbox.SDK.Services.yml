@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Services
+  commentId: N:CodeSandbox.SDK.Services
+  id: CodeSandbox.SDK.Services
+  children:
+  - CodeSandbox.SDK.Services.SandboxFsService
+  langs:
+  - csharp
+  - vb
+  name: CodeSandbox.SDK.Services
+  nameWithType: CodeSandbox.SDK.Services
+  fullName: CodeSandbox.SDK.Services
+  type: Namespace
+  assemblies:
+  - CodeSandbox.SDK.Net
+references:
+- uid: CodeSandbox.SDK.Services.SandboxFsService
+  commentId: T:CodeSandbox.SDK.Services.SandboxFsService
+  href: CodeSandbox.SDK.Services.SandboxFsService.html
+  name: SandboxFsService
+  nameWithType: SandboxFsService
+  fullName: CodeSandbox.SDK.Services.SandboxFsService

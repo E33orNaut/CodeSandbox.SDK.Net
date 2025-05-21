@@ -1,0 +1,1212 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Services.SetupService
+  commentId: T:CodeSandbox.SDK.Net.Services.SetupService
+  id: SetupService
+  parent: CodeSandbox.SDK.Net.Services
+  children:
+  - CodeSandbox.SDK.Net.Services.SetupService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  - CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SetupService
+  nameWithType: SetupService
+  fullName: CodeSandbox.SDK.Net.Services.SetupService
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SetupService
+    path: Services/SetupService.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Service for managing setup-related API endpoints.
+  example: []
+  syntax:
+    content: 'public class SetupService : ISetupService'
+    content.vb: Public Class SetupService Implements ISetupService
+  inheritance:
+  - System.Object
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Services.SetupService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  id: '#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)'
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: SetupService(ApiClient, LoggerService)
+  nameWithType: SetupService.SetupService(ApiClient, LoggerService)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SetupService(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Services/SetupService.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Initializes a new instance of the <xref href="CodeSandbox.SDK.Net.Services.SetupService" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public SetupService(ApiClient client, LoggerService logger = null)
+    parameters:
+    - id: client
+      type: CodeSandbox.SDK.Net.Internal.ApiClient
+      description: API client to send requests.
+    - id: logger
+      type: CodeSandbox.SDK.Net.Internal.LoggerService
+      description: Logger service for logging. If <code>null</code>, a default logger with trace level is used.
+    content.vb: Public Sub New(client As ApiClient, logger As LoggerService = Nothing)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">client</code> is <code>null</code>.
+  nameWithType.vb: SetupService.New(ApiClient, LoggerService)
+  fullName.vb: CodeSandbox.SDK.Net.Services.SetupService.New(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  name.vb: New(ApiClient, LoggerService)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  id: GetSetupProgressAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: GetSetupProgressAsync(CancellationToken)
+  nameWithType: SetupService.GetSetupProgressAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetSetupProgressAsync
+    path: Services/SetupService.cs
+    startLine: 35
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the current setup progress.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> GetSetupProgressAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the current setup progress.
+    content.vb: Public Function GetSetupProgressAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  id: SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: SkipStepAsync(int, CancellationToken)
+  nameWithType: SetupService.SkipStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SkipStepAsync
+    path: Services/SetupService.cs
+    startLine: 58
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Skips a specific step in the setup process.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> SkipStepAsync(int stepIndexToSkip, CancellationToken cancellationToken = default)
+    parameters:
+    - id: stepIndexToSkip
+      type: System.Int32
+      description: The zero-based index of the step to skip.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the updated setup progress.
+    content.vb: Public Function SkipStepAsync(stepIndexToSkip As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  nameWithType.vb: SetupService.SkipStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SkipStepAsync(Integer, CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  id: SkipAllStepsAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: SkipAllStepsAsync(CancellationToken)
+  nameWithType: SetupService.SkipAllStepsAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SkipAllStepsAsync
+    path: Services/SetupService.cs
+    startLine: 81
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Skips all setup steps.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> SkipAllStepsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the updated setup progress after skipping all steps.
+    content.vb: Public Function SkipAllStepsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  id: DisableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: DisableSetupAsync(CancellationToken)
+  nameWithType: SetupService.DisableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: DisableSetupAsync
+    path: Services/SetupService.cs
+    startLine: 103
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Disables the setup process.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> DisableSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the updated setup progress after disabling setup.
+    content.vb: Public Function DisableSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  id: EnableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: EnableSetupAsync(CancellationToken)
+  nameWithType: SetupService.EnableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: EnableSetupAsync
+    path: Services/SetupService.cs
+    startLine: 125
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Enables the setup process.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> EnableSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the updated setup progress after enabling setup.
+    content.vb: Public Function EnableSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  id: InitializeSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: InitializeSetupAsync(CancellationToken)
+  nameWithType: SetupService.InitializeSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: InitializeSetupAsync
+    path: Services/SetupService.cs
+    startLine: 147
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Initializes the setup process.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> InitializeSetupAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the initialized setup progress.
+    content.vb: Public Function InitializeSetupAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  id: SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.SetupService
+  langs:
+  - csharp
+  - vb
+  name: SetStepAsync(int, CancellationToken)
+  nameWithType: SetupService.SetStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/SetupService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SetStepAsync
+    path: Services/SetupService.cs
+    startLine: 170
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Sets the current step in the setup process.
+  example: []
+  syntax:
+    content: public Task<SetupProgress> SetStepAsync(int stepIndex, CancellationToken cancellationToken = default)
+    parameters:
+    - id: stepIndex
+      type: System.Int32
+      description: The zero-based index of the step to set.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SetupProgress" data-throw-if-not-resolved="false"></xref> object representing the updated setup progress.
+    content.vb: Public Function SetStepAsync(stepIndex As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of SetupProgress)
+  overload: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws if the API call fails.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  nameWithType.vb: SetupService.SetStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SetStepAsync(Integer, CancellationToken)
+references:
+- uid: CodeSandbox.SDK.Net.Services
+  commentId: N:CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Services
+  nameWithType: CodeSandbox.SDK.Net.Services
+  fullName: CodeSandbox.SDK.Net.Services
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISetupService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html
+  name: ISetupService
+  nameWithType: ISetupService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Services.SetupService
+  commentId: T:CodeSandbox.SDK.Net.Services.SetupService
+  href: CodeSandbox.SDK.Net.Services.SetupService.html
+  name: SetupService
+  nameWithType: SetupService
+  fullName: CodeSandbox.SDK.Net.Services.SetupService
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: CodeSandbox.SDK.Net.Services.SetupService.#ctor*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.#ctor
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService__ctor_CodeSandbox_SDK_Net_Internal_ApiClient_CodeSandbox_SDK_Net_Internal_LoggerService_
+  name: SetupService
+  nameWithType: SetupService.SetupService
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SetupService
+  nameWithType.vb: SetupService.New
+  fullName.vb: CodeSandbox.SDK.Net.Services.SetupService.New
+  name.vb: New
+- uid: CodeSandbox.SDK.Net.Internal.ApiClient
+  commentId: T:CodeSandbox.SDK.Net.Internal.ApiClient
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.ApiClient.html
+  name: ApiClient
+  nameWithType: ApiClient
+  fullName: CodeSandbox.SDK.Net.Internal.ApiClient
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: CodeSandbox.SDK.Net.Models.SetupProgress
+  commentId: T:CodeSandbox.SDK.Net.Models.SetupProgress
+  href: CodeSandbox.SDK.Net.Models.SetupProgress.html
+  name: SetupProgress
+  nameWithType: SetupProgress
+  fullName: CodeSandbox.SDK.Net.Models.SetupProgress
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_GetSetupProgressAsync_System_Threading_CancellationToken_
+  name: GetSetupProgressAsync
+  nameWithType: SetupService.GetSetupProgressAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_GetSetupProgressAsync_System_Threading_CancellationToken_
+  name: GetSetupProgressAsync(CancellationToken)
+  nameWithType: ISetupService.GetSetupProgressAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+    name: GetSetupProgressAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_GetSetupProgressAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.GetSetupProgressAsync(System.Threading.CancellationToken)
+    name: GetSetupProgressAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_GetSetupProgressAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SetupProgress}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SetupProgress>
+  nameWithType: Task<SetupProgress>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.SetupProgress>
+  nameWithType.vb: Task(Of SetupProgress)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.SetupProgress)
+  name.vb: Task(Of SetupProgress)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.SetupProgress
+    name: SetupProgress
+    href: CodeSandbox.SDK.Net.Models.SetupProgress.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.SetupProgress
+    name: SetupProgress
+    href: CodeSandbox.SDK.Net.Models.SetupProgress.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_SkipStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SkipStepAsync
+  nameWithType: SetupService.SkipStepAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SkipStepAsync(int, CancellationToken)
+  nameWithType: ISetupService.SkipStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: ISetupService.SkipStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SkipStepAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+    name: SkipStepAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipStepAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)
+    name: SkipStepAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipStepAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_SkipAllStepsAsync_System_Threading_CancellationToken_
+  name: SkipAllStepsAsync
+  nameWithType: SetupService.SkipAllStepsAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipAllStepsAsync_System_Threading_CancellationToken_
+  name: SkipAllStepsAsync(CancellationToken)
+  nameWithType: ISetupService.SkipAllStepsAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+    name: SkipAllStepsAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipAllStepsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SkipAllStepsAsync(System.Threading.CancellationToken)
+    name: SkipAllStepsAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SkipAllStepsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_DisableSetupAsync_System_Threading_CancellationToken_
+  name: DisableSetupAsync
+  nameWithType: SetupService.DisableSetupAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_DisableSetupAsync_System_Threading_CancellationToken_
+  name: DisableSetupAsync(CancellationToken)
+  nameWithType: ISetupService.DisableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+    name: DisableSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_DisableSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.DisableSetupAsync(System.Threading.CancellationToken)
+    name: DisableSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_DisableSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_EnableSetupAsync_System_Threading_CancellationToken_
+  name: EnableSetupAsync
+  nameWithType: SetupService.EnableSetupAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_EnableSetupAsync_System_Threading_CancellationToken_
+  name: EnableSetupAsync(CancellationToken)
+  nameWithType: ISetupService.EnableSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+    name: EnableSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_EnableSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.EnableSetupAsync(System.Threading.CancellationToken)
+    name: EnableSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_EnableSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_InitializeSetupAsync_System_Threading_CancellationToken_
+  name: InitializeSetupAsync
+  nameWithType: SetupService.InitializeSetupAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_InitializeSetupAsync_System_Threading_CancellationToken_
+  name: InitializeSetupAsync(CancellationToken)
+  nameWithType: ISetupService.InitializeSetupAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+    name: InitializeSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_InitializeSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.InitializeSetupAsync(System.Threading.CancellationToken)
+    name: InitializeSetupAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_InitializeSetupAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync
+  href: CodeSandbox.SDK.Net.Services.SetupService.html#CodeSandbox_SDK_Net_Services_SetupService_SetStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SetStepAsync
+  nameWithType: SetupService.SetStepAsync
+  fullName: CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SetStepAsync_System_Int32_System_Threading_CancellationToken_
+  name: SetStepAsync(int, CancellationToken)
+  nameWithType: ISetupService.SetStepAsync(int, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: ISetupService.SetStepAsync(Integer, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(Integer, System.Threading.CancellationToken)
+  name.vb: SetStepAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+    name: SetStepAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SetStepAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.ISetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)
+    name: SetStepAsync
+    href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html#CodeSandbox_SDK_Net_Interfaces_ISetupService_SetStepAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )

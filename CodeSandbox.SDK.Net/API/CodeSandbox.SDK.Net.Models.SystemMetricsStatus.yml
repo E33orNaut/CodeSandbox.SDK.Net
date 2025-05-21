@@ -1,0 +1,487 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  commentId: T:CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  id: SystemMetricsStatus
+  parent: CodeSandbox.SDK.Net.Models
+  children:
+  - CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+  - CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+  - CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+  langs:
+  - csharp
+  - vb
+  name: SystemMetricsStatus
+  nameWithType: SystemMetricsStatus
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/SystemMetricsStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: SystemMetricsStatus
+    path: Models/SystemMetricsStatus.cs
+    startLine: 7
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Represents the current system metrics status including CPU, memory, and storage information.
+  example: []
+  syntax:
+    content: public class SystemMetricsStatus
+    content.vb: Public Class SystemMetricsStatus
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+  commentId: P:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+  id: Cpu
+  parent: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  langs:
+  - csharp
+  - vb
+  name: Cpu
+  nameWithType: SystemMetricsStatus.Cpu
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/SystemMetricsStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Cpu
+    path: Models/SystemMetricsStatus.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets CPU usage information.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("cpu")]
+
+      public CpuInfo Cpu { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.CpuInfo
+    content.vb: >-
+      <JsonProperty("cpu")>
+
+      Public Property Cpu As CpuInfo
+  overload: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: cpu
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+  commentId: P:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+  id: Memory
+  parent: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  langs:
+  - csharp
+  - vb
+  name: Memory
+  nameWithType: SystemMetricsStatus.Memory
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/SystemMetricsStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Memory
+    path: Models/SystemMetricsStatus.cs
+    startLine: 18
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets memory usage information.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("memory")]
+
+      public MemoryInfo Memory { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.MemoryInfo
+    content.vb: >-
+      <JsonProperty("memory")>
+
+      Public Property Memory As MemoryInfo
+  overload: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: memory
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+  commentId: P:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+  id: Storage
+  parent: CodeSandbox.SDK.Net.Models.SystemMetricsStatus
+  langs:
+  - csharp
+  - vb
+  name: Storage
+  nameWithType: SystemMetricsStatus.Storage
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/SystemMetricsStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Storage
+    path: Models/SystemMetricsStatus.cs
+    startLine: 24
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets storage usage information.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("storage")]
+
+      public StorageInfo Storage { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.StorageInfo
+    content.vb: >-
+      <JsonProperty("storage")>
+
+      Public Property Storage As StorageInfo
+  overload: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: storage
+references:
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+  href: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.html#CodeSandbox_SDK_Net_Models_SystemMetricsStatus_Cpu
+  name: Cpu
+  nameWithType: SystemMetricsStatus.Cpu
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Cpu
+- uid: CodeSandbox.SDK.Net.Models.CpuInfo
+  commentId: T:CodeSandbox.SDK.Net.Models.CpuInfo
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.CpuInfo.html
+  name: CpuInfo
+  nameWithType: CpuInfo
+  fullName: CodeSandbox.SDK.Net.Models.CpuInfo
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+  href: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.html#CodeSandbox_SDK_Net_Models_SystemMetricsStatus_Memory
+  name: Memory
+  nameWithType: SystemMetricsStatus.Memory
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Memory
+- uid: CodeSandbox.SDK.Net.Models.MemoryInfo
+  commentId: T:CodeSandbox.SDK.Net.Models.MemoryInfo
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.MemoryInfo.html
+  name: MemoryInfo
+  nameWithType: MemoryInfo
+  fullName: CodeSandbox.SDK.Net.Models.MemoryInfo
+- uid: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+  href: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.html#CodeSandbox_SDK_Net_Models_SystemMetricsStatus_Storage
+  name: Storage
+  nameWithType: SystemMetricsStatus.Storage
+  fullName: CodeSandbox.SDK.Net.Models.SystemMetricsStatus.Storage
+- uid: CodeSandbox.SDK.Net.Models.StorageInfo
+  commentId: T:CodeSandbox.SDK.Net.Models.StorageInfo
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.StorageInfo.html
+  name: StorageInfo
+  nameWithType: StorageInfo
+  fullName: CodeSandbox.SDK.Net.Models.StorageInfo

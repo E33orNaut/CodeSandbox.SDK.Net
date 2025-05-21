@@ -1,0 +1,412 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  commentId: T:CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  id: GitStatusShortFormat
+  parent: CodeSandbox.SDK.Net.Models
+  children:
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Added
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Copied
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Deleted
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Modified
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.None
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Renamed
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Unmerged
+  - CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Untracked
+  langs:
+  - csharp
+  - vb
+  name: GitStatusShortFormat
+  nameWithType: GitStatusShortFormat
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  type: Enum
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GitStatusShortFormat
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Represents short status codes used in Git for file changes.
+  example: []
+  syntax:
+    content: public enum GitStatusShortFormat
+    content.vb: Public Enum GitStatusShortFormat
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.None
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.None
+  id: None
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: GitStatusShortFormat.None
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.None
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: None
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 28
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: No status.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("")]
+
+      None = 0
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("")>
+
+      None = 0
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ''
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Modified
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Modified
+  id: Modified
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Modified
+  nameWithType: GitStatusShortFormat.Modified
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Modified
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Modified
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 34
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Modified file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("M")]
+
+      Modified = 1
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("M")>
+
+      Modified = 1
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: M
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Added
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Added
+  id: Added
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Added
+  nameWithType: GitStatusShortFormat.Added
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Added
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Added
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 40
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Added file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("A")]
+
+      Added = 2
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("A")>
+
+      Added = 2
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: A
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Deleted
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Deleted
+  id: Deleted
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: GitStatusShortFormat.Deleted
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Deleted
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Deleted
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 46
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Deleted file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("D")]
+
+      Deleted = 3
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("D")>
+
+      Deleted = 3
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: D
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Renamed
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Renamed
+  id: Renamed
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Renamed
+  nameWithType: GitStatusShortFormat.Renamed
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Renamed
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Renamed
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 52
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Renamed file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("R")]
+
+      Renamed = 4
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("R")>
+
+      Renamed = 4
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: R
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Copied
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Copied
+  id: Copied
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Copied
+  nameWithType: GitStatusShortFormat.Copied
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Copied
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Copied
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 58
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Copied file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("C")]
+
+      Copied = 5
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("C")>
+
+      Copied = 5
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: C
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Unmerged
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Unmerged
+  id: Unmerged
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Unmerged
+  nameWithType: GitStatusShortFormat.Unmerged
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Unmerged
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Unmerged
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 64
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Unmerged file (conflicts).
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("U")]
+
+      Unmerged = 6
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("U")>
+
+      Unmerged = 6
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: U
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Untracked
+  commentId: F:CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Untracked
+  id: Untracked
+  parent: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  langs:
+  - csharp
+  - vb
+  name: Untracked
+  nameWithType: GitStatusShortFormat.Untracked
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.Untracked
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/OpenSandboxGitModels.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Untracked
+    path: Models/OpenSandboxGitModels.cs
+    startLine: 70
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Untracked file.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("?")]
+
+      Untracked = 7
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+    content.vb: >-
+      <JsonPropertyName("?")>
+
+      Untracked = 7
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: '?'
+references:
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  commentId: T:CodeSandbox.SDK.Net.Models.GitStatusShortFormat
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitStatusShortFormat.html
+  name: GitStatusShortFormat
+  nameWithType: GitStatusShortFormat
+  fullName: CodeSandbox.SDK.Net.Models.GitStatusShortFormat

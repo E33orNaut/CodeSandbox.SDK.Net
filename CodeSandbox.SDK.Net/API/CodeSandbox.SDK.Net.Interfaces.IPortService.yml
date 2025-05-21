@@ -1,0 +1,250 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Interfaces.IPortService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IPortService
+  id: IPortService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  children:
+  - CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IPortService
+  nameWithType: IPortService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IPortService
+  type: Interface
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/IPortService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: IPortService
+    path: Interfaces/IPortService.cs
+    startLine: 9
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Interface for retrieving port information.
+  example: []
+  syntax:
+    content: public interface IPortService
+    content.vb: Public Interface IPortService
+- uid: CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync(System.Threading.CancellationToken)
+  id: GetPortListAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IPortService
+  langs:
+  - csharp
+  - vb
+  name: GetPortListAsync(CancellationToken)
+  nameWithType: IPortService.GetPortListAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Interfaces/IPortService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetPortListAsync
+    path: Interfaces/IPortService.cs
+    startLine: 16
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Interfaces
+  summary: Asynchronously retrieves the list of ports.
+  example: []
+  syntax:
+    content: Task<PortListResponse> GetPortListAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.PortListResponse}
+      description: A task that returns the <xref href="CodeSandbox.SDK.Net.Models.PortListResponse" data-throw-if-not-resolved="false"></xref> containing the list of ports.
+    content.vb: Function GetPortListAsync(cancellationToken As CancellationToken = Nothing) As Task(Of PortListResponse)
+  overload: CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync*
+references:
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Models.PortListResponse
+  commentId: T:CodeSandbox.SDK.Net.Models.PortListResponse
+  href: CodeSandbox.SDK.Net.Models.PortListResponse.html
+  name: PortListResponse
+  nameWithType: PortListResponse
+  fullName: CodeSandbox.SDK.Net.Models.PortListResponse
+- uid: CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync
+  href: CodeSandbox.SDK.Net.Interfaces.IPortService.html#CodeSandbox_SDK_Net_Interfaces_IPortService_GetPortListAsync_System_Threading_CancellationToken_
+  name: GetPortListAsync
+  nameWithType: IPortService.GetPortListAsync
+  fullName: CodeSandbox.SDK.Net.Interfaces.IPortService.GetPortListAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.PortListResponse}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.PortListResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PortListResponse>
+  nameWithType: Task<PortListResponse>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.PortListResponse>
+  nameWithType.vb: Task(Of PortListResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.PortListResponse)
+  name.vb: Task(Of PortListResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.PortListResponse
+    name: PortListResponse
+    href: CodeSandbox.SDK.Net.Models.PortListResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.PortListResponse
+    name: PortListResponse
+    href: CodeSandbox.SDK.Net.Models.PortListResponse.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

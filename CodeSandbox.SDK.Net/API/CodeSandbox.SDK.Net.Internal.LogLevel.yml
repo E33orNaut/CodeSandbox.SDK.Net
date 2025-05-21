@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel
+  commentId: T:CodeSandbox.SDK.Net.Internal.LogLevel
+  id: LogLevel
+  parent: CodeSandbox.SDK.Net.Internal
+  children:
+  - CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  - CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  - CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  - CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  - CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel
+  type: Enum
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogLevel
+    path: Internal/Logger.cs
+    startLine: 8
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Represents the severity level of a log message.
+  example: []
+  syntax:
+    content: public enum LogLevel
+    content.vb: Public Enum LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  id: Trace
+  parent: CodeSandbox.SDK.Net.Internal.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Trace
+  nameWithType: LogLevel.Trace
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Trace
+    path: Internal/Logger.cs
+    startLine: 13
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Detailed tracing information.
+  example: []
+  syntax:
+    content: Trace = 0
+    return:
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  id: Info
+  parent: CodeSandbox.SDK.Net.Internal.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: LogLevel.Info
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Info
+    path: Internal/Logger.cs
+    startLine: 18
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: General informational messages.
+  example: []
+  syntax:
+    content: Info = 1
+    return:
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  id: Success
+  parent: CodeSandbox.SDK.Net.Internal.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: LogLevel.Success
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Success
+    path: Internal/Logger.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Successful operation messages.
+  example: []
+  syntax:
+    content: Success = 2
+    return:
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  id: Warning
+  parent: CodeSandbox.SDK.Net.Internal.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: LogLevel.Warning
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Warning
+    path: Internal/Logger.cs
+    startLine: 28
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Warning messages indicating potential issues.
+  example: []
+  syntax:
+    content: Warning = 3
+    return:
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  id: Error
+  parent: CodeSandbox.SDK.Net.Internal.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: LogLevel.Error
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  type: Field
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Error
+    path: Internal/Logger.cs
+    startLine: 33
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Error messages indicating failures.
+  example: []
+  syntax:
+    content: Error = 4
+    return:
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+references:
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel
+  commentId: T:CodeSandbox.SDK.Net.Internal.LogLevel
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel

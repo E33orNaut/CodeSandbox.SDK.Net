@@ -1,0 +1,1293 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService
+  commentId: T:CodeSandbox.SDK.Net.Services.GitStatusService
+  id: GitStatusService
+  parent: CodeSandbox.SDK.Net.Services
+  children:
+  - CodeSandbox.SDK.Net.Services.GitStatusService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  - CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  - CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: GitStatusService
+  nameWithType: GitStatusService
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GitStatusService
+    path: Services/GitStatusService.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Service for retrieving Git status and related information.
+  example: []
+  syntax:
+    content: 'public class GitStatusService : IGitStatusService'
+    content.vb: Public Class GitStatusService Implements IGitStatusService
+  inheritance:
+  - System.Object
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  id: '#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)'
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GitStatusService(ApiClient, LoggerService)
+  nameWithType: GitStatusService.GitStatusService(ApiClient, LoggerService)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GitStatusService(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Services/GitStatusService.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Initializes a new instance of <xref href="CodeSandbox.SDK.Net.Services.GitStatusService" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public GitStatusService(ApiClient client, LoggerService logger = null)
+    parameters:
+    - id: client
+      type: CodeSandbox.SDK.Net.Internal.ApiClient
+      description: API client instance (required).
+    - id: logger
+      type: CodeSandbox.SDK.Net.Internal.LoggerService
+      description: Optional logger instance.
+    content.vb: Public Sub New(client As ApiClient, logger As LoggerService = Nothing)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">client</code> is null.
+  nameWithType.vb: GitStatusService.New(ApiClient, LoggerService)
+  fullName.vb: CodeSandbox.SDK.Net.Services.GitStatusService.New(CodeSandbox.SDK.Net.Internal.ApiClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  name.vb: New(ApiClient, LoggerService)
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  id: GetStatusAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: GitStatusService.GetStatusAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetStatusAsync
+    path: Services/GitStatusService.cs
+    startLine: 35
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the current Git status.
+  example: []
+  syntax:
+    content: public Task<GitStatus> GetStatusAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the asynchronous operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitStatus}
+      description: The current <xref href="CodeSandbox.SDK.Net.Models.GitStatus" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetStatusAsync(cancellationToken As CancellationToken = Nothing) As Task(Of GitStatus)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws on API or unexpected errors.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  id: GetTargetDiffAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GetTargetDiffAsync(CancellationToken)
+  nameWithType: GitStatusService.GetTargetDiffAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetTargetDiffAsync
+    path: Services/GitStatusService.cs
+    startLine: 68
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the Git target diff.
+  example: []
+  syntax:
+    content: public Task<GitTargetDiff> GetTargetDiffAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the asynchronous operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitTargetDiff}
+      description: The <xref href="CodeSandbox.SDK.Net.Models.GitTargetDiff" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetTargetDiffAsync(cancellationToken As CancellationToken = Nothing) As Task(Of GitTargetDiff)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws on API or unexpected errors.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  id: GetRemotesAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GetRemotesAsync(CancellationToken)
+  nameWithType: GitStatusService.GetRemotesAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetRemotesAsync
+    path: Services/GitStatusService.cs
+    startLine: 101
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the Git remotes.
+  example: []
+  syntax:
+    content: public Task<GitRemotes> GetRemotesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the asynchronous operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemotes}
+      description: The <xref href="CodeSandbox.SDK.Net.Models.GitRemotes" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetRemotesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of GitRemotes)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws on API or unexpected errors.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GetRemoteParamsAsync(string, string, CancellationToken)
+  nameWithType: GitStatusService.GetRemoteParamsAsync(string, string, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetRemoteParamsAsync
+    path: Services/GitStatusService.cs
+    startLine: 137
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the parameters for a specific Git remote reference and path.
+  example: []
+  syntax:
+    content: public Task<GitRemoteParams> GetRemoteParamsAsync(string reference, string path, CancellationToken cancellationToken = default)
+    parameters:
+    - id: reference
+      type: System.String
+      description: The Git reference (cannot be null or empty).
+    - id: path
+      type: System.String
+      description: The file path (cannot be null or empty).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the asynchronous operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemoteParams}
+      description: The <xref href="CodeSandbox.SDK.Net.Models.GitRemoteParams" data-throw-if-not-resolved="false"></xref> for the given reference and path.
+    content.vb: Public Function GetRemoteParamsAsync(reference As String, path As String, cancellationToken As CancellationToken = Nothing) As Task(Of GitRemoteParams)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">reference</code> or <code class="paramref">path</code> is null or empty.
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws on API or unexpected errors.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: GitStatusService.GetRemoteParamsAsync(String, String, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetRemoteParamsAsync(String, String, CancellationToken)
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.GitStatusService
+  langs:
+  - csharp
+  - vb
+  name: GetDiffStatusAsync(string, string, CancellationToken)
+  nameWithType: GitStatusService.GetDiffStatusAsync(string, string, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/GitStatusService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GetDiffStatusAsync
+    path: Services/GitStatusService.cs
+    startLine: 185
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Gets the diff status between two Git references.
+  example: []
+  syntax:
+    content: public Task<GitDiffStatusResult> GetDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
+    parameters:
+    - id: baseRef
+      type: System.String
+      description: The base Git reference (cannot be null or empty).
+    - id: headRef
+      type: System.String
+      description: The head Git reference (cannot be null or empty).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the asynchronous operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitDiffStatusResult}
+      description: The <xref href="CodeSandbox.SDK.Net.Models.GitDiffStatusResult" data-throw-if-not-resolved="false"></xref> representing the diff status.
+    content.vb: Public Function GetDiffStatusAsync(baseRef As String, headRef As String, cancellationToken As CancellationToken = Nothing) As Task(Of GitDiffStatusResult)
+  overload: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">baseRef</code> or <code class="paramref">headRef</code> is null or empty.
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws on API or unexpected errors.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: GitStatusService.GetDiffStatusAsync(String, String, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetDiffStatusAsync(String, String, CancellationToken)
+references:
+- uid: CodeSandbox.SDK.Net.Services
+  commentId: N:CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Services
+  nameWithType: CodeSandbox.SDK.Net.Services
+  fullName: CodeSandbox.SDK.Net.Services
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html
+  name: IGitStatusService
+  nameWithType: IGitStatusService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService
+  commentId: T:CodeSandbox.SDK.Net.Services.GitStatusService
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html
+  name: GitStatusService
+  nameWithType: GitStatusService
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.#ctor*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.#ctor
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService__ctor_CodeSandbox_SDK_Net_Internal_ApiClient_CodeSandbox_SDK_Net_Internal_LoggerService_
+  name: GitStatusService
+  nameWithType: GitStatusService.GitStatusService
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GitStatusService
+  nameWithType.vb: GitStatusService.New
+  fullName.vb: CodeSandbox.SDK.Net.Services.GitStatusService.New
+  name.vb: New
+- uid: CodeSandbox.SDK.Net.Internal.ApiClient
+  commentId: T:CodeSandbox.SDK.Net.Internal.ApiClient
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.ApiClient.html
+  name: ApiClient
+  nameWithType: ApiClient
+  fullName: CodeSandbox.SDK.Net.Internal.ApiClient
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: CodeSandbox.SDK.Net.Models.GitStatus
+  commentId: T:CodeSandbox.SDK.Net.Models.GitStatus
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html
+  name: GitStatus
+  nameWithType: GitStatus
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync
+  nameWithType: GitStatusService.GetStatusAsync
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetStatusAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: IGitStatusService.GetStatusAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+    name: GetStatusAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetStatusAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetStatusAsync(System.Threading.CancellationToken)
+    name: GetStatusAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetStatusAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitStatus}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitStatus}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GitStatus>
+  nameWithType: Task<GitStatus>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.GitStatus>
+  nameWithType.vb: Task(Of GitStatus)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.GitStatus)
+  name.vb: Task(Of GitStatus)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitStatus
+    name: GitStatus
+    href: CodeSandbox.SDK.Net.Models.GitStatus.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitStatus
+    name: GitStatus
+    href: CodeSandbox.SDK.Net.Models.GitStatus.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: CodeSandbox.SDK.Net.Models.GitTargetDiff
+  commentId: T:CodeSandbox.SDK.Net.Models.GitTargetDiff
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitTargetDiff.html
+  name: GitTargetDiff
+  nameWithType: GitTargetDiff
+  fullName: CodeSandbox.SDK.Net.Models.GitTargetDiff
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService_GetTargetDiffAsync_System_Threading_CancellationToken_
+  name: GetTargetDiffAsync
+  nameWithType: GitStatusService.GetTargetDiffAsync
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetTargetDiffAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetTargetDiffAsync_System_Threading_CancellationToken_
+  name: GetTargetDiffAsync(CancellationToken)
+  nameWithType: IGitStatusService.GetTargetDiffAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+    name: GetTargetDiffAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetTargetDiffAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetTargetDiffAsync(System.Threading.CancellationToken)
+    name: GetTargetDiffAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetTargetDiffAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitTargetDiff}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitTargetDiff}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GitTargetDiff>
+  nameWithType: Task<GitTargetDiff>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.GitTargetDiff>
+  nameWithType.vb: Task(Of GitTargetDiff)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.GitTargetDiff)
+  name.vb: Task(Of GitTargetDiff)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitTargetDiff
+    name: GitTargetDiff
+    href: CodeSandbox.SDK.Net.Models.GitTargetDiff.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitTargetDiff
+    name: GitTargetDiff
+    href: CodeSandbox.SDK.Net.Models.GitTargetDiff.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models.GitRemotes
+  commentId: T:CodeSandbox.SDK.Net.Models.GitRemotes
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitRemotes.html
+  name: GitRemotes
+  nameWithType: GitRemotes
+  fullName: CodeSandbox.SDK.Net.Models.GitRemotes
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService_GetRemotesAsync_System_Threading_CancellationToken_
+  name: GetRemotesAsync
+  nameWithType: GitStatusService.GetRemotesAsync
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemotesAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemotesAsync_System_Threading_CancellationToken_
+  name: GetRemotesAsync(CancellationToken)
+  nameWithType: IGitStatusService.GetRemotesAsync(CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+    name: GetRemotesAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemotesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemotesAsync(System.Threading.CancellationToken)
+    name: GetRemotesAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemotesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemotes}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemotes}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GitRemotes>
+  nameWithType: Task<GitRemotes>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.GitRemotes>
+  nameWithType.vb: Task(Of GitRemotes)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.GitRemotes)
+  name.vb: Task(Of GitRemotes)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitRemotes
+    name: GitRemotes
+    href: CodeSandbox.SDK.Net.Models.GitRemotes.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitRemotes
+    name: GitRemotes
+    href: CodeSandbox.SDK.Net.Models.GitRemotes.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models.GitRemoteParams
+  commentId: T:CodeSandbox.SDK.Net.Models.GitRemoteParams
+  href: CodeSandbox.SDK.Net.Models.GitRemoteParams.html
+  name: GitRemoteParams
+  nameWithType: GitRemoteParams
+  fullName: CodeSandbox.SDK.Net.Models.GitRemoteParams
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService_GetRemoteParamsAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetRemoteParamsAsync
+  nameWithType: GitStatusService.GetRemoteParamsAsync
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetRemoteParamsAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemoteParamsAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetRemoteParamsAsync(string, string, CancellationToken)
+  nameWithType: IGitStatusService.GetRemoteParamsAsync(string, string, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IGitStatusService.GetRemoteParamsAsync(String, String, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetRemoteParamsAsync(String, String, CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetRemoteParamsAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemoteParamsAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetRemoteParamsAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetRemoteParamsAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetRemoteParamsAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemoteParams}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitRemoteParams}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GitRemoteParams>
+  nameWithType: Task<GitRemoteParams>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.GitRemoteParams>
+  nameWithType.vb: Task(Of GitRemoteParams)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.GitRemoteParams)
+  name.vb: Task(Of GitRemoteParams)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitRemoteParams
+    name: GitRemoteParams
+    href: CodeSandbox.SDK.Net.Models.GitRemoteParams.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitRemoteParams
+    name: GitRemoteParams
+    href: CodeSandbox.SDK.Net.Models.GitRemoteParams.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+  commentId: T:CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+  href: CodeSandbox.SDK.Net.Models.GitDiffStatusResult.html
+  name: GitDiffStatusResult
+  nameWithType: GitDiffStatusResult
+  fullName: CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html#CodeSandbox_SDK_Net_Services_GitStatusService_GetDiffStatusAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetDiffStatusAsync
+  nameWithType: GitStatusService.GetDiffStatusAsync
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService.GetDiffStatusAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetDiffStatusAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetDiffStatusAsync(string, string, CancellationToken)
+  nameWithType: IGitStatusService.GetDiffStatusAsync(string, string, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IGitStatusService.GetDiffStatusAsync(String, String, CancellationToken)
+  fullName.vb: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetDiffStatusAsync(String, String, CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetDiffStatusAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetDiffStatusAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.GetDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetDiffStatusAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html#CodeSandbox_SDK_Net_Interfaces_IGitStatusService_GetDiffStatusAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitDiffStatusResult}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.GitDiffStatusResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GitDiffStatusResult>
+  nameWithType: Task<GitDiffStatusResult>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.GitDiffStatusResult>
+  nameWithType.vb: Task(Of GitDiffStatusResult)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.GitDiffStatusResult)
+  name.vb: Task(Of GitDiffStatusResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+    name: GitDiffStatusResult
+    href: CodeSandbox.SDK.Net.Models.GitDiffStatusResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitDiffStatusResult
+    name: GitDiffStatusResult
+    href: CodeSandbox.SDK.Net.Models.GitDiffStatusResult.html
+  - name: )

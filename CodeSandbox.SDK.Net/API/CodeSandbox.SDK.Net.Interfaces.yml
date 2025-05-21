@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  id: CodeSandbox.SDK.Net.Interfaces
+  children:
+  - CodeSandbox.SDK.Net.Interfaces.IContainerService
+  - CodeSandbox.SDK.Net.Interfaces.IGitService
+  - CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  - CodeSandbox.SDK.Net.Interfaces.IPortService
+  - CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  - CodeSandbox.SDK.Net.Interfaces.ISetupService
+  - CodeSandbox.SDK.Net.Interfaces.IShellService
+  - CodeSandbox.SDK.Net.Interfaces.ISystemService
+  langs:
+  - csharp
+  - vb
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  type: Namespace
+  assemblies:
+  - CodeSandbox.SDK.Net
+references:
+- uid: CodeSandbox.SDK.Net.Interfaces.IContainerService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IContainerService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IContainerService.html
+  name: IContainerService
+  nameWithType: IContainerService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IContainerService
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IGitService
+  href: CodeSandbox.SDK.Net.Interfaces.IGitService.html
+  name: IGitService
+  nameWithType: IGitService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitService
+- uid: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html
+  name: IGitStatusService
+  nameWithType: IGitStatusService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IGitStatusService
+- uid: CodeSandbox.SDK.Net.Interfaces.IPortService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IPortService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IPortService.html
+  name: IPortService
+  nameWithType: IPortService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IPortService
+- uid: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html
+  name: ISandboxFsService
+  nameWithType: ISandboxFsService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISandboxFsService
+- uid: CodeSandbox.SDK.Net.Interfaces.ISetupService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISetupService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.ISetupService.html
+  name: ISetupService
+  nameWithType: ISetupService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISetupService
+- uid: CodeSandbox.SDK.Net.Interfaces.IShellService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IShellService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IShellService.html
+  name: IShellService
+  nameWithType: IShellService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IShellService
+- uid: CodeSandbox.SDK.Net.Interfaces.ISystemService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.ISystemService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.ISystemService.html
+  name: ISystemService
+  nameWithType: ISystemService
+  fullName: CodeSandbox.SDK.Net.Interfaces.ISystemService
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html

@@ -1,0 +1,808 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Services.ShellService
+  commentId: T:CodeSandbox.SDK.Net.Services.ShellService
+  id: ShellService
+  parent: CodeSandbox.SDK.Net.Services
+  children:
+  - CodeSandbox.SDK.Net.Services.ShellService.#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  - CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ShellService
+  nameWithType: ShellService
+  fullName: CodeSandbox.SDK.Net.Services.ShellService
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/ShellService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ShellService
+    path: Services/ShellService.cs
+    startLine: 15
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Service for shell-related API operations.
+  example: []
+  syntax:
+    content: 'public class ShellService : IShellService'
+    content.vb: Public Class ShellService Implements IShellService
+  inheritance:
+  - System.Object
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IShellService
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Services.ShellService.#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  commentId: M:CodeSandbox.SDK.Net.Services.ShellService.#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)
+  id: '#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)'
+  parent: CodeSandbox.SDK.Net.Services.ShellService
+  langs:
+  - csharp
+  - vb
+  name: ShellService(HttpClient, LoggerService)
+  nameWithType: ShellService.ShellService(HttpClient, LoggerService)
+  fullName: CodeSandbox.SDK.Net.Services.ShellService.ShellService(System.Net.Http.HttpClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/ShellService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Services/ShellService.cs
+    startLine: 26
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Initializes a new instance of the <xref href="CodeSandbox.SDK.Net.Services.ShellService" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ShellService(HttpClient httpClient, LoggerService logger)
+    parameters:
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+      description: HTTP client for requests.
+    - id: logger
+      type: CodeSandbox.SDK.Net.Internal.LoggerService
+      description: Logger service.
+    content.vb: Public Sub New(httpClient As HttpClient, logger As LoggerService)
+  overload: CodeSandbox.SDK.Net.Services.ShellService.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">httpClient</code> or <code class="paramref">logger</code> is <code>null</code>.
+  nameWithType.vb: ShellService.New(HttpClient, LoggerService)
+  fullName.vb: CodeSandbox.SDK.Net.Services.ShellService.New(System.Net.Http.HttpClient, CodeSandbox.SDK.Net.Internal.LoggerService)
+  name.vb: New(HttpClient, LoggerService)
+- uid: CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  id: RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Services.ShellService
+  langs:
+  - csharp
+  - vb
+  name: RenameShellAsync(ShellRenameRequest, CancellationToken)
+  nameWithType: ShellService.RenameShellAsync(ShellRenameRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Services/ShellService.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: RenameShellAsync
+    path: Services/ShellService.cs
+    startLine: 40
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Services
+  summary: Renames a shell asynchronously by sending a rename request to the API.
+  example: []
+  syntax:
+    content: public Task<SuccessResponse> RenameShellAsync(ShellRenameRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+      description: The shell rename request containing necessary information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+      description: A <xref href="CodeSandbox.SDK.Net.Models.SuccessResponse" data-throw-if-not-resolved="false"></xref> indicating the result of the rename operation.
+    content.vb: Public Function RenameShellAsync(request As ShellRenameRequest, cancellationToken As CancellationToken = Nothing) As Task(Of SuccessResponse)
+  overload: CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync*
+  exceptions:
+  - type: CodeSandbox.SDK.Net.Services.ApiException
+    commentId: T:CodeSandbox.SDK.Net.Services.ApiException
+    description: Thrown when the API returns an error response.
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Throws when HTTP request fails, JSON deserialization fails, or an unexpected error occurs.
+  implements:
+  - CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+references:
+- uid: CodeSandbox.SDK.Net.Services
+  commentId: N:CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Services
+  nameWithType: CodeSandbox.SDK.Net.Services
+  fullName: CodeSandbox.SDK.Net.Services
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: CodeSandbox.SDK.Net.Interfaces.IShellService
+  commentId: T:CodeSandbox.SDK.Net.Interfaces.IShellService
+  parent: CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.SDK.Net.Interfaces.IShellService.html
+  name: IShellService
+  nameWithType: IShellService
+  fullName: CodeSandbox.SDK.Net.Interfaces.IShellService
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Interfaces
+  commentId: N:CodeSandbox.SDK.Net.Interfaces
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Interfaces
+  nameWithType: CodeSandbox.SDK.Net.Interfaces
+  fullName: CodeSandbox.SDK.Net.Interfaces
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Interfaces
+    name: Interfaces
+    href: CodeSandbox.SDK.Net.Interfaces.html
+- uid: CodeSandbox.SDK.Net.Services.ShellService
+  commentId: T:CodeSandbox.SDK.Net.Services.ShellService
+  href: CodeSandbox.SDK.Net.Services.ShellService.html
+  name: ShellService
+  nameWithType: ShellService
+  fullName: CodeSandbox.SDK.Net.Services.ShellService
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: CodeSandbox.SDK.Net.Services.ShellService.#ctor*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.ShellService.#ctor
+  href: CodeSandbox.SDK.Net.Services.ShellService.html#CodeSandbox_SDK_Net_Services_ShellService__ctor_System_Net_Http_HttpClient_CodeSandbox_SDK_Net_Internal_LoggerService_
+  name: ShellService
+  nameWithType: ShellService.ShellService
+  fullName: CodeSandbox.SDK.Net.Services.ShellService.ShellService
+  nameWithType.vb: ShellService.New
+  fullName.vb: CodeSandbox.SDK.Net.Services.ShellService.New
+  name.vb: New
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+  commentId: T:CodeSandbox.SDK.Net.Models.SuccessResponse
+  href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  name: SuccessResponse
+  nameWithType: SuccessResponse
+  fullName: CodeSandbox.SDK.Net.Models.SuccessResponse
+- uid: CodeSandbox.SDK.Net.Services.ApiException
+  commentId: T:CodeSandbox.SDK.Net.Services.ApiException
+  href: CodeSandbox.SDK.Net.Services.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: CodeSandbox.SDK.Net.Services.ApiException
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync*
+  commentId: Overload:CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync
+  href: CodeSandbox.SDK.Net.Services.ShellService.html#CodeSandbox_SDK_Net_Services_ShellService_RenameShellAsync_CodeSandbox_SDK_Net_Models_ShellRenameRequest_System_Threading_CancellationToken_
+  name: RenameShellAsync
+  nameWithType: ShellService.RenameShellAsync
+  fullName: CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync
+- uid: CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  commentId: M:CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+  parent: CodeSandbox.SDK.Net.Interfaces.IShellService
+  isExternal: true
+  href: CodeSandbox.SDK.Net.Interfaces.IShellService.html#CodeSandbox_SDK_Net_Interfaces_IShellService_RenameShellAsync_CodeSandbox_SDK_Net_Models_ShellRenameRequest_System_Threading_CancellationToken_
+  name: RenameShellAsync(ShellRenameRequest, CancellationToken)
+  nameWithType: IShellService.RenameShellAsync(ShellRenameRequest, CancellationToken)
+  fullName: CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+    name: RenameShellAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IShellService.html#CodeSandbox_SDK_Net_Interfaces_IShellService_RenameShellAsync_CodeSandbox_SDK_Net_Models_ShellRenameRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+    name: ShellRenameRequest
+    href: CodeSandbox.SDK.Net.Models.ShellRenameRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Interfaces.IShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.ShellRenameRequest,System.Threading.CancellationToken)
+    name: RenameShellAsync
+    href: CodeSandbox.SDK.Net.Interfaces.IShellService.html#CodeSandbox_SDK_Net_Interfaces_IShellService_RenameShellAsync_CodeSandbox_SDK_Net_Models_ShellRenameRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+    name: ShellRenameRequest
+    href: CodeSandbox.SDK.Net.Models.ShellRenameRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+  commentId: T:CodeSandbox.SDK.Net.Models.ShellRenameRequest
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.ShellRenameRequest.html
+  name: ShellRenameRequest
+  nameWithType: ShellRenameRequest
+  fullName: CodeSandbox.SDK.Net.Models.ShellRenameRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+  commentId: T:System.Threading.Tasks.Task{CodeSandbox.SDK.Net.Models.SuccessResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SuccessResponse>
+  nameWithType: Task<SuccessResponse>
+  fullName: System.Threading.Tasks.Task<CodeSandbox.SDK.Net.Models.SuccessResponse>
+  nameWithType.vb: Task(Of SuccessResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of CodeSandbox.SDK.Net.Models.SuccessResponse)
+  name.vb: Task(Of SuccessResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.SuccessResponse
+    name: SuccessResponse
+    href: CodeSandbox.SDK.Net.Models.SuccessResponse.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

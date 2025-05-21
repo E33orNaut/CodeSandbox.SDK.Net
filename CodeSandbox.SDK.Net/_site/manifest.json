@@ -1,0 +1,1626 @@
+{
+  "source_base_path": "C:/Users/shir1/source/repos/CodeSandbox.SDK.Net/CodeSandbox.SDK.Net",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.DownloadRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.DownloadRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.DownloadRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.DownloadRequest.yml\" sourcestartlinenumber=\"1\">Request model for downloading files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.DownloadResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.DownloadResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.DownloadResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.DownloadResult.yml\" sourcestartlinenumber=\"1\">Result of a download operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSCopyParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSCopyParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSCopyParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSCopyParams.yml\" sourcestartlinenumber=\"1\">Parameters for copying a file or directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSMkdirParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSMkdirParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSMkdirParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSMkdirParams.yml\" sourcestartlinenumber=\"1\">Parameters for creating a new directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSReadDirParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSReadDirParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSReadDirParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSReadDirParams.yml\" sourcestartlinenumber=\"1\">Parameters for reading a directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSReadDirResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSReadDirResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSReadDirResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSReadDirResult.yml\" sourcestartlinenumber=\"1\">Result of reading a directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSReadFileParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSReadFileParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSReadFileParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSReadFileParams.yml\" sourcestartlinenumber=\"1\">Parameters for reading a file from the filesystem.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSReadFileResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSReadFileResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSReadFileResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSReadFileResult.yml\" sourcestartlinenumber=\"1\">Result of reading a file's content.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSRemoveParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSRemoveParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSRemoveParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSRemoveParams.yml\" sourcestartlinenumber=\"1\">Parameters for removing a file or directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSRenameParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSRenameParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSRenameParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSRenameParams.yml\" sourcestartlinenumber=\"1\">Parameters for renaming a file or directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSStatParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSStatParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSStatParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSStatParams.yml\" sourcestartlinenumber=\"1\">Parameters for retrieving filesystem statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSStatResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSStatResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSStatResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSStatResult.yml\" sourcestartlinenumber=\"1\">Result of a filesystem stat operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSUnwatchParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSUnwatchParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSUnwatchParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSUnwatchParams.yml\" sourcestartlinenumber=\"1\">Parameters for stopping to watch a directory or file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSWatchParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSWatchParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSWatchParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSWatchParams.yml\" sourcestartlinenumber=\"1\">Parameters for watching a directory or file for changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FSWatchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FSWatchResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FSWatchResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FSWatchResult.yml\" sourcestartlinenumber=\"1\">Result returned when a watch is created.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.FileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.FileInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.FileInfo",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.FileInfo.yml\" sourcestartlinenumber=\"1\">Information about a file or directory.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.PathSearchParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.PathSearchParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.PathSearchParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.PathSearchParams.yml\" sourcestartlinenumber=\"1\">Parameters for searching paths matching a pattern.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.PathSearchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.PathSearchResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.PathSearchResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.PathSearchResult.yml\" sourcestartlinenumber=\"1\">Result of a path search operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.SuccessResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.SuccessResponse-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.SuccessResponse<T>",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.SuccessResponse-1.yml\" sourcestartlinenumber=\"1\">Represents a successful response wrapping a result of type <code class=\"typeparamref\">T</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.UploadRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.UploadRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.UploadRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.UploadRequest.yml\" sourcestartlinenumber=\"1\">Request model for uploading a file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.UploadResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.UploadResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.UploadResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.UploadResult.yml\" sourcestartlinenumber=\"1\">Result of a file upload operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.WriteFileRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.WriteFileRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models.WriteFileRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Models.WriteFileRequest.yml\" sourcestartlinenumber=\"1\">Represents a request to write content to a file at a specified path.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IContainerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IContainerService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.IContainerService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.IContainerService.yml\" sourcestartlinenumber=\"1\">Defines operations related to managing containers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IGitService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IGitService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.IGitService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.IGitService.yml\" sourcestartlinenumber=\"1\">Interface for interacting with Git-related API endpoints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IGitStatusService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IGitStatusService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.IGitStatusService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.IGitStatusService.yml\" sourcestartlinenumber=\"1\">Interface for Git status-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IPortService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IPortService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.IPortService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.IPortService.yml\" sourcestartlinenumber=\"1\">Interface for retrieving port information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.ISandboxFsService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.ISandboxFsService.yml\" sourcestartlinenumber=\"1\">Interface for file system related operations via the sandbox FS API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISetupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISetupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.ISetupService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.ISetupService.yml\" sourcestartlinenumber=\"1\">Interface for managing setup-related API endpoints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IShellService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.IShellService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.IShellService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.IShellService.yml\" sourcestartlinenumber=\"1\">Interface for shell-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISystemService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.ISystemService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces.ISystemService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Interfaces.ISystemService.yml\" sourcestartlinenumber=\"1\">Interface for system-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Internal.ApiClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Internal.ApiClient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Internal.ApiClient",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Internal.ApiClient.yml\" sourcestartlinenumber=\"1\">Client to call CodeSandbox API endpoints.\nSupports GET, POST, PUT, and DELETE requests with JSON serialization and detailed error handling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Internal.ApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Internal.ApiException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Internal.ApiException",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Internal.ApiException.yml\" sourcestartlinenumber=\"1\">Exception thrown when API calls fail.\nContains status code, response content, and optional detailed error info.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Internal.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Internal.LogLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Internal.LogLevel",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Internal.LogLevel.yml\" sourcestartlinenumber=\"1\">Represents the severity level of a log message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Internal.LoggerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Internal.LoggerService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Internal.LoggerService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Internal.LoggerService.yml\" sourcestartlinenumber=\"1\">Provides logging capabilities with configurable minimum log level and optional custom log output.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Internal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Internal",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.CommitResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.CommitResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.CommitResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.CommitResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a commit operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.CommitResultData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.CommitResultData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.CommitResultData",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.CommitResultData.yml\" sourcestartlinenumber=\"1\">Contains detailed data returned after a commit operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.CommonError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.CommonError.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.CommonError",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.CommonError.yml\" sourcestartlinenumber=\"1\">Represents a common error response returned by the API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupFeature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupFeature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ContainerSetupFeature",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ContainerSetupFeature.yml\" sourcestartlinenumber=\"1\">Represents a feature used during container setup.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ContainerSetupRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ContainerSetupRequest.yml\" sourcestartlinenumber=\"1\">Represents a request to set up a container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ContainerSetupResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ContainerSetupResponse",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ContainerSetupResponse.yml\" sourcestartlinenumber=\"1\">Represents the response from a container setup request.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.CpuInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.CpuInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.CpuInfo",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.CpuInfo.yml\" sourcestartlinenumber=\"1\">Represents CPU information including core count and usage statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.CreateSetupTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.CreateSetupTasksRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.CreateSetupTasksRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.CreateSetupTasksRequest.yml\" sourcestartlinenumber=\"1\">Represents a request to create setup tasks with a list of task definitions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.DiscardResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.DiscardResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.DiscardResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.DiscardResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a discard operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.DiscardResultData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.DiscardResultData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.DiscardResultData",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.DiscardResultData.yml\" sourcestartlinenumber=\"1\">Contains detailed information about the discard operation result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ErrorResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ErrorResponse",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ErrorResponse.yml\" sourcestartlinenumber=\"1\">Represents a standardized error response from the API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ErrorResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ErrorResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ErrorResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ErrorResult.yml\" sourcestartlinenumber=\"1\">Represents an error response with status and error details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitBranchProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitBranchProperties.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitBranchProperties",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitBranchProperties.yml\" sourcestartlinenumber=\"1\">Represents properties and status of a Git branch.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitChangedFiles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitChangedFiles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitChangedFiles",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitChangedFiles.yml\" sourcestartlinenumber=\"1\">Represents a collection of changed Git files, mapping file paths to their corresponding <xref href=\"CodeSandbox.SDK.Net.Models.GitItem\" data-throw-if-not-resolved=\"false\"></xref> details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitCommit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitCommit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitCommit",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitCommit.yml\" sourcestartlinenumber=\"1\">Represents a Git commit with its basic details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitDiffStatusData",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitDiffStatusData.yml\" sourcestartlinenumber=\"1\">Contains detailed information about the Git diff status.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitDiffStatusItem",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitDiffStatusItem.yml\" sourcestartlinenumber=\"1\">Represents the diff status information for a single file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitDiffStatusParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitDiffStatusParams.yml\" sourcestartlinenumber=\"1\">Parameters used to specify a Git diff status query.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitDiffStatusResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitDiffStatusResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitDiffStatusResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a Git diff status operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitItem",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitItem.yml\" sourcestartlinenumber=\"1\">Represents a Git item (file) and its status in the index and working tree.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemoteParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemoteParams.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitRemoteParams",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitRemoteParams.yml\" sourcestartlinenumber=\"1\">Parameters used to specify a Git remote.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemotes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemotes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitRemotes",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitRemotes.yml\" sourcestartlinenumber=\"1\">Represents the remote repositories configured for a Git repository.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemotesResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitRemotesResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitRemotesResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitRemotesResult.yml\" sourcestartlinenumber=\"1\">Represents the response containing Git remote repository information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitStatus",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitStatus.yml\" sourcestartlinenumber=\"1\">Represents the current status of a Git repository including changed files, branch info, and commits.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatusResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatusResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitStatusResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitStatusResult.yml\" sourcestartlinenumber=\"1\">Represents the response containing the Git status information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatusShortFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitStatusShortFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitStatusShortFormat",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitStatusShortFormat.yml\" sourcestartlinenumber=\"1\">Represents short status codes used in Git for file changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitTargetDiff.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitTargetDiff.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitTargetDiff",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitTargetDiff.yml\" sourcestartlinenumber=\"1\">Represents the difference between two Git targets including commits and ahead/behind counts.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.GitTargetDiffResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.GitTargetDiffResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.GitTargetDiffResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.GitTargetDiffResult.yml\" sourcestartlinenumber=\"1\">Represents the response containing Git target diff information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.Hunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.Hunk.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.Hunk",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.Hunk.yml\" sourcestartlinenumber=\"1\">Represents a hunk of changes in a diff.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.MemoryInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.MemoryInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.MemoryInfo",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.MemoryInfo.yml\" sourcestartlinenumber=\"1\">Represents memory usage information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.Port.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.Port.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.Port",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.Port.yml\" sourcestartlinenumber=\"1\">Represents a network port with its number and URL.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.PortListResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.PortListResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.PortListResponse",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.PortListResponse.yml\" sourcestartlinenumber=\"1\">Represents the response containing the status and list of ports.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.PortListResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.PortListResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.PortListResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.PortListResult.yml\" sourcestartlinenumber=\"1\">Represents the result containing a list of ports.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ProtocolError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ProtocolError.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ProtocolError",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ProtocolError.yml\" sourcestartlinenumber=\"1\">Represents a protocol-level error returned by the API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.Range.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.Range.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.Range",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.Range.yml\" sourcestartlinenumber=\"1\">Represents a range of lines in a file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.RemoteContentData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.RemoteContentData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.RemoteContentData",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.RemoteContentData.yml\" sourcestartlinenumber=\"1\">Represents the remote content data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.RemoteContentResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.RemoteContentResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.RemoteContentResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.RemoteContentResult.yml\" sourcestartlinenumber=\"1\">Represents the response containing remote content data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SetupProgress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SetupProgress.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SetupProgress",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SetupProgress.yml\" sourcestartlinenumber=\"1\">Represents the progress of a setup process, including state and steps.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SetupShellStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SetupShellStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SetupShellStatus",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SetupShellStatus.yml\" sourcestartlinenumber=\"1\">Represents the status of a setup shell step.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SetupState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SetupState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SetupState",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SetupState.yml\" sourcestartlinenumber=\"1\">Represents the current state of a setup process.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.ShellRenameRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.ShellRenameRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.ShellRenameRequest",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.ShellRenameRequest.yml\" sourcestartlinenumber=\"1\">Represents a request to rename a shell.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.Step.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.Step.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.Step",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.Step.yml\" sourcestartlinenumber=\"1\">Represents a step in the setup process.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.StorageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.StorageInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.StorageInfo",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.StorageInfo.yml\" sourcestartlinenumber=\"1\">Represents storage usage information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SuccessResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SuccessResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SuccessResponse",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SuccessResponse.yml\" sourcestartlinenumber=\"1\">Represents a successful API response.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SystemError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SystemError.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SystemError",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SystemError.yml\" sourcestartlinenumber=\"1\">Represents a system error returned from the API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.SystemMetricsStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.SystemMetricsStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.SystemMetricsStatus",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.SystemMetricsStatus.yml\" sourcestartlinenumber=\"1\">Represents the current system metrics status including CPU, memory, and storage information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TaskDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TaskDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TaskDTO",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TaskDTO.yml\" sourcestartlinenumber=\"1\">Represents the status and progress information of a task.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TaskDefinitionDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TaskDefinitionDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TaskDefinitionDTO",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TaskDefinitionDTO.yml\" sourcestartlinenumber=\"1\">Represents the definition of a task to be run in the setup.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TaskError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TaskError.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TaskError",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TaskError.yml\" sourcestartlinenumber=\"1\">Represents an error related to a task, including a code and a message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TaskPreviewDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TaskPreviewDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TaskPreviewDTO",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TaskPreviewDTO.yml\" sourcestartlinenumber=\"1\">Represents a preview of a task, including an optional port and a pull request link.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TransposeLineResultItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TransposeLineResultItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TransposeLineResultItem",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TransposeLineResultItem.yml\" sourcestartlinenumber=\"1\">Represents a single transpose line result item with its file path and line number.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.TransposeLinesResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.TransposeLinesResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models.TransposeLinesResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Models.TransposeLinesResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a transpose lines operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.ApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.ApiException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.ApiException",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.ApiException.yml\" sourcestartlinenumber=\"1\">Exception thrown when the API returns an error response.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.ApiResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.ApiResponse-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.ApiResponse<TResult>",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.ApiResponse-1.yml\" sourcestartlinenumber=\"1\">Represents a generic API response wrapper.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.ContainerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.ContainerService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.ContainerService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.ContainerService.yml\" sourcestartlinenumber=\"1\">Service to manage container-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.DiscardInnerResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.DiscardInnerResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.DiscardInnerResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.DiscardInnerResult.yml\" sourcestartlinenumber=\"1\">Represents the inner discard result details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.DiscardResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.DiscardResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.DiscardResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.DiscardResult.yml\" sourcestartlinenumber=\"1\">Represents the discard result response from the API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitChange.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitChange",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitChange.yml\" sourcestartlinenumber=\"1\">Represents a Git change item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitRemote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitRemote.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitRemote",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitRemote.yml\" sourcestartlinenumber=\"1\">Represents a Git remote repository.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitRemotesResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitRemotesResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitRemotesResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitRemotesResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a Git remotes request.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitService.yml\" sourcestartlinenumber=\"1\">Service for interacting with Git-related API endpoints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitStatusResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitStatusResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitStatusResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitStatusResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a Git status request.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitStatusService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitStatusService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitStatusService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitStatusService.yml\" sourcestartlinenumber=\"1\">Service for retrieving Git status and related information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.GitTargetDiffResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.GitTargetDiffResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.GitTargetDiffResult",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.GitTargetDiffResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a Git target diff request.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.ITaskService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.ITaskService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.ITaskService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.ITaskService.yml\" sourcestartlinenumber=\"1\">Interface for task-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.PortService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.PortService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.PortService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.PortService.yml\" sourcestartlinenumber=\"1\">Service for retrieving port information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.SetupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.SetupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.SetupService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.SetupService.yml\" sourcestartlinenumber=\"1\">Service for managing setup-related API endpoints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.ShellService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.ShellService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.ShellService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.ShellService.yml\" sourcestartlinenumber=\"1\">Service for shell-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics.yml\" sourcestartlinenumber=\"1\">Wrapper for the success response containing system metrics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.SystemService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.SystemService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.SystemService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.SystemService.yml\" sourcestartlinenumber=\"1\">Provides system-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.TaskService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.TaskService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.TaskService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.TaskService.yml\" sourcestartlinenumber=\"1\">Provides task-related API operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.TaskServiceException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.TaskServiceException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services.TaskServiceException",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Net.Services.TaskServiceException.yml\" sourcestartlinenumber=\"1\">Exception thrown for specific TaskService API errors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Net.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Net.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Net.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Services.SandboxFsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Services.SandboxFsService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Services.SandboxFsService",
+      "Summary": "<p sourcefile=\"API/CodeSandbox.SDK.Services.SandboxFsService.yml\" sourcestartlinenumber=\"1\">Provides file system related operations via the sandbox FS API.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "API/CodeSandbox.SDK.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/CodeSandbox.SDK.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CodeSandbox.SDK.Services",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "API/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "API/toc.html"
+        },
+        ".json": {
+          "relative_path": "API/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "CHANGELOG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "LICENSE.md",
+      "output": {
+        ".html": {
+          "relative_path": "LICENSE.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

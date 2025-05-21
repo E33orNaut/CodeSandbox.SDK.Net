@@ -1,0 +1,559 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Models.Step
+  commentId: T:CodeSandbox.SDK.Net.Models.Step
+  id: Step
+  parent: CodeSandbox.SDK.Net.Models
+  children:
+  - CodeSandbox.SDK.Net.Models.Step.Command
+  - CodeSandbox.SDK.Net.Models.Step.FinishStatus
+  - CodeSandbox.SDK.Net.Models.Step.Name
+  - CodeSandbox.SDK.Net.Models.Step.ShellId
+  langs:
+  - csharp
+  - vb
+  name: Step
+  nameWithType: Step
+  fullName: CodeSandbox.SDK.Net.Models.Step
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/Step.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Step
+    path: Models/Step.cs
+    startLine: 7
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Represents a step in the setup process.
+  example: []
+  syntax:
+    content: public class Step
+    content.vb: Public Class [Step]
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Models.Step.Name
+  commentId: P:CodeSandbox.SDK.Net.Models.Step.Name
+  id: Name
+  parent: CodeSandbox.SDK.Net.Models.Step
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Step.Name
+  fullName: CodeSandbox.SDK.Net.Models.Step.Name
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/Step.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Name
+    path: Models/Step.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the name of the step.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: CodeSandbox.SDK.Net.Models.Step.Name*
+- uid: CodeSandbox.SDK.Net.Models.Step.Command
+  commentId: P:CodeSandbox.SDK.Net.Models.Step.Command
+  id: Command
+  parent: CodeSandbox.SDK.Net.Models.Step
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: Step.Command
+  fullName: CodeSandbox.SDK.Net.Models.Step.Command
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/Step.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Command
+    path: Models/Step.cs
+    startLine: 17
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the command to be executed in this step.
+  example: []
+  syntax:
+    content: public string Command { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Command As String
+  overload: CodeSandbox.SDK.Net.Models.Step.Command*
+- uid: CodeSandbox.SDK.Net.Models.Step.ShellId
+  commentId: P:CodeSandbox.SDK.Net.Models.Step.ShellId
+  id: ShellId
+  parent: CodeSandbox.SDK.Net.Models.Step
+  langs:
+  - csharp
+  - vb
+  name: ShellId
+  nameWithType: Step.ShellId
+  fullName: CodeSandbox.SDK.Net.Models.Step.ShellId
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/Step.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ShellId
+    path: Models/Step.cs
+    startLine: 23
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: >-
+    Gets or sets the shell ID associated with this step, if any.
+
+    This property is ignored when null during JSON serialization.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public string ShellId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property ShellId As String
+  overload: CodeSandbox.SDK.Net.Models.Step.ShellId*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+- uid: CodeSandbox.SDK.Net.Models.Step.FinishStatus
+  commentId: P:CodeSandbox.SDK.Net.Models.Step.FinishStatus
+  id: FinishStatus
+  parent: CodeSandbox.SDK.Net.Models.Step
+  langs:
+  - csharp
+  - vb
+  name: FinishStatus
+  nameWithType: Step.FinishStatus
+  fullName: CodeSandbox.SDK.Net.Models.Step.FinishStatus
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/Step.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: FinishStatus
+    path: Models/Step.cs
+    startLine: 30
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: >-
+    Gets or sets the finish status of the step, if available.
+
+    This property is ignored when null during JSON serialization.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+
+      public SetupShellStatus? FinishStatus { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{CodeSandbox.SDK.Net.Models.SetupShellStatus}
+    content.vb: >-
+      <JsonIgnore(Condition:=JsonIgnoreCondition.WhenWritingNull)>
+
+      Public Property FinishStatus As SetupShellStatus?
+  overload: CodeSandbox.SDK.Net.Models.Step.FinishStatus*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Condition
+      type: System.Text.Json.Serialization.JsonIgnoreCondition
+      value: 3
+references:
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Models.Step.Name*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.Step.Name
+  href: CodeSandbox.SDK.Net.Models.Step.html#CodeSandbox_SDK_Net_Models_Step_Name
+  name: Name
+  nameWithType: Step.Name
+  fullName: CodeSandbox.SDK.Net.Models.Step.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CodeSandbox.SDK.Net.Models.Step.Command*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.Step.Command
+  href: CodeSandbox.SDK.Net.Models.Step.html#CodeSandbox_SDK_Net_Models_Step_Command
+  name: Command
+  nameWithType: Step.Command
+  fullName: CodeSandbox.SDK.Net.Models.Step.Command
+- uid: CodeSandbox.SDK.Net.Models.Step.ShellId*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.Step.ShellId
+  href: CodeSandbox.SDK.Net.Models.Step.html#CodeSandbox_SDK_Net_Models_Step_ShellId
+  name: ShellId
+  nameWithType: Step.ShellId
+  fullName: CodeSandbox.SDK.Net.Models.Step.ShellId
+- uid: CodeSandbox.SDK.Net.Models.Step.FinishStatus*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.Step.FinishStatus
+  href: CodeSandbox.SDK.Net.Models.Step.html#CodeSandbox_SDK_Net_Models_Step_FinishStatus
+  name: FinishStatus
+  nameWithType: Step.FinishStatus
+  fullName: CodeSandbox.SDK.Net.Models.Step.FinishStatus
+- uid: System.Nullable{CodeSandbox.SDK.Net.Models.SetupShellStatus}
+  commentId: T:System.Nullable{CodeSandbox.SDK.Net.Models.SetupShellStatus}
+  parent: System
+  definition: System.Nullable`1
+  href: CodeSandbox.SDK.Net.Models.SetupShellStatus.html
+  name: SetupShellStatus?
+  nameWithType: SetupShellStatus?
+  fullName: CodeSandbox.SDK.Net.Models.SetupShellStatus?
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Models.SetupShellStatus
+    name: SetupShellStatus
+    href: CodeSandbox.SDK.Net.Models.SetupShellStatus.html
+  - name: '?'
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Models.SetupShellStatus
+    name: SetupShellStatus
+    href: CodeSandbox.SDK.Net.Models.SetupShellStatus.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

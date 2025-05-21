@@ -1,0 +1,215 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Services
+  commentId: N:CodeSandbox.SDK.Net.Services
+  id: CodeSandbox.SDK.Net.Services
+  children:
+  - CodeSandbox.SDK.Net.Services.ApiException
+  - CodeSandbox.SDK.Net.Services.ApiResponse`1
+  - CodeSandbox.SDK.Net.Services.ContainerService
+  - CodeSandbox.SDK.Net.Services.DiscardInnerResult
+  - CodeSandbox.SDK.Net.Services.DiscardResult
+  - CodeSandbox.SDK.Net.Services.GitChange
+  - CodeSandbox.SDK.Net.Services.GitRemote
+  - CodeSandbox.SDK.Net.Services.GitRemotesResult
+  - CodeSandbox.SDK.Net.Services.GitService
+  - CodeSandbox.SDK.Net.Services.GitStatusResult
+  - CodeSandbox.SDK.Net.Services.GitStatusService
+  - CodeSandbox.SDK.Net.Services.GitTargetDiffResult
+  - CodeSandbox.SDK.Net.Services.ITaskService
+  - CodeSandbox.SDK.Net.Services.PortService
+  - CodeSandbox.SDK.Net.Services.SetupService
+  - CodeSandbox.SDK.Net.Services.ShellService
+  - CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics
+  - CodeSandbox.SDK.Net.Services.SystemService
+  - CodeSandbox.SDK.Net.Services.TaskService
+  - CodeSandbox.SDK.Net.Services.TaskServiceException
+  langs:
+  - csharp
+  - vb
+  name: CodeSandbox.SDK.Net.Services
+  nameWithType: CodeSandbox.SDK.Net.Services
+  fullName: CodeSandbox.SDK.Net.Services
+  type: Namespace
+  assemblies:
+  - CodeSandbox.SDK.Net
+references:
+- uid: CodeSandbox.SDK.Net.Services.ITaskService
+  commentId: T:CodeSandbox.SDK.Net.Services.ITaskService
+  parent: CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.SDK.Net.Services.ITaskService.html
+  name: ITaskService
+  nameWithType: ITaskService
+  fullName: CodeSandbox.SDK.Net.Services.ITaskService
+- uid: CodeSandbox.SDK.Net.Services.ContainerService
+  commentId: T:CodeSandbox.SDK.Net.Services.ContainerService
+  href: CodeSandbox.SDK.Net.Services.ContainerService.html
+  name: ContainerService
+  nameWithType: ContainerService
+  fullName: CodeSandbox.SDK.Net.Services.ContainerService
+- uid: CodeSandbox.SDK.Net.Services.GitService
+  commentId: T:CodeSandbox.SDK.Net.Services.GitService
+  href: CodeSandbox.SDK.Net.Services.GitService.html
+  name: GitService
+  nameWithType: GitService
+  fullName: CodeSandbox.SDK.Net.Services.GitService
+- uid: CodeSandbox.SDK.Net.Services.GitStatusResult
+  commentId: T:CodeSandbox.SDK.Net.Services.GitStatusResult
+  href: CodeSandbox.SDK.Net.Services.GitStatusResult.html
+  name: GitStatusResult
+  nameWithType: GitStatusResult
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusResult
+- uid: CodeSandbox.SDK.Net.Services.GitChange
+  commentId: T:CodeSandbox.SDK.Net.Services.GitChange
+  href: CodeSandbox.SDK.Net.Services.GitChange.html
+  name: GitChange
+  nameWithType: GitChange
+  fullName: CodeSandbox.SDK.Net.Services.GitChange
+- uid: CodeSandbox.SDK.Net.Services.GitRemotesResult
+  commentId: T:CodeSandbox.SDK.Net.Services.GitRemotesResult
+  href: CodeSandbox.SDK.Net.Services.GitRemotesResult.html
+  name: GitRemotesResult
+  nameWithType: GitRemotesResult
+  fullName: CodeSandbox.SDK.Net.Services.GitRemotesResult
+- uid: CodeSandbox.SDK.Net.Services.GitRemote
+  commentId: T:CodeSandbox.SDK.Net.Services.GitRemote
+  href: CodeSandbox.SDK.Net.Services.GitRemote.html
+  name: GitRemote
+  nameWithType: GitRemote
+  fullName: CodeSandbox.SDK.Net.Services.GitRemote
+- uid: CodeSandbox.SDK.Net.Services.GitTargetDiffResult
+  commentId: T:CodeSandbox.SDK.Net.Services.GitTargetDiffResult
+  href: CodeSandbox.SDK.Net.Services.GitTargetDiffResult.html
+  name: GitTargetDiffResult
+  nameWithType: GitTargetDiffResult
+  fullName: CodeSandbox.SDK.Net.Services.GitTargetDiffResult
+- uid: CodeSandbox.SDK.Net.Services.DiscardResult
+  commentId: T:CodeSandbox.SDK.Net.Services.DiscardResult
+  href: CodeSandbox.SDK.Net.Services.DiscardResult.html
+  name: DiscardResult
+  nameWithType: DiscardResult
+  fullName: CodeSandbox.SDK.Net.Services.DiscardResult
+- uid: CodeSandbox.SDK.Net.Services.DiscardInnerResult
+  commentId: T:CodeSandbox.SDK.Net.Services.DiscardInnerResult
+  parent: CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.SDK.Net.Services.DiscardInnerResult.html
+  name: DiscardInnerResult
+  nameWithType: DiscardInnerResult
+  fullName: CodeSandbox.SDK.Net.Services.DiscardInnerResult
+- uid: CodeSandbox.SDK.Net.Services.GitStatusService
+  commentId: T:CodeSandbox.SDK.Net.Services.GitStatusService
+  href: CodeSandbox.SDK.Net.Services.GitStatusService.html
+  name: GitStatusService
+  nameWithType: GitStatusService
+  fullName: CodeSandbox.SDK.Net.Services.GitStatusService
+- uid: CodeSandbox.SDK.Net.Services.PortService
+  commentId: T:CodeSandbox.SDK.Net.Services.PortService
+  href: CodeSandbox.SDK.Net.Services.PortService.html
+  name: PortService
+  nameWithType: PortService
+  fullName: CodeSandbox.SDK.Net.Services.PortService
+- uid: CodeSandbox.SDK.Net.Services.SetupService
+  commentId: T:CodeSandbox.SDK.Net.Services.SetupService
+  href: CodeSandbox.SDK.Net.Services.SetupService.html
+  name: SetupService
+  nameWithType: SetupService
+  fullName: CodeSandbox.SDK.Net.Services.SetupService
+- uid: CodeSandbox.SDK.Net.Services.ApiResponse`1
+  commentId: T:CodeSandbox.SDK.Net.Services.ApiResponse`1
+  href: CodeSandbox.SDK.Net.Services.ApiResponse-1.html
+  name: ApiResponse<TResult>
+  nameWithType: ApiResponse<TResult>
+  fullName: CodeSandbox.SDK.Net.Services.ApiResponse<TResult>
+  nameWithType.vb: ApiResponse(Of TResult)
+  fullName.vb: CodeSandbox.SDK.Net.Services.ApiResponse(Of TResult)
+  name.vb: ApiResponse(Of TResult)
+  spec.csharp:
+  - uid: CodeSandbox.SDK.Net.Services.ApiResponse`1
+    name: ApiResponse
+    href: CodeSandbox.SDK.Net.Services.ApiResponse-1.html
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: CodeSandbox.SDK.Net.Services.ApiResponse`1
+    name: ApiResponse
+    href: CodeSandbox.SDK.Net.Services.ApiResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: CodeSandbox.SDK.Net.Services.ShellService
+  commentId: T:CodeSandbox.SDK.Net.Services.ShellService
+  href: CodeSandbox.SDK.Net.Services.ShellService.html
+  name: ShellService
+  nameWithType: ShellService
+  fullName: CodeSandbox.SDK.Net.Services.ShellService
+- uid: CodeSandbox.SDK.Net.Services.ApiException
+  commentId: T:CodeSandbox.SDK.Net.Services.ApiException
+  href: CodeSandbox.SDK.Net.Services.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: CodeSandbox.SDK.Net.Services.ApiException
+- uid: CodeSandbox.SDK.Net.Services.SystemService
+  commentId: T:CodeSandbox.SDK.Net.Services.SystemService
+  href: CodeSandbox.SDK.Net.Services.SystemService.html
+  name: SystemService
+  nameWithType: SystemService
+  fullName: CodeSandbox.SDK.Net.Services.SystemService
+- uid: CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics
+  commentId: T:CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics
+  href: CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics.html
+  name: SuccessResponseWithMetrics
+  nameWithType: SuccessResponseWithMetrics
+  fullName: CodeSandbox.SDK.Net.Services.SuccessResponseWithMetrics
+- uid: CodeSandbox.SDK.Net.Services.TaskService
+  commentId: T:CodeSandbox.SDK.Net.Services.TaskService
+  href: CodeSandbox.SDK.Net.Services.TaskService.html
+  name: TaskService
+  nameWithType: TaskService
+  fullName: CodeSandbox.SDK.Net.Services.TaskService
+- uid: CodeSandbox.SDK.Net.Services.TaskServiceException
+  commentId: T:CodeSandbox.SDK.Net.Services.TaskServiceException
+  href: CodeSandbox.SDK.Net.Services.TaskServiceException.html
+  name: TaskServiceException
+  nameWithType: TaskServiceException
+  fullName: CodeSandbox.SDK.Net.Services.TaskServiceException
+- uid: CodeSandbox.SDK.Net.Services
+  commentId: N:CodeSandbox.SDK.Net.Services
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Services
+  nameWithType: CodeSandbox.SDK.Net.Services
+  fullName: CodeSandbox.SDK.Net.Services
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Services
+    name: Services
+    href: CodeSandbox.SDK.Net.Services.html

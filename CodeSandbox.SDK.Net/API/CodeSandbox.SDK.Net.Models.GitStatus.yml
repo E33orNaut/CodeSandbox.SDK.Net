@@ -1,0 +1,863 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Models.GitStatus
+  commentId: T:CodeSandbox.SDK.Net.Models.GitStatus
+  id: GitStatus
+  parent: CodeSandbox.SDK.Net.Models
+  children:
+  - CodeSandbox.SDK.Net.Models.GitStatus.Branch
+  - CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+  - CodeSandbox.SDK.Net.Models.GitStatus.Commits
+  - CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+  - CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+  - CodeSandbox.SDK.Net.Models.GitStatus.Head
+  - CodeSandbox.SDK.Net.Models.GitStatus.IsMerging
+  - CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+  - CodeSandbox.SDK.Net.Models.GitStatus.Remote
+  - CodeSandbox.SDK.Net.Models.GitStatus.Target
+  langs:
+  - csharp
+  - vb
+  name: GitStatus
+  nameWithType: GitStatus
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: GitStatus
+    path: Models/GitStatus.cs
+    startLine: 7
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Represents the current status of a Git repository including changed files, branch info, and commits.
+  example: []
+  syntax:
+    content: public class GitStatus
+    content.vb: Public Class GitStatus
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+  id: ChangedFiles
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: ChangedFiles
+  nameWithType: GitStatus.ChangedFiles
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: ChangedFiles
+    path: Models/GitStatus.cs
+    startLine: 12
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the collection of files that have been changed in the working directory.
+  example: []
+  syntax:
+    content: public GitChangedFiles ChangedFiles { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitChangedFiles
+    content.vb: Public Property ChangedFiles As GitChangedFiles
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+  id: DeletedFiles
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: DeletedFiles
+  nameWithType: GitStatus.DeletedFiles
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: DeletedFiles
+    path: Models/GitStatus.cs
+    startLine: 17
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the list of files that have been deleted.
+  example: []
+  syntax:
+    content: public List<GitItem> DeletedFiles { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitItem}
+    content.vb: Public Property DeletedFiles As List(Of GitItem)
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+  id: Conflicts
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Conflicts
+  nameWithType: GitStatus.Conflicts
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Conflicts
+    path: Models/GitStatus.cs
+    startLine: 22
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets a value indicating whether there are conflicts in the repository.
+  example: []
+  syntax:
+    content: public bool Conflicts { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Conflicts As Boolean
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Conflicts*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+  id: LocalChanges
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: LocalChanges
+  nameWithType: GitStatus.LocalChanges
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LocalChanges
+    path: Models/GitStatus.cs
+    startLine: 27
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets a value indicating whether there are any local changes.
+  example: []
+  syntax:
+    content: public bool LocalChanges { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property LocalChanges As Boolean
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Remote
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Remote
+  id: Remote
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Remote
+  nameWithType: GitStatus.Remote
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Remote
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Remote
+    path: Models/GitStatus.cs
+    startLine: 32
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the remote branch properties.
+  example: []
+  syntax:
+    content: public GitBranchProperties Remote { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitBranchProperties
+    content.vb: Public Property Remote As GitBranchProperties
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Remote*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Target
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Target
+  id: Target
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: GitStatus.Target
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Target
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Target
+    path: Models/GitStatus.cs
+    startLine: 37
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the target branch properties.
+  example: []
+  syntax:
+    content: public GitBranchProperties Target { get; set; }
+    parameters: []
+    return:
+      type: CodeSandbox.SDK.Net.Models.GitBranchProperties
+    content.vb: Public Property Target As GitBranchProperties
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Target*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Head
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Head
+  id: Head
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Head
+  nameWithType: GitStatus.Head
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Head
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Head
+    path: Models/GitStatus.cs
+    startLine: 42
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the current HEAD commit hash.
+  example: []
+  syntax:
+    content: public string Head { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Head As String
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Head*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Commits
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Commits
+  id: Commits
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Commits
+  nameWithType: GitStatus.Commits
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Commits
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Commits
+    path: Models/GitStatus.cs
+    startLine: 47
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the list of recent commits.
+  example: []
+  syntax:
+    content: public List<GitCommit> Commits { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitCommit}
+    content.vb: Public Property Commits As List(Of GitCommit)
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Commits*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Branch
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.Branch
+  id: Branch
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: Branch
+  nameWithType: GitStatus.Branch
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Branch
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: Branch
+    path: Models/GitStatus.cs
+    startLine: 52
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets the current branch name.
+  example: []
+  syntax:
+    content: public string Branch { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Branch As String
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.Branch*
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.IsMerging
+  commentId: P:CodeSandbox.SDK.Net.Models.GitStatus.IsMerging
+  id: IsMerging
+  parent: CodeSandbox.SDK.Net.Models.GitStatus
+  langs:
+  - csharp
+  - vb
+  name: IsMerging
+  nameWithType: GitStatus.IsMerging
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.IsMerging
+  type: Property
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Models/GitStatus.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: IsMerging
+    path: Models/GitStatus.cs
+    startLine: 57
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Models
+  summary: Gets or sets a value indicating whether a merge operation is in progress.
+  example: []
+  syntax:
+    content: public bool IsMerging { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsMerging As Boolean
+  overload: CodeSandbox.SDK.Net.Models.GitStatus.IsMerging*
+references:
+- uid: CodeSandbox.SDK.Net.Models
+  commentId: N:CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Models
+  nameWithType: CodeSandbox.SDK.Net.Models
+  fullName: CodeSandbox.SDK.Net.Models
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Models
+    name: Models
+    href: CodeSandbox.SDK.Net.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_ChangedFiles
+  name: ChangedFiles
+  nameWithType: GitStatus.ChangedFiles
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.ChangedFiles
+- uid: CodeSandbox.SDK.Net.Models.GitChangedFiles
+  commentId: T:CodeSandbox.SDK.Net.Models.GitChangedFiles
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitChangedFiles.html
+  name: GitChangedFiles
+  nameWithType: GitChangedFiles
+  fullName: CodeSandbox.SDK.Net.Models.GitChangedFiles
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_DeletedFiles
+  name: DeletedFiles
+  nameWithType: GitStatus.DeletedFiles
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.DeletedFiles
+- uid: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitItem}
+  commentId: T:System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitItem}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GitItem>
+  nameWithType: List<GitItem>
+  fullName: System.Collections.Generic.List<CodeSandbox.SDK.Net.Models.GitItem>
+  nameWithType.vb: List(Of GitItem)
+  fullName.vb: System.Collections.Generic.List(Of CodeSandbox.SDK.Net.Models.GitItem)
+  name.vb: List(Of GitItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitItem
+    name: GitItem
+    href: CodeSandbox.SDK.Net.Models.GitItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitItem
+    name: GitItem
+    href: CodeSandbox.SDK.Net.Models.GitItem.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Conflicts*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Conflicts
+  name: Conflicts
+  nameWithType: GitStatus.Conflicts
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Conflicts
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_LocalChanges
+  name: LocalChanges
+  nameWithType: GitStatus.LocalChanges
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.LocalChanges
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Remote*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Remote
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Remote
+  name: Remote
+  nameWithType: GitStatus.Remote
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Remote
+- uid: CodeSandbox.SDK.Net.Models.GitBranchProperties
+  commentId: T:CodeSandbox.SDK.Net.Models.GitBranchProperties
+  parent: CodeSandbox.SDK.Net.Models
+  href: CodeSandbox.SDK.Net.Models.GitBranchProperties.html
+  name: GitBranchProperties
+  nameWithType: GitBranchProperties
+  fullName: CodeSandbox.SDK.Net.Models.GitBranchProperties
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Target*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Target
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Target
+  name: Target
+  nameWithType: GitStatus.Target
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Target
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Head*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Head
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Head
+  name: Head
+  nameWithType: GitStatus.Head
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Head
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Commits*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Commits
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Commits
+  name: Commits
+  nameWithType: GitStatus.Commits
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Commits
+- uid: System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitCommit}
+  commentId: T:System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.GitCommit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GitCommit>
+  nameWithType: List<GitCommit>
+  fullName: System.Collections.Generic.List<CodeSandbox.SDK.Net.Models.GitCommit>
+  nameWithType.vb: List(Of GitCommit)
+  fullName.vb: System.Collections.Generic.List(Of CodeSandbox.SDK.Net.Models.GitCommit)
+  name.vb: List(Of GitCommit)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: CodeSandbox.SDK.Net.Models.GitCommit
+    name: GitCommit
+    href: CodeSandbox.SDK.Net.Models.GitCommit.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodeSandbox.SDK.Net.Models.GitCommit
+    name: GitCommit
+    href: CodeSandbox.SDK.Net.Models.GitCommit.html
+  - name: )
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.Branch*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.Branch
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_Branch
+  name: Branch
+  nameWithType: GitStatus.Branch
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.Branch
+- uid: CodeSandbox.SDK.Net.Models.GitStatus.IsMerging*
+  commentId: Overload:CodeSandbox.SDK.Net.Models.GitStatus.IsMerging
+  href: CodeSandbox.SDK.Net.Models.GitStatus.html#CodeSandbox_SDK_Net_Models_GitStatus_IsMerging
+  name: IsMerging
+  nameWithType: GitStatus.IsMerging
+  fullName: CodeSandbox.SDK.Net.Models.GitStatus.IsMerging

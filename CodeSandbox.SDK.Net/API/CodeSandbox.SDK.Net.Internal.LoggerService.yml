@@ -1,0 +1,778 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  id: LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  children:
+  - CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(CodeSandbox.SDK.Net.Internal.LogLevel)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(System.Action{System.String},CodeSandbox.SDK.Net.Internal.LogLevel)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String,System.Exception)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo(System.String)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess(System.String)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace(System.String)
+  - CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning(System.String)
+  langs:
+  - csharp
+  - vb
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+  type: Class
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LoggerService
+    path: Internal/Logger.cs
+    startLine: 39
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Provides logging capabilities with configurable minimum log level and optional custom log output.
+  example: []
+  syntax:
+    content: public class LoggerService
+    content.vb: Public Class LoggerService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(CodeSandbox.SDK.Net.Internal.LogLevel)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(CodeSandbox.SDK.Net.Internal.LogLevel)
+  id: '#ctor(CodeSandbox.SDK.Net.Internal.LogLevel)'
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LoggerService(LogLevel)
+  nameWithType: LoggerService.LoggerService(LogLevel)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LoggerService(CodeSandbox.SDK.Net.Internal.LogLevel)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Internal/Logger.cs
+    startLine: 49
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: >-
+    Initializes a new instance of <xref href="CodeSandbox.SDK.Net.Internal.LoggerService" data-throw-if-not-resolved="false"></xref> with the specified minimum log level.
+
+    Logs are written to the console and Debug output by default.
+  example: []
+  syntax:
+    content: public LoggerService(LogLevel minimumLevel = LogLevel.Info)
+    parameters:
+    - id: minimumLevel
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+      description: The minimum <xref href="CodeSandbox.SDK.Net.Internal.LogLevel" data-throw-if-not-resolved="false"></xref> to log. Defaults to <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Info" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(minimumLevel As LogLevel = LogLevel.Info)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.#ctor*
+  nameWithType.vb: LoggerService.New(LogLevel)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.New(CodeSandbox.SDK.Net.Internal.LogLevel)
+  name.vb: New(LogLevel)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(System.Action{System.String},CodeSandbox.SDK.Net.Internal.LogLevel)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.#ctor(System.Action{System.String},CodeSandbox.SDK.Net.Internal.LogLevel)
+  id: '#ctor(System.Action{System.String},CodeSandbox.SDK.Net.Internal.LogLevel)'
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LoggerService(Action<string>, LogLevel)
+  nameWithType: LoggerService.LoggerService(Action<string>, LogLevel)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LoggerService(System.Action<string>, CodeSandbox.SDK.Net.Internal.LogLevel)
+  type: Constructor
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: .ctor
+    path: Internal/Logger.cs
+    startLine: 60
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Initializes a new instance of <xref href="CodeSandbox.SDK.Net.Internal.LoggerService" data-throw-if-not-resolved="false"></xref> with a custom log action and minimum log level.
+  example: []
+  syntax:
+    content: public LoggerService(Action<string> customLogAction, LogLevel minimumLevel = LogLevel.Info)
+    parameters:
+    - id: customLogAction
+      type: System.Action{System.String}
+      description: A custom action to handle log messages. If null, defaults to logging to console and Debug output.
+    - id: minimumLevel
+      type: CodeSandbox.SDK.Net.Internal.LogLevel
+      description: The minimum <xref href="CodeSandbox.SDK.Net.Internal.LogLevel" data-throw-if-not-resolved="false"></xref> to log. Defaults to <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Info" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(customLogAction As Action(Of String), minimumLevel As LogLevel = LogLevel.Info)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.#ctor*
+  nameWithType.vb: LoggerService.New(Action(Of String), LogLevel)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.New(System.Action(Of String), CodeSandbox.SDK.Net.Internal.LogLevel)
+  name.vb: New(Action(Of String), LogLevel)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace(System.String)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace(System.String)
+  id: LogTrace(System.String)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogTrace(string)
+  nameWithType: LoggerService.LogTrace(string)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace(string)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogTrace
+    path: Internal/Logger.cs
+    startLine: 99
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs a message with the <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Trace" data-throw-if-not-resolved="false"></xref> level.
+  example: []
+  syntax:
+    content: public void LogTrace(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The trace message to log.
+    content.vb: Public Sub LogTrace(message As String)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace*
+  nameWithType.vb: LoggerService.LogTrace(String)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace(String)
+  name.vb: LogTrace(String)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo(System.String)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo(System.String)
+  id: LogInfo(System.String)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogInfo(string)
+  nameWithType: LoggerService.LogInfo(string)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo(string)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogInfo
+    path: Internal/Logger.cs
+    startLine: 108
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs a message with the <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Info" data-throw-if-not-resolved="false"></xref> level.
+  example: []
+  syntax:
+    content: public void LogInfo(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The informational message to log.
+    content.vb: Public Sub LogInfo(message As String)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo*
+  nameWithType.vb: LoggerService.LogInfo(String)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo(String)
+  name.vb: LogInfo(String)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess(System.String)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess(System.String)
+  id: LogSuccess(System.String)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogSuccess(string)
+  nameWithType: LoggerService.LogSuccess(string)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess(string)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogSuccess
+    path: Internal/Logger.cs
+    startLine: 117
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs a message with the <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Success" data-throw-if-not-resolved="false"></xref> level.
+  example: []
+  syntax:
+    content: public void LogSuccess(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The success message to log.
+    content.vb: Public Sub LogSuccess(message As String)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess*
+  nameWithType.vb: LoggerService.LogSuccess(String)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess(String)
+  name.vb: LogSuccess(String)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning(System.String)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning(System.String)
+  id: LogWarning(System.String)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogWarning(string)
+  nameWithType: LoggerService.LogWarning(string)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning(string)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogWarning
+    path: Internal/Logger.cs
+    startLine: 126
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs a message with the <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Warning" data-throw-if-not-resolved="false"></xref> level.
+  example: []
+  syntax:
+    content: public void LogWarning(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The warning message to log.
+    content.vb: Public Sub LogWarning(message As String)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning*
+  nameWithType.vb: LoggerService.LogWarning(String)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning(String)
+  name.vb: LogWarning(String)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String)
+  id: LogError(System.String)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogError(string)
+  nameWithType: LoggerService.LogError(string)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(string)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogError
+    path: Internal/Logger.cs
+    startLine: 135
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs a message with the <xref href="CodeSandbox.SDK.Net.Internal.LogLevel.Error" data-throw-if-not-resolved="false"></xref> level.
+  example: []
+  syntax:
+    content: public void LogError(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message to log.
+    content.vb: Public Sub LogError(message As String)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogError*
+  nameWithType.vb: LoggerService.LogError(String)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(String)
+  name.vb: LogError(String)
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String,System.Exception)
+  commentId: M:CodeSandbox.SDK.Net.Internal.LoggerService.LogError(System.String,System.Exception)
+  id: LogError(System.String,System.Exception)
+  parent: CodeSandbox.SDK.Net.Internal.LoggerService
+  langs:
+  - csharp
+  - vb
+  name: LogError(string, Exception)
+  nameWithType: LoggerService.LogError(string, Exception)
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(string, System.Exception)
+  type: Method
+  source:
+    remote:
+      path: CodeSandbox.SDK.Net/Internal/Logger.cs
+      branch: master
+      repo: https://github.com/E33orNaut/CodeSandbox.SDK.Net.git
+    id: LogError
+    path: Internal/Logger.cs
+    startLine: 145
+  assemblies:
+  - CodeSandbox.SDK.Net
+  namespace: CodeSandbox.SDK.Net.Internal
+  summary: Logs an error message along with detailed exception information.
+  example: []
+  syntax:
+    content: public void LogError(string message, Exception ex)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message to log.
+    - id: ex
+      type: System.Exception
+      description: The exception to include in the log.
+    content.vb: Public Sub LogError(message As String, ex As Exception)
+  overload: CodeSandbox.SDK.Net.Internal.LoggerService.LogError*
+  nameWithType.vb: LoggerService.LogError(String, Exception)
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.LogError(String, System.Exception)
+  name.vb: LogError(String, Exception)
+references:
+- uid: CodeSandbox.SDK.Net.Internal
+  commentId: N:CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.html
+  name: CodeSandbox.SDK.Net.Internal
+  nameWithType: CodeSandbox.SDK.Net.Internal
+  fullName: CodeSandbox.SDK.Net.Internal
+  spec.csharp:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+  spec.vb:
+  - uid: CodeSandbox
+    name: CodeSandbox
+    href: CodeSandbox.html
+  - name: .
+  - uid: CodeSandbox.SDK
+    name: SDK
+    href: CodeSandbox.SDK.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net
+    name: Net
+    href: CodeSandbox.SDK.Net.html
+  - name: .
+  - uid: CodeSandbox.SDK.Net.Internal
+    name: Internal
+    href: CodeSandbox.SDK.Net.Internal.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService
+  commentId: T:CodeSandbox.SDK.Net.Internal.LoggerService
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html
+  name: LoggerService
+  nameWithType: LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel
+  commentId: T:CodeSandbox.SDK.Net.Internal.LogLevel
+  parent: CodeSandbox.SDK.Net.Internal
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Info
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html#CodeSandbox_SDK_Net_Internal_LogLevel_Info
+  name: Info
+  nameWithType: LogLevel.Info
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Info
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.#ctor*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.#ctor
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService__ctor_CodeSandbox_SDK_Net_Internal_LogLevel_
+  name: LoggerService
+  nameWithType: LoggerService.LoggerService
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LoggerService
+  nameWithType.vb: LoggerService.New
+  fullName.vb: CodeSandbox.SDK.Net.Internal.LoggerService.New
+  name.vb: New
+- uid: System.Action{System.String}
+  commentId: T:System.Action{System.String}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<string>
+  nameWithType: Action<string>
+  fullName: System.Action<string>
+  nameWithType.vb: Action(Of String)
+  fullName.vb: System.Action(Of String)
+  name.vb: Action(Of String)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html#CodeSandbox_SDK_Net_Internal_LogLevel_Trace
+  name: Trace
+  nameWithType: LogLevel.Trace
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Trace
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService_LogTrace_System_String_
+  name: LogTrace
+  nameWithType: LoggerService.LogTrace
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogTrace
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService_LogInfo_System_String_
+  name: LogInfo
+  nameWithType: LoggerService.LogInfo
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogInfo
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Success
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html#CodeSandbox_SDK_Net_Internal_LogLevel_Success
+  name: Success
+  nameWithType: LogLevel.Success
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Success
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService_LogSuccess_System_String_
+  name: LogSuccess
+  nameWithType: LoggerService.LogSuccess
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogSuccess
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html#CodeSandbox_SDK_Net_Internal_LogLevel_Warning
+  name: Warning
+  nameWithType: LogLevel.Warning
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Warning
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService_LogWarning_System_String_
+  name: LogWarning
+  nameWithType: LoggerService.LogWarning
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogWarning
+- uid: CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  commentId: F:CodeSandbox.SDK.Net.Internal.LogLevel.Error
+  href: CodeSandbox.SDK.Net.Internal.LogLevel.html#CodeSandbox_SDK_Net_Internal_LogLevel_Error
+  name: Error
+  nameWithType: LogLevel.Error
+  fullName: CodeSandbox.SDK.Net.Internal.LogLevel.Error
+- uid: CodeSandbox.SDK.Net.Internal.LoggerService.LogError*
+  commentId: Overload:CodeSandbox.SDK.Net.Internal.LoggerService.LogError
+  href: CodeSandbox.SDK.Net.Internal.LoggerService.html#CodeSandbox_SDK_Net_Internal_LoggerService_LogError_System_String_
+  name: LogError
+  nameWithType: LoggerService.LogError
+  fullName: CodeSandbox.SDK.Net.Internal.LoggerService.LogError
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
