@@ -7,7 +7,7 @@
                     "exclude": [ "**/bin/**", "**/obj/**" ]
                 }
             ],
-            "dest": "DOcs"
+            "dest": "docs"
         }
     ],
     "build": {
