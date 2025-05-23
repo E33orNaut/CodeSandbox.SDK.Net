@@ -9,7 +9,7 @@ namespace CodeSandbox.SDK.Net.Interfaces
     /// Interface for interacting with Git-related API endpoints.
     /// </summary>
     public interface IGitService
-    {
+    {   
         /// <summary>
         /// Asynchronously gets the current Git status.
         /// </summary>

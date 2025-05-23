@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Models.New.PortModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {
@@ -13,7 +13,7 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// Asynchronously retrieves the list of ports.
         /// </summary>
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-        /// <returns>A task that returns the <see cref="PortListResponse"/> containing the list of ports.</returns>
-        Task<PortListResponse> GetPortListAsync(CancellationToken cancellationToken = default);
+        /// <returns>A task that returns the <see cref="Models.New.PortModels.PortListResult"/> containing the list of ports.</returns>
+        Task<Models.New.PortModels.PortListResult> GetPortListAsync(CancellationToken cancellationToken = default);
     }
 }

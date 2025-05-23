@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Codesandbox.SDK.Net.Models.New.Git;
 using CodeSandbox.SDK.Net.Interfaces;
-using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Internal;  
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
@@ -36,12 +36,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="cancellationToken">Optional cancellation token.</param>
         /// <returns>A <see cref="GitStatusResult"/> representing the current Git status.</returns>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitStatusResult> GetStatusAsync(CancellationToken cancellationToken = default)
+        public async Task<GitStatusResponse> GetStatusAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetStatusAsync...");
             try
             {
-                GitStatusResult response = await _client.PostAsync<GitStatusResult>("/git/status", new { }, cancellationToken);
+                GitStatusResponse response = await _client.PostAsync<GitStatusResponse>("/git/status", new { }, cancellationToken);
                 _logger.LogSuccess("GetStatusAsync completed successfully.");
                 return response;
             }
@@ -198,7 +198,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostDiscardAsync for {paths.Length} paths...");
             try
             {
-                DiscardResult discardResult = await _client.PostAsync<DiscardResult>("/git/discard", new { paths }, cancellationToken);
+                GitDiscardResponse discardResult = await _client.PostAsync<GitDiscardResponse>("/git/discard", new { paths }, cancellationToken);
                 _logger.LogSuccess("PostDiscardAsync completed successfully.");
                 return discardResult?.Result?.Paths;
             }
@@ -386,7 +386,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostRemoteContentAsync for reference {reference} and path {path}...");
             try
             {
-                var response = await _client.PostAsync<RemoteContentResult>("/git/remoteContent", new { reference, path }, cancellationToken);
+                var response = await _client.PostAsync<GitRemoteContentResponse>("/git/remoteContent", new { reference, path }, cancellationToken);
                 _logger.LogSuccess("PostRemoteContentAsync completed successfully.");
                 return response?.Result?.Content;
             }
@@ -478,17 +478,19 @@ namespace CodeSandbox.SDK.Net.Services
 
         /// <summary>
         /// Maps line numbers between different git commits.
-        /// </summary>
-        public async Task<List<TransposeLineResultItem>> PostTransposeLinesAsync(List<TransposeLinesResult> requests, CancellationToken cancellationToken = default)
+        /// </summary> 
+
+        public async Task<List<GitTransposeLinesResultItem>> PostTransposeLinesAsync(List<GitTransposeLinesResultItem> requests, CancellationToken cancellationToken = default)
         {
-            if (requests == null || requests.Count == 0) throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
+            if (requests == null || requests.Count == 0)
+                throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
 
             _logger.LogInfo("Starting PostTransposeLinesAsync...");
             try
             {
-                var response = await _client.PostAsync<TransposeLinesResult>("/git/transposeLines", requests, cancellationToken);
+                var response = await _client.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", requests, cancellationToken);
                 _logger.LogSuccess("PostTransposeLinesAsync completed successfully.");
-                return response?.Result; // Fix: Changed return type to List<TransposeLineResultItem>
+                return response?.Result;
             }
             catch (ApiException ex)
             {
