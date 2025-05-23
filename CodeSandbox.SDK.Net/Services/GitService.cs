@@ -299,113 +299,197 @@ namespace CodeSandbox.SDK.Net.Services
                 throw new Exception($"Unexpected error while adding remote: {ex.Message}", ex);
             }
         }
-    }
-
-    /// <summary>
-    /// Represents the result of a Git status request.
-    /// </summary>
-    public class GitStatusResult
-    {
-        /// <summary>
-        /// Gets or sets the status string.
-        /// </summary>
-        [JsonProperty("status")]
-        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the list of changes.
+        /// Pushes changes to the remote repository.
         /// </summary>
-        [JsonProperty("changes")]
-        public List<GitChange> Changes { get; set; }
-    }
-
-    /// <summary>
-    /// Represents a Git change item.
-    /// </summary>
-    public class GitChange
-    {
-        /// <summary>
-        /// Gets or sets the path of the changed file.
-        /// </summary>
-        [JsonProperty("path")]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of change (e.g., modified, added, deleted).
-        /// </summary>
-        [JsonProperty("type")]
-        public string Type { get; set; }
-    }
-
-    /// <summary>
-    /// Represents the result of a Git remotes request.
-    /// </summary>
-    public class GitRemotesResult
-    {
-        /// <summary>
-        /// Gets or sets the list of remotes.
-        /// </summary>
-        [JsonProperty("remotes")]
-        public List<GitRemote> Remotes { get; set; }
-    }
-
-    /// <summary>
-    /// Represents a Git remote repository.
-    /// </summary>
-    public class GitRemote
-    {
-        /// <summary>
-        /// Gets or sets the name of the remote.
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        public async Task PostPushAsync(CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting PostPushAsync...");
+            try
+            {
+                await _client.PostAsync<object>("/git/push", new { }, cancellationToken);
+                _logger.LogSuccess("PostPushAsync completed successfully.");
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostPushAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while pushing: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostPushAsync.", ex);
+                throw new Exception($"Unexpected error while pushing: {ex.Message}", ex);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the URL of the remote.
+        /// Pushes changes to a specific remote and branch.
         /// </summary>
-        [JsonProperty("url")]
-        public string Url { get; set; }
-    }
+        public async Task PostPushToRemoteAsync(string url, string branch, bool squashAllCommits = false, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(url)) throw new ArgumentException("URL cannot be null or whitespace.", nameof(url));
+            if (string.IsNullOrWhiteSpace(branch)) throw new ArgumentException("Branch cannot be null or whitespace.", nameof(branch));
 
-    /// <summary>
-    /// Represents the result of a Git target diff request.
-    /// </summary>
-    public class GitTargetDiffResult
-    {
-        /// <summary>
-        /// Gets or sets the branch name.
-        /// </summary>
-        [JsonProperty("branch")]
-        public string Branch { get; set; }
+            _logger.LogInfo($"Starting PostPushToRemoteAsync to {url} branch {branch}...");
+            try
+            {
+                await _client.PostAsync<object>("/git/pushToRemote", new { url, branch, squashAllCommits }, cancellationToken);
+                _logger.LogSuccess("PostPushToRemoteAsync completed successfully.");
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostPushToRemoteAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while pushing to remote: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostPushToRemoteAsync.", ex);
+                throw new Exception($"Unexpected error while pushing to remote: {ex.Message}", ex);
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the diff details.
+        /// Renames a branch in the local repository.
         /// </summary>
-        [JsonProperty("diff")]
-        public string Diff { get; set; }
-    }
+        public async Task PostRenameBranchAsync(string oldBranch, string newBranch, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(oldBranch)) throw new ArgumentException("Old branch cannot be null or whitespace.", nameof(oldBranch));
+            if (string.IsNullOrWhiteSpace(newBranch)) throw new ArgumentException("New branch cannot be null or whitespace.", nameof(newBranch));
 
-    /// <summary>
-    /// Represents the discard result response from the API.
-    /// </summary>
-    public class DiscardResult
-    {
-        /// <summary>
-        /// Gets or sets the inner result object.
-        /// </summary>
-        [JsonProperty("result")]
-        public DiscardInnerResult Result { get; set; }
-    }
+            _logger.LogInfo($"Starting PostRenameBranchAsync from {oldBranch} to {newBranch}...");
+            try
+            {
+                await _client.PostAsync<object>("/git/renameBranch", new { oldBranch, newBranch }, cancellationToken);
+                _logger.LogSuccess("PostRenameBranchAsync completed successfully.");
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostRenameBranchAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while renaming branch: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostRenameBranchAsync.", ex);
+                throw new Exception($"Unexpected error while renaming branch: {ex.Message}", ex);
+            }
+        }
 
-    /// <summary>
-    /// Represents the inner discard result details.
-    /// </summary>
-    public class DiscardInnerResult
-    {
         /// <summary>
-        /// Gets or sets the list of discarded file paths.
+        /// Retrieves the content of a file from a remote branch or commit.
         /// </summary>
-        [JsonProperty("paths")]
-        public List<string> Paths { get; set; }
-    }
-}
+        public async Task<string> PostRemoteContentAsync(string reference, string path, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(reference)) throw new ArgumentException("Reference cannot be null or whitespace.", nameof(reference));
+            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException("Path cannot be null or whitespace.", nameof(path));
+
+            _logger.LogInfo($"Starting PostRemoteContentAsync for reference {reference} and path {path}...");
+            try
+            {
+                var response = await _client.PostAsync<RemoteContentResult>("/git/remoteContent", new { reference, path }, cancellationToken);
+                _logger.LogSuccess("PostRemoteContentAsync completed successfully.");
+                return response?.Result?.Content;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostRemoteContentAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while getting remote content: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostRemoteContentAsync.", ex);
+                throw new Exception($"Unexpected error while getting remote content: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the status of changes between two references.
+        /// </summary>
+        public async Task<GitDiffStatusResult> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(baseRef)) throw new ArgumentException("Base reference cannot be null or whitespace.", nameof(baseRef));
+            if (string.IsNullOrWhiteSpace(headRef)) throw new ArgumentException("Head reference cannot be null or whitespace.", nameof(headRef));
+
+            _logger.LogInfo($"Starting PostDiffStatusAsync from {baseRef} to {headRef}...");
+            try
+            {
+                var response = await _client.PostAsync<GitDiffStatusResult>("/git/diffStatus", new { base = baseRef, head = headRef }, cancellationToken);
+                _logger.LogSuccess("PostDiffStatusAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostDiffStatusAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while getting diff status: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostDiffStatusAsync.", ex);
+                throw new Exception($"Unexpected error while getting diff status: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Resets the local repository to match the remote.
+        /// </summary>
+        public async Task PostResetLocalWithRemoteAsync(CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting PostResetLocalWithRemoteAsync...");
+            try
+            {
+                await _client.PostAsync<object>("/git/resetLocalWithRemote", new { }, cancellationToken);
+                _logger.LogSuccess("PostResetLocalWithRemoteAsync completed successfully.");
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostResetLocalWithRemoteAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while resetting local with remote: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostResetLocalWithRemoteAsync.", ex);
+                throw new Exception($"Unexpected error while resetting local with remote: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Checks out the initial branch of the repository.
+        /// </summary>
+        public async Task PostCheckoutInitialBranchAsync(CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting PostCheckoutInitialBranchAsync...");
+            try
+            {
+                await _client.PostAsync<object>("/git/checkoutInitialBranch", new { }, cancellationToken);
+                _logger.LogSuccess("PostCheckoutInitialBranchAsync completed successfully.");
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostCheckoutInitialBranchAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception($"API error while checking out initial branch: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostCheckoutInitialBranchAsync.", ex);
+                throw new Exception($"Unexpected error while checking out initial branch: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Maps line numbers between different git commits.
+        /// </summary>
+        public async Task<List<TransposedLineResult>> PostTransposeLinesAsync(List<TransposedLineRequest> requests, CancellationToken cancellationToken = default)
+        {
+            if (requests == null || requests.Count == 0) throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
+
+            _logger.LogInfo("Starting PostTransposeLinesAsync...");
+            try
+            {
+                var response = await _client.PostAsync<TransposeLinesResult>("/git/transposeLines", requests, cancellationToken);
+                _logger.LogSuccess("PostTransposeLinesAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in PostTransposeLinesAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                throw new Exception

@@ -160,7 +160,6 @@
     <None Include="Docs\OpenAPI-Port.json" />
     <None Include="Docs\OpenAPI-git-spec.json" />
     <None Include="Docs\OpenAPI-Sandbox-System.json" />
-    <None Include="Docs\OpenAPI-Sandbox-Task - Copy %283%29.json" />
     <None Include="Docs\OpenAPI-Sandbox-Shell.json" />
     <None Include="Docs\OpenAPI-Sandbox-Task.json" />
     <None Include="LICENSE.md" />
