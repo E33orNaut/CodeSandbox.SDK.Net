@@ -34,12 +34,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<object>> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default)
+        public async Task<object> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting WriteFileAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<object>>("/fs/writeFile", request, cancellationToken);
+                var result = await _apiClient.PostAsync<object>("/fs/writeFile", request, cancellationToken);
                 _logger.LogSuccess("WriteFileAsync completed successfully.");
                 return result;
             }
@@ -60,12 +60,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the search results.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<PathSearchResult>> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default)
+        public async Task<PathSearchResult> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsPathSearchAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<PathSearchResult>>("/fs/pathSearch", request, cancellationToken);
+                var result = await _apiClient.PostAsync<Models.PathSearchResult>("/fs/pathSearch", request, cancellationToken);
                 _logger.LogSuccess("FsPathSearchAsync completed successfully.");
                 return result;
             }
@@ -86,12 +86,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the upload results.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<UploadResult>> FsUploadAsync(UploadRequest request, CancellationToken cancellationToken = default)
+        public async Task<UploadResult> FsUploadAsync(UploadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsUploadAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<UploadResult>>("/fs/upload", request, cancellationToken);
+                var result = await _apiClient.PostAsync<UploadResult>("/fs/upload", request, cancellationToken);
                 _logger.LogSuccess("FsUploadAsync completed successfully.");
                 return result;
             }
@@ -112,12 +112,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the download results.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<DownloadResult>> FsDownloadAsync(DownloadRequest request, CancellationToken cancellationToken = default)
+        public async Task<DownloadResult> FsDownloadAsync(DownloadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsDownloadAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<DownloadResult>>("/fs/download", request, cancellationToken);
+                var result = await _apiClient.PostAsync<DownloadResult>("/fs/download", request, cancellationToken);
                 _logger.LogSuccess("FsDownloadAsync completed successfully.");
                 return result;
             }
@@ -138,12 +138,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the file contents.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<FSReadFileResult>> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
-        {
+        public async Task<FSReadFileResult> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
+        {   
             _logger.LogInfo("Starting FsReadFileAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<FSReadFileResult>>("/fs/readFile", request, cancellationToken);
+                var result = await _apiClient.PostAsync<FSReadFileResult>("/fs/readFile", request, cancellationToken);
                 _logger.LogSuccess("FsReadFileAsync completed successfully.");
                 return result;
             }
@@ -164,12 +164,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing directory entries.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<FSReadDirResult>> ReadDirAsync(FSReadDirParams request, CancellationToken cancellationToken = default)
+        public async Task<FSReadDirResult> ReadDirAsync(FSReadDirParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting ReadDirAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<FSReadDirResult>>("/fs/readdir", request, cancellationToken);
+                var result = await _apiClient.PostAsync<FSReadDirResult>("/fs/readdir", request, cancellationToken);
                 _logger.LogSuccess("ReadDirAsync completed successfully.");
                 return result;
             }
@@ -190,12 +190,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the stat results.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<FSStatResult>> StatAsync(FSStatParams request, CancellationToken cancellationToken = default)
+        public async Task<FSStatResult> StatAsync(FSStatParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting StatAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<FSStatResult>>("/fs/stat", request, cancellationToken);
+                var result = await _apiClient.PostAsync<FSStatResult>("/fs/stat", request, cancellationToken);
                 _logger.LogSuccess("StatAsync completed successfully.");
                 return result;
             }
@@ -216,12 +216,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<object>> CopyAsync(FSCopyParams request, CancellationToken cancellationToken = default)
+        public async Task<object> CopyAsync(FSCopyParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting CopyAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<object>>("/fs/copy", request, cancellationToken);
+                var result = await _apiClient.PostAsync<object>("/fs/copy", request, cancellationToken);
                 _logger.LogSuccess("CopyAsync completed successfully.");
                 return result;
             }
@@ -242,12 +242,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<object>> RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
+        public async Task<object    > RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RenameAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<object>>("/fs/rename", request, cancellationToken);
+                var result = await _apiClient.PostAsync<object>("/fs/rename", request, cancellationToken);
                 _logger.LogSuccess("RenameAsync completed successfully.");
                 return result;
             }
@@ -268,12 +268,12 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<SuccessResponse<object>> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default)
+        public async Task<object> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RemoveAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<SuccessResponse<object>>("/fs/remove", request, cancellationToken);
+                var result = await _apiClient.PostAsync<object>("/fs/remove", request, cancellationToken);
                 _logger.LogSuccess("RemoveAsync completed successfully.");
                 return result;
             }

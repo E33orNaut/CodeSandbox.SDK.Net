@@ -12,7 +12,7 @@ namespace CodeSandbox.SDK.Net.Services
     {
         Task<SuccessResponse> GetTaskListAsync(CancellationToken cancellationToken = default);
         Task<SuccessResponse> RunTaskAsync(string taskId, CancellationToken cancellationToken = default);
-        Task<SuccessResponse> RunCommandAsync(string taskId, CancellationToken cancellationToken = default);
+        Task<SuccessResponse> RunCommandAsync(string taskId, string s,CancellationToken cancellationToken = default);
         Task<SuccessResponse> StopTaskAsync(string taskId, CancellationToken cancellationToken = default);
         Task<SuccessResponse> CreateTaskAsync(string taskId, CancellationToken cancellationToken = default);
         Task<SuccessResponse> UpdateTaskAsync(string taskId, CancellationToken cancellationToken = default);

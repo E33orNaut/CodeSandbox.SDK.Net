@@ -413,7 +413,8 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostDiffStatusAsync from {baseRef} to {headRef}...");
             try
             {
-                var response = await _client.PostAsync<GitDiffStatusResult>("/git/diffStatus", new { base = baseRef, head = headRef }, cancellationToken);
+                // Fix for CS0746 and CS0175: Rename 'base' to 'baseRef' in the anonymous type
+                var response = await _client.PostAsync<GitDiffStatusResult>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
                 _logger.LogSuccess("PostDiffStatusAsync completed successfully.");
                 return response;
             }
@@ -478,7 +479,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Maps line numbers between different git commits.
         /// </summary>
-        public async Task<List<TransposedLineResult>> PostTransposeLinesAsync(List<TransposedLineRequest> requests, CancellationToken cancellationToken = default)
+        public async Task<List<TransposeLineResultItem>> PostTransposeLinesAsync(List<TransposeLinesResult> requests, CancellationToken cancellationToken = default)
         {
             if (requests == null || requests.Count == 0) throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
 
@@ -487,9 +488,18 @@ namespace CodeSandbox.SDK.Net.Services
             {
                 var response = await _client.PostAsync<TransposeLinesResult>("/git/transposeLines", requests, cancellationToken);
                 _logger.LogSuccess("PostTransposeLinesAsync completed successfully.");
-                return response?.Result;
+                return response?.Result; // Fix: Changed return type to List<TransposeLineResultItem>
             }
             catch (ApiException ex)
             {
                 _logger.LogError($"API error in PostTransposeLinesAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception
+                throw new Exception($"API error while transposing lines: {ex.Message} (Status: {ex.ErrorCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in PostTransposeLinesAsync.", ex);
+                throw new Exception($"Unexpected error while transposing lines: {ex.Message}", ex);
+            }
+        }
+    }
+}
