@@ -27,11 +27,12 @@
 
 ## Installation
 dotnet add package CodeSandbox.SDK.Net
+
 ---
 
 ## Quick Start
 
-'''csharp
+```csharp
 
 var client = new ApiClient("api-token");
 
@@ -87,6 +88,7 @@ await setupService.EnableSetupAsync();
 await setupService.DisableSetupAsync();
 await setupService.SetStepAsync(0); 
 ```
+___
 
 ## API Coverage
 
