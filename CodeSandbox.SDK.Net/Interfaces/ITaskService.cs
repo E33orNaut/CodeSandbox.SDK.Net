@@ -10,6 +10,19 @@ namespace CodeSandbox.SDK.Net.Services
     /// </summary>
     public interface ITaskService
     {
+        Task<SuccessResponse> GetTaskListAsync(CancellationToken cancellationToken = default);
+        Task<SuccessResponse> RunTaskAsync(string taskId, CancellationToken cancellationToken = default);
+        Task<SuccessResponse> RunCommandAsync(string taskId, CancellationToken cancellationToken = default);
+        Task<SuccessResponse> StopTaskAsync(string taskId, CancellationToken cancellationToken = default);
+        Task<SuccessResponse> CreateTaskAsync(string taskId, CancellationToken cancellationToken = default);
+        Task<SuccessResponse> UpdateTaskAsync(string taskId, CancellationToken cancellationToken = default);
+        // savetoconfig
+        Task<SuccessResponse> SaveToConfigAsync(string taskId, CancellationToken cancellationToken = default);
+        // generateconfig
+        Task<SuccessResponse> GenerateConfigAsync(string taskId, CancellationToken cancellationToken = default);
+ 
+
+
         /// <summary>
         /// Creates setup tasks asynchronously.
         /// </summary>

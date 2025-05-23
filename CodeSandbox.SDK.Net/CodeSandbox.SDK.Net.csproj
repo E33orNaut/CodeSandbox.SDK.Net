@@ -122,6 +122,7 @@
     <Compile Include="Models\GitChangedFiles.cs" />
     <Compile Include="Models\GitCommit.cs" />
     <Compile Include="Models\GitStatus.cs" />
+    <Compile Include="Models\RunCommandRequest.cs" />
     <Compile Include="Models\SandboxFSModels.cs" />
     <Compile Include="Models\SetupProgress.cs" />
     <Compile Include="Models\ShellRenameRequest.cs" />

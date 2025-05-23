@@ -12,7 +12,14 @@ namespace CodeSandbox.SDK.Net.Example
 {
     internal class Program
     {
-        static async Task Main()
+        static async Task Main(string[] args)
+        {
+            string apiToken = "csb_v1_ZsUlyshKmWcDqdvrWPlOeMfrFCqw8Es3u1TPd3f4rjo";
+
+            var client = new ApiClient(apiToken);
+            var job = new ContainerService(client).
+        }
+        static async Task DemoMain()
         {
             var client = new ApiClient("api-token");
 
