@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace OpenSandbox.SDK.Net.Models.New.SandboxSetupModels
+namespace CodeSandbox.SDK.Net.Models.New.SandboxSetupModels
 {
     // --- Success Response ---
     public class SandboxSetupSuccessResponse

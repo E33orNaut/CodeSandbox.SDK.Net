@@ -1,118 +1,239 @@
 ﻿using System;
-using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Interfaces;
+using CodeSandbox.SDK.Net.Models.New.SandboxShellModels;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models;
-using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Service for shell-related API operations.
+    /// Service for managing terminal and command shells in the sandbox.
     /// </summary>
-    public class ShellService : IShellService
+    public class ShellService
     {
-        private readonly HttpClient _httpClient;
+        private readonly ApiClient _client;
         private readonly LoggerService _logger;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ShellService"/> class.
-        /// </summary>
-        /// <param name="httpClient">HTTP client for requests.</param>
-        /// <param name="logger">Logger service.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
-        public ShellService(HttpClient httpClient, LoggerService logger)
+        public ShellService(ApiClient client, LoggerService logger = null)
         {
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _client = client ?? throw new ArgumentNullException(nameof(client));
+            _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
         /// <summary>
-        /// Renames a shell asynchronously by sending a rename request to the API.
+        /// Creates a new shell.
         /// </summary>
-        /// <param name="request">The shell rename request containing necessary information.</param>
-        /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result of the rename operation.</returns>
-        /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
-        /// <exception cref="Exception">Throws when HTTP request fails, JSON deserialization fails, or an unexpected error occurs.</exception>
-        public async Task<SuccessResponse> RenameShellAsync(ShellRenameRequest request, CancellationToken cancellationToken = default)
+        public async Task<SandboxShellSuccessResponse<SandboxOpenShellDTO>> CreateShellAsync(SandboxShellCreateRequest request, CancellationToken cancellationToken = default)
         {
-            string url = "/shell/rename";
-
+            _logger.LogInfo("Starting CreateShellAsync...");
             try
             {
-                _logger.LogTrace($"RenameShellAsync called with request: {JsonConvert.SerializeObject(request)}");
-
-                string json = JsonConvert.SerializeObject(request);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
-
-                string responseJson = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
-                {
-                    try
-                    {
-                        SuccessResponse successResponse = JsonConvert.DeserializeObject<SuccessResponse>(responseJson);
-                        _logger.LogSuccess($"RenameShellAsync succeeded: {JsonConvert.SerializeObject(successResponse)}");
-                        return successResponse;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in RenameShellAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON.", jsonEx);
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(responseJson);
-                        _logger.LogWarning($"API error in RenameShellAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(error.Error?.Code.ToString(), error.Error?.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"API error response deserialization failed in RenameShellAsync. Status code: {response.StatusCode}, Error: {jsonEx.Message}");
-                        throw new Exception($"API error response deserialization failed. Status code: {response.StatusCode}", jsonEx);
-                    }
-                }
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/create", request, cancellationToken);
+                _logger.LogSuccess("CreateShellAsync completed successfully.");
+                return response;
             }
-            catch (HttpRequestException httpEx)
+            catch (ApiException ex)
             {
-                _logger.LogError($"HTTP request failed in RenameShellAsync: {httpEx.Message}");
-                throw new Exception("HTTP request failed in RenameShellAsync.", httpEx);
+                _logger.LogError($"API error in CreateShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while creating shell: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
-            catch (Exception ex) when (!(ex is ApiException))
+            catch (Exception ex)
             {
-                _logger.LogError($"Unexpected error in RenameShellAsync: {ex.Message}");
-                throw new Exception("Unexpected error in RenameShellAsync.", ex);
+                _logger.LogError("Unexpected error in CreateShellAsync.", ex);
+                throw new Exception($"Unexpected error while creating shell: {ex.Message}", ex);
             }
         }
-    }
-
-    /// <summary>
-    /// Exception thrown when the API returns an error response.
-    /// </summary>
-    public class ApiException : Exception
-    {
-        /// <summary>
-        /// Gets the error code returned by the API.
-        /// </summary>
-        public string ErrorCode { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiException"/> class with a specified error code and message.
+        /// Sends input to an active shell.
         /// </summary>
-        /// <param name="code">The error code returned by the API.</param>
-        /// <param name="message">The error message returned by the API.</param>
-        public ApiException(string code, string message) : base(message)
+        public async Task<SandboxShellSuccessResponse<object>> SendInputAsync(SandboxShellInRequest request, CancellationToken cancellationToken = default)
         {
-            ErrorCode = code;
+            _logger.LogInfo("Starting SendInputAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/in", request, cancellationToken);
+                _logger.LogSuccess("SendInputAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in SendInputAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while sending input to shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in SendInputAsync.", ex);
+                throw new Exception($"Unexpected error while sending input to shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Lists all available shells.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<SandboxShellListResult>> ListShellsAsync(CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting ListShellsAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellListResult>>("/shell/list", new { }, cancellationToken);
+                _logger.LogSuccess("ListShellsAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in ListShellsAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while listing shells: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in ListShellsAsync.", ex);
+                throw new Exception($"Unexpected error while listing shells: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Opens an existing shell and retrieves its buffer.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<SandboxOpenShellDTO>> OpenShellAsync(SandboxShellOpenRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting OpenShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/open", request, cancellationToken);
+                _logger.LogSuccess("OpenShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in OpenShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while opening shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in OpenShellAsync.", ex);
+                throw new Exception($"Unexpected error while opening shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Closes a shell without terminating the underlying process.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<object>> CloseShellAsync(SandboxShellIdRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting CloseShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/close", request, cancellationToken);
+                _logger.LogSuccess("CloseShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in CloseShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while closing shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in CloseShellAsync.", ex);
+                throw new Exception($"Unexpected error while closing shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Restarts an existing shell process.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<object>> RestartShellAsync(SandboxShellIdRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting RestartShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/restart", request, cancellationToken);
+                _logger.LogSuccess("RestartShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in RestartShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while restarting shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in RestartShellAsync.", ex);
+                throw new Exception($"Unexpected error while restarting shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Terminates a shell and its underlying process.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<SandboxShellDTO>> TerminateShellAsync(SandboxShellIdRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting TerminateShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellDTO>>("/shell/terminate", request, cancellationToken);
+                _logger.LogSuccess("TerminateShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in TerminateShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while terminating shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in TerminateShellAsync.", ex);
+                throw new Exception($"Unexpected error while terminating shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Resizes a shell.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<object>> ResizeShellAsync(SandboxShellResizeRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting ResizeShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/resize", request, cancellationToken);
+                _logger.LogSuccess("ResizeShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in ResizeShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while resizing shell: {ex.Message} (Status: {ex.StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in ResizeShellAsync.", ex);
+                throw new Exception($"Unexpected error while resizing shell: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Renames a shell.
+        /// </summary>
+        public async Task<SandboxShellSuccessResponse<object>> RenameShellAsync(SandboxShellRenameRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting RenameShellAsync...");
+            try
+            {
+                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/rename", request, cancellationToken);
+                _logger.LogSuccess("RenameShellAsync completed successfully.");
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                _logger.LogError($"API error in RenameShellAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while renaming shell: {ex.Message} (Status: {ex.    StatusCode})", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected error in RenameShellAsync.", ex);
+                throw new Exception($"Unexpected error while renaming shell: {ex.Message}", ex);
+            }
         }
     }
 }

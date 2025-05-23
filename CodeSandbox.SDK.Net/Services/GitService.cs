@@ -47,11 +47,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetStatusAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetStatusAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting Git status: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting Git status: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -82,11 +82,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetRemotesAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetRemotesAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting Git remotes: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting Git remotes: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -123,11 +123,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetTargetDiffAsync for branch '{branch}': {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetTargetDiffAsync for branch '{branch}': {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting target diff for branch '{branch}': {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting target diff for branch '{branch}': {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -164,11 +164,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostPullAsync for branch '{branch}': {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in PostPullAsync for branch '{branch}': {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while pulling branch '{branch}': {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while pulling branch '{branch}': {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -205,11 +205,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostDiscardAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in PostDiscardAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while discarding paths: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while discarding paths: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -244,8 +244,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostCommitAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while committing: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostCommitAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while committing: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -278,11 +278,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostRemoteAddAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in PostRemoteAddAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while adding remote: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while adding remote: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -307,8 +307,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostPushAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while pushing: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostPushAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while pushing: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -333,8 +333,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostPushToRemoteAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while pushing to remote: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostPushToRemoteAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while pushing to remote: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -359,8 +359,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostRenameBranchAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while renaming branch: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostRenameBranchAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while renaming branch: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -386,8 +386,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostRemoteContentAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while getting remote content: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostRemoteContentAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while getting remote content: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -413,8 +413,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostDiffStatusAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while getting diff status: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostDiffStatusAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while getting diff status: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -436,8 +436,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostResetLocalWithRemoteAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while resetting local with remote: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostResetLocalWithRemoteAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while resetting local with remote: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -459,8 +459,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostCheckoutInitialBranchAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while checking out initial branch: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostCheckoutInitialBranchAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while checking out initial branch: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -487,8 +487,8 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in PostTransposeLinesAsync: {ex.Message} (Status: {ex.ErrorCode})");
-                throw new Exception($"API error while transposing lines: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                _logger.LogError($"API error in PostTransposeLinesAsync: {ex.Message} (Status: {ex.StatusCode})");
+                throw new Exception($"API error while transposing lines: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {

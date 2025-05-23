@@ -68,12 +68,22 @@ namespace CodeSandbox.SDK.Net.Services
                     {
                         ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
                         _logger.LogError($"API error in UpdateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(error.Error?.Code.ToString(), error.Error?.Message);
+                        throw new ApiException(
+                            error.Error?.Message ?? "API error",
+                            (int)response.StatusCode,
+                            json,
+                            error
+                        );
                     }
                     catch (JsonException jsonEx)
                     {
                         _logger.LogError($"API error response deserialization failed in UpdateSystemAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new Exception($"API error response deserialization failed in UpdateSystemAsync. Status code: {response.StatusCode}", jsonEx);
+                        throw new ApiException(
+                            "API error response deserialization failed in UpdateSystemAsync.",
+                            (int)response.StatusCode,
+                            json,
+                            jsonEx
+                        );
                     }
                 }
             }
@@ -127,12 +137,22 @@ namespace CodeSandbox.SDK.Net.Services
                     {
                         ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
                         _logger.LogError($"API error in HibernateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(error.Error?.Code.ToString(), error.Error?.Message);
+                        throw new ApiException(
+                            error.Error?.Message ?? "API error",
+                            (int)response.StatusCode,
+                            json,
+                            error
+                        );
                     }
                     catch (JsonException jsonEx)
                     {
                         _logger.LogError($"API error response deserialization failed in HibernateSystemAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new Exception($"API error response deserialization failed in HibernateSystemAsync. Status code: {response.StatusCode}", jsonEx);
+                        throw new ApiException(
+                            "API error response deserialization failed in HibernateSystemAsync.",
+                            (int)response.StatusCode,
+                            json,
+                            jsonEx
+                        );
                     }
                 }
             }
@@ -190,12 +210,22 @@ namespace CodeSandbox.SDK.Net.Services
                     {
                         ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
                         _logger.LogError($"API error in GetSystemMetricsAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(error.Error?.Code.ToString(), error.Error?.Message);
+                        throw new ApiException(
+                            error.Error?.Message ?? "API error",
+                            (int)response.StatusCode,
+                            json,
+                            error
+                        );
                     }
                     catch (JsonException jsonEx)
                     {
                         _logger.LogError($"API error response deserialization failed in GetSystemMetricsAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new Exception($"API error response deserialization failed in GetSystemMetricsAsync. Status code: {response.StatusCode}", jsonEx);
+                        throw new ApiException(
+                            "API error response deserialization failed in GetSystemMetricsAsync.",
+                            (int)response.StatusCode,
+                            json,
+                            jsonEx
+                        );
                     }
                 }
             }

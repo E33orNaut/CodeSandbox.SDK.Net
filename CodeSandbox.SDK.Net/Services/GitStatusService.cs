@@ -44,11 +44,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetStatusAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetStatusAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting Git status: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting Git status: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -77,11 +77,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetTargetDiffAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetTargetDiffAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting Git target diff: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting Git target diff: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -110,11 +110,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetRemotesAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetRemotesAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting Git remotes: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting Git remotes: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -158,11 +158,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetRemoteParamsAsync for reference '{reference}', path '{path}': {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetRemoteParamsAsync for reference '{reference}', path '{path}': {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting remote params for reference '{reference}', path '{path}': {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting remote params for reference '{reference}', path '{path}': {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
@@ -210,11 +210,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetDiffStatusAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetDiffStatusAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while getting diff status between '{baseRef}' and '{headRef}': {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while getting diff status between '{baseRef}' and '{headRef}': {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {
