@@ -16,7 +16,7 @@ namespace CodeSandbox.SDK.Net.Models
         /// <summary>
         /// Gets or sets the new name for the shell.
         /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("newName")]
+        public string NewName { get; set; }
     }
 }

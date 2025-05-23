@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Models
 {
@@ -7,9 +8,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class PathSearchParams
     {
-        /// <summary>
-        /// Gets or sets the search pattern.
-        /// </summary>
+        [JsonProperty("pattern")]
         public string Pattern { get; set; }
     }
 
@@ -18,9 +17,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class PathSearchResult
     {
-        /// <summary>
-        /// Gets or sets the list of matching paths.
-        /// </summary>
+        [JsonProperty("paths")]
         public List<string> Paths { get; set; }
     }
 
@@ -29,19 +26,13 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class UploadRequest
     {
-        /// <summary>
-        /// Gets or sets the parent directory ID where the file should be uploaded.
-        /// </summary>
+        [JsonProperty("parentId")]
         public string ParentId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the filename for the upload.
-        /// </summary>
+        [JsonProperty("filename")]
         public string Filename { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file content as a string.
-        /// </summary>
+        [JsonProperty("content")]
         public string Content { get; set; }
     }
 
@@ -50,9 +41,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class UploadResult
     {
-        /// <summary>
-        /// Gets or sets the ID of the uploaded file.
-        /// </summary>
+        [JsonProperty("fileId")]
         public string FileId { get; set; }
     }
 
@@ -61,14 +50,10 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class DownloadRequest
     {
-        /// <summary>
-        /// Gets or sets the path to download.
-        /// </summary>
+        [JsonProperty("path")]
         public string Path { get; set; }
 
-        /// <summary>
-        /// Gets or sets the list of paths to exclude from download.
-        /// </summary>
+        [JsonProperty("excludes")]
         public List<string> Excludes { get; set; }
     }
 
@@ -77,9 +62,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class DownloadResult
     {
-        /// <summary>
-        /// Gets or sets the URL to download the requested content.
-        /// </summary>
+        [JsonProperty("downloadUrl")]
         public string DownloadUrl { get; set; }
     }
 
@@ -88,9 +71,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class FSReadFileParams
     {
-        /// <summary>
-        /// Gets or sets the path of the file to read.
-        /// </summary>
+        [JsonProperty("path")]
         public string Path { get; set; }
     }
 
@@ -99,9 +80,7 @@ namespace CodeSandbox.SDK.Models
     /// </summary>
     public class FSReadFileResult
     {
-        /// <summary>
-        /// Gets or sets the content of the file.
-        /// </summary>
+        [JsonProperty("content")]
         public string Content { get; set; }
     }
 

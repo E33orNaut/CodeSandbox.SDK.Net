@@ -1,23 +1,19 @@
-﻿namespace CodeSandbox.SDK.Net.Models
+﻿using Newtonsoft.Json;
+
+    namespace CodeSandbox.SDK.Net.Models
 {
     /// <summary>
-    /// Represents a protocol-level error returned by the API.
+    /// Represents a protocol error returned from the API.
     /// </summary>
     public class ProtocolError
     {
-        /// <summary>
-        /// Gets or sets the error code identifying the error type.
-        /// </summary>
+        [JsonProperty("code")]
         public string Code { get; set; }
 
-        /// <summary>
-        /// Gets or sets the descriptive error message.
-        /// </summary>
+        [JsonProperty("message")]
         public string Message { get; set; }
 
-        /// <summary>
-        /// Gets or sets any additional data related to the error.
-        /// </summary>
+        [JsonProperty("data")]
         public object Data { get; set; }
     }
 }

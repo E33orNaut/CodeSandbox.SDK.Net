@@ -1,4 +1,6 @@
-﻿namespace CodeSandbox.SDK.Net.Models
+﻿using Newtonsoft.Json;
+
+namespace CodeSandbox.SDK.Net.Models
 {
     /// <summary>
     /// Represents the response containing the status and list of ports.
@@ -8,11 +10,13 @@
         /// <summary>
         /// Gets or sets the status code of the response.
         /// </summary>
+        [JsonProperty("status")]
         public int Status { get; set; }
 
         /// <summary>
         /// Gets or sets the result containing the list of ports.
         /// </summary>
+        [JsonProperty("result")]
         public PortListResult Result { get; set; }
     }
 }

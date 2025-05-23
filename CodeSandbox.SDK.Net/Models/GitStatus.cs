@@ -1,60 +1,41 @@
-﻿using System.Collections.Generic;
+﻿    using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models
 {
     /// <summary>
-    /// Represents the current status of a Git repository including changed files, branch info, and commits.
+    /// Represents the status of a Git repository.
     /// </summary>
     public class GitStatus
     {
-        /// <summary>
-        /// Gets or sets the collection of files that have been changed in the working directory.
-        /// </summary>
-        public GitChangedFiles ChangedFiles { get; set; }
+        [JsonProperty("changedFiles")]
+        public Dictionary<string, GitItem> ChangedFiles { get; set; }
 
-        /// <summary>
-        /// Gets or sets the list of files that have been deleted.
-        /// </summary>
+        [JsonProperty("deletedFiles")]
         public List<GitItem> DeletedFiles { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether there are conflicts in the repository.
-        /// </summary>
+        [JsonProperty("conflicts")]
         public bool Conflicts { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether there are any local changes.
-        /// </summary>
+        [JsonProperty("localChanges")]
         public bool LocalChanges { get; set; }
 
-        /// <summary>
-        /// Gets or sets the remote branch properties.
-        /// </summary>
+        [JsonProperty("remote")]
         public GitBranchProperties Remote { get; set; }
 
-        /// <summary>
-        /// Gets or sets the target branch properties.
-        /// </summary>
+        [JsonProperty("target")]
         public GitBranchProperties Target { get; set; }
 
-        /// <summary>
-        /// Gets or sets the current HEAD commit hash.
-        /// </summary>
+        [JsonProperty("head")]
         public string Head { get; set; }
 
-        /// <summary>
-        /// Gets or sets the list of recent commits.
-        /// </summary>
+        [JsonProperty("commits")]
         public List<GitCommit> Commits { get; set; }
 
-        /// <summary>
-        /// Gets or sets the current branch name.
-        /// </summary>
+        [JsonProperty("branch")]
         public string Branch { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether a merge operation is in progress.
-        /// </summary>
+        [JsonProperty("isMerging")]
         public bool IsMerging { get; set; }
     }
 }

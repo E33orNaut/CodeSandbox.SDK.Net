@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models
 {
@@ -11,7 +11,7 @@ namespace CodeSandbox.SDK.Net.Models
         /// <summary>
         /// Gets or sets the list of task definitions to be created.
         /// </summary>
-        [JsonPropertyName("tasks")]
+        [JsonProperty("tasks")]
         public List<TaskDefinitionDTO> Tasks { get; set; }
     }
 }

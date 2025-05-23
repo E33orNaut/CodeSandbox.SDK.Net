@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models
 {
@@ -10,6 +11,7 @@ namespace CodeSandbox.SDK.Net.Models
         /// <summary>
         /// Gets or sets the list of ports.
         /// </summary>
+        [JsonProperty("list")]
         public List<Port> List { get; set; }
     }
 }

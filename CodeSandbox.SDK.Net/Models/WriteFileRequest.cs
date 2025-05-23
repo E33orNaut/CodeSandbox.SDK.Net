@@ -1,4 +1,6 @@
-﻿namespace CodeSandbox.SDK.Models
+﻿using Newtonsoft.Json;
+
+namespace CodeSandbox.SDK.Models
 {
     /// <summary>
     /// Represents a request to write content to a file at a specified path.
@@ -20,5 +22,32 @@
         /// If true, the content is treated as binary data.
         /// </summary>
         public bool? IsBinary { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the JSON schema for the WriteFileRequest model.
+    /// </summary>
+    public static class WriteFileRequestSchema
+    {
+        public static readonly string Schema = @"
+        {
+            ""WriteFileRequest"": {
+                ""type"": ""object"",
+                ""properties"": {
+                    ""path"": { ""type"": ""string"" },
+                    ""content"": { ""type"": ""string"" },
+                    ""isBinary"": { ""type"": ""boolean"" }
+                },
+                ""required"": [""path"", ""content""]
+            },
+            ""MemoryInfo"": {
+                ""type"": ""object"",
+                ""properties"": {
+                    ""used"": { ""type"": ""integer"" },
+                    ""total"": { ""type"": ""integer"" },
+                    ""configured"": { ""type"": ""integer"" }
+                }
+            }
+        }";
     }
 }

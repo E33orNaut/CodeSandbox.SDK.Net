@@ -1,4 +1,6 @@
-﻿namespace CodeSandbox.SDK.Net.Models
+﻿using Newtonsoft.Json;
+
+namespace CodeSandbox.SDK.Net.Models
 {
     /// <summary>
     /// Represents the response from a container setup request.

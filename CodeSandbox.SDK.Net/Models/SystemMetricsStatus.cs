@@ -3,7 +3,7 @@
 namespace CodeSandbox.SDK.Net.Models
 {
     /// <summary>
-    /// Represents the current system metrics status including CPU, memory, and storage information.
+    /// Represents system metrics status information.
     /// </summary>
     public class SystemMetricsStatus
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models
 {
@@ -7,14 +8,10 @@ namespace CodeSandbox.SDK.Net.Models
     /// </summary>
     public class GitDiffStatusResult
     {
-        /// <summary>
-        /// Gets or sets the status code of the response.
-        /// </summary>
+        [JsonProperty("status")]
         public int Status { get; set; }
 
-        /// <summary>
-        /// Gets or sets the detailed result data.
-        /// </summary>
+        [JsonProperty("result")]
         public GitDiffStatusData Result { get; set; }
     }
 
@@ -23,9 +20,7 @@ namespace CodeSandbox.SDK.Net.Models
     /// </summary>
     public class GitDiffStatusData
     {
-        /// <summary>
-        /// Gets or sets the list of changed files and their diff details.
-        /// </summary>
+        [JsonProperty("files")]
         public List<GitDiffStatusItem> Files { get; set; }
     }
 
@@ -34,25 +29,16 @@ namespace CodeSandbox.SDK.Net.Models
     /// </summary>
     public class GitDiffStatusItem
     {
-        /// <summary>
-        /// Gets or sets the file status code.
-        /// Examples include "", "M" (modified), "A" (added), etc.
-        /// </summary>
+        [JsonProperty("status")]
         public string Status { get; set; }
 
-        /// <summary>
-        /// Gets or sets the current file path.
-        /// </summary>
+        [JsonProperty("path")]
         public string Path { get; set; }
 
-        /// <summary>
-        /// Gets or sets the old file path (if renamed or moved).
-        /// </summary>
+        [JsonProperty("oldPath")]
         public string OldPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the list of hunks (sections of changes) in the file.
-        /// </summary>
+        [JsonProperty("hunks")]
         public List<Hunk> Hunks { get; set; }
     }
 
@@ -61,14 +47,10 @@ namespace CodeSandbox.SDK.Net.Models
     /// </summary>
     public class Hunk
     {
-        /// <summary>
-        /// Gets or sets the range of lines in the original file affected by the hunk.
-        /// </summary>
+        [JsonProperty("original")]
         public Range Original { get; set; }
 
-        /// <summary>
-        /// Gets or sets the range of lines in the modified file affected by the hunk.
-        /// </summary>
+        [JsonProperty("modified")]
         public Range Modified { get; set; }
     }
 
@@ -77,14 +59,10 @@ namespace CodeSandbox.SDK.Net.Models
     /// </summary>
     public class Range
     {
-        /// <summary>
-        /// Gets or sets the starting line number of the range (1-based).
-        /// </summary>
+        [JsonProperty("start")]
         public int Start { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ending line number of the range.
-        /// </summary>
+        [JsonProperty("end")]
         public int End { get; set; }
     }
 }

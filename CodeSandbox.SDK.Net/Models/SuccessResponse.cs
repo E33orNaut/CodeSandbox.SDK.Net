@@ -1,19 +1,16 @@
-﻿namespace CodeSandbox.SDK.Models
+﻿using Newtonsoft.Json;
+
+namespace CodeSandbox.SDK.Models
 {
     /// <summary>
-    /// Represents a successful response wrapping a result of type <typeparamref name="T"/>.
+    /// Represents a generic success response from the API.
     /// </summary>
-    /// <typeparam name="T">The type of the response result.</typeparam>
-    public class SuccessResponse<T>
+    public class SuccessResponse
     {
-        /// <summary>
-        /// Gets or sets the status of the response as a string.
-        /// </summary>
-        public string Status { get; set; }
+        [JsonProperty("status")]
+        public int Status { get; set; }
 
-        /// <summary>
-        /// Gets or sets the result of the response.
-        /// </summary>
-        public T Result { get; set; }
+        [JsonProperty("result")]
+        public object Result { get; set; }
     }
 }
