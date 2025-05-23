@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.New.Models.New.SandboxContainerModels;
+using ContainerSetupRequest = CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupRequest;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {
@@ -15,6 +17,6 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <param name="request">The container setup request containing configuration details.</param>
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A task representing the asynchronous operation, with a <see cref="ContainerSetupResponse"/> result containing setup details.</returns>
-        Task<ContainerSetupResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default);
+        Task<ContainerSetupSuccessResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default);
     }
 }

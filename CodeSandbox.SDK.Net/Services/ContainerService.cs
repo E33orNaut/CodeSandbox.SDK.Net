@@ -2,8 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
-using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Internal; 
+using CodeSandbox.SDK.New.Models.New.SandboxContainerModels;
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
@@ -29,7 +29,7 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <inheritdoc/>
-        public async Task<ContainerSetupResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default)
+        public async Task<ContainerSetupSuccessResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default)
         {
             if (request == null)
             {
@@ -41,7 +41,7 @@ namespace CodeSandbox.SDK.Net.Services
 
             try
             {
-                ContainerSetupResponse response = await _client.PostAsync<ContainerSetupResponse>("/container/setup", request, cancellationToken);
+                var response = await _client.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, cancellationToken);
                 _logger.LogSuccess("Container setup completed successfully.");
                 return response;
             }

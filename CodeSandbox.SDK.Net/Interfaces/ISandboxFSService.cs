@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Models;
+using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {
@@ -15,7 +15,7 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <param name="request">The request parameters for writing a file.</param>
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A task returning a success response with an optional result object.</returns>
-        Task<object> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default);
+        Task<object> WriteFileAsync(SandboxFSWriteFileRequest request, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Asynchronously searches paths in the file system.
@@ -23,7 +23,7 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <param name="request">Parameters for path search.</param>
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A task returning a success response with the path search result.</returns>
-        Task<PathSearchResult> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default);
+        Task<SandboxFSPathSearchResult> FsPathSearchAsync(SandboxFSPathSearchResult request, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Asynchronously uploads a file.

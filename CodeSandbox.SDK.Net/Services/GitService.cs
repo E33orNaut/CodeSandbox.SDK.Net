@@ -68,14 +68,15 @@ namespace CodeSandbox.SDK.Net.Services
         /// Gets the list of Git remotes.
         /// </summary>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A <see cref="GitRemotesResult"/> containing the list of remotes.</returns>
+        /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
+        /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitRemotesResult> GetRemotesAsync(CancellationToken cancellationToken = default)
+        public async Task<GitRemotesResponse> GetRemotesAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetRemotesAsync...");
             try
             {
-                GitRemotesResult response = await _client.PostAsync<GitRemotesResult>("/git/remotes", new { }, cancellationToken);
+                var response = await _client.PostAsync<GitRemotesResponse>("/git/remotes", new { }, cancellationToken);
                 _logger.LogSuccess("GetRemotesAsync completed successfully.");
                 return response;
             }
@@ -103,10 +104,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         /// <param name="branch">The target branch name.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A <see cref="GitTargetDiffResult"/> containing the diff details.</returns>
+        /// <returns>A <see cref="GitTargetDiffResponse"/> containing the diff details.</returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitTargetDiffResult> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
+        public async Task<GitTargetDiffResponse> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
             {
@@ -116,7 +117,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting GetTargetDiffAsync for branch '{branch}'...");
             try
             {
-                GitTargetDiffResult response = await _client.PostAsync<GitTargetDiffResult>("/git/targetDiff", new { branch }, cancellationToken);
+                var response = await _client.PostAsync<GitTargetDiffResponse>("/git/targetDiff", new { branch }, cancellationToken);
                 _logger.LogSuccess($"GetTargetDiffAsync for branch '{branch}' completed successfully.");
                 return response;
             }
@@ -226,36 +227,29 @@ namespace CodeSandbox.SDK.Net.Services
         /// </summary>
         /// <param name="message">The commit message.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <returns>The shell ID of the created commit.</returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="message"/> is null or whitespace.</exception>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task PostCommitAsync(string message, CancellationToken cancellationToken = default)
+        public async Task<string> PostCommitAsync(string message, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(message))
-            {
                 throw new ArgumentException("Commit message cannot be null or whitespace.", nameof(message));
-            }
 
             _logger.LogInfo($"Starting PostCommitAsync with message '{message}'...");
             try
             {
-                await _client.PostAsync<object>("/git/commit", new { message }, cancellationToken);
+                var response = await _client.PostAsync<GitCommitResponse>("/git/commit", new { message }, cancellationToken);
                 _logger.LogSuccess("PostCommitAsync completed successfully.");
+                return response?.Result?.ShellId;
             }
             catch (ApiException ex)
             {
                 _logger.LogError($"API error in PostCommitAsync: {ex.Message} (Status: {ex.ErrorCode})");
-#if DEBUG
-                _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
-#endif
                 throw new Exception($"API error while committing: {ex.Message} (Status: {ex.ErrorCode})", ex);
             }
             catch (Exception ex)
             {
                 _logger.LogError("Unexpected error in PostCommitAsync.", ex);
-#if DEBUG
-                _logger.LogTrace($"DEBUG - Exception Details: {ex.GetType().Name}: {ex.Message}\n{ex.StackTrace}");
-#endif
                 throw new Exception($"Unexpected error while committing: {ex.Message}", ex);
             }
         }
@@ -405,7 +399,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves the status of changes between two references.
         /// </summary>
-        public async Task<GitDiffStatusResult> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
+        public async Task<GitDiffStatusResponse> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(baseRef)) throw new ArgumentException("Base reference cannot be null or whitespace.", nameof(baseRef));
             if (string.IsNullOrWhiteSpace(headRef)) throw new ArgumentException("Head reference cannot be null or whitespace.", nameof(headRef));
@@ -413,8 +407,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostDiffStatusAsync from {baseRef} to {headRef}...");
             try
             {
-                // Fix for CS0746 and CS0175: Rename 'base' to 'baseRef' in the anonymous type
-                var response = await _client.PostAsync<GitDiffStatusResult>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
+                var response = await _client.PostAsync<GitDiffStatusResponse>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
                 _logger.LogSuccess("PostDiffStatusAsync completed successfully.");
                 return response;
             }

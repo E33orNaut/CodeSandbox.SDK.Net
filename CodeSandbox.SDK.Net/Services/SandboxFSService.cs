@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
-using CodeSandbox.SDK.Models;
+using System.Threading.Tasks; 
 using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
+using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
 
 namespace CodeSandbox.SDK.Services
 {
@@ -34,14 +34,14 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<object> WriteFileAsync(WriteFileRequest request, CancellationToken cancellationToken = default)
+        public async Task<object> WriteFileAsync(SandboxFSWriteFileRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting WriteFileAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<object>("/fs/writeFile", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/writeFile", request, cancellationToken);
                 _logger.LogSuccess("WriteFileAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -60,14 +60,14 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the search results.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<PathSearchResult> FsPathSearchAsync(PathSearchParams request, CancellationToken cancellationToken = default)
+        public async Task<SandboxFSPathSearchResult> FsPathSearchAsync(SandboxFSPathSearchResult request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsPathSearchAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<Models.PathSearchResult>("/fs/pathSearch", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<SandboxFSPathSearchResult>>("/fs/pathSearch", request, cancellationToken);
                 _logger.LogSuccess("FsPathSearchAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -91,9 +91,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting FsUploadAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<UploadResult>("/fs/upload", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<UploadResult>>("/fs/upload", request, cancellationToken);
                 _logger.LogSuccess("FsUploadAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -117,9 +117,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting FsDownloadAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<DownloadResult>("/fs/download", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<DownloadResult>>("/fs/download", request, cancellationToken);
                 _logger.LogSuccess("FsDownloadAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -139,13 +139,13 @@ namespace CodeSandbox.SDK.Services
         /// <returns>A <see cref="Task{SuccessResponse}"/> containing the file contents.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
         public async Task<FSReadFileResult> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
-        {   
+        {
             _logger.LogInfo("Starting FsReadFileAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<FSReadFileResult>("/fs/readFile", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadFileResult>>("/fs/readFile", request, cancellationToken);
                 _logger.LogSuccess("FsReadFileAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -169,9 +169,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting ReadDirAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<FSReadDirResult>("/fs/readdir", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadDirResult>>("/fs/readdir", request, cancellationToken);
                 _logger.LogSuccess("ReadDirAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -195,9 +195,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting StatAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<FSStatResult>("/fs/stat", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSStatResult>>("/fs/stat", request, cancellationToken);
                 _logger.LogSuccess("StatAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -221,9 +221,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting CopyAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<object>("/fs/copy", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/copy", request, cancellationToken);
                 _logger.LogSuccess("CopyAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -242,14 +242,14 @@ namespace CodeSandbox.SDK.Services
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
         /// <exception cref="Exception">Throws if the operation fails.</exception>
-        public async Task<object    > RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
+        public async Task<object> RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RenameAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<object>("/fs/rename", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/rename", request, cancellationToken);
                 _logger.LogSuccess("RenameAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {
@@ -273,9 +273,9 @@ namespace CodeSandbox.SDK.Services
             _logger.LogInfo("Starting RemoveAsync...");
             try
             {
-                var result = await _apiClient.PostAsync<object>("/fs/remove", request, cancellationToken);
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/remove", request, cancellationToken);
                 _logger.LogSuccess("RemoveAsync completed successfully.");
-                return result;
+                return response?.Result;
             }
             catch (Exception ex)
             {

@@ -1,9 +1,19 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 {
     // --- Common Response Models ---
+
+    /// <summary>
+    /// Generic success response wrapper for FS API.
+    /// </summary>
+    public class SandboxFSSuccessResponse<T>
+    {
+        public int Status { get; set; }
+        public T Result { get; set; }
+    }
 
     public class SandboxFSSuccessResponse
     {
@@ -28,7 +38,7 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 
     public class SandboxFSRawFsError
     {
-        public int Code { get; set; } // always 102
+        public int Code { get; set; } // always 102             
         public SandboxFSRawFsErrorData Data { get; set; }
         public string PublicMessage { get; set; }
     }
@@ -81,6 +91,9 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 
     // --- WriteFile ---
 
+    /// <summary>
+    /// Request model for writing a file.
+    /// </summary>
     public class SandboxFSWriteFileRequest
     {
         public string Path { get; set; }
@@ -218,20 +231,32 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 
     // --- PathSearch ---
 
-    public class SandboxFSPathSearchParams
+    /// <summary>
+    /// Request model for searching paths.
+    /// </summary>
+    public class SandboxFSPathSearchRequest
     {
-        public string Text { get; set; }
+        [JsonProperty("pattern")]
+        public string Pattern { get; set; }
     }
 
+    /// <summary>
+    /// Result model for path search.
+    /// </summary>
     public class SandboxFSPathSearchResult
     {
         public List<SandboxFSPathSearchMatch> Matches { get; set; }
     }
 
+    /// <summary>
+    /// Represents a single match in a path search result.
+    /// </summary>
     public class SandboxFSPathSearchMatch
     {
         public string Path { get; set; }
-        public List<SandboxFSSearchSubMatch> Submatches { get; set; }
+        public int? Line { get; set; }
+        public int? Column { get; set; }
+        public string Preview { get; set; }
     }
 
     // --- InvalidIdError ---
@@ -243,26 +268,40 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 
     // --- FSReadFile ---
 
-    public class SandboxFSReadFileParams
+    /// <summary>
+    /// Parameters for reading a file from the filesystem.
+    /// </summary>
+    public class FSReadFileParams
     {
+        [JsonProperty("path")]
         public string Path { get; set; }
     }
 
-    public class SandboxFSReadFileResult
+    /// <summary>
+    /// Result of reading a file's content.
+    /// </summary>
+    public class FSReadFileResult
     {
+        [JsonProperty("content")]
         public string Content { get; set; }
     }
 
     // --- FSReadDir ---
 
-    public class SandboxFSReadDirParams
+    /// <summary>
+    /// Parameters for reading a directory.
+    /// </summary>
+    public class FSReadDirParams
     {
         public string Path { get; set; }
     }
 
-    public class SandboxFSReadDirResult
+    /// <summary>
+    /// Result of reading a directory.
+    /// </summary>
+    public class FSReadDirResult
     {
-        public List<SandboxFSReadDirEntry> Entries { get; set; }
+        public FileInfo[] Entries { get; set; }
     }
 
     public class SandboxFSReadDirEntry
@@ -273,6 +312,26 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
     }
 
     // --- FSStat ---
+
+    /// <summary>
+    /// Parameters for retrieving filesystem statistics.
+    /// </summary>
+    public class FSStatParams
+    {
+        public string Path { get; set; }
+    }
+
+    /// <summary>
+    /// Result of a filesystem stat operation.
+    /// </summary>
+    public class FSStatResult
+    {
+        public string Path { get; set; }
+        public bool IsDirectory { get; set; }
+        public long Size { get; set; }
+        public string CreatedAt { get; set; }
+        public string ModifiedAt { get; set; }
+    }
 
     public class SandboxFSStatParams
     {
@@ -291,6 +350,15 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
 
     // --- FSCopy ---
 
+    /// <summary>
+    /// Parameters for copying a file or directory.
+    /// </summary>
+    public class FSCopyParams
+    {
+        public string SourcePath { get; set; }
+        public string DestinationPath { get; set; }
+    }
+
     public class SandboxFSCopyParams
     {
         public string From { get; set; }
@@ -300,6 +368,15 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
     }
 
     // --- FSRename ---
+
+    /// <summary>
+    /// Parameters for renaming a file or directory.
+    /// </summary>
+    public class FSRenameParams
+    {
+        public string SourcePath { get; set; }
+        public string DestinationPath { get; set; }
+    }
 
     public class SandboxFSRenameParams
     {
@@ -314,6 +391,14 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
     {
         public string Path { get; set; }
         public bool? Recursive { get; set; }
+    }
+
+    /// <summary>
+    /// Parameters for removing a file or directory.
+    /// </summary>
+    public class FSRemoveParams
+    {
+        public string Path { get; set; }
     }
 
     // --- FSMkdir ---
@@ -343,5 +428,66 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxFSModels
     public class SandboxFSUnwatchParams
     {
         public string WatchId { get; set; }
+    }
+
+    // --- Upload ---
+
+    /// <summary>
+    /// Request model for uploading a file.
+    /// </summary>
+    public class UploadRequest
+    {
+        [JsonProperty("parentId")]
+        public string ParentId { get; set; }
+
+        [JsonProperty("filename")]
+        public string Filename { get; set; }
+
+        [JsonProperty("content")]
+        public string Content { get; set; }
+    }
+
+    /// <summary>
+    /// Result of a file upload operation.
+    /// </summary>
+    public class UploadResult
+    {
+        [JsonProperty("fileId")]
+        public string FileId { get; set; }
+    }
+
+    // --- Download ---
+
+    /// <summary>
+    /// Request model for downloading files.
+    /// </summary>
+    public class DownloadRequest
+    {
+        [JsonProperty("path")]
+        public string Path { get; set; }
+
+        [JsonProperty("excludes")]
+        public List<string> Excludes { get; set; }
+    }
+
+    /// <summary>
+    /// Result of a file download operation.
+    /// </summary>
+    public class DownloadResult
+    {
+        [JsonProperty("downloadUrl")]
+        public string DownloadUrl { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a file or directory entry in a directory listing.
+    /// </summary>
+    public class FileInfo
+    {
+        public string Name { get; set; }
+        public bool IsDirectory { get; set; }
+        public long Size { get; set; }
+        public string CreatedAt { get; set; }
+        public string ModifiedAt { get; set; }
     }
 }
