@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models;
+using Codesandbox.SDK.Net.Models.New.Git; 
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {

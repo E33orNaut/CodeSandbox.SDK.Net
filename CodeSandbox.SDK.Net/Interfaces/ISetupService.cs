@@ -1,6 +1,5 @@
 ﻿using System.Threading;
-using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models;
+using System.Threading.Tasks; 
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {

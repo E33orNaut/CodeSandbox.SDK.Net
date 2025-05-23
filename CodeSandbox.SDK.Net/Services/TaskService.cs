@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Models.New.SandboxTaskModels;
 
 namespace CodeSandbox.SDK.Net.Services
 {
@@ -30,8 +30,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
-        public async Task<SuccessResponse> GetTaskListAsync(CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskListResult>> GetTaskListAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetTaskList called.");
             try
@@ -39,43 +38,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = "/task/list";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("GetTaskList succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in GetTaskList: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in GetTaskList.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in GetTaskList: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in GetTaskList: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in GetTaskList.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskListResult>>(responseString, options);
+                    _logger.LogSuccess("GetTaskList succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in GetTaskList.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in GetTaskList: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -90,8 +65,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-
-        public async Task<SuccessResponse> RunTaskAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> RunTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("RunTask called.");
             try
@@ -99,43 +73,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/run/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("RunTask succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in RunTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in RunTask.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in RunTask: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in RunTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in RunTask.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("RunTask succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in RunTask.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in RunTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -150,59 +100,30 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-
-
-        public async Task<SuccessResponse> RunCommandAsync(string taskId, string command, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> RunCommandAsync(string taskId, string command, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("RunCommand called.");
             try
             {
                 string url = $"/task/run/{taskId}";
-                var request = new RunCommandRequest { Command = command };
-                string json = JsonSerializer.Serialize(request, new JsonSerializerOptions
-                {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                });
+                var request = new SandboxTaskRunCommandRequest { Command = command };
+                string json = JsonSerializer.Serialize(request, new JsonSerializerOptions { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("RunCommand succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in RunCommand: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in RunCommand.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in RunCommand: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in RunCommand: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in RunCommand.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("RunCommand succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in RunCommand.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in RunCommand: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -217,8 +138,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-
-        public async Task<SuccessResponse> StopTaskAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> StopTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("StopTask called.");
             try
@@ -226,43 +146,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/stop/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("StopTask succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in StopTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in StopTask.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in StopTask: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in StopTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in StopTask.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("StopTask succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in StopTask.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in StopTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -277,7 +173,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        public async Task<SuccessResponse> CreateTaskAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> CreateTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("CreateTask called.");
             try
@@ -285,43 +181,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/create/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("CreateTask succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in CreateTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in CreateTask.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in CreateTask: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in CreateTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in CreateTask.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("CreateTask succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in CreateTask.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in CreateTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -336,7 +208,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        public async Task<SuccessResponse> UpdateTaskAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> UpdateTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("UpdateTask called.");
             try
@@ -344,43 +216,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/update/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("UpdateTask succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in UpdateTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in UpdateTask.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in UpdateTask: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in UpdateTask: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in UpdateTask.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("UpdateTask succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in UpdateTask.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in UpdateTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -395,9 +243,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-
-
-        public async Task<SuccessResponse> SaveToConfigAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> SaveToConfigAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("SaveToConfig called.");
             try
@@ -405,43 +251,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/save/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("SaveToConfig succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in SaveToConfig: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in SaveToConfig.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in SaveToConfig: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in SaveToConfig: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in SaveToConfig.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("SaveToConfig succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in SaveToConfig.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in SaveToConfig: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -456,7 +278,7 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        public async Task<SuccessResponse> GenerateConfigAsync(string taskId, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> GenerateConfigAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GenerateConfig called.");
             try
@@ -464,43 +286,19 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/generate/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("GenerateConfig succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in GenerateConfig: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in GenerateConfig.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in GenerateConfig: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in GenerateConfig: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in GenerateConfig.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    _logger.LogSuccess("GenerateConfig succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in GenerateConfig.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in GenerateConfig: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
@@ -514,68 +312,39 @@ namespace CodeSandbox.SDK.Net.Services
                 throw new Exception("Unexpected error in GenerateConfig.", ex);
             }
         }
+
         /// <summary>
         /// Creates setup tasks asynchronously.
         /// </summary>
         /// <param name="request">Request object with task setup details.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
+        /// <returns>A <see cref="SandboxTaskSuccessResponse{SandboxTaskSetupTasksResult}"/> indicating the result.</returns>
         /// <exception cref="TaskServiceException">Thrown when API returns a 400 error with details.</exception>
         /// <exception cref="Exception">Thrown on deserialization errors, HTTP failures, or unexpected errors.</exception>
-        public async Task<SuccessResponse> CreateSetupTasksAsync(CreateSetupTasksRequest request, CancellationToken cancellationToken = default)
+        public async Task<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>> CreateSetupTasksAsync(SandboxTaskCreateSetupTasksRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("CreateSetupTasksAsync called.");
-
             try
             {
                 string url = "/task/createSetupTasks";
-                string json = JsonSerializer.Serialize(request, new JsonSerializerOptions
-                {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                });
+                string json = JsonSerializer.Serialize(request, new JsonSerializerOptions { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-
-                JsonSerializerOptions options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonSerializer.Deserialize<SuccessResponse>(responseString, options);
-                        _logger.LogSuccess("CreateSetupTasksAsync succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in CreateSetupTasksAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in CreateSetupTasksAsync.", jsonEx);
-                    }
-                }
-                else if ((int)response.StatusCode == 400)
-                {
-                    try
-                    {
-                        ErrorResponse error = JsonSerializer.Deserialize<ErrorResponse>(responseString, options);
-                        _logger.LogError($"API returned error in CreateSetupTasksAsync: Code={error.Error.Code}, Message={error.Error.Message}");
-                        throw new TaskServiceException(error.Error.Code, error.Error.Message);
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize error response JSON in CreateSetupTasksAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize error response JSON in CreateSetupTasksAsync.", jsonEx);
-                    }
+                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>>(responseString, options);
+                    _logger.LogSuccess("CreateSetupTasksAsync succeeded.");
+                    return result;
                 }
                 else
                 {
-                    _logger.LogError($"Unexpected HTTP status code {response.StatusCode} in CreateSetupTasksAsync.");
-                    _ = response.EnsureSuccessStatusCode();
-                    return null; // Shut up the wife, i mean compiler
+                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    _logger.LogError($"API error in CreateSetupTasksAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
             }
             catch (HttpRequestException httpEx)
