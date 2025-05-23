@@ -153,6 +153,15 @@
     <None Include="app.config" />
     <None Include="CHANGELOG.md" />
     <None Include="docfx.json" />
+    <None Include="Docs\OpenAPI-Sandbox-Container.json" />
+    <None Include="Docs\OpenAPI-Sandbox-FS.json" />
+    <None Include="Docs\OpenAPI-Sandbox-Git.json" />
+    <None Include="Docs\OpenAPI-Sandbox-Setup.json" />
+    <None Include="Docs\OpenAPI-Port.json" />
+    <None Include="Docs\OpenAPI-git-spec.json" />
+    <None Include="Docs\OpenAPI-Sandbox-System.json" />
+    <None Include="Docs\OpenAPI-Sandbox-Task - Copy %283%29.json" />
+    <None Include="Docs\OpenAPI-Sandbox-Shell.json" />
     <None Include="Docs\OpenAPI-Sandbox-Task.json" />
     <None Include="LICENSE.md" />
     <None Include="packages.config" />
