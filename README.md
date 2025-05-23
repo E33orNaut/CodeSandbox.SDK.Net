@@ -85,8 +85,7 @@ await setupService.SkipStepAsync(0);
 await setupService.SkipAllStepsAsync();
 await setupService.EnableSetupAsync();
 await setupService.DisableSetupAsync();
-await setupService.SetStepAsync(0);
----
+await setupService.SetStepAsync(0); 
 ```
 
 ## API Coverage
