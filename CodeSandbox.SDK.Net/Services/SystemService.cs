@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Models.New.SandboxSystemModels;
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
@@ -34,10 +34,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// Sends a request to update the system asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
+        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
-        public async Task<SuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default)
+        public async Task<SandboxSystemSuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("UpdateSystemAsync called.");
             try
@@ -50,41 +50,20 @@ namespace CodeSandbox.SDK.Net.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonConvert.DeserializeObject<SuccessResponse>(json);
-                        _logger.LogSuccess("UpdateSystemAsync succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in UpdateSystemAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in UpdateSystemAsync.", jsonEx);
-                    }
+                    var result = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
+                    _logger.LogSuccess("UpdateSystemAsync succeeded.");
+                    return result;
                 }
                 else
                 {
-                    try
-                    {
-                        ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
-                        _logger.LogError($"API error in UpdateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(
-                            error.Error?.Message ?? "API error",
-                            (int)response.StatusCode,
-                            json,
-                            error
-                        );
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"API error response deserialization failed in UpdateSystemAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new ApiException(
-                            "API error response deserialization failed in UpdateSystemAsync.",
-                            (int)response.StatusCode,
-                            json,
-                            jsonEx
-                        );
-                    }
+                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
+                    _logger.LogError($"API error in UpdateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new ApiException(
+                        error.Error?.Message ?? "API error",
+                        (int)response.StatusCode,
+                        json,
+                        error
+                    );
                 }
             }
             catch (HttpRequestException httpEx)
@@ -103,10 +82,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// Sends a request to hibernate the system asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
+        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
-        public async Task<SuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default)
+        public async Task<SandboxSystemSuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("HibernateSystemAsync called.");
             try
@@ -119,41 +98,20 @@ namespace CodeSandbox.SDK.Net.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponse result = JsonConvert.DeserializeObject<SuccessResponse>(json);
-                        _logger.LogSuccess("HibernateSystemAsync succeeded.");
-                        return result;
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in HibernateSystemAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in HibernateSystemAsync.", jsonEx);
-                    }
+                    var result = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
+                    _logger.LogSuccess("HibernateSystemAsync succeeded.");
+                    return result;
                 }
                 else
                 {
-                    try
-                    {
-                        ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
-                        _logger.LogError($"API error in HibernateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(
-                            error.Error?.Message ?? "API error",
-                            (int)response.StatusCode,
-                            json,
-                            error
-                        );
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"API error response deserialization failed in HibernateSystemAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new ApiException(
-                            "API error response deserialization failed in HibernateSystemAsync.",
-                            (int)response.StatusCode,
-                            json,
-                            jsonEx
-                        );
-                    }
+                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
+                    _logger.LogError($"API error in HibernateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new ApiException(
+                        error.Error?.Message ?? "API error",
+                        (int)response.StatusCode,
+                        json,
+                        error
+                    );
                 }
             }
             catch (HttpRequestException httpEx)
@@ -172,10 +130,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// Retrieves system metrics asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> containing system metrics.</returns>
+        /// <returns>A <see cref="SandboxSystemMetricsStatus"/> containing system metrics.</returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
-        public async Task<SuccessResponse> GetSystemMetricsAsync(CancellationToken cancellationToken = default)
+        public async Task<SandboxSystemMetricsStatus> GetSystemMetricsAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetSystemMetricsAsync called.");
             try
@@ -188,45 +146,21 @@ namespace CodeSandbox.SDK.Net.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    try
-                    {
-                        SuccessResponseWithMetrics wrapper = JsonConvert.DeserializeObject<SuccessResponseWithMetrics>(json);
-                        _logger.LogSuccess("GetSystemMetricsAsync succeeded.");
-                        return new SuccessResponse
-                        {
-                            Status = wrapper.Status,
-                            Result = wrapper.Result
-                        };
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"Failed to deserialize success response JSON in GetSystemMetricsAsync: {jsonEx.Message}");
-                        throw new Exception("Failed to deserialize success response JSON in GetSystemMetricsAsync.", jsonEx);
-                    }
+                    var wrapper = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
+                    var metrics = JsonConvert.DeserializeObject<SandboxSystemMetricsStatus>(wrapper.Result.ToString());
+                    _logger.LogSuccess("GetSystemMetricsAsync succeeded.");
+                    return metrics;
                 }
                 else
                 {
-                    try
-                    {
-                        ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(json);
-                        _logger.LogError($"API error in GetSystemMetricsAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                        throw new ApiException(
-                            error.Error?.Message ?? "API error",
-                            (int)response.StatusCode,
-                            json,
-                            error
-                        );
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        _logger.LogError($"API error response deserialization failed in GetSystemMetricsAsync. Status code: {response.StatusCode}. Exception: {jsonEx.Message}");
-                        throw new ApiException(
-                            "API error response deserialization failed in GetSystemMetricsAsync.",
-                            (int)response.StatusCode,
-                            json,
-                            jsonEx
-                        );
-                    }
+                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
+                    _logger.LogError($"API error in GetSystemMetricsAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
+                    throw new ApiException(
+                        error.Error?.Message ?? "API error",
+                        (int)response.StatusCode,
+                        json,
+                        error
+                    );
                 }
             }
             catch (HttpRequestException httpEx)
@@ -240,23 +174,5 @@ namespace CodeSandbox.SDK.Net.Services
                 throw new Exception("Unexpected error in GetSystemMetricsAsync.", ex);
             }
         }
-    }
-
-    /// <summary>
-    /// Wrapper for the success response containing system metrics.
-    /// </summary>
-    public class SuccessResponseWithMetrics
-    {
-        /// <summary>
-        /// Gets or sets the status code returned by the API.
-        /// </summary>
-        [JsonProperty("status")]
-        public int Status { get; set; }
-
-        /// <summary>
-        /// Gets or sets the system metrics result.
-        /// </summary>
-        [JsonProperty("result")]
-        public SystemMetricsStatus Result { get; set; }
     }
 }

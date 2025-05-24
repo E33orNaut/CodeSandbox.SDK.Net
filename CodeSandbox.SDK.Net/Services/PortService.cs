@@ -45,11 +45,11 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException ex)
             {
-                _logger.LogError($"API error in GetPortListAsync: {ex.Message} (Status: {ex.ErrorCode})");
+                _logger.LogError($"API error in GetPortListAsync: {ex.Message} (Status: {ex.StatusCode})");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {ex.Message}");
 #endif
-                throw new Exception($"API error while fetching port list: {ex.Message} (Status: {ex.ErrorCode})", ex);
+                throw new Exception($"API error while fetching port list: {ex.Message} (Status: {ex.StatusCode})", ex);
             }
             catch (Exception ex)
             {

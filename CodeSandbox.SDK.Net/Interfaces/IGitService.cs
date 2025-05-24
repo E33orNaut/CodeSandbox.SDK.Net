@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models;
+using static CodeSandbox.SDK.Net.Models.New.GitModels.GitModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {

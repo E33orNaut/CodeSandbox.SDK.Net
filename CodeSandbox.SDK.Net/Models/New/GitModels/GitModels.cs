@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CodeSandbox.SDK.Net.Models.New.Git
+namespace CodeSandbox.SDK.Net.Models.New.GitModels
 {
     public class GitModels
     {

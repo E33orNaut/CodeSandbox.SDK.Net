@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Models.New.SandboxShellModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {
@@ -15,6 +16,6 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <param name="request">The request containing the shell rename details.</param>
         /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains the success response from the API.</returns>
-        Task<SuccessResponse> RenameShellAsync(ShellRenameRequest request, CancellationToken cancellationToken = default);
+        Task<SandboxShellSuccessResponse> RenameShellAsync(SandboxShellRenameRequest request, CancellationToken cancellationToken = default);
     }
 }

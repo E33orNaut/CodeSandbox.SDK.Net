@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Codesandbox.SDK.Net.Models.New.Git;
+using CodeSandbox.SDK.Net.Models.New.GitModels;
 using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;  
-using Newtonsoft.Json;
+using Newtonsoft.Json; 
 
 namespace CodeSandbox.SDK.Net.Services
 {
@@ -36,12 +36,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="cancellationToken">Optional cancellation token.</param>
         /// <returns>A <see cref="GitStatusResult"/> representing the current Git status.</returns>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitStatusResponse> GetStatusAsync(CancellationToken cancellationToken = default)
+        public async Task<GitModels.GitStatusResponse> GetStatusAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetStatusAsync...");
             try
             {
-                GitStatusResponse response = await _client.PostAsync<GitStatusResponse>("/git/status", new { }, cancellationToken);
+                GitModels.GitStatusResponse response = await _client.PostAsync<GitModels.GitStatusResponse>("/git/status", new { }, cancellationToken);
                 _logger.LogSuccess("GetStatusAsync completed successfully.");
                 return response;
             }
@@ -71,12 +71,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
         /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitRemotesResponse> GetRemotesAsync(CancellationToken cancellationToken = default)
+        public async Task<GitModels.GitRemotesResponse> GetRemotesAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetRemotesAsync...");
             try
             {
-                var response = await _client.PostAsync<GitRemotesResponse>("/git/remotes", new { }, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitRemotesResponse>("/git/remotes", new { }, cancellationToken);
                 _logger.LogSuccess("GetRemotesAsync completed successfully.");
                 return response;
             }
@@ -107,7 +107,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <returns>A <see cref="GitTargetDiffResponse"/> containing the diff details.</returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
         /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
-        public async Task<GitTargetDiffResponse> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
+        public async Task<GitModels.GitTargetDiffResponse> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
             {
@@ -117,7 +117,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting GetTargetDiffAsync for branch '{branch}'...");
             try
             {
-                var response = await _client.PostAsync<GitTargetDiffResponse>("/git/targetDiff", new { branch }, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitTargetDiffResponse>("/git/targetDiff", new { branch }, cancellationToken);
                 _logger.LogSuccess($"GetTargetDiffAsync for branch '{branch}' completed successfully.");
                 return response;
             }
@@ -199,7 +199,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostDiscardAsync for {paths.Length} paths...");
             try
             {
-                GitDiscardResponse discardResult = await _client.PostAsync<GitDiscardResponse>("/git/discard", new { paths }, cancellationToken);
+                GitModels.GitDiscardResponse discardResult = await _client.PostAsync<GitModels.GitDiscardResponse>("/git/discard", new { paths }, cancellationToken);
                 _logger.LogSuccess("PostDiscardAsync completed successfully.");
                 return discardResult?.Result?.Paths;
             }
@@ -238,7 +238,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostCommitAsync with message '{message}'...");
             try
             {
-                var response = await _client.PostAsync<GitCommitResponse>("/git/commit", new { message }, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitCommitResponse>("/git/commit", new { message }, cancellationToken);
                 _logger.LogSuccess("PostCommitAsync completed successfully.");
                 return response?.Result?.ShellId;
             }
@@ -380,7 +380,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostRemoteContentAsync for reference {reference} and path {path}...");
             try
             {
-                var response = await _client.PostAsync<GitRemoteContentResponse>("/git/remoteContent", new { reference, path }, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitRemoteContentResponse>("/git/remoteContent", new { reference, path }, cancellationToken);
                 _logger.LogSuccess("PostRemoteContentAsync completed successfully.");
                 return response?.Result?.Content;
             }
@@ -399,7 +399,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves the status of changes between two references.
         /// </summary>
-        public async Task<GitDiffStatusResponse> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
+        public async Task<GitModels.GitDiffStatusResponse> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(baseRef)) throw new ArgumentException("Base reference cannot be null or whitespace.", nameof(baseRef));
             if (string.IsNullOrWhiteSpace(headRef)) throw new ArgumentException("Head reference cannot be null or whitespace.", nameof(headRef));
@@ -407,7 +407,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting PostDiffStatusAsync from {baseRef} to {headRef}...");
             try
             {
-                var response = await _client.PostAsync<GitDiffStatusResponse>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitDiffStatusResponse>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
                 _logger.LogSuccess("PostDiffStatusAsync completed successfully.");
                 return response;
             }
@@ -473,7 +473,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// Maps line numbers between different git commits.
         /// </summary> 
 
-        public async Task<List<GitTransposeLinesResultItem>> PostTransposeLinesAsync(List<GitTransposeLinesResultItem> requests, CancellationToken cancellationToken = default)
+        public async Task<List<GitModels.GitTransposeLinesResultItem>> PostTransposeLinesAsync(List<GitModels.GitTransposeLinesResultItem> requests, CancellationToken cancellationToken = default)
         {
             if (requests == null || requests.Count == 0)
                 throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
@@ -481,7 +481,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting PostTransposeLinesAsync...");
             try
             {
-                var response = await _client.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", requests, cancellationToken);
+                var response = await _client.PostAsync<GitModels.GitTransposeLinesResponse>("/git/transposeLines", requests, cancellationToken);
                 _logger.LogSuccess("PostTransposeLinesAsync completed successfully.");
                 return response?.Result;
             }

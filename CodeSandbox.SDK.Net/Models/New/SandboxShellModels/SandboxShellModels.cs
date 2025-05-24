@@ -9,7 +9,11 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxShellModels
         public int Status { get; set; }
         public T Result { get; set; }
     }
-
+    public class SandboxShellSuccessResponse 
+    {
+        public int Status { get; set; }
+        public string Result { get; set; }
+    }
     public class SandboxShellErrorResponse
     {
         public int Status { get; set; }

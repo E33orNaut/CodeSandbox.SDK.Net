@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models;
+using CodeSandbox.SDK.Net.Models.New.SandboxSystemModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {
@@ -13,21 +13,21 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// Sends a request to update the system asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
-        Task<SuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default);
+        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
+        Task<SandboxSystemSuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Sends a request to hibernate the system asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> indicating the result.</returns>
-        Task<SuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default);
+        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
+        Task<SandboxSystemSuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves system metrics asynchronously.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SuccessResponse"/> containing system metrics.</returns>
-        Task<SuccessResponse> GetSystemMetricsAsync(CancellationToken cancellationToken = default);
+        /// <returns>A <see cref="SandboxSystemMetricsStatus"/> containing system metrics.</returns>
+        Task<SandboxSystemMetricsStatus> GetSystemMetricsAsync(CancellationToken cancellationToken = default);
     }
 }

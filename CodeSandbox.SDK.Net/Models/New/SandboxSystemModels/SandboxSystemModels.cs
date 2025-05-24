@@ -5,18 +5,18 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxSystemModels
     // --- Success Response ---
     public class SandboxSystemSuccessResponse
     {
-        public int Status { get; set; }
+        public int Status { get; set; } // 0 for success
         public object Result { get; set; }
     }
 
     // --- Error Response ---
     public class SandboxSystemErrorResponse
     {
-        public int Status { get; set; }
+        public int Status { get; set; } // 1 for error
         public SandboxSystemError Error { get; set; }
     }
 
-    // --- System Error ---
+    // --- Error Details ---
     public class SandboxSystemError
     {
         public int Code { get; set; }
@@ -51,15 +51,5 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxSystemModels
         public double Used { get; set; }
         public double Total { get; set; }
         public double Configured { get; set; }
-    }
-
-    // --- Init Status ---
-    public class SandboxSystemInitStatus
-    {
-        public string Message { get; set; }
-        public bool? IsError { get; set; }
-        public double Progress { get; set; }
-        public double NextProgress { get; set; }
-        public string Stdout { get; set; }
     }
 }

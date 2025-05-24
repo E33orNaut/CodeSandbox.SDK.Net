@@ -89,7 +89,6 @@
   <ItemGroup>
     <Compile Include="Interfaces\IContainerService.cs" />
     <Compile Include="Interfaces\IGitService.cs" />
-    <Compile Include="Interfaces\IGitStatusService.cs" />
     <Compile Include="Interfaces\IPortService.cs" />
     <Compile Include="Interfaces\ISandboxFSService.cs" />
     <Compile Include="Interfaces\ISetupService.cs" />
@@ -110,7 +109,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContainerService.cs" />
     <Compile Include="Services\GitService.cs" />
-    <Compile Include="Services\GitStatusService.cs" />
     <Compile Include="Services\PortService.cs" />
     <Compile Include="Services\SandboxFSService.cs" />
     <Compile Include="Services\SetupService.cs" />

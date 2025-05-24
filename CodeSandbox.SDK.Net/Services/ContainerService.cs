@@ -47,12 +47,12 @@ namespace CodeSandbox.SDK.Net.Services
             }
             catch (ApiException apiEx)
             {
-                _logger.LogError($"API error during container setup. Status: {apiEx.ErrorCode}, Message: {apiEx.Message}");
+                _logger.LogError($"API error during container setup. Status: {apiEx.StatusCode}, Message: {apiEx.Message}");
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {apiEx.Message}");
 #endif
                 throw new Exception(
-                    $"API error during container setup: {apiEx.Message} (Status code: {apiEx.ErrorCode})",
+                    $"API error during container setup: {apiEx.Message} (Status code: {apiEx.StatusCode})",
                     apiEx);
             }
             catch (Exception ex)
