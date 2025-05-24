@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Internal
 {
+    
+
+
     /// <summary>
     /// Exception thrown when API calls fail.
     /// Contains status code, response content, and optional detailed error info.
@@ -57,6 +60,13 @@ namespace CodeSandbox.SDK.Net.Internal
 
         private const int DefaultMaxRetries = 3;
         private const int DefaultDelayMs = 1000;
+
+
+        public void ValidatePathT(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+        }
 
         /// <summary>
         /// Create a new ApiClient.
