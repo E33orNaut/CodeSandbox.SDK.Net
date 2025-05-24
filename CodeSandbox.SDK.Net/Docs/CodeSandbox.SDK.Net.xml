@@ -408,6 +408,13 @@
             Supports GET, POST, PUT, and DELETE requests with JSON serialization and detailed error handling.
             </summary>
         </member>
+        <member name="M:CodeSandbox.SDK.Net.Internal.ApiClient.ValidatePathT(System.String)">
+            <summary>
+            /// Validates that the provided path is not null or empty.
+            </summary>
+            <param name="path"></param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
         <member name="M:CodeSandbox.SDK.Net.Internal.ApiClient.#ctor(System.String,System.String,CodeSandbox.SDK.Net.Internal.LoggerService,System.Net.Http.HttpClient)">
             <summary>
             Create a new ApiClient.
@@ -627,6 +634,213 @@
             </summary>
             <param name="message">The error message to log.</param>
             <param name="ex">The exception to include in the log.</param>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResult">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResult.Origin">
+            <summary>
+            }
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResult.Upstream">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiffResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.SuccessResponse`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.ErrorResponse`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.CommonError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusShortFormat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitChangedFiles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitBranchProperties">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitCommit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiff">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemoteParams">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusParams">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitHunkRange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitHunk">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiscardRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiscardResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitCommitRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitCommitResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitPushToRemoteRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRenameBranchRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemoteContentResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesRequestItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesResultItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiffResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiscardResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitCommitResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemoteContentResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.EmptyResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.GitModels.ErrorResponseCommon">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortSuccessResponse">
             <summary>
