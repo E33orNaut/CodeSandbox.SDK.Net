@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Provides system-related API operations.
+    /// Provides operations for system management via the CodeSandbox API.
     /// </summary>
     public class SystemService : ISystemService
     {
@@ -21,8 +21,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemService"/> class.
         /// </summary>
-        /// <param name="httpClient">HTTP client for sending requests.</param>
-        /// <param name="logger">Logger service for logging.</param>
+        /// <param name="httpClient">The HTTP client used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="logger">The logger service for diagnostic output. Cannot be null.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
         public SystemService(HttpClient httpClient, LoggerService logger)
         {
@@ -33,8 +33,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Sends a request to update the system asynchronously.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSystemSuccessResponse"/> indicating the result of the update operation.
+        /// </returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxSystemSuccessResponse> UpdateSystemAsync(CancellationToken cancellationToken = default)
@@ -81,8 +83,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Sends a request to hibernate the system asynchronously.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SandboxSystemSuccessResponse"/> indicating the result.</returns>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSystemSuccessResponse"/> indicating the result of the hibernate operation.
+        /// </returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxSystemSuccessResponse> HibernateSystemAsync(CancellationToken cancellationToken = default)
@@ -129,8 +133,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves system metrics asynchronously.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SandboxSystemMetricsStatus"/> containing system metrics.</returns>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSystemMetricsStatus"/> containing CPU, memory, and storage metrics.
+        /// </returns>
         /// <exception cref="ApiException">Thrown when the API returns an error response.</exception>
         /// <exception cref="Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxSystemMetricsStatus> GetSystemMetricsAsync(CancellationToken cancellationToken = default)

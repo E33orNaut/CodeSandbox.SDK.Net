@@ -7,13 +7,19 @@ using CodeSandbox.SDK.Net.Internal;
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Service to manage sandbox setup operations.
+    /// Provides operations for managing the sandbox setup process via the CodeSandbox API.
     /// </summary>
     public class SetupService
     {
         private readonly ApiClient _client;
         private readonly LoggerService _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetupService"/> class.
+        /// </summary>
+        /// <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         public SetupService(ApiClient client, LoggerService logger = null)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
@@ -23,6 +29,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves the current setup progress status.
         /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and a <see cref="SandboxSetupProgress"/> result with setup progress details.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> GetSetupProgressAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetSetupProgressAsync...");
@@ -47,6 +58,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Skips a specific step in the setup process.
         /// </summary>
+        /// <param name="stepIndexToSkip">The index of the step to skip.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and updated <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> SkipStepAsync(int stepIndexToSkip, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo($"Starting SkipStepAsync for step {stepIndexToSkip}...");
@@ -71,6 +88,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Skips all remaining steps in the setup process.
         /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and updated <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> SkipAllStepsAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting SkipAllStepsAsync...");
@@ -95,6 +117,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Disables the setup process.
         /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and updated <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> DisableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting DisableSetupAsync...");
@@ -119,6 +146,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Enables the setup process.
         /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and updated <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> EnableSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting EnableSetupAsync...");
@@ -143,6 +175,11 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Initializes the setup process.
         /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and initial <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> InitializeSetupAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting InitializeSetupAsync...");
@@ -167,6 +204,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Sets the current step in the setup process.
         /// </summary>
+        /// <param name="stepIndex">The index of the step to set as current.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxSetupSuccessResponse"/> containing the status and updated <see cref="SandboxSetupProgress"/>.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<SandboxSetupSuccessResponse> SetStepAsync(int stepIndex, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo($"Starting SetStepAsync for step {stepIndex}...");

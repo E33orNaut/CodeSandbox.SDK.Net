@@ -12,7 +12,7 @@ using CodeSandbox.SDK.Net.Models.New.SandboxTaskModels;
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Provides task-related API operations.
+    /// Provides operations for managing and executing sandbox tasks via the CodeSandbox API.
     /// </summary>
     public class TaskService : ITaskService
     {
@@ -22,8 +22,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Initializes a new instance of <see cref="TaskService"/>.
         /// </summary>
-        /// <param name="httpClient">HTTP client for sending requests.</param>
-        /// <param name="logger">Logger service for logging.</param>
+        /// <param name="httpClient">HTTP client for sending requests. Cannot be null.</param>
+        /// <param name="logger">Logger service for logging. Cannot be null.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is null.</exception>
         public TaskService(HttpClient httpClient, LoggerService logger)
         {
@@ -31,6 +31,16 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Retrieves the list of tasks and setup tasks.
+        /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskListResult}"/>
+        /// containing the list of tasks, setup tasks, and any validation errors.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskListResult>> GetTaskListAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GetTaskList called.");
@@ -66,6 +76,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Runs a task by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task to run.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the run operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> RunTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("RunTask called.");
@@ -101,6 +122,18 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Runs a command in the context of a specific task.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task.</param>
+        /// <param name="command">The command to execute.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the command execution.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> RunCommandAsync(string taskId, string command, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("RunCommand called.");
@@ -139,6 +172,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Stops a running task by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task to stop.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the stop operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> StopTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("StopTask called.");
@@ -174,6 +218,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Creates a new task by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier for the new task.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the create operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> CreateTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("CreateTask called.");
@@ -209,6 +264,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Updates an existing task by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task to update.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the update operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> UpdateTaskAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("UpdateTask called.");
@@ -244,6 +310,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Saves a task to the configuration by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task to save.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the save operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> SaveToConfigAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("SaveToConfig called.");
@@ -279,6 +356,17 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
+        /// <summary>
+        /// Generates configuration for a task by its identifier.
+        /// </summary>
+        /// <param name="taskId">The unique identifier of the task to generate configuration for.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="SandboxTaskSuccessResponse{SandboxTaskResult}"/>
+        /// containing the result of the generate configuration operation.
+        /// </returns>
+        /// <exception cref="TaskServiceException">Thrown when the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskResult>> GenerateConfigAsync(string taskId, CancellationToken cancellationToken = default)
         {
             _logger.LogTrace("GenerateConfig called.");
@@ -318,8 +406,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// Creates setup tasks asynchronously.
         /// </summary>
         /// <param name="request">Request object with task setup details.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A <see cref="SandboxTaskSuccessResponse{SandboxTaskSetupTasksResult}"/> indicating the result.</returns>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A <see cref="SandboxTaskSuccessResponse{SandboxTaskSetupTasksResult}"/> indicating the result of the setup tasks creation.
+        /// </returns>
         /// <exception cref="TaskServiceException">Thrown when API returns a 400 error with details.</exception>
         /// <exception cref="Exception">Thrown on deserialization errors, HTTP failures, or unexpected errors.</exception>
         public async Task<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>> CreateSetupTasksAsync(SandboxTaskCreateSetupTasksRequest request, CancellationToken cancellationToken = default)
