@@ -1,7 +1,7 @@
 ﻿
 # CodeSandbox.SDK.Net
 
-[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg?event=status)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
+[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
 [![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)
 ![License](https://img.shields.io/github/license/e33ornaut/codesandbox.sdk.net)
 ![Last Commit](https://img.shields.io/github/last-commit/e33ornaut/codesandbox.sdk.net)
