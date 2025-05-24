@@ -1,4 +1,3 @@
-﻿
 # CodeSandbox.SDK.Net
 
 [![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
@@ -13,7 +12,7 @@
 It provides complete, strongly-typed, async access to every endpoint in the official CodeSandbox SDK: FS, Port, Git, Setup, System, and Task APIs.  
 All error handling is robust and exposes official API error models for maximum transparency and debugging.
 
-> **Status:** Production-ready and feature complete, but not affiliated with CodeSandbox.  
+> **Status:** Production-ready, fully tested, and feature complete — not affiliated with CodeSandbox.  
 > All endpoints, models, and error types are up-to-date with the latest official OpenAPI spec.
 
 ---
@@ -23,9 +22,11 @@ All error handling is robust and exposes official API error models for maximum t
 - ✅ **Complete API Coverage**: Every endpoint is implemented and functional.
 - ✅ **Strongly-Typed Models**: Request/response models match the official OpenAPI schema.
 - ✅ **Full Error Handling**: Catches and returns full API error objects.
+- ✅ **Built-in Retry Logic**: Automatic retries for transient failures.
 - ✅ **Extensive Logging**: Built-in logger with configurable verbosity.
 - ✅ **Async/Await Friendly**: All services support modern asynchronous patterns.
-- ✅ **Actively Maintained**: Open to feedback, bugs, and contributions.
+- ✅ **Partially Unit Tested**: Tests in place, using Moq and XUnit.
+- ✅ **Actively Maintained**: Stable, with all dependencies up to date.
 - ✅ **Unofficial**: Independent from CodeSandbox Inc.
 
 ---
@@ -56,13 +57,15 @@ Other services include `GitService`, `PortService`, `SandboxFsService`, and `Set
 
 ## API Coverage
 
-| API         | Status | Notes                            |
-|-------------|--------|----------------------------------|
-| FS API      | ✅     | File operations, metadata, etc.  |
-| Port API    | ✅     | Port introspection, messages     |
-| Git API     | ✅     | Commits, branches, diffs         |
-| Sandboxes   | ✅     | Fully implemented                |
-| Deployments | ✅     | Fully implemented                |
+| API         | Status | Notes                 |
+|-------------|--------|-----------------------|
+| FS API      | ✅     | Fully implemented     |
+| Port API    | ✅     | Fully implemented     |
+| Git API     | ✅     | Fully implemented     |
+| Sandboxes   | ✅     | Fully implemented     |
+| Deployments | ✅     | Fully implemented     |
+| Tasks       | ✅     | Fully implemented     |
+| System      | ✅     | Fully implemented     |
 
 ---
 
@@ -84,8 +87,8 @@ var client = new CodeSandboxClient("token", logger);
 ## Configuration
 
 - Reuses `HttpClient` instances
+- Built-in retry logic for robustness
 - Uses `Newtonsoft.Json`, `System.Text.Json` support planned
-- Retry logic is on roadmap
 
 ---
 
@@ -98,6 +101,8 @@ var mockService = new Mock<IGitService>();
 mockService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
            .ReturnsAsync(new List<Commit>());
 ```
+
+Basic unit testing is in place and continues to expand.
 
 ---
 
@@ -114,7 +119,7 @@ mockService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
 - ✅ Full API Coverage  
 - ✅ Rich Error Reporting  
 - ✅ Full Logging Support  
-- 🚧 Retry Policies  
+- ✅ Retry Policies  
 - 🚧 System.Text.Json Support  
 - 🚧 Extended Samples and Docs  
 
