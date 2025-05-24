@@ -55,6 +55,9 @@ namespace CodeSandbox.SDK.Net.Internal
         private readonly LoggerService _logger;
         private bool _disposed;
 
+        private const int DefaultMaxRetries = 3;
+        private const int DefaultDelayMs = 1000;
+
         /// <summary>
         /// Create a new ApiClient.
         /// </summary>
@@ -111,7 +114,7 @@ namespace CodeSandbox.SDK.Net.Internal
             ValidatePath(path);
             _logger.LogInfo($"GET: {path}");
 
-            try
+            return await WithNetworkRetryAsync(async () =>
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(path, cancellationToken).ConfigureAwait(false);
                 string content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -130,12 +133,7 @@ namespace CodeSandbox.SDK.Net.Internal
                 }
 
                 return JsonConvert.DeserializeObject<T>(content);
-            }
-            catch (Exception ex)
-            {
-                LogException("GET", path, ex);
-                throw;
-            }
+            }, "GET", path);
         }
 
         /// <summary>
@@ -153,7 +151,7 @@ namespace CodeSandbox.SDK.Net.Internal
             _logger.LogInfo($"POST: {path}");
             _logger.LogTrace($"Payload: {JsonConvert.SerializeObject(payload)}");
 
-            try
+            return await WithNetworkRetryAsync(async () =>
             {
                 string json = JsonConvert.SerializeObject(payload);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -175,12 +173,7 @@ namespace CodeSandbox.SDK.Net.Internal
                 }
 
                 return JsonConvert.DeserializeObject<T>(responseContent);
-            }
-            catch (Exception ex)
-            {
-                LogException("POST", path, ex);
-                throw;
-            }
+            }, "POST", path);
         }
 
         /// <summary>
@@ -198,7 +191,7 @@ namespace CodeSandbox.SDK.Net.Internal
             _logger.LogInfo($"PUT: {path}");
             _logger.LogTrace($"Payload: {JsonConvert.SerializeObject(payload)}");
 
-            try
+            return await WithNetworkRetryAsync(async () =>
             {
                 string json = JsonConvert.SerializeObject(payload);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -220,12 +213,7 @@ namespace CodeSandbox.SDK.Net.Internal
                 }
 
                 return JsonConvert.DeserializeObject<T>(responseContent);
-            }
-            catch (Exception ex)
-            {
-                LogException("PUT", path, ex);
-                throw;
-            }
+            }, "PUT", path);
         }
 
         /// <summary>
@@ -240,7 +228,7 @@ namespace CodeSandbox.SDK.Net.Internal
             ValidatePath(path);
             _logger.LogInfo($"DELETE: {path}");
 
-            try
+            await WithNetworkRetryAsync(async () =>
             {
                 HttpResponseMessage response = await _httpClient.DeleteAsync(path, cancellationToken).ConfigureAwait(false);
                 string responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -254,12 +242,7 @@ namespace CodeSandbox.SDK.Net.Internal
                 }
 
                 _logger.LogSuccess($"DELETE successful: {path}");
-            }
-            catch (Exception ex)
-            {
-                LogException("DELETE", path, ex);
-                throw;
-            }
+            }, "DELETE", path);
         }
 
         /// <summary>
@@ -359,6 +342,56 @@ namespace CodeSandbox.SDK.Net.Internal
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Executes an action with retry logic for network-related exceptions.
+        /// </summary>
+        /// <typeparam name="T">Type of the result returned by the action.</typeparam>
+        /// <param name="action">Action to execute.</param>
+        /// <param name="method">HTTP method used.</param>
+        /// <param name="path">API endpoint path.</param>
+        /// <param name="maxRetries">Maximum number of retries.</param>
+        /// <param name="delayMs">Delay between retries in milliseconds.</param>
+        /// <returns>Result of the action.</returns>
+        private async Task<T> WithNetworkRetryAsync<T>(Func<Task<T>> action, string method, string path, int maxRetries = DefaultMaxRetries, int delayMs = DefaultDelayMs)
+        {
+            int attempt = 0;
+            for (;;)
+            {
+                try
+                {
+                    return await action().ConfigureAwait(false);
+                }
+                catch (HttpRequestException ex)
+                {
+                    attempt++;
+                    _logger.LogWarning($"{method} {path}: Network error (attempt {attempt}): {ex.Message}");
+                    if (attempt > maxRetries)
+                        throw;
+                }
+                catch (TaskCanceledException ex) // Handles timeouts
+                {
+                    attempt++;
+                    _logger.LogWarning($"{method} {path}: Timeout (attempt {attempt}): {ex.Message}");
+                    if (attempt > maxRetries)
+                        throw;
+                }
+                await Task.Delay(delayMs).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        /// Executes an action with retry logic for network-related exceptions.
+        /// </summary>
+        /// <param name="action">Action to execute.</param>
+        /// <param name="method">HTTP method used.</param>
+        /// <param name="path">API endpoint path.</param>
+        /// <param name="maxRetries">Maximum number of retries.</param>
+        /// <param name="delayMs">Delay between retries in milliseconds.</param>
+        private async Task WithNetworkRetryAsync(Func<Task> action, string method, string path, int maxRetries = DefaultMaxRetries, int delayMs = DefaultDelayMs)
+        {
+            await WithNetworkRetryAsync<object>(async () => { await action(); return null; }, method, path, maxRetries, delayMs);
         }
     }
 }
