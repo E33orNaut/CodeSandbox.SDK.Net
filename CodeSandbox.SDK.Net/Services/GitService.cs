@@ -4,8 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Models.New.GitModels;
 using CodeSandbox.SDK.Net.Interfaces;
-using CodeSandbox.SDK.Net.Internal;  
-using Newtonsoft.Json; 
+using CodeSandbox.SDK.Net.Internal;
+using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
 {
@@ -18,7 +18,7 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Creates a new instance of <see cref="GitService"/>.
+        /// Initializes a new instance of the <see cref="GitService"/> class.
         /// </summary>
         /// <param name="client">The API client instance (required).</param>
         /// <param name="logger">Optional logger instance.</param>
@@ -29,13 +29,14 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Gets the current Git status.
         /// </summary>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A <see cref="GitStatusResult"/> representing the current Git status.</returns>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <returns>
+        /// A <see cref="GitStatusResponse"/> containing the status code and a <see cref="GitStatusResult"/> with the current Git status.
+        /// </returns>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<GitModels.GitStatusResponse> GetStatusAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetStatusAsync...");
@@ -63,14 +64,14 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Gets the list of Git remotes.
         /// </summary>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
-        /// <returns>A <see cref="GitRemotesResponse"/> containing the list of remotes.</returns>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <returns>
+        /// A <see cref="GitRemotesResponse"/> containing the status code and a <see cref="GitRemotesResult"/> with the list of remotes.
+        /// </returns>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<GitModels.GitRemotesResponse> GetRemotesAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetRemotesAsync...");
@@ -98,15 +99,16 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Gets the diff of the target branch.
         /// </summary>
         /// <param name="branch">The target branch name.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A <see cref="GitTargetDiffResponse"/> containing the diff details.</returns>
+        /// <returns>
+        /// A <see cref="GitTargetDiffResponse"/> containing the status code and a <see cref="GitTargetDiffResult"/> with the diff details.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<GitModels.GitTargetDiffResponse> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
@@ -139,7 +141,6 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Pulls changes from the specified branch.
         /// </summary>
@@ -148,7 +149,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="cancellationToken">Optional cancellation token.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostPullAsync(string branch, bool force = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
@@ -180,15 +181,16 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Discards changes in the specified file paths.
         /// </summary>
         /// <param name="paths">Array of file paths to discard changes for.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>A list of discarded file paths.</returns>
+        /// <returns>
+        /// A list of discarded file paths.
+        /// </returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="paths"/> is null.</exception>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<List<string>> PostDiscardAsync(string[] paths, CancellationToken cancellationToken = default)
         {
             if (paths == null)
@@ -221,15 +223,16 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Creates a commit with the specified message.
         /// </summary>
         /// <param name="message">The commit message.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
-        /// <returns>The shell ID of the created commit.</returns>
+        /// <returns>
+        /// The shell ID of the created commit.
+        /// </returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="message"/> is null or whitespace.</exception>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<string> PostCommitAsync(string message, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(message))
@@ -254,7 +257,6 @@ namespace CodeSandbox.SDK.Net.Services
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Adds a new remote with the specified URL.
         /// </summary>
@@ -262,7 +264,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="cancellationToken">Optional cancellation token.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <exception cref="ArgumentException">Thrown when <paramref name="url"/> is null or whitespace.</exception>
-        /// <exception cref="Exception">Throws when API call fails or unexpected errors occur.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostRemoteAddAsync(string url, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(url))
@@ -297,6 +299,9 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Pushes changes to the remote repository.
         /// </summary>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostPushAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting PostPushAsync...");
@@ -320,6 +325,13 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Pushes changes to a specific remote and branch.
         /// </summary>
+        /// <param name="url">The remote URL.</param>
+        /// <param name="branch">The branch to push to.</param>
+        /// <param name="squashAllCommits">If true, squashes all commits before pushing.</param>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="url"/> or <paramref name="branch"/> is null or whitespace.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostPushToRemoteAsync(string url, string branch, bool squashAllCommits = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(url)) throw new ArgumentException("URL cannot be null or whitespace.", nameof(url));
@@ -346,6 +358,12 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Renames a branch in the local repository.
         /// </summary>
+        /// <param name="oldBranch">The current branch name.</param>
+        /// <param name="newBranch">The new branch name.</param>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="oldBranch"/> or <paramref name="newBranch"/> is null or whitespace.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostRenameBranchAsync(string oldBranch, string newBranch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(oldBranch)) throw new ArgumentException("Old branch cannot be null or whitespace.", nameof(oldBranch));
@@ -372,6 +390,14 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves the content of a file from a remote branch or commit.
         /// </summary>
+        /// <param name="reference">The branch or commit reference.</param>
+        /// <param name="path">The file path to retrieve content from.</param>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>
+        /// The file content as a string.
+        /// </returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="reference"/> or <paramref name="path"/> is null or whitespace.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<string> PostRemoteContentAsync(string reference, string path, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(reference)) throw new ArgumentException("Reference cannot be null or whitespace.", nameof(reference));
@@ -399,6 +425,14 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Retrieves the status of changes between two references.
         /// </summary>
+        /// <param name="baseRef">The base reference (branch or commit).</param>
+        /// <param name="headRef">The head reference (branch or commit).</param>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>
+        /// A <see cref="GitDiffStatusResponse"/> containing the status code and a <see cref="GitDiffStatusResult"/> with the diff status.
+        /// </returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="baseRef"/> or <paramref name="headRef"/> is null or whitespace.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<GitModels.GitDiffStatusResponse> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(baseRef)) throw new ArgumentException("Base reference cannot be null or whitespace.", nameof(baseRef));
@@ -426,6 +460,9 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Resets the local repository to match the remote.
         /// </summary>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostResetLocalWithRemoteAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting PostResetLocalWithRemoteAsync...");
@@ -449,6 +486,9 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Checks out the initial branch of the repository.
         /// </summary>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostCheckoutInitialBranchAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting PostCheckoutInitialBranchAsync...");
@@ -471,8 +511,14 @@ namespace CodeSandbox.SDK.Net.Services
 
         /// <summary>
         /// Maps line numbers between different git commits.
-        /// </summary> 
-
+        /// </summary>
+        /// <param name="requests">A list of <see cref="GitTransposeLinesResultItem"/> specifying the files and lines to transpose.</param>
+        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>
+        /// A list of <see cref="GitTransposeLinesResultItem"/> with the mapped line numbers.
+        /// </returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="requests"/> is null or empty.</exception>
+        /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task<List<GitModels.GitTransposeLinesResultItem>> PostTransposeLinesAsync(List<GitModels.GitTransposeLinesResultItem> requests, CancellationToken cancellationToken = default)
         {
             if (requests == null || requests.Count == 0)

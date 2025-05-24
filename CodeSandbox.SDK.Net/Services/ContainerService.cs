@@ -2,14 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
-using CodeSandbox.SDK.Net.Internal; 
+using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.New.Models.New.SandboxContainerModels;
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Service to manage container-related operations.
+    /// Provides operations for managing container setup and lifecycle.
     /// </summary>
     public class ContainerService : IContainerService
     {
@@ -17,10 +17,10 @@ namespace CodeSandbox.SDK.Net.Services
         private readonly LoggerService _logger;
 
         /// <summary>
-        /// Creates a new instance of <see cref="ContainerService"/>.
+        /// Initializes a new instance of the <see cref="ContainerService"/> class.
         /// </summary>
-        /// <param name="client">The API client instance (required).</param>
-        /// <param name="logger">Optional logger instance.</param>
+        /// <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         public ContainerService(ApiClient client, LoggerService logger = null)
         {
@@ -28,7 +28,17 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Sets up a new container using the specified setup request.
+        /// </summary>
+        /// <param name="request">The <see cref="ContainerSetupRequest"/> containing template, arguments, and features for the container setup.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="ContainerSetupSuccessResponse"/> result containing the status and setup task details.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="request"/> is null.</exception>
+        /// <exception cref="ApiException">Thrown if the API returns an error response.</exception>
+        /// <exception cref="Exception">Thrown if an unexpected error occurs during setup.</exception>
         public async Task<ContainerSetupSuccessResponse> SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default)
         {
             if (request == null)

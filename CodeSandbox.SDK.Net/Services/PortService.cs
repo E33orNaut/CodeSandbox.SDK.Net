@@ -8,7 +8,7 @@ using CodeSandbox.SDK.Net.Models.New.PortModels;
 namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
-    /// Service for retrieving port information.
+    /// Provides operations for retrieving port information from the CodeSandbox API.
     /// </summary>
     public class PortService : IPortService
     {
@@ -18,8 +18,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="PortService"/> class.
         /// </summary>
-        /// <param name="client">API client instance (required).</param>
-        /// <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
+        /// <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         public PortService(ApiClient client, LoggerService logger = null)
         {
@@ -27,13 +27,14 @@ namespace CodeSandbox.SDK.Net.Services
             _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Asynchronously retrieves the list of ports from the API.
+        /// Asynchronously retrieves the list of ports and their associated URLs from the API.
         /// </summary>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{PortListResult}"/> representing the asynchronous operation, containing the port list response.</returns>
-        /// <exception cref="Exception">Throws if the API call fails or an unexpected error occurs.</exception>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation, with a <see cref="PortListResult"/> containing the list of ports and URLs.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         public async Task<PortListResult> GetPortListAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting GetPortListAsync...");

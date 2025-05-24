@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
@@ -18,8 +18,8 @@ namespace CodeSandbox.SDK.Net.Services
         /// <summary>
         /// Initializes a new instance of <see cref="SandboxFsService"/>.
         /// </summary>
-        /// <param name="apiClient">The API client instance (required).</param>
-        /// <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
+        /// <param name="apiClient">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="apiClient"/> is null.</exception>
         public SandboxFsService(ApiClient apiClient, LoggerService logger = null)
         {
@@ -28,12 +28,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Writes a file asynchronously using the sandbox FS API.
+        /// Asynchronously writes a file to the sandbox file system.
         /// </summary>
-        /// <param name="request">The request data for writing the file.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">The request parameters for writing a file.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning the result object from the write operation, or null if not applicable.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<object> WriteFileAsync(SandboxFSWriteFileRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting WriteFileAsync...");
@@ -54,12 +56,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Searches for paths asynchronously using the sandbox FS API.
+        /// Asynchronously searches for file system paths matching the given criteria.
         /// </summary>
-        /// <param name="request">The search parameters.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing the search results.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters for path search.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning a <see cref="SandboxFSPathSearchResult"/> with the search results.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<SandboxFSPathSearchResult> FsPathSearchAsync(SandboxFSPathSearchResult request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsPathSearchAsync...");
@@ -80,12 +84,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Uploads a file asynchronously using the sandbox FS API.
+        /// Asynchronously uploads a file to the sandbox file system.
         /// </summary>
-        /// <param name="request">The upload request data.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing the upload results.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">The upload request parameters.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning an <see cref="UploadResult"/> with upload result details.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<UploadResult> FsUploadAsync(UploadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsUploadAsync...");
@@ -106,12 +112,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Downloads a file asynchronously using the sandbox FS API.
+        /// Asynchronously downloads a file from the sandbox file system.
         /// </summary>
-        /// <param name="request">The download request data.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing the download results.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">The download request parameters.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning a <see cref="DownloadResult"/> with download result details.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<DownloadResult> FsDownloadAsync(DownloadRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsDownloadAsync...");
@@ -132,12 +140,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Reads a file asynchronously using the sandbox FS API.
+        /// Asynchronously reads a file from the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for reading the file.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing the file contents.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters for reading a file.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning an <see cref="FSReadFileResult"/> with the file content.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<FSReadFileResult> FsReadFileAsync(FSReadFileParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting FsReadFileAsync...");
@@ -158,12 +168,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Reads a directory asynchronously using the sandbox FS API.
+        /// Asynchronously reads a directory from the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for reading the directory.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing directory entries.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters for reading a directory.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning an <see cref="FSReadDirResult"/> with directory entries.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<FSReadDirResult> ReadDirAsync(FSReadDirParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting ReadDirAsync...");
@@ -184,12 +196,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Gets file or directory statistics asynchronously using the sandbox FS API.
+        /// Asynchronously retrieves file or directory metadata (stat) from the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for the stat operation.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> containing the stat results.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters for retrieving file/directory stats.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning an <see cref="FSStatResult"/> with the stat result.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<FSStatResult> StatAsync(FSStatParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting StatAsync...");
@@ -210,12 +224,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Copies a file or directory asynchronously using the sandbox FS API.
+        /// Asynchronously copies a file or directory in the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for the copy operation.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters specifying source and destination for the copy operation.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning the result object from the copy operation, or null if not applicable.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<object> CopyAsync(FSCopyParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting CopyAsync...");
@@ -236,12 +252,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Renames a file or directory asynchronously using the sandbox FS API.
+        /// Asynchronously renames a file or directory in the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for the rename operation.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters specifying the rename operation.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning the result object from the rename operation, or null if not applicable.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<object> RenameAsync(FSRenameParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RenameAsync...");
@@ -262,12 +280,14 @@ namespace CodeSandbox.SDK.Net.Services
         }
 
         /// <summary>
-        /// Removes a file or directory asynchronously using the sandbox FS API.
+        /// Asynchronously removes a file or directory from the sandbox file system.
         /// </summary>
-        /// <param name="request">Parameters for the remove operation.</param>
-        /// <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-        /// <returns>A <see cref="Task{SuccessResponse}"/> representing the operation result.</returns>
-        /// <exception cref="Exception">Throws if the operation fails.</exception>
+        /// <param name="request">Parameters specifying the remove operation.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task returning the result object from the remove operation, or null if not applicable.
+        /// </returns>
+        /// <exception cref="Exception">Thrown if the operation fails.</exception>
         public async Task<object> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RemoveAsync...");
