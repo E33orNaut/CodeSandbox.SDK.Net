@@ -1,10 +1,10 @@
 ﻿
 # CodeSandbox.SDK.Net
 
-[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
-[![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)
-![License](https://img.shields.io/github/license/e33ornaut/codesandbox.sdk.net)
-![Last Commit](https://img.shields.io/github/last-commit/e33ornaut/codesandbox.sdk.net)
+[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)  
+[![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)  
+![License](https://img.shields.io/github/license/e33ornaut/codesandbox.sdk.net)  
+![Last Commit](https://img.shields.io/github/last-commit/e33ornaut/codesandbox.sdk.net)  
 ![Issues](https://img.shields.io/github/issues/e33ornaut/codesandbox.sdk.net)
 
 ---
@@ -20,13 +20,14 @@ All error handling is robust and exposes official API error models for maximum t
 
 ## Features
 
-- ✅ **Complete API Coverage**: Every endpoint is implemented and functional.
-- ✅ **Strongly-Typed Models**: Request/response models match the official OpenAPI schema.
-- ✅ **Full Error Handling**: Catches and returns full API error objects.
-- ✅ **Extensive Logging**: Built-in logger with configurable verbosity.
-- ✅ **Async/Await Friendly**: All services support modern asynchronous patterns.
-- ✅ **Actively Maintained**: Open to feedback, bugs, and contributions.
-- ✅ **Unofficial**: Independent from CodeSandbox Inc.
+- ✅ **Complete API Coverage**: Every endpoint is implemented and functional.  
+- ✅ **Strongly-Typed Models**: Request/response models match the official OpenAPI schema.  
+- ✅ **Full Error Handling**: Catches and returns full API error objects.  
+- ✅ **Extensive Logging**: Built-in logger with configurable verbosity.  
+- ✅ **Async/Await Friendly**: All services support modern asynchronous patterns.  
+- ✅ **Unofficial**: Independent from CodeSandbox Inc.  
+- ⚙️ **Upcoming**: Experimental WebSocket support for realtime communication.  
+- ⚙️ **Upcoming**: RS232 (serial) communication support for hardware integration and experimentation.
 
 ---
 
@@ -70,8 +71,8 @@ Other services include `GitService`, `PortService`, `SandboxFsService`, and `Set
 
 Customizable logging via `LoggerService`:
 
-- Levels: `Trace`, `Info`, `Success`, `Warning`, `Error`
-- Easily integrated with your logger
+- Levels: `Trace`, `Info`, `Success`, `Warning`, `Error`  
+- Easily integrated with your logger  
 - Verbose in DEBUG builds
 
 ```csharp
@@ -83,9 +84,8 @@ var client = new CodeSandboxClient("token", logger);
 
 ## Configuration
 
-- Reuses `HttpClient` instances
-- Uses `Newtonsoft.Json`, `System.Text.Json` support planned
-- Retry logic is on roadmap
+- Reuses `HttpClient` instances  
+- Uses `Newtonsoft.Json` for JSON serialization
 
 ---
 
@@ -103,20 +103,22 @@ mockService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
 
 ## Requirements
 
-- .NET Framework 4.7+
-- .NET Core 3.1+
+- .NET Framework 4.7+  
+- .NET Core 3.1+  
 - .NET 5+
 
 ---
 
 ## Roadmap
 
-- ✅ Full API Coverage  
-- ✅ Rich Error Reporting  
-- ✅ Full Logging Support  
-- 🚧 Retry Policies  
-- 🚧 System.Text.Json Support  
-- 🚧 Extended Samples and Docs  
+| Feature               | Status     | Notes                                         |
+|-----------------------|------------|-----------------------------------------------|
+| Full API Coverage     | ✅         | Complete and stable                           |
+| Rich Error Reporting  | ✅         | Full API error models                         |
+| Full Logging Support  | ✅         | Customizable and verbose                      |
+| Extended Samples and Docs | 🚧 Planned | More comprehensive examples and guides         |
+| **WebSocket Support** | 🚧 Planned | Bi-directional socket layer for realtime comms |
+| **RS232 Support**     | 🚧 Planned | Serial port support for hardware integration  |
 
 ---
 
