@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Internal
@@ -52,7 +53,7 @@ namespace CodeSandbox.SDK.Net.Internal
     /// Client to call CodeSandbox API endpoints.
     /// Supports GET, POST, PUT, and DELETE requests with JSON serialization and detailed error handling.
     /// </summary>
-    public class ApiClient : IDisposable
+    public class ApiClient : IApiClient, IDisposable 
     {
         private readonly HttpClient _httpClient;
         private readonly LoggerService _logger;

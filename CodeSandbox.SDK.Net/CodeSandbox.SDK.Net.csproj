@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IApiClient.cs" />
     <Compile Include="Interfaces\IContainerService.cs" />
     <Compile Include="Interfaces\IGitService.cs" />
     <Compile Include="Interfaces\IPortService.cs" />
