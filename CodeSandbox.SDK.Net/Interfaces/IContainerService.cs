@@ -1,8 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Models;
-using CodeSandbox.SDK.New.Models.New.SandboxContainerModels;
-using ContainerSetupRequest = CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupRequest;
+using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;  
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {

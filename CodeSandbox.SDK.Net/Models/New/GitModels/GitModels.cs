@@ -1,236 +1,271 @@
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Models.New.GitModels
 {
-    /// <summary>
-    /// Contains models for interacting with the Git API in CodeSandbox.
-    /// </summary>
-    public class GitModels
+    public class GitRemotesResult
     {
-        // --- git_status ---
+        public string Origin { get; set; }
+        public string Upstream { get; set; }
+    }
+    public class GitTargetDiffResult
+    {
+        public int Ahead { get; set; }
+        public int Behind { get; set; }
+        public List<GitCommit> Commits { get; set; }
+    }
 
-        /// <summary>
-        /// Response for git status operation.
-        /// </summary>
-        public class GitStatusResponse
-        {
-            /// <summary>
-            /// Status code for successful operations.
-            /// </summary>
-            [JsonProperty("status")]
-            public int Status { get; set; }
 
-            /// <summary>
-            /// Result payload for the operation.
-            /// </summary>
-            [JsonProperty("result")]
-            public GitStatusResult Result { get; set; }
-        }
 
-        /// <summary>
-        /// Git status result details.
-        /// </summary>
-        public class GitStatusResult
-        {
-            /// <summary>
-            /// Map of file IDs to GitItems.
-            /// </summary>
-            [JsonProperty("changedFiles")]
-            public Dictionary<string, GitStatusChangedFile> ChangedFiles { get; set; }
+    public class GitStatusResult
+    {
+        public GitChangedFiles ChangedFiles { get; set; }
+        public List<GitItem> DeletedFiles { get; set; }
+        public bool Conflicts { get; set; }
+        public bool LocalChanges { get; set; }
+        public GitBranchProperties Remote { get; set; }
+        public GitBranchProperties Target { get; set; }
+        public string Head { get; set; }
+        public List<GitCommit> Commits { get; set; }
+        public string Branch { get; set; }
+        public bool IsMerging { get; set; }
+    }
 
-            /// <summary>
-            /// List of deleted files.
-            /// </summary>
-            [JsonProperty("deletedFiles")]
-            public List<GitStatusGitItem> DeletedFiles { get; set; }
+    public class SuccessResponse<T>
+    {
+        public int Status { get; set; } = 0;
+        public T Result { get; set; }
+    }
 
-            /// <summary>
-            /// Whether there are remote conflicts.
-            /// </summary>
-            [JsonProperty("conflicts")]
-            public bool Conflicts { get; set; }
+    public class ErrorResponse<T>
+    {
+        public int Status { get; set; } = 1;
+        public T Error { get; set; }
+    }
 
-            /// <summary>
-            /// Whether there are local changes.
-            /// </summary>
-            [JsonProperty("localChanges")]
-            public bool LocalChanges { get; set; }
+    public class CommonError
+    {
+        public int Code { get; set; }
+        public string Message { get; set; }
+        public object Data { get; set; }
+    }
 
-            /// <summary>
-            /// Remote branch properties.
-            /// </summary>
-            [JsonProperty("remote")]
-            public GitStatusBranchProperties Remote { get; set; }
+    public enum GitStatusShortFormat
+    {
+        None,
+        M,
+        A,
+        D,
+        R,
+        C,
+        U,
+        Unknown
+    }
 
-            /// <summary>
-            /// Target branch properties.
-            /// </summary>
-            [JsonProperty("target")]
-            public GitStatusBranchProperties Target { get; set; }
+    public class GitItem
+    {
+        public string Path { get; set; }
+        public GitStatusShortFormat Index { get; set; }
+        public GitStatusShortFormat WorkingTree { get; set; }
+        public bool IsStaged { get; set; }
+        public bool IsConflicted { get; set; }
+        public string FileId { get; set; }
+    }
 
-            /// <summary>
-            /// Current HEAD commit.
-            /// </summary>
-            [JsonProperty("head")]
-            public string Head { get; set; }
+    public class GitChangedFiles : Dictionary<string, GitItem> { }
 
-            /// <summary>
-            /// List of commits.
-            /// </summary>
-            [JsonProperty("commits")]
-            public List<GitStatusCommit> Commits { get; set; }
+    public class GitBranchProperties
+    {
+        public string Head { get; set; }
+        public string Branch { get; set; }
+        public int Ahead { get; set; }
+        public int Behind { get; set; }
+        public bool Safe { get; set; }
+    }
 
-            /// <summary>
-            /// Current branch name.
-            /// </summary>
-            [JsonProperty("branch")]
-            public string Branch { get; set; }
+    public class GitCommit
+    {
+        public string Hash { get; set; }
+        public string Date { get; set; }
+        public string Message { get; set; }
+        public string Author { get; set; }
+    }
 
-            /// <summary>
-            /// Whether a merge is in progress.
-            /// </summary>
-            [JsonProperty("isMerging")]
-            public bool IsMerging { get; set; }
-        }
+    public class GitStatus
+    {
+        public GitChangedFiles ChangedFiles { get; set; }
+        public List<GitItem> DeletedFiles { get; set; }
+        public bool Conflicts { get; set; }
+        public bool LocalChanges { get; set; }
+        public GitBranchProperties Remote { get; set; }
+        public GitBranchProperties Target { get; set; }
+        public string Head { get; set; }
+        public List<GitCommit> Commits { get; set; }
+        public string Branch { get; set; }
+        public bool IsMerging { get; set; }
+    }
 
-        /// <summary>
-        /// Represents a changed file in git status.
-        /// </summary>
-        public class GitStatusChangedFile : GitStatusGitItem { }
+    public class GitTargetDiff
+    {
+        public int Ahead { get; set; }
+        public int Behind { get; set; }
+        public List<GitCommit> Commits { get; set; }
+    }
 
-        /// <summary>
-        /// Represents a git item (file) in status.
-        /// </summary>
-        public class GitStatusGitItem
-        {
-            /// <summary>
-            /// File path.
-            /// </summary>
-            [JsonProperty("path")]
-            public string Path { get; set; }
+    public class GitRemotes
+    {
+        public string Origin { get; set; }
+        public string Upstream { get; set; }
+    }
 
-            /// <summary>
-            /// Index status short format.
-            /// </summary>
-            [JsonProperty("index")]
-            public GitStatusShortFormat Index { get; set; }
+    public class GitRemoteParams
+    {
+        public string Reference { get; set; }
+        public string Path { get; set; }
+    }
 
-            /// <summary>
-            /// Working tree status short format.
-            /// </summary>
-            [JsonProperty("workingTree")]
-            public GitStatusShortFormat WorkingTree { get; set; }
+    public class GitDiffStatusParams
+    {
+        public string Base { get; set; }
+        public string Head { get; set; }
+    }
 
-            /// <summary>
-            /// Whether the file is staged.
-            /// </summary>
-            [JsonProperty("isStaged")]
-            public bool IsStaged { get; set; }
+    public class GitHunkRange
+    {
+        public int Start { get; set; }
+        public int End { get; set; }
+    }
 
-            /// <summary>
-            /// Whether the file has conflicts.
-            /// </summary>
-            [JsonProperty("isConflicted")]
-            public bool IsConflicted { get; set; }
+    public class GitHunk
+    {
+        public GitHunkRange Original { get; set; }
+        public GitHunkRange Modified { get; set; }
+    }
 
-            /// <summary>
-            /// File ID.
-            /// </summary>
-            [JsonProperty("fileId")]
-            public string FileId { get; set; }
-        }
+    public class GitDiffStatusItem
+    {
+        public GitStatusShortFormat Status { get; set; }
+        public string Path { get; set; }
+        public string OldPath { get; set; }
+        public List<GitHunk> Hunks { get; set; }
+    }
 
-        /// <summary>
-        /// Git status short format codes.
-        /// </summary>
-        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public enum GitStatusShortFormat
-        {
-            [JsonProperty("")]
-            None,
-            [JsonProperty("M")]
-            M,
-            [JsonProperty("A")]
-            A,
-            [JsonProperty("D")]
-            D,
-            [JsonProperty("R")]
-            R,
-            [JsonProperty("C")]
-            C,
-            [JsonProperty("U")]
-            U,
-            [JsonProperty("?")]
-            Unknown
-        }
+    public class GitDiffStatusResult
+    {
+        public List<GitDiffStatusItem> Files { get; set; }
+    }
 
-        /// <summary>
-        /// Properties of a git branch.
-        /// </summary>
-        public class GitStatusBranchProperties
-        {
-            /// <summary>
-            /// Head commit.
-            /// </summary>
-            [JsonProperty("head")]
-            public string Head { get; set; }
+    public class GitDiscardRequest
+    {
+        public List<string> Paths { get; set; }
+    }
 
-            /// <summary>
-            /// Branch name.
-            /// </summary>
-            [JsonProperty("branch")]
-            public string Branch { get; set; }
+    public class GitDiscardResult
+    {
+        public List<string> Paths { get; set; }
+    }
 
-            /// <summary>
-            /// Number of commits ahead.
-            /// </summary>
-            [JsonProperty("ahead")]
-            public int Ahead { get; set; }
+    public class GitCommitRequest
+    {
+        public List<string> Paths { get; set; }
+        public string Message { get; set; }
+        public bool? Push { get; set; }
+    }
 
-            /// <summary>
-            /// Number of commits behind.
-            /// </summary>
-            [JsonProperty("behind")]
-            public int Behind { get; set; }
+    public class GitCommitResult
+    {
+        public string ShellId { get; set; }
+    }
 
-            /// <summary>
-            /// Whether the branch is safe to use.
-            /// </summary>
-            [JsonProperty("safe")]
-            public bool Safe { get; set; }
-        }
+    public class GitPushToRemoteRequest
+    {
+        public string Url { get; set; }
+        public string Branch { get; set; }
+        public bool? SquashAllCommits { get; set; }
+    }
 
-        /// <summary>
-        /// Represents a git commit.
-        /// </summary>
-        public class GitStatusCommit
-        {
-            /// <summary>
-            /// Commit hash.
-            /// </summary>
-            [JsonProperty("hash")]
-            public string Hash { get; set; }
+    public class GitRenameBranchRequest
+    {
+        public string OldBranch { get; set; }
+        public string NewBranch { get; set; }
+    }
 
-            /// <summary>
-            /// Commit date.
-            /// </summary>
-            [JsonProperty("date")]
-            public string Date { get; set; }
+    public class GitRemoteContentResult
+    {
+        public string Content { get; set; }
+    }
 
-            /// <summary>
-            /// Commit message.
-            /// </summary>
-            [JsonProperty("message")]
-            public string Message { get; set; }
+    public class GitTransposeLinesRequestItem
+    {
+        public string Sha { get; set; }
+        public string Path { get; set; }
+        public int Line { get; set; }
+    }
 
-            /// <summary>
-            /// Commit author.
-            /// </summary>
-            [JsonProperty("author")]
-            public string Author { get; set; }
-        }
+    public class GitTransposeLinesResultItem
+    {
+        public string Path { get; set; }
+        public int Line { get; set; }
+    }
 
-        // ... (rest of the file unchanged, as your XML and JsonProperty attributes are already correct and consistent)
+    // Response wrappers
+    public class GitStatusResponse
+    {
+        public int Status { get; set; }
+        public GitStatus Result { get; set; }
+    }
+
+    public class GitRemotesResponse
+    {
+        public int Status { get; set; }
+        public GitRemotes Result { get; set; }
+    }
+
+    public class GitTargetDiffResponse
+    {
+        public int Status { get; set; }
+        public GitTargetDiff Result { get; set; }
+    }
+
+    public class GitDiscardResponse
+    {
+        public int Status { get; set; }
+        public GitDiscardResult Result { get; set; }
+    }
+
+    public class GitCommitResponse
+    {
+        public int Status { get; set; }
+        public GitCommitResult Result { get; set; }
+    }
+
+    public class GitRemoteContentResponse
+    {
+        public int Status { get; set; }
+        public GitRemoteContentResult Result { get; set; }
+    }
+
+    public class GitDiffStatusResponse
+    {
+        public int Status { get; set; }
+        public GitDiffStatusResult Result { get; set; }
+    }
+
+    public class GitTransposeLinesResponse
+    {
+        public int Status { get; set; }
+        public List<GitTransposeLinesResultItem> Result { get; set; }
+    }
+
+    public class EmptyResponse
+    {
+        public int Status { get; set; }
+        public object Result { get; set; }
+    }
+
+    public class ErrorResponseCommon
+    {
+        public int Status { get; set; }
+        public CommonError Error { get; set; }
     }
 }

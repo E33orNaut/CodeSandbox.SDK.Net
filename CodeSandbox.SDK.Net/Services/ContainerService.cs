@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.New.Models.New.SandboxContainerModels;
+using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
 using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Services

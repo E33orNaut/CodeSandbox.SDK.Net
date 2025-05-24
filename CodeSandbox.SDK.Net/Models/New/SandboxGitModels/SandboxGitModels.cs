@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace CodeSandbox.SDK.Models.New.SandboxGitModels
+namespace CodeSandbox.SDK.Net.Models.New.SandboxGitModels
 {
     // --- Common Response Models ---
 

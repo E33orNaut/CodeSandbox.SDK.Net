@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace CodeSandbox.SDK.New.Models.New.SandboxContainerModels
+namespace CodeSandbox.SDK.Net.Models.New.SandboxContainerModels
 {
     /// <summary>
     /// Request model for /container/setup endpoint.
