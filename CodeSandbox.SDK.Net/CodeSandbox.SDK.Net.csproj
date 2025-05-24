@@ -118,7 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="CHANGELOG.md" />
     <None Include="docfx.json" />
     <None Include="Docs\OpenAPI-Sandbox-Container.json" />
     <None Include="Docs\OpenAPI-Sandbox-FS.json" />
@@ -129,7 +128,7 @@
     <None Include="Docs\OpenAPI-Sandbox-System.json" />
     <None Include="Docs\OpenAPI-Sandbox-Shell.json" />
     <None Include="Docs\OpenAPI-Sandbox-Task.json" />
-    <None Include="LICENSE.md" />
+    <None Include="Docs\USAGE.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
