@@ -9,7 +9,7 @@
             Defines operations related to managing containers.
             </summary>
         </member>
-        <member name="M:CodeSandbox.SDK.Net.Interfaces.IContainerService.SetupContainerAsync(CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupRequest,System.Threading.CancellationToken)">
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.IContainerService.SetupContainerAsync(CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest,System.Threading.CancellationToken)">
             <summary>
             Asynchronously sets up a container using the specified setup request.
             </summary>
@@ -27,14 +27,14 @@
             Asynchronously gets the current Git status.
             </summary>
             <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitModels.GitStatusResult"/> representing the current status of the Git repository.</returns>
+            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusResult"/> representing the current status of the Git repository.</returns>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Interfaces.IGitService.GetRemotesAsync(System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves the configured Git remotes.
             </summary>
             <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitModels.GitRemotesResult"/> containing the list of Git remotes.</returns>
+            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResult"/> containing the list of Git remotes.</returns>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Interfaces.IGitService.GetTargetDiffAsync(System.String,System.Threading.CancellationToken)">
             <summary>
@@ -42,7 +42,7 @@
             </summary>
             <param name="branch">The target branch to compare against.</param>
             <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitModels.GitTargetDiffResult"/> representing the diff details.</returns>
+            <returns>A task that returns a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiffResult"/> representing the diff details.</returns>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Interfaces.IGitService.PostPullAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
             <summary>
@@ -274,13 +274,103 @@
             Interface for task-related API operations.
             </summary>
         </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.GetTaskListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the list of tasks and setup tasks.
+            </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the list of tasks, setup tasks, and any validation errors.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.RunTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs a task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to run.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the run operation.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.RunCommandAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs a command in the context of a specific task.
+            </summary>
+            <param name="taskId">The unique identifier of the task.</param>
+            <param name="command">The command to execute.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the command execution.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.StopTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Stops a running task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to stop.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the stop operation.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.CreateTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier for the new task.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the create operation.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.UpdateTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates an existing task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to update.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the update operation.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.SaveToConfigAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Saves a task to the configuration by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to save.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the save operation.
+            </returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.GenerateConfigAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates configuration for a task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to generate configuration for.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the generate configuration operation.
+            </returns>
+        </member>
         <member name="M:CodeSandbox.SDK.Net.Interfaces.ITaskService.CreateSetupTasksAsync(CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskCreateSetupTasksRequest,System.Threading.CancellationToken)">
             <summary>
             Creates setup tasks asynchronously.
             </summary>
             <param name="request">Request object with task setup details.</param>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/> indicating the result.</returns>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/> indicating the result of the setup tasks creation.
+            </returns>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Internal.ApiException">
             <summary>
@@ -416,6 +506,28 @@
             <param name="content">Response content string.</param>
             <returns>Deserialized error object or null if parsing fails.</returns>
         </member>
+        <member name="M:CodeSandbox.SDK.Net.Internal.ApiClient.WithNetworkRetryAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Executes an action with retry logic for network-related exceptions.
+            </summary>
+            <typeparam name="T">Type of the result returned by the action.</typeparam>
+            <param name="action">Action to execute.</param>
+            <param name="method">HTTP method used.</param>
+            <param name="path">API endpoint path.</param>
+            <param name="maxRetries">Maximum number of retries.</param>
+            <param name="delayMs">Delay between retries in milliseconds.</param>
+            <returns>Result of the action.</returns>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Internal.ApiClient.WithNetworkRetryAsync(System.Func{System.Threading.Tasks.Task},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Executes an action with retry logic for network-related exceptions.
+            </summary>
+            <param name="action">Action to execute.</param>
+            <param name="method">HTTP method used.</param>
+            <param name="path">API endpoint path.</param>
+            <param name="maxRetries">Maximum number of retries.</param>
+            <param name="delayMs">Delay between retries in milliseconds.</param>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Internal.LogLevel">
             <summary>
             Represents the severity level of a log message.
@@ -521,9 +633,24 @@
             Represents a successful response from the Port API.
             </summary>
         </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortSuccessResponse.Status">
+            <summary>
+            Status code for successful operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortSuccessResponse.Result">
+            <summary>
+            Result payload for the operation.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortListResult">
             <summary>
             Represents the result payload for a successful port list operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortListResult.List">
+            <summary>
+            List of ports and their associated URLs.
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortModel">
@@ -531,9 +658,29 @@
             Represents a port and its associated URL.
             </summary>
         </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortModel.Port">
+            <summary>
+            The port number.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortModel.Url">
+            <summary>
+            The URL associated with the port.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortErrorResponse">
             <summary>
             Represents an error response from the Port API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortErrorResponse.Status">
+            <summary>
+            Status code for error operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortErrorResponse.Error">
+            <summary>
+            Error details.
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortCommonError">
@@ -541,14 +688,289 @@
             Represents common error details for the Port API.
             </summary>
         </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortCommonError.Code">
+            <summary>
+            Error code.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortCommonError.Message">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.PortModels.PortCommonError.Data">
+            <summary>
+            Additional error data, if any.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest">
+            <summary>
+            Request model for /container/setup endpoint.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest.TemplateId">
+            <summary>
+            The template ID to use for the container setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest.TemplateArgs">
+            <summary>
+            Arguments to pass to the template.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest.Features">
+            <summary>
+            List of features to enable in the container.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupFeature">
+            <summary>
+            Represents a feature in the container setup request.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupFeature.Id">
+            <summary>
+            The feature ID.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupFeature.Options">
+            <summary>
+            Options for the feature.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupSuccessResponse">
+            <summary>
+            Success response for /container/setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupSuccessResponse.Status">
+            <summary>
+            Status code for successful operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupSuccessResponse.Result">
+            <summary>
+            Result payload for the operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupTaskDTO">
+            <summary>
+            Task information returned in a successful container setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupTaskDTO.Id">
+            <summary>
+            The task ID.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupTaskDTO.Status">
+            <summary>
+            The status of the task.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupTaskDTO.Progress">
+            <summary>
+            The progress of the task (0-100).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupErrorResponse">
+            <summary>
+            Error response for /container/setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupErrorResponse.Status">
+            <summary>
+            Status code for error operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupProtocolError">
+            <summary>
+            Protocol error details for container setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupProtocolError.Code">
+            <summary>
+            Error code.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupProtocolError.Message">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupProtocolError.Data">
+            <summary>
+            Additional error data, if any.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSuccessResponse`1">
             <summary>
             Generic success response wrapper for FS API.
             </summary>
         </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSuccessResponse`1.Status">
+            <summary>
+            Status code for successful operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSuccessResponse`1.Result">
+            <summary>
+            Result payload for the operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSuccessResponse">
+            <summary>
+            Non-generic success response wrapper for FS API.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSErrorResponse">
+            <summary>
+            Error response wrapper for FS API.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSDefaultError">
+            <summary>
+            Default error details for FS API.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSRawFsError">
+            <summary>
+            Raw FS error details for FS API.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSRawFsErrorData">
+            <summary>
+            Data for raw FS error.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPitcherErrorCode">
+            <summary>
+            Error codes for FS API.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSErrorUnion">
+            <summary>
+            Discriminated union for error responses.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest">
             <summary>
             Request model for writing a file.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest.Path">
+            <summary>
+            Path to the file.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest.Content">
+            <summary>
+            Content to write to the file.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest.Create">
+            <summary>
+            Whether to create the file if it does not exist.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest.Overwrite">
+            <summary>
+            Whether to overwrite the file if it exists.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSReadResult">
+            <summary>
+            Result of reading a directory tree.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSOperationRequest">
+            <summary>
+            Request for a filesystem operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSOperation">
+            <summary>
+            Represents a filesystem operation (create, delete, move).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSCreateOperation">
+            <summary>
+            Create operation for the filesystem.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSNewEntry">
+            <summary>
+            Represents a new entry (file or directory) to create.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSDeleteOperation">
+            <summary>
+            Delete operation for the filesystem.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSMoveOperation">
+            <summary>
+            Move operation for the filesystem.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSOperationResultSuccess">
+            <summary>
+            Success result for a filesystem operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSOperationResultIgnored">
+            <summary>
+            Ignored result for a filesystem operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSearchParams">
+            <summary>
+            Parameters for searching files.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSearchResult">
+            <summary>
+            Result of a file search.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSearchLine">
+            <summary>
+            Represents a line in a file search result.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSearchSubMatch">
+            <summary>
+            Represents a submatch in a file search result.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSSearchMatch">
+            <summary>
+            Represents a match in a file search result.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSStreamingSearchParams">
+            <summary>
+            Parameters for streaming file search.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSStreamingSearchResult">
+            <summary>
+            Result of a streaming file search.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSCancelStreamingSearchRequest">
+            <summary>
+            Request to cancel a streaming search.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSCancelStreamingSearchResult">
+            <summary>
+            Result of canceling a streaming search.
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchRequest">
@@ -564,6 +986,11 @@
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchMatch">
             <summary>
             Represents a single match in a path search result.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSInvalidIdError">
+            <summary>
+            Error for invalid ID.
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadFileParams">
@@ -586,6 +1013,11 @@
             Result of reading a directory.
             </summary>
         </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSReadDirEntry">
+            <summary>
+            Represents a file or directory entry in a directory listing.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSStatParams">
             <summary>
             Parameters for retrieving filesystem statistics.
@@ -596,9 +1028,24 @@
             Result of a filesystem stat operation.
             </summary>
         </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSStatParams">
+            <summary>
+            Parameters for retrieving filesystem statistics (alternate).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSStatResult">
+            <summary>
+            Result of a filesystem stat operation (alternate).
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSCopyParams">
             <summary>
             Parameters for copying a file or directory.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSCopyParams">
+            <summary>
+            Parameters for copying a file or directory (alternate).
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRenameParams">
@@ -606,9 +1053,39 @@
             Parameters for renaming a file or directory.
             </summary>
         </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSRenameParams">
+            <summary>
+            Parameters for renaming a file or directory (alternate).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSRemoveParams">
+            <summary>
+            Parameters for removing a file or directory (alternate).
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRemoveParams">
             <summary>
             Parameters for removing a file or directory.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSMkdirParams">
+            <summary>
+            Parameters for creating a directory.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWatchParams">
+            <summary>
+            Parameters for watching a file or directory.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWatchResult">
+            <summary>
+            Result of watching a file or directory.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSUnwatchParams">
+            <summary>
+            Parameters for unwatching a file or directory.
             </summary>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.UploadRequest">
@@ -636,21 +1113,1161 @@
             Represents a file or directory entry in a directory listing.
             </summary>
         </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitSuccessResponse">
+            <summary>
+            Represents a successful response from the Git API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitSuccessResponse.Status">
+            <summary>
+            Status code for successful operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitSuccessResponse.Result">
+            <summary>
+            Result payload for the operation.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitErrorResponse">
+            <summary>
+            Represents an error response from the Git API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitErrorResponse.Status">
+            <summary>
+            Status code for error operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommonError">
+            <summary>
+            Represents common error details for the Git API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommonError.Code">
+            <summary>
+            Error code (string for protocol or git error).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommonError.Message">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommonError.Data">
+            <summary>
+            Additional error data, if any (only present for protocol errors).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatusShortFormat">
+            <summary>
+            Git status short format codes.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem">
+            <summary>
+            Represents a file or directory in the Git status.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.Path">
+            <summary>
+            File path.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.Index">
+            <summary>
+            Index status short format.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.WorkingTree">
+            <summary>
+            Working tree status short format.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.IsStaged">
+            <summary>
+            Whether the file is staged.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.IsConflicted">
+            <summary>
+            Whether the file has conflicts.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitItem.FileId">
+            <summary>
+            File ID.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitChangedFiles">
+            <summary>
+            Dictionary of changed files, keyed by file ID.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties">
+            <summary>
+            Properties of a Git branch.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties.Head">
+            <summary>
+            Head commit.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties.Branch">
+            <summary>
+            Branch name.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties.Ahead">
+            <summary>
+            Number of commits ahead.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties.Behind">
+            <summary>
+            Number of commits behind.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitBranchProperties.Safe">
+            <summary>
+            Whether the branch is safe to use.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommit">
+            <summary>
+            Represents a Git commit.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommit.Hash">
+            <summary>
+            Commit hash.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommit.Date">
+            <summary>
+            Commit date.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommit.Message">
+            <summary>
+            Commit message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitCommit.Author">
+            <summary>
+            Commit author.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus">
+            <summary>
+            Represents the status of a Git repository.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.ChangedFiles">
+            <summary>
+            Map of file IDs to GitItems.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.DeletedFiles">
+            <summary>
+            List of deleted files.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Conflicts">
+            <summary>
+            Whether there are remote conflicts.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.LocalChanges">
+            <summary>
+            Whether there are local changes.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Remote">
+            <summary>
+            Remote branch properties.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Target">
+            <summary>
+            Target branch properties.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Head">
+            <summary>
+            Current HEAD commit.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Commits">
+            <summary>
+            List of commits.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.Branch">
+            <summary>
+            Current branch name.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitStatus.IsMerging">
+            <summary>
+            Whether a merge is in progress.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitTargetDiff">
+            <summary>
+            Represents the difference between the current branch and a target branch.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitTargetDiff.Ahead">
+            <summary>
+            Number of commits ahead of target.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitTargetDiff.Behind">
+            <summary>
+            Number of commits behind target.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitTargetDiff.Commits">
+            <summary>
+            List of commits.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemotes">
+            <summary>
+            Represents the remote repositories configured for the Git repository.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemotes.Origin">
+            <summary>
+            Origin remote URL.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemotes.Upstream">
+            <summary>
+            Upstream remote URL.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemoteParams">
+            <summary>
+            Parameters for retrieving remote content.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemoteParams.Reference">
+            <summary>
+            Branch or commit hash.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitRemoteParams.Path">
+            <summary>
+            File path.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusParams">
+            <summary>
+            Parameters for retrieving diff status between two references.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusParams.Base">
+            <summary>
+            Base reference for diffing.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusParams.Head">
+            <summary>
+            Head reference for diffing.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusItem">
+            <summary>
+            Represents a file in the diff status.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusItem.Status">
+            <summary>
+            Git status short format.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusItem.Path">
+            <summary>
+            File path.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusItem.OldPath">
+            <summary>
+            Original file path (for renames).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusItem.Hunks">
+            <summary>
+            List of hunks.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffHunk">
+            <summary>
+            Represents a hunk in the diff status.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffHunk.Original">
+            <summary>
+            Original range.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffHunk.Modified">
+            <summary>
+            Modified range.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffRange">
+            <summary>
+            Represents a range in the diff status.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffRange.Start">
+            <summary>
+            Start line.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffRange.End">
+            <summary>
+            End line.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusResult">
+            <summary>
+            Result of a diff status operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxGitModels.SandboxGitDiffStatusResult.Files">
+            <summary>
+            List of files in diff status.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse">
+            <summary>
+            Represents a successful response from the sandbox setup API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse.Status">
+            <summary>
+            Status code for successful operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse.Result">
+            <summary>
+            Result payload for the operation, containing setup progress.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupErrorResponse">
+            <summary>
+            Represents an error response from the sandbox setup API.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupErrorResponse.Status">
+            <summary>
+            Status code for error operations.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProtocolError">
+            <summary>
+            Protocol error details for sandbox setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProtocolError.Code">
+            <summary>
+            Error code.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProtocolError.Message">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProtocolError.Data">
+            <summary>
+            Additional error data, if any.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress">
+            <summary>
+            Represents the progress of a sandbox setup operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress.State">
+            <summary>
+            The current state of the setup.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress.Steps">
+            <summary>
+            The list of steps in the setup process.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress.CurrentStepIndex">
+            <summary>
+            The index of the current step.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupState">
+            <summary>
+            The state of the sandbox setup process.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupStep">
+            <summary>
+            Represents a single step in the sandbox setup process.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupStep.Name">
+            <summary>
+            The name of the step.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupStep.Command">
+            <summary>
+            The command executed in this step.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupStep.ShellId">
+            <summary>
+            The shell ID associated with this step.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupStep.FinishStatus">
+            <summary>
+            The finish status of the shell command.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupShellStatus">
+            <summary>
+            The finish status of a shell command in the setup process.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1">
+            <summary>
+            Represents a successful response with a result of type T.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1.Status">
+            <summary>
+            HTTP status code of the response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1.Result">
+            <summary>
+            The result payload.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse">
+            <summary>
+            Represents a successful response with a string result.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse.Status">
+            <summary>
+            HTTP status code of the response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse.Result">
+            <summary>
+            The result payload as a string.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellErrorResponse">
+            <summary>
+            Represents an error response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellErrorResponse.Status">
+            <summary>
+            HTTP status code of the response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCommonError">
+            <summary>
+            Represents a common error structure.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCommonError.Code">
+            <summary>
+            Error code identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCommonError.Message">
+            <summary>
+            Human-readable error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCommonError.Data">
+            <summary>
+            Additional error data.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellId">
+            <summary>
+            Represents a shell identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellId.Value">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSize">
+            <summary>
+            Represents the size of a shell (columns and rows).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSize.Cols">
+            <summary>
+            Number of columns.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSize.Rows">
+            <summary>
+            Number of rows.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellProcessType">
+            <summary>
+            Enumerates the types of shell processes.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellProcessStatus">
+            <summary>
+            Enumerates the statuses of a shell process.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxBaseShellDTO">
+            <summary>
+            Base class for shell data transfer objects.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxBaseShellDTO.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxBaseShellDTO.Name">
+            <summary>
+            The shell's display name.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxBaseShellDTO.Status">
+            <summary>
+            The current status of the shell process.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxBaseShellDTO.ExitCode">
+            <summary>
+            The exit code if the process has finished.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxCommandShellDTO">
+            <summary>
+            Represents a command shell DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxCommandShellDTO.ShellType">
+            <summary>
+            The type of shell ("COMMAND").
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxCommandShellDTO.StartCommand">
+            <summary>
+            The command used to start the shell.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxTerminalShellDTO">
+            <summary>
+            Represents a terminal shell DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxTerminalShellDTO.ShellType">
+            <summary>
+            The type of shell ("TERMINAL").
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxTerminalShellDTO.OwnerUsername">
+            <summary>
+            The username of the shell owner.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxTerminalShellDTO.IsSystemShell">
+            <summary>
+            Indicates if this is a system shell.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellDTO">
+            <summary>
+            Represents a union of command and terminal shell DTOs.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellDTO.ShellType">
+            <summary>
+            The type of shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellDTO.CommandShell">
+            <summary>
+            The command shell DTO, if applicable.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellDTO.TerminalShell">
+            <summary>
+            The terminal shell DTO, if applicable.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenCommandShellDTO">
+            <summary>
+            Represents an open command shell DTO with buffer.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenCommandShellDTO.Buffer">
+            <summary>
+            The output buffer.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenTerminalShellDTO">
+            <summary>
+            Represents an open terminal shell DTO with buffer.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenTerminalShellDTO.Buffer">
+            <summary>
+            The output buffer.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenShellDTO">
+            <summary>
+            Represents a union of open command and terminal shell DTOs.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenShellDTO.ShellType">
+            <summary>
+            The type of shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenShellDTO.CommandShell">
+            <summary>
+            The open command shell DTO, if applicable.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxOpenShellDTO.TerminalShell">
+            <summary>
+            The open terminal shell DTO, if applicable.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest">
+            <summary>
+            Request to create a new shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest.Command">
+            <summary>
+            The command to execute.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest.Cwd">
+            <summary>
+            The working directory.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest.Size">
+            <summary>
+            The shell size.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest.Type">
+            <summary>
+            The type of shell process.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest.IsSystemShell">
+            <summary>
+            Indicates if this is a system shell.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest">
+            <summary>
+            Request to send input to a shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest.Input">
+            <summary>
+            The input to send.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest.Size">
+            <summary>
+            The shell size.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellOpenRequest">
+            <summary>
+            Request to open a shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellOpenRequest.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellOpenRequest.Size">
+            <summary>
+            The shell size.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest">
+            <summary>
+            Request containing only a shell identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellResizeRequest">
+            <summary>
+            Request to resize a shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellResizeRequest.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellResizeRequest.Size">
+            <summary>
+            The new shell size.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellRenameRequest">
+            <summary>
+            Request to rename a shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellRenameRequest.ShellId">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellRenameRequest.Name">
+            <summary>
+            The new name for the shell.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellListResult">
+            <summary>
+            Result of a shell list operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellListResult.Shells">
+            <summary>
+            The list of shells.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse">
+            <summary>
+            Represents a successful system response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse.Status">
+            <summary>
+            Status code (0 for success).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse.Result">
+            <summary>
+            The result payload.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemErrorResponse">
+            <summary>
+            Represents an error system response.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemErrorResponse.Status">
+            <summary>
+            Status code (1 for error).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemError">
+            <summary>
+            Contains details about a system error.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemError.Code">
+            <summary>
+            Numeric error code.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemError.Message">
+            <summary>
+            Human-readable error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemError.Data">
+            <summary>
+            Additional error data.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus">
+            <summary>
+            Represents the status of system metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus.Cpu">
+            <summary>
+            CPU metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus.Memory">
+            <summary>
+            Memory metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus.Storage">
+            <summary>
+            Storage metrics.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemCpuMetrics">
+            <summary>
+            Represents CPU metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemCpuMetrics.Cores">
+            <summary>
+            Number of CPU cores.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemCpuMetrics.Used">
+            <summary>
+            Amount of CPU used.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemCpuMetrics.Configured">
+            <summary>
+            Amount of CPU configured.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMemoryMetrics">
+            <summary>
+            Represents memory metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMemoryMetrics.Used">
+            <summary>
+            Amount of memory used.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMemoryMetrics.Total">
+            <summary>
+            Total memory available.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMemoryMetrics.Configured">
+            <summary>
+            Amount of memory configured.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemStorageMetrics">
+            <summary>
+            Represents storage metrics.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemStorageMetrics.Used">
+            <summary>
+            Amount of storage used.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemStorageMetrics.Total">
+            <summary>
+            Total storage available.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemStorageMetrics.Configured">
+            <summary>
+            Amount of storage configured.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1">
+            <summary>
+            Represents a successful response for a task operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1.Status">
+            <summary>
+            Status code (always 0 for success).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1.Result">
+            <summary>
+            The result payload.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskErrorResponse">
+            <summary>
+            Represents an error response for a task operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskErrorResponse.Status">
+            <summary>
+            Status code (always 1 for error).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskErrorResponse.Error">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskError">
+            <summary>
+            Represents a task error (discriminated union).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskError.Code">
+            <summary>
+            Numeric error code.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskError.Message">
+            <summary>
+            Human-readable error message.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskError.Data">
+            <summary>
+            Additional error data (optional).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskListResult">
+            <summary>
+            Represents the result of a task list operation.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskListResult.Tasks">
+            <summary>
+            Dictionary of tasks by ID.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskListResult.SetupTasks">
+            <summary>
+            List of setup tasks.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskListResult.ValidationErrors">
+            <summary>
+            List of validation errors.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDTO">
+            <summary>
+            Represents a task DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDTO.Id">
+            <summary>
+            The unique task identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDTO.Unconfigured">
+            <summary>
+            Indicates if the task is unconfigured.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDTO.Shell">
+            <summary>
+            The shell associated with the task.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDTO.Ports">
+            <summary>
+            List of ports associated with the task.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDefinitionDTO">
+            <summary>
+            Represents a task definition DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDefinitionDTO.Name">
+            <summary>
+            The task name.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDefinitionDTO.Command">
+            <summary>
+            The command to execute.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDefinitionDTO.RunAtStart">
+            <summary>
+            Indicates if the task should run at start.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskDefinitionDTO.Preview">
+            <summary>
+            Preview information for the task.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskPreviewDTO">
+            <summary>
+            Represents a preview for a task.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskPreviewDTO.Port">
+            <summary>
+            The port to preview (if any).
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskPreviewDTO.PrLink">
+            <summary>
+            The PR link type ("direct", "redirect", "devtool").
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxCommandShellDTO">
+            <summary>
+            Represents a command shell DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxCommandShellDTO.Id">
+            <summary>
+            The shell's unique identifier.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxCommandShellDTO.Command">
+            <summary>
+            The command executed in the shell.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxCommandShellDTO.Status">
+            <summary>
+            The shell's status ("initializing", "running", "stopped", "error").
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxCommandShellDTO.Output">
+            <summary>
+            The output of the shell.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxPortDTO">
+            <summary>
+            Represents a port DTO.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxPortDTO.Port">
+            <summary>
+            The port number.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxPortDTO.Hostname">
+            <summary>
+            The hostname associated with the port.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxPortDTO.Status">
+            <summary>
+            The port status ("open", "closed").
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxPortDTO.TaskId">
+            <summary>
+            The ID of the task associated with the port.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskResult">
+            <summary>
+            Alias for SandboxTaskDTO.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSetupTasksResult">
+            <summary>
+            Represents the result for setup tasks (always null).
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskCreateSetupTasksRequest">
+            <summary>
+            Request to create setup tasks.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskCreateSetupTasksRequest.Tasks">
+            <summary>
+            List of task definitions to create.
+            </summary>
+        </member>
+        <member name="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskRunCommandRequest">
+            <summary>
+            Request to run a command as a task.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskRunCommandRequest.Command">
+            <summary>
+            The command to run.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskRunCommandRequest.Name">
+            <summary>
+            The name of the task.
+            </summary>
+        </member>
+        <member name="P:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskRunCommandRequest.SaveToConfig">
+            <summary>
+            Indicates if the command should be saved to config.
+            </summary>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Services.ContainerService">
             <summary>
-            Service to manage container-related operations.
+            Provides operations for managing container setup and lifecycle.
             </summary>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ContainerService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
             <summary>
-            Creates a new instance of <see cref="T:CodeSandbox.SDK.Net.Services.ContainerService"/>.
+            Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.ContainerService"/> class.
             </summary>
-            <param name="client">The API client instance (required).</param>
-            <param name="logger">Optional logger instance.</param>
+            <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         </member>
-        <member name="M:CodeSandbox.SDK.Net.Services.ContainerService.SetupContainerAsync(CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupRequest,System.Threading.CancellationToken)">
-            <inheritdoc/>
+        <member name="M:CodeSandbox.SDK.Net.Services.ContainerService.SetupContainerAsync(CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest,System.Threading.CancellationToken)">
+            <summary>
+            Sets up a new container using the specified setup request.
+            </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupRequest"/> containing template, arguments, and features for the container setup.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxContainerModels.ContainerSetupSuccessResponse"/> result containing the status and setup task details.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="request"/> is null.</exception>
+            <exception cref="T:CodeSandbox.SDK.Net.Internal.ApiException">Thrown if the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown if an unexpected error occurs during setup.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.GitService">
             <summary>
@@ -659,44 +2276,45 @@
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
             <summary>
-            Creates a new instance of <see cref="T:CodeSandbox.SDK.Net.Services.GitService"/>.
+            Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.GitService"/> class.
             </summary>
             <param name="client">The API client instance (required).</param>
             <param name="logger">Optional logger instance.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.GetStatusAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Gets the current Git status.
             </summary>
             <param name="cancellationToken">Optional cancellation token.</param>
-            <returns>A <see cref="!:GitStatusResult"/> representing the current Git status.</returns>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusResponse"/> containing the status code and a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitStatusResult"/> with the current Git status.
+            </returns>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.GetRemotesAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Gets the list of Git remotes.
             </summary>
             <param name="cancellationToken">Optional cancellation token.</param>
-            <returns>A <see cref="!:GitRemotesResponse"/> containing the list of remotes.</returns>
-            <returns>A <see cref="!:GitRemotesResponse"/> containing the list of remotes.</returns>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResponse"/> containing the status code and a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitRemotesResult"/> with the list of remotes.
+            </returns>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.GetTargetDiffAsync(System.String,System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Gets the diff of the target branch.
             </summary>
             <param name="branch">The target branch name.</param>
             <param name="cancellationToken">Optional cancellation token.</param>
-            <returns>A <see cref="!:GitTargetDiffResponse"/> containing the diff details.</returns>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiffResponse"/> containing the status code and a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTargetDiffResult"/> with the diff details.
+            </returns>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostPullAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Pulls changes from the specified branch.
             </summary>
@@ -705,32 +2323,33 @@
             <param name="cancellationToken">Optional cancellation token.</param>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="branch"/> is null or whitespace.</exception>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostDiscardAsync(System.String[],System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Discards changes in the specified file paths.
             </summary>
             <param name="paths">Array of file paths to discard changes for.</param>
             <param name="cancellationToken">Optional cancellation token.</param>
-            <returns>A list of discarded file paths.</returns>
+            <returns>
+            A list of discarded file paths.
+            </returns>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="paths"/> is null.</exception>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostCommitAsync(System.String,System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Creates a commit with the specified message.
             </summary>
             <param name="message">The commit message.</param>
             <param name="cancellationToken">Optional cancellation token.</param>
-            <returns>The shell ID of the created commit.</returns>
+            <returns>
+            The shell ID of the created commit.
+            </returns>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="message"/> is null or whitespace.</exception>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostRemoteAddAsync(System.String,System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
             Adds a new remote with the specified URL.
             </summary>
@@ -738,69 +2357,115 @@
             <param name="cancellationToken">Optional cancellation token.</param>
             <returns>A task representing the asynchronous operation.</returns>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="url"/> is null or whitespace.</exception>
-            <exception cref="T:System.Exception">Throws when API call fails or unexpected errors occur.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostPushAsync(System.Threading.CancellationToken)">
             <summary>
             Pushes changes to the remote repository.
             </summary>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostPushToRemoteAsync(System.String,System.String,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Pushes changes to a specific remote and branch.
             </summary>
+            <param name="url">The remote URL.</param>
+            <param name="branch">The branch to push to.</param>
+            <param name="squashAllCommits">If true, squashes all commits before pushing.</param>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="url"/> or <paramref name="branch"/> is null or whitespace.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostRenameBranchAsync(System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Renames a branch in the local repository.
             </summary>
+            <param name="oldBranch">The current branch name.</param>
+            <param name="newBranch">The new branch name.</param>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="oldBranch"/> or <paramref name="newBranch"/> is null or whitespace.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostRemoteContentAsync(System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Retrieves the content of a file from a remote branch or commit.
             </summary>
+            <param name="reference">The branch or commit reference.</param>
+            <param name="path">The file path to retrieve content from.</param>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>
+            The file content as a string.
+            </returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="reference"/> or <paramref name="path"/> is null or whitespace.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostDiffStatusAsync(System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Retrieves the status of changes between two references.
             </summary>
+            <param name="baseRef">The base reference (branch or commit).</param>
+            <param name="headRef">The head reference (branch or commit).</param>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusResponse"/> containing the status code and a <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitDiffStatusResult"/> with the diff status.
+            </returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="baseRef"/> or <paramref name="headRef"/> is null or whitespace.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostResetLocalWithRemoteAsync(System.Threading.CancellationToken)">
             <summary>
             Resets the local repository to match the remote.
             </summary>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostCheckoutInitialBranchAsync(System.Threading.CancellationToken)">
             <summary>
             Checks out the initial branch of the repository.
             </summary>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
-        <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostTransposeLinesAsync(System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.New.GitModels.GitModels.GitTransposeLinesResultItem},System.Threading.CancellationToken)">
+        <member name="M:CodeSandbox.SDK.Net.Services.GitService.PostTransposeLinesAsync(System.Collections.Generic.List{CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesResultItem},System.Threading.CancellationToken)">
             <summary>
             Maps line numbers between different git commits.
-            </summary> 
+            </summary>
+            <param name="requests">A list of <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesResultItem"/> specifying the files and lines to transpose.</param>
+            <param name="cancellationToken">Optional cancellation token.</param>
+            <returns>
+            A list of <see cref="T:CodeSandbox.SDK.Net.Models.New.GitModels.GitTransposeLinesResultItem"/> with the mapped line numbers.
+            </returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="requests"/> is null or empty.</exception>
+            <exception cref="T:System.Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.PortService">
             <summary>
-            Service for retrieving port information.
+            Provides operations for retrieving port information from the CodeSandbox API.
             </summary>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.PortService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
             <summary>
             Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.PortService"/> class.
             </summary>
-            <param name="client">API client instance (required).</param>
-            <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
+            <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.PortService.GetPortListAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
             <summary>
-            Asynchronously retrieves the list of ports from the API.
+            Asynchronously retrieves the list of ports and their associated URLs from the API.
             </summary>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the asynchronous operation, containing the port list response.</returns>
-            <exception cref="T:System.Exception">Throws if the API call fails or an unexpected error occurs.</exception>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.PortModels.PortListResult"/> containing the list of ports and URLs.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.SandboxFsService">
             <summary>
@@ -811,209 +2476,337 @@
             <summary>
             Initializes a new instance of <see cref="T:CodeSandbox.SDK.Net.Services.SandboxFsService"/>.
             </summary>
-            <param name="apiClient">The API client instance (required).</param>
-            <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
+            <param name="apiClient">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="apiClient"/> is null.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest,System.Threading.CancellationToken)">
             <summary>
-            Writes a file asynchronously using the sandbox FS API.
+            Asynchronously writes a file to the sandbox file system.
             </summary>
-            <param name="request">The request data for writing the file.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">The request parameters for writing a file.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning the result object from the write operation, or null if not applicable.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchResult,System.Threading.CancellationToken)">
             <summary>
-            Searches for paths asynchronously using the sandbox FS API.
+            Asynchronously searches for file system paths matching the given criteria.
             </summary>
-            <param name="request">The search parameters.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the search results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters for path search.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchResult"/> with the search results.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.UploadRequest,System.Threading.CancellationToken)">
             <summary>
-            Uploads a file asynchronously using the sandbox FS API.
+            Asynchronously uploads a file to the sandbox file system.
             </summary>
-            <param name="request">The upload request data.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the upload results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">The upload request parameters.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning an <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.UploadResult"/> with upload result details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.DownloadRequest,System.Threading.CancellationToken)">
             <summary>
-            Downloads a file asynchronously using the sandbox FS API.
+            Asynchronously downloads a file from the sandbox file system.
             </summary>
-            <param name="request">The download request data.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the download results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">The download request parameters.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.DownloadResult"/> with download result details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadFileParams,System.Threading.CancellationToken)">
             <summary>
-            Reads a file asynchronously using the sandbox FS API.
+            Asynchronously reads a file from the sandbox file system.
             </summary>
-            <param name="request">Parameters for reading the file.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the file contents.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters for reading a file.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning an <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadFileResult"/> with the file content.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadDirParams,System.Threading.CancellationToken)">
             <summary>
-            Reads a directory asynchronously using the sandbox FS API.
+            Asynchronously reads a directory from the sandbox file system.
             </summary>
-            <param name="request">Parameters for reading the directory.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing directory entries.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters for reading a directory.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning an <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadDirResult"/> with directory entries.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSStatParams,System.Threading.CancellationToken)">
             <summary>
-            Gets file or directory statistics asynchronously using the sandbox FS API.
+            Asynchronously retrieves file or directory metadata (stat) from the sandbox file system.
             </summary>
-            <param name="request">Parameters for the stat operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the stat results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters for retrieving file/directory stats.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning an <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSStatResult"/> with the stat result.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSCopyParams,System.Threading.CancellationToken)">
             <summary>
-            Copies a file or directory asynchronously using the sandbox FS API.
+            Asynchronously copies a file or directory in the sandbox file system.
             </summary>
-            <param name="request">Parameters for the copy operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters specifying source and destination for the copy operation.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning the result object from the copy operation, or null if not applicable.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRenameParams,System.Threading.CancellationToken)">
             <summary>
-            Renames a file or directory asynchronously using the sandbox FS API.
+            Asynchronously renames a file or directory in the sandbox file system.
             </summary>
-            <param name="request">Parameters for the rename operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters specifying the rename operation.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning the result object from the rename operation, or null if not applicable.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRemoveParams,System.Threading.CancellationToken)">
             <summary>
-            Removes a file or directory asynchronously using the sandbox FS API.
+            Asynchronously removes a file or directory from the sandbox file system.
             </summary>
-            <param name="request">Parameters for the remove operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+            <param name="request">Parameters specifying the remove operation.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task returning the result object from the remove operation, or null if not applicable.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the operation fails.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.SetupService">
             <summary>
-            Service to manage sandbox setup operations.
+            Provides operations for managing the sandbox setup process via the CodeSandbox API.
             </summary>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SetupService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.SetupService"/> class.
+            </summary>
+            <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.GetSetupProgressAsync(System.Threading.CancellationToken)">
             <summary>
             Retrieves the current setup progress status.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/> result with setup progress details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.SkipStepAsync(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Skips a specific step in the setup process.
             </summary>
+            <param name="stepIndexToSkip">The index of the step to skip.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and updated <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.SkipAllStepsAsync(System.Threading.CancellationToken)">
             <summary>
             Skips all remaining steps in the setup process.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and updated <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.DisableSetupAsync(System.Threading.CancellationToken)">
             <summary>
             Disables the setup process.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and updated <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.EnableSetupAsync(System.Threading.CancellationToken)">
             <summary>
             Enables the setup process.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and updated <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.InitializeSetupAsync(System.Threading.CancellationToken)">
             <summary>
             Initializes the setup process.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and initial <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SetupService.SetStepAsync(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Sets the current step in the setup process.
             </summary>
+            <param name="stepIndex">The index of the step to set as current.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupSuccessResponse"/> containing the status and updated <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSetupModels.SandboxSetupProgress"/>.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.ShellService">
             <summary>
-            Service for managing terminal and command shells in the sandbox.
+            Provides operations for managing terminal and command shells in the sandbox via the CodeSandbox API.
             </summary>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.ShellService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.ShellService"/> class.
+            </summary>
+            <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.CreateShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest,System.Threading.CancellationToken)">
             <summary>
-            Creates a new shell.
+            Creates a new shell (terminal or command) in the sandbox.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellCreateRequest"/> containing shell creation parameters.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1"/> containing the status and the created shell details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.SendInputAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest,System.Threading.CancellationToken)">
             <summary>
             Sends input to an active shell.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellInRequest"/> containing the shell ID and input.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="!:SandboxShellSuccessResponse&lt;object&gt;"/> indicating the result of the input operation.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.ListShellsAsync(System.Threading.CancellationToken)">
             <summary>
-            Lists all available shells.
+            Retrieves the list of all available shells in the sandbox.
             </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1"/> containing the list of shells.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.OpenShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellOpenRequest,System.Threading.CancellationToken)">
             <summary>
             Opens an existing shell and retrieves its buffer.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellOpenRequest"/> containing the shell ID and size.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1"/> containing the shell's buffer and details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.CloseShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest,System.Threading.CancellationToken)">
             <summary>
             Closes a shell without terminating the underlying process.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest"/> containing the shell ID.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="!:SandboxShellSuccessResponse&lt;object&gt;"/> indicating the result of the close operation.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.RestartShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest,System.Threading.CancellationToken)">
             <summary>
             Restarts an existing shell process.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest"/> containing the shell ID.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="!:SandboxShellSuccessResponse&lt;object&gt;"/> indicating the result of the restart operation.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.TerminateShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest,System.Threading.CancellationToken)">
             <summary>
             Terminates a shell and its underlying process.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellIdRequest"/> containing the shell ID.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellSuccessResponse`1"/> containing the terminated shell's details.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.ResizeShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellResizeRequest,System.Threading.CancellationToken)">
             <summary>
             Resizes a shell.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellResizeRequest"/> containing the shell ID and new size.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="!:SandboxShellSuccessResponse&lt;object&gt;"/> indicating the result of the resize operation.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.ShellService.RenameShellAsync(CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellRenameRequest,System.Threading.CancellationToken)">
             <summary>
             Renames a shell.
             </summary>
+            <param name="request">The <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxShellModels.SandboxShellRenameRequest"/> containing the shell ID and new name.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="!:SandboxShellSuccessResponse&lt;object&gt;"/> indicating the result of the rename operation.
+            </returns>
+            <exception cref="T:System.Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.SystemService">
             <summary>
-            Provides system-related API operations.
+            Provides operations for system management via the CodeSandbox API.
             </summary>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SystemService.#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
             <summary>
             Initializes a new instance of the <see cref="T:CodeSandbox.SDK.Net.Services.SystemService"/> class.
             </summary>
-            <param name="httpClient">HTTP client for sending requests.</param>
-            <param name="logger">Logger service for logging.</param>
+            <param name="httpClient">The HTTP client used to communicate with the CodeSandbox API. Cannot be null.</param>
+            <param name="logger">The logger service for diagnostic output. Cannot be null.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.SystemService.UpdateSystemAsync(System.Threading.CancellationToken)">
             <summary>
             Sends a request to update the system asynchronously.
             </summary>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse"/> indicating the result.</returns>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse"/> indicating the result of the update operation.
+            </returns>
             <exception cref="T:CodeSandbox.SDK.Net.Internal.ApiException">Thrown when the API returns an error response.</exception>
             <exception cref="T:System.Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         </member>
@@ -1021,8 +2814,10 @@
             <summary>
             Sends a request to hibernate the system asynchronously.
             </summary>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse"/> indicating the result.</returns>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemSuccessResponse"/> indicating the result of the hibernate operation.
+            </returns>
             <exception cref="T:CodeSandbox.SDK.Net.Internal.ApiException">Thrown when the API returns an error response.</exception>
             <exception cref="T:System.Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         </member>
@@ -1030,31 +2825,139 @@
             <summary>
             Retrieves system metrics asynchronously.
             </summary>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus"/> containing system metrics.</returns>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxSystemModels.SandboxSystemMetricsStatus"/> containing CPU, memory, and storage metrics.
+            </returns>
             <exception cref="T:CodeSandbox.SDK.Net.Internal.ApiException">Thrown when the API returns an error response.</exception>
             <exception cref="T:System.Exception">Thrown on HTTP failure, JSON deserialization failure, or unexpected errors.</exception>
         </member>
         <member name="T:CodeSandbox.SDK.Net.Services.TaskService">
             <summary>
-            Provides task-related API operations.
+            Provides operations for managing and executing sandbox tasks via the CodeSandbox API.
             </summary>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.TaskService.#ctor(System.Net.Http.HttpClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
             <summary>
             Initializes a new instance of <see cref="T:CodeSandbox.SDK.Net.Services.TaskService"/>.
             </summary>
-            <param name="httpClient">HTTP client for sending requests.</param>
-            <param name="logger">Logger service for logging.</param>
+            <param name="httpClient">HTTP client for sending requests. Cannot be null.</param>
+            <param name="logger">Logger service for logging. Cannot be null.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is null.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.GetTaskListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves the list of tasks and setup tasks.
+            </summary>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the list of tasks, setup tasks, and any validation errors.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.RunTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs a task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to run.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the run operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.RunCommandAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Runs a command in the context of a specific task.
+            </summary>
+            <param name="taskId">The unique identifier of the task.</param>
+            <param name="command">The command to execute.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the command execution.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.StopTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Stops a running task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to stop.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the stop operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.CreateTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier for the new task.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the create operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.UpdateTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates an existing task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to update.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the update operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.SaveToConfigAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Saves a task to the configuration by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to save.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the save operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.TaskService.GenerateConfigAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates configuration for a task by its identifier.
+            </summary>
+            <param name="taskId">The unique identifier of the task to generate configuration for.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A task representing the asynchronous operation, with a <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/>
+            containing the result of the generate configuration operation.
+            </returns>
+            <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when the API returns an error response.</exception>
+            <exception cref="T:System.Exception">Thrown on HTTP failure, deserialization failure, or unexpected errors.</exception>
         </member>
         <member name="M:CodeSandbox.SDK.Net.Services.TaskService.CreateSetupTasksAsync(CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskCreateSetupTasksRequest,System.Threading.CancellationToken)">
             <summary>
             Creates setup tasks asynchronously.
             </summary>
             <param name="request">Request object with task setup details.</param>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/> indicating the result.</returns>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>
+            A <see cref="T:CodeSandbox.SDK.Net.Models.New.SandboxTaskModels.SandboxTaskSuccessResponse`1"/> indicating the result of the setup tasks creation.
+            </returns>
             <exception cref="T:CodeSandbox.SDK.Net.Services.TaskServiceException">Thrown when API returns a 400 error with details.</exception>
             <exception cref="T:System.Exception">Thrown on deserialization errors, HTTP failures, or unexpected errors.</exception>
         </member>
@@ -1074,36 +2977,6 @@
             </summary>
             <param name="code">API error code.</param>
             <param name="message">API error message.</param>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupRequest">
-            <summary>
-            Request model for /container/setup endpoint.
-            </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupFeature">
-            <summary>
-            Represents a feature in the container setup request.
-            </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupSuccessResponse">
-            <summary>
-            Success response for /container/setup.
-            </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupTaskDTO">
-            <summary>
-            Task information returned in a successful container setup.
-            </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupErrorResponse">
-            <summary>
-            Error response for /container/setup.
-            </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.New.Models.New.SandboxContainerModels.ContainerSetupProtocolError">
-            <summary>
-            Protocol error details for container setup.
-            </summary>
         </member>
     </members>
 </doc>

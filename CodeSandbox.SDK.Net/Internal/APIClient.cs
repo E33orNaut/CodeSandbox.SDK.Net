@@ -61,7 +61,11 @@ namespace CodeSandbox.SDK.Net.Internal
         private const int DefaultMaxRetries = 3;
         private const int DefaultDelayMs = 1000;
 
-
+        /// <summary>
+        /// /// Validates that the provided path is not null or empty.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <exception cref="ArgumentException"></exception>
         public void ValidatePathT(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
