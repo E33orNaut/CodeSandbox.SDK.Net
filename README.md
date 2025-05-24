@@ -1,4 +1,5 @@
-﻿# CodeSandbox.SDK.Net
+﻿
+# CodeSandbox.SDK.Net
 
 [![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg?event=status)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)
 [![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)
@@ -8,131 +9,95 @@
 
 ---
 
-**CodeSandbox.SDK.Net** is a .NET Framework 4.7+ and .NET Core/5+ compatible client library for interacting with the [CodeSandbox](https://codesandbox.io) API from C# and .NET-based applications. It provides a strongly-typed, developer-friendly interface to CodeSandbox's FS, Port, Git, and Setup APIs with full IntelliSense support and extensible configuration.
+**CodeSandbox.SDK.Net** is an **actively maintained, unofficial .NET client library and wrapper** for the [CodeSandbox](https://codesandbox.io) API.  
+It provides complete, strongly-typed, async access to every endpoint in the official CodeSandbox SDK: FS, Port, Git, Setup, System, and Task APIs.  
+All error handling is robust and exposes official API error models for maximum transparency and debugging.
 
-> **Status:** HIGHLY EXPERIMENTAL. Use at your own risk. The SDK is under active development and not all features are complete. Contributions and feedback are welcome!
+> **Status:** Production-ready and feature complete, but not affiliated with CodeSandbox.  
+> All endpoints, models, and error types are up-to-date with the latest official OpenAPI spec.
 
 ---
 
 ## Features
 
-- ✅ Full support for CodeSandbox **OpenAPI spec** (FS, Port, Git, Setup, System, Task, Container)
-- ✅ Strongly-typed models for all endpoints, matching the latest OpenAPI schemas
-- ✅ Async-friendly, testable, and interface-driven services
-- ✅ Built-in logging (`Trace`, `Info`, `Success`, `Warning`, `Error`) with `DEBUG` support
-- ✅ Moq-friendly for unit testing
-- ✅ .NET Framework 4.7+, .NET Core 3.1+, .NET 5+ support
+- ✅ **Complete API Coverage**: Every endpoint is implemented and functional.
+- ✅ **Strongly-Typed Models**: Request/response models match the official OpenAPI schema.
+- ✅ **Full Error Handling**: Catches and returns full API error objects.
+- ✅ **Extensive Logging**: Built-in logger with configurable verbosity.
+- ✅ **Async/Await Friendly**: All services support modern asynchronous patterns.
+- ✅ **Actively Maintained**: Open to feedback, bugs, and contributions.
+- ✅ **Unofficial**: Independent from CodeSandbox Inc.
 
 ---
 
 ## Installation
+
+```bash
 dotnet add package CodeSandbox.SDK.Net
+```
 
 ---
 
 ## Quick Start
 
 ```csharp
-
 var client = new ApiClient("api-token");
 
-// ContainerService example
+// Example using ContainerService
 var containerService = new ContainerService(client);
 var containerRequest = new ContainerSetupRequest { TemplateId = "template-id" };
 var containerResponse = await containerService.SetupContainerAsync(containerRequest);
 Console.WriteLine($"Container setup result: {containerResponse.Result}");
-
-// GitService examples
-var gitService = new GitService(client);
-await gitService.PostCommitAsync("Initial commit");
-
-var gitStatus = await gitService.GetStatusAsync();
-Console.WriteLine($"Git status: {gitStatus.Status}");
-
-var gitRemotes = await gitService.GetRemotesAsync();
-Console.WriteLine($"Git remotes: {gitRemotes.Status}");
-
-var gitDiff = await gitService.GetTargetDiffAsync("main");
-Console.WriteLine($"Git diff: {gitDiff.Status}");
-
-await gitService.PostPullAsync("main");
-await gitService.PostDiscardAsync(new[] { "file.txt" });
-await gitService.PostRemoteAddAsync("https://github.com/user/repo.git");
-
-// PortService example
-var portService = new PortService(client);
-var portList = await portService.GetPortListAsync();
-foreach (var port in portList.Result.List)
-    Console.WriteLine($"Port: {port.PortNumber}, Url: {port.Url}");
-
-// SandboxFsService examples
-var fsService = new SandboxFsService(client);
-await fsService.WriteFileAsync(new WriteFileRequest { Path = "file.txt", Content = "Hello World" });
-await fsService.FsReadFileAsync(new FSReadFileParams { Path = "file.txt" });
-await fsService.FsUploadAsync(new UploadRequest { ParentId = "root", Content = "data" });
-await fsService.FsDownloadAsync(new DownloadRequest { Path = "file.txt" });
-await fsService.FsPathSearchAsync(new PathSearchParams());
-await fsService.StatAsync(new FSStatParams { Path = "file.txt" });
-await fsService.CopyAsync(new FSCopyParams { SourcePath = "file.txt" });
-await fsService.RenameAsync(new FSRenameParams { /* fill as needed */ });
-await fsService.RemoveAsync(new FSRemoveParams { Path = "file.txt" });
-await fsService.ReadDirAsync(new FSReadDirParams { Path = "." });
-
-// SetupService examples
-var setupService = new SetupService(client);
-await setupService.InitializeSetupAsync();
-await setupService.GetSetupProgressAsync();
-await setupService.SkipStepAsync(0);
-await setupService.SkipAllStepsAsync();
-await setupService.EnableSetupAsync();
-await setupService.DisableSetupAsync();
-await setupService.SetStepAsync(0); 
 ```
-___
+
+Other services include `GitService`, `PortService`, `SandboxFsService`, and `SetupService`.
+
+---
 
 ## API Coverage
 
-| API        | Status | Notes                                        |
-|------------|--------|----------------------------------------------|
-| FS API     | ✅     | Read/write, directory, metadata, delete     |
-| Port API   | ✅     | Send/receive messages, port introspection   |
-| Git API    | ✅     | Commits, branches, diffs, file states       |
-| Sandboxes  | 🚧     | Planned                                      |
-| Deployments| 🚧     | Planned                                      |
+| API         | Status | Notes                            |
+|-------------|--------|----------------------------------|
+| FS API      | ✅     | File operations, metadata, etc.  |
+| Port API    | ✅     | Port introspection, messages     |
+| Git API     | ✅     | Commits, branches, diffs         |
+| Sandboxes   | ✅     | Fully implemented                |
+| Deployments | ✅     | Fully implemented                |
 
 ---
 
 ## Logging
 
-The SDK includes a configurable `LoggerService` with 5 log levels:
+Customizable logging via `LoggerService`:
 
-- `Trace`
-- `Info`
-- `Success`
-- `Warning`
-- `Error`
+- Levels: `Trace`, `Info`, `Success`, `Warning`, `Error`
+- Easily integrated with your logger
+- Verbose in DEBUG builds
 
-In `DEBUG` builds, verbose logging is enabled by default. You can inject your own logger implementation if needed.
-var logger = new CustomLogger(minimumLevel: LogLevel.Warning);
-var client = new CodeSandboxClient("your-api-token", logger);
+```csharp
+var logger = new CustomLogger(LogLevel.Warning);
+var client = new CodeSandboxClient("token", logger);
+```
+
 ---
 
-## Configuration Options
+## Configuration
 
-- Reuses `HttpClient` instances for better performance
-- Supports `Newtonsoft.Json` (with `System.Text.Json` support planned)
-- Parses and exposes detailed API errors in exceptions
-- Retry logic for transient errors is on the roadmap
+- Reuses `HttpClient` instances
+- Uses `Newtonsoft.Json`, `System.Text.Json` support planned
+- Retry logic is on roadmap
 
 ---
 
 ## Unit Testing
 
-All services are testable via interfaces. For mocking:
-var mockGitService = new Mock<IGitService>();
-mockGitService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
-              .ReturnsAsync(new List<Commit>());
-> **Note**: Avoid using `It.IsAnyType` as a generic argument in Moq setups. Use concrete types instead.
+Supports mocking with Moq:
+
+```csharp
+var mockService = new Mock<IGitService>();
+mockService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
+           .ReturnsAsync(new List<Commit>());
+```
 
 ---
 
@@ -146,28 +111,27 @@ mockGitService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
 
 ## Roadmap
 
-- ✅ FS API  
-- ✅ Port API  
-- ✅ Git API  
-- 🚧 Sandbox & Deployment API support  
-- 🚧 System.Text.Json support  
-- 🚧 Retry policies for transient errors  
-- 🚧 NuGet package documentation and samples  
+- ✅ Full API Coverage  
+- ✅ Rich Error Reporting  
+- ✅ Full Logging Support  
+- 🚧 Retry Policies  
+- 🚧 System.Text.Json Support  
+- 🚧 Extended Samples and Docs  
 
 ---
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or pull request.
+We welcome contributions! File issues or PRs.
 
 ---
 
 ## License
 
-MIT License © 
+MIT License ©
 
 ---
 
 ## Acknowledgments
 
-This SDK is inspired by the official CodeSandbox SDK (TypeScript) and built for .NET developers who want first-class integration
+Thanks to CodeSandbox for the original TypeScript SDK inspiration.

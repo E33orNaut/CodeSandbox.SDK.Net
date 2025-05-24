@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-
+/// <summary></summary>
 namespace CodeSandbox.SDK.Net.Models.New.SandboxSystemModels
 {
-    // --- Success Response ---
+    // --- Success Response --- 
     public class SandboxSystemSuccessResponse
     {
         public int Status { get; set; } // 0 for success

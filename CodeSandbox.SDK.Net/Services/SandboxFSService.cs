@@ -5,7 +5,7 @@ using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
 
-namespace CodeSandbox.SDK.Services
+namespace CodeSandbox.SDK.Net.Services
 {
     /// <summary>
     /// Provides file system related operations via the sandbox FS API.

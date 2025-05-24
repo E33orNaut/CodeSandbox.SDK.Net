@@ -802,6 +802,109 @@
             <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the asynchronous operation, containing the port list response.</returns>
             <exception cref="T:System.Exception">Throws if the API call fails or an unexpected error occurs.</exception>
         </member>
+        <member name="T:CodeSandbox.SDK.Net.Services.SandboxFsService">
+            <summary>
+            Provides file system related operations via the sandbox FS API.
+            </summary>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
+            <summary>
+            Initializes a new instance of <see cref="T:CodeSandbox.SDK.Net.Services.SandboxFsService"/>.
+            </summary>
+            <param name="apiClient">The API client instance (required).</param>
+            <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="apiClient"/> is null.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest,System.Threading.CancellationToken)">
+            <summary>
+            Writes a file asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">The request data for writing the file.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchResult,System.Threading.CancellationToken)">
+            <summary>
+            Searches for paths asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">The search parameters.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the search results.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.UploadRequest,System.Threading.CancellationToken)">
+            <summary>
+            Uploads a file asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">The upload request data.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the upload results.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.DownloadRequest,System.Threading.CancellationToken)">
+            <summary>
+            Downloads a file asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">The download request data.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the download results.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadFileParams,System.Threading.CancellationToken)">
+            <summary>
+            Reads a file asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for reading the file.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the file contents.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadDirParams,System.Threading.CancellationToken)">
+            <summary>
+            Reads a directory asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for reading the directory.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing directory entries.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSStatParams,System.Threading.CancellationToken)">
+            <summary>
+            Gets file or directory statistics asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for the stat operation.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the stat results.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSCopyParams,System.Threading.CancellationToken)">
+            <summary>
+            Copies a file or directory asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for the copy operation.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRenameParams,System.Threading.CancellationToken)">
+            <summary>
+            Renames a file or directory asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for the rename operation.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
+        <member name="M:CodeSandbox.SDK.Net.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRemoveParams,System.Threading.CancellationToken)">
+            <summary>
+            Removes a file or directory asynchronously using the sandbox FS API.
+            </summary>
+            <param name="request">Parameters for the remove operation.</param>
+            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
+            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
+        </member>
         <member name="T:CodeSandbox.SDK.Net.Services.SetupService">
             <summary>
             Service to manage sandbox setup operations.
@@ -1001,109 +1104,6 @@
             <summary>
             Protocol error details for container setup.
             </summary>
-        </member>
-        <member name="T:CodeSandbox.SDK.Services.SandboxFsService">
-            <summary>
-            Provides file system related operations via the sandbox FS API.
-            </summary>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.#ctor(CodeSandbox.SDK.Net.Internal.ApiClient,CodeSandbox.SDK.Net.Internal.LoggerService)">
-            <summary>
-            Initializes a new instance of <see cref="T:CodeSandbox.SDK.Services.SandboxFsService"/>.
-            </summary>
-            <param name="apiClient">The API client instance (required).</param>
-            <param name="logger">Optional logger instance. If null, a default logger with Trace level is used.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="apiClient"/> is null.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.WriteFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSWriteFileRequest,System.Threading.CancellationToken)">
-            <summary>
-            Writes a file asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">The request data for writing the file.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.FsPathSearchAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.SandboxFSPathSearchResult,System.Threading.CancellationToken)">
-            <summary>
-            Searches for paths asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">The search parameters.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the search results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.FsUploadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.UploadRequest,System.Threading.CancellationToken)">
-            <summary>
-            Uploads a file asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">The upload request data.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the upload results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.FsDownloadAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.DownloadRequest,System.Threading.CancellationToken)">
-            <summary>
-            Downloads a file asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">The download request data.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the download results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.FsReadFileAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadFileParams,System.Threading.CancellationToken)">
-            <summary>
-            Reads a file asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for reading the file.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the file contents.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.ReadDirAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSReadDirParams,System.Threading.CancellationToken)">
-            <summary>
-            Reads a directory asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for reading the directory.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing directory entries.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.StatAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSStatParams,System.Threading.CancellationToken)">
-            <summary>
-            Gets file or directory statistics asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for the stat operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> containing the stat results.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.CopyAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSCopyParams,System.Threading.CancellationToken)">
-            <summary>
-            Copies a file or directory asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for the copy operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.RenameAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRenameParams,System.Threading.CancellationToken)">
-            <summary>
-            Renames a file or directory asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for the rename operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
-        </member>
-        <member name="M:CodeSandbox.SDK.Services.SandboxFsService.RemoveAsync(CodeSandbox.SDK.Net.Models.New.SandboxFSModels.FSRemoveParams,System.Threading.CancellationToken)">
-            <summary>
-            Removes a file or directory asynchronously using the sandbox FS API.
-            </summary>
-            <param name="request">Parameters for the remove operation.</param>
-            <param name="cancellationToken">Token to monitor for cancellation requests.</param>
-            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the operation result.</returns>
-            <exception cref="T:System.Exception">Throws if the operation fails.</exception>
         </member>
     </members>
 </doc>
