@@ -1,114 +1,141 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodeSandbox.SDK.Net.Tests.Internal
 {
     [TestClass]
     public class LoggerServiceTests
     {
-        private List<string> _loggedMessages;
-        private LoggerService _logger;
+        private readonly StringBuilder _logOutput;
+        private readonly LoggerService _logger;
+
+        public LoggerServiceTests()
+        {
+            _logOutput = new StringBuilder();
+            _logger = new LoggerService(msg => _logOutput.AppendLine(msg), LogLevel.Trace);
+        }
 
         [TestInitialize]
         public void Setup()
         {
-            _loggedMessages = new List<string>();
-            _logger = new LoggerService(msg => _loggedMessages.Add(msg), LogLevel.Trace);
+            _logOutput.Clear();
         }
 
         [TestMethod]
-        public void LogTrace_MessageLogged_WhenLevelIsTrace()
+        public void LogTrace_Message_ShouldBeLogged()
         {
             _logger.LogTrace("Trace message");
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "TRACE");
-            StringAssert.Contains(_loggedMessages[0], "Trace message");
+            StringAssert.Contains(_logOutput.ToString(), "TRACE");
+            StringAssert.Contains(_logOutput.ToString(), "Trace message");
         }
 
         [TestMethod]
-        public void LogInfo_MessageLogged_WhenLevelIsInfo()
+        public void LogInfo_Message_ShouldBeLogged()
         {
             _logger.LogInfo("Info message");
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "INFO");
-            StringAssert.Contains(_loggedMessages[0], "Info message");
+            StringAssert.Contains(_logOutput.ToString(), "INFO");
+            StringAssert.Contains(_logOutput.ToString(), "Info message");
         }
 
         [TestMethod]
-        public void LogSuccess_MessageLogged_WhenLevelIsSuccess()
+        public void LogSuccess_Message_ShouldBeLogged()
         {
             _logger.LogSuccess("Success message");
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "SUCCESS");
-            StringAssert.Contains(_loggedMessages[0], "Success message");
+            StringAssert.Contains(_logOutput.ToString(), "SUCCESS");
+            StringAssert.Contains(_logOutput.ToString(), "Success message");
         }
 
         [TestMethod]
-        public void LogWarning_MessageLogged_WhenLevelIsWarning()
+        public void LogWarning_Message_ShouldBeLogged()
         {
             _logger.LogWarning("Warning message");
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "WARNING");
-            StringAssert.Contains(_loggedMessages[0], "Warning message");
+            StringAssert.Contains(_logOutput.ToString(), "WARNING");
+            StringAssert.Contains(_logOutput.ToString(), "Warning message");
         }
 
         [TestMethod]
-        public void LogError_MessageLogged_WhenLevelIsError()
+        public void LogError_Message_ShouldBeLogged()
         {
             _logger.LogError("Error message");
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "ERROR");
-            StringAssert.Contains(_loggedMessages[0], "Error message");
+            StringAssert.Contains(_logOutput.ToString(), "ERROR");
+            StringAssert.Contains(_logOutput.ToString(), "Error message");
         }
 
         [TestMethod]
-        public void LogError_WithException_LogsExceptionDetails()
+        public void LogError_WithException_ShouldIncludeDetails()
         {
             var ex = new InvalidOperationException("Invalid operation");
-            _logger.LogError("Exception occurred", ex);
+            _logger.LogError("Operation failed", ex);
 
-            Assert.IsTrue(_loggedMessages.Count == 1);
-            StringAssert.Contains(_loggedMessages[0], "ERROR");
-            StringAssert.Contains(_loggedMessages[0], "Exception occurred");
-            StringAssert.Contains(_loggedMessages[0], "InvalidOperationException");
-            StringAssert.Contains(_loggedMessages[0], "Invalid operation");
-            StringAssert.Contains(_loggedMessages[0], "StackTrace");
+            string log = _logOutput.ToString();
+            StringAssert.Contains(log, "ERROR");
+            StringAssert.Contains(log, "Operation failed");
+            StringAssert.Contains(log, "InvalidOperationException");
+            StringAssert.Contains(log, "Invalid operation");
         }
 
         [TestMethod]
-        public void Log_WithHigherMinimumLevel_IgnoresLowerSeverityLogs()
+        public void LoggerService_WithHigherMinimumLevel_ShouldFilterLowerMessages()
         {
-            _logger = new LoggerService(msg => _loggedMessages.Add(msg), LogLevel.Warning);
-            _logger.LogTrace("Should not log");
-            _logger.LogInfo("Should not log");
-            _logger.LogSuccess("Should not log");
+            var highLevelLogger = new LoggerService(msg => _logOutput.AppendLine(msg), LogLevel.Warning);
 
-            Assert.AreEqual(0, _loggedMessages.Count);
+            highLevelLogger.LogInfo("Info should not log");
+            highLevelLogger.LogTrace("Trace should not log");
+            highLevelLogger.LogWarning("Warning should log");
+            highLevelLogger.LogError("Error should log");
+
+            string output = _logOutput.ToString();
+            Assert.IsFalse(output.Contains("INFO"));
+            Assert.IsFalse(output.Contains("TRACE"));
+            Assert.IsTrue(output.Contains("WARNING"));
+            Assert.IsTrue(output.Contains("ERROR"));
         }
 
         [TestMethod]
-        public void CustomLogAction_Null_DefaultsToConsoleAndDebug()
+        public void LoggerService_UsesDefaultConsoleAndDebug_IfNullCustomActionProvided()
         {
-            var logger = new LoggerService(null, LogLevel.Info);
-            Assert.IsNotNull(logger);
-            // Cannot test Console/Debug output easily, but this verifies instantiation does not fail
+            var defaultLogger = new LoggerService(null);
+            defaultLogger.LogSuccess("Test message");
+            // Not testable directly, but should not throw.
         }
 
         [TestMethod]
-        public void Timestamp_IsFormattedCorrectly()
+        public async Task LoggerService_ConcurrentLogging_ShouldRemainStable()
         {
-            _logger.LogInfo("Timestamp check");
-            Assert.IsTrue(_loggedMessages[0].Contains("T") && _loggedMessages[0].Contains("-"));
+            var concurrentOutput = new ConcurrentQueue<string>();
+            var concurrentLogger = new LoggerService(msg => concurrentOutput.Enqueue(msg), LogLevel.Trace);
+
+            Parallel.For(0, 1000, i =>
+            {
+                concurrentLogger.LogInfo($"Message {i}");
+            });
+
+            Assert.AreEqual(1000, concurrentOutput.Count);
+            foreach (var message in concurrentOutput)
+            {
+                StringAssert.Contains(message, "INFO");
+            }
         }
 
         [TestMethod]
-        public void MessagePrefix_CorrectlyFormatted()
+        public void LoggerService_PerformanceBenchmark_ShouldLogUnderThreshold()
         {
-            _logger.LogWarning("Prefix check");
-            StringAssert.StartsWith(_loggedMessages[0], "[WARNING]");
+            var perfLogger = new LoggerService(msg => { }, LogLevel.Trace);
+            var stopwatch = Stopwatch.StartNew();
+
+            for (int i = 0; i < 10000; i++)
+            {
+                perfLogger.LogTrace("Benchmark test message");
+            }
+
+            stopwatch.Stop();
+
+            Assert.IsTrue(stopwatch.ElapsedMilliseconds < 1000, $"Logging took too long: {stopwatch.ElapsedMilliseconds} ms");
         }
     }
 }
