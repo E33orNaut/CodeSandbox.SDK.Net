@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSandbox.SDK.Net.Example
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSandbox.SDK.Net.Tests", "CodeSandbox.SDK.Net.Tests\CodeSandbox.SDK.Net.Tests.csproj", "{7842D7AA-7CEF-4B05-BB7F-5C18D60C5CF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSandbox.SDK.Net.Sockets", "CodeSandbox.SDK.Net.Sockets\CodeSandbox.SDK.Net.Sockets.csproj", "{9AF6CA76-8A44-4DDF-B173-EC61438726DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7842D7AA-7CEF-4B05-BB7F-5C18D60C5CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7842D7AA-7CEF-4B05-BB7F-5C18D60C5CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7842D7AA-7CEF-4B05-BB7F-5C18D60C5CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF6CA76-8A44-4DDF-B173-EC61438726DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF6CA76-8A44-4DDF-B173-EC61438726DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF6CA76-8A44-4DDF-B173-EC61438726DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF6CA76-8A44-4DDF-B173-EC61438726DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

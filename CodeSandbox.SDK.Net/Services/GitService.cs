@@ -152,6 +152,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <exception cref="Exception">Thrown when the API call fails or an unexpected error occurs.</exception>
         public async Task PostPullAsync(string branch, bool force = false, CancellationToken cancellationToken = default)
         {
+            
             if (string.IsNullOrWhiteSpace(branch))
             {
                 throw new ArgumentException("Branch name cannot be null or whitespace.", nameof(branch));
