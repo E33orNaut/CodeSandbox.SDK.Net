@@ -138,7 +138,7 @@ namespace CodeSandbox.SDK.Net.Internal
 
                 if (!IsJsonResponse(response))
                 {
-                    throw new ApiException("GET failed: Response content type is not JSON", (int)response.StatusCode, content);
+                    throw new ApiException("GET failed: Response content type is not JSON", (int)response.StatusCode, content, null);
                 }
 
                 if (!response.IsSuccessStatusCode)
@@ -178,7 +178,7 @@ namespace CodeSandbox.SDK.Net.Internal
 
                 if (!IsJsonResponse(response))
                 {
-                    throw new ApiException("POST failed: Response content type is not JSON", (int)response.StatusCode, responseContent);
+                    throw new ApiException("POST failed: Response content type is not JSON", (int)response.StatusCode, responseContent, null);
                 }
 
                 if (!response.IsSuccessStatusCode)
@@ -218,7 +218,7 @@ namespace CodeSandbox.SDK.Net.Internal
 
                 if (!IsJsonResponse(response))
                 {
-                    throw new ApiException("PUT failed: Response content type is not JSON", (int)response.StatusCode, responseContent);
+                    throw new ApiException("PUT failed: Response content type is not JSON", (int)response.StatusCode, responseContent, null);
                 }
 
                 if (!response.IsSuccessStatusCode)
