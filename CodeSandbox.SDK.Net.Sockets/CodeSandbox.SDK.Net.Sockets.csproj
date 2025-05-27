@@ -123,6 +123,7 @@
     <Compile Include="Hubs\ContainerHub.cs" />
     <Compile Include="Hubs\PortHub.cs" />
     <Compile Include="Hubs\SandboxFsHub.cs" />
+    <Compile Include="Hubs\SetupHub.cs" />
     <Compile Include="ServerContext.cs" />
     <Compile Include="WebSocketServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
