@@ -1,41 +1,20 @@
-# THIS PACKAGE WAS DEPRICATED ON 26-05-2025 DUE TO CODESANDBOX UPDATES AND CHANGES, RENDERING IT ESSENTIALLY USELESS AT THE MOMENT
-
-
-
-## An update for this package to the new standard will happen shortly, time permitting
-
-
-
-
 # CodeSandbox.SDK.Net
 
-[![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)  
-[![NuGet](https://img.shields.io/nuget/v/Codesandbox.SDK.Net.svg)](https://www.nuget.org/packages/Codesandbox.SDK.Net)  
-![License](https://img.shields.io/github/license/e33ornaut/codesandbox.sdk.net)  
-![Last Commit](https://img.shields.io/github/last-commit/e33ornaut/codesandbox.sdk.net)  
-![Issues](https://img.shields.io/github/issues/e33ornaut/codesandbox.sdk.net)
+**CodeSandbox.SDK.Net** is a .NET Standard / .NET Framework-compatible client library for interacting with the [CodeSandbox](https://codesandbox.io) API from C# and .NET-based applications. It provides a strongly-typed, developer-friendly interface to CodeSandbox's FS, Port, and Git APIs with full IntelliSense support and extensible configuration.
 
----
-
-**CodeSandbox.SDK.Net** is an **actively maintained, unofficial .NET client library and wrapper** for the [CodeSandbox](https://codesandbox.io) API.  
-It provides complete, strongly-typed, async access to every endpoint in the official CodeSandbox SDK: FS, Port, Git, Setup, System, and Task APIs.  
-All error handling is robust and exposes official API error models for maximum transparency and debugging.
-
-> **Status:** Production-ready and feature complete, but not affiliated with CodeSandbox.  
-> All endpoints, models, and error types are up-to-date with the latest official OpenAPI spec.
+✅ Compatible with **.NET Framework 4.7+**, **.NET Core**, and **.NET 5+**
 
 ---
 
 ## Features
 
-- ✅ **Complete API Coverage**: Every endpoint is implemented and functional.  
-- ✅ **Strongly-Typed Models**: Request/response models match the official OpenAPI schema.  
-- ✅ **Full Error Handling**: Catches and returns full API error objects.  
-- ✅ **Extensive Logging**: Built-in logger with configurable verbosity.  
-- ✅ **Async/Await Friendly**: All services support modern asynchronous patterns.  
-- ✅ **Unofficial**: Independent from CodeSandbox Inc.  
-- ⚙️ **Upcoming**: Experimental WebSocket support for realtime communication.  
-- ⚙️ **Upcoming**: RS232 (serial) communication support for hardware integration and experimentation.
+- ✅ Access CodeSandbox **File System (FS) API**
+- ✅ Use **Git API** to manage sandbox versioning
+- ✅ Interact with **Port API** for live container communication
+- ✅ Async-friendly and testable services
+- ✅ Built-in logging (`Trace`, `Info`, `Success`, `Warning`, `Error`) with `DEBUG` support
+- ✅ Full support for CodeSandbox **OpenAPI spec**
+- ✅ Moq-friendly for unit testing
 
 ---
 
@@ -50,98 +29,123 @@ dotnet add package CodeSandbox.SDK.Net
 ## Quick Start
 
 ```csharp
-var client = new ApiClient("api-token");
+using CodeSandbox.SDK;
+using CodeSandbox.SDK.Services;
 
-// Example using ContainerService
-var containerService = new ContainerService(client);
-var containerRequest = new ContainerSetupRequest { TemplateId = "template-id" };
-var containerResponse = await containerService.SetupContainerAsync(containerRequest);
-Console.WriteLine($"Container setup result: {containerResponse.Result}");
+var client = new CodeSandboxClient("your-api-token");
+
+// FS API Example
+var files = await client.FS.ListFilesAsync("sandbox-id");
+
+// Git API Example
+var commits = await client.Git.ListCommitsAsync("sandbox-id");
+
+// Port API Example
+var result = await client.Port.SendMessageAsync("sandbox-id", 3000, "ping");
 ```
-
-Other services include `GitService`, `PortService`, `SandboxFsService`, and `SetupService`.
 
 ---
 
 ## API Coverage
 
-| API         | Status | Notes                            |
-|-------------|--------|----------------------------------|
-| FS API      | ✅     | File operations, metadata, etc.  |
-| Port API    | ✅     | Port introspection, messages     |
-| Git API     | ✅     | Commits, branches, diffs         |
-| Sandboxes   | ✅     | Fully implemented                |
-| Deployments | ✅     | Fully implemented                |
+| API        | Status | Notes                                        |
+|------------|--------|----------------------------------------------|
+| FS API     | ✅     | Read/write, directory, metadata, delete     |
+| Port API   | ✅     | Send/receive messages, port introspection   |
+| Git API    | ✅     | Commits, branches, diffs, file states       |
+| Sandboxes  | 🚧     | Planned                                      |
+| Deployments| 🚧     | Planned                                      |
 
 ---
 
 ## Logging
 
-Customizable logging via `LoggerService`:
+The SDK includes a configurable `LoggerService` with 5 log levels:
 
-- Levels: `Trace`, `Info`, `Success`, `Warning`, `Error`  
-- Easily integrated with your logger  
-- Verbose in DEBUG builds
+- `Trace`
+- `Info`
+- `Success`
+- `Warning`
+- `Error`
+
+In `DEBUG` builds, verbose logging is enabled by default. You can inject your own logger implementation if needed.
 
 ```csharp
-var logger = new CustomLogger(LogLevel.Warning);
-var client = new CodeSandboxClient("token", logger);
+var logger = new CustomLogger(minimumLevel: LogLevel.Warning);
+var client = new CodeSandboxClient("your-api-token", logger);
 ```
 
 ---
 
-## Configuration
+## Configuration Options
 
-- Reuses `HttpClient` instances  
-- Uses `Newtonsoft.Json` for JSON serialization
+- Reuses `HttpClient` instances for better performance
+- Supports `Newtonsoft.Json` (with `System.Text.Json` support planned)
+- Parses and exposes detailed API errors in exceptions
+- Retry logic for transient errors is on the roadmap
 
 ---
 
 ## Unit Testing
 
-Supports mocking with Moq:
+All services are testable via interfaces. For mocking:
 
 ```csharp
-var mockService = new Mock<IGitService>();
-mockService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
-           .ReturnsAsync(new List<Commit>());
+var mockGitService = new Mock<IGitService>();
+mockGitService.Setup(s => s.ListCommitsAsync(It.IsAny<string>()))
+              .ReturnsAsync(new List<Commit>());
 ```
+
+> **Note**: Avoid using `It.IsAnyType` as a generic argument in Moq setups. Use concrete types instead.
 
 ---
 
 ## Requirements
 
-- .NET Framework 4.7+  
-- .NET Core 3.1+  
+- .NET Framework 4.7+
+- .NET Core 3.1+
 - .NET 5+
 
 ---
 
 ## Roadmap
 
-| Feature               | Status     | Notes                                         |
-|-----------------------|------------|-----------------------------------------------|
-| Full API Coverage     | ✅         | Complete and stable                           |
-| Rich Error Reporting  | ✅         | Full API error models                         |
-| Full Logging Support  | ✅         | Customizable and verbose                      |
-| Extended Samples and Docs | 🚧 Planned | More comprehensive examples and guides         |
-| **WebSocket Support** | 🚧 Planned | Bi-directional socket layer for realtime comms |
-| **RS232 Support**     | 🚧 Planned | Serial port support for hardware integration  |
+- ✅ FS API  
+- ✅ Port API  
+- ✅ Git API  
+- 🚧 Sandbox & Deployment API support  
+- 🚧 System.Text.Json support  
+- 🚧 Retry policies for transient errors  
+- 🚧 NuGet package documentation and samples  
+
+---
+---
+
+# 🙏 **Special Thanks**
 
 ---
 
+### Christian Alfoni  
+**CodeSandbox Development Team**
+
+### Ian Hutchins  
+**FOSS Contributor** _(Unit testing improvements)_
+
+---
+
+
 ## Contributing
 
-We welcome contributions! File issues or PRs.
+Contributions are welcome! Please open an issue or pull request.
 
 ---
 
 ## License
 
-MIT License ©
+MIT License © 
 
 ---
 
 ## Acknowledgments
 
-Thanks to CodeSandbox for the original TypeScript SDK inspiration.
+This SDK is inspired by the official CodeSandbox SDK (TypeScript) and built for .NET developers who want first-class integration with CodeSandbox from C# applications.
