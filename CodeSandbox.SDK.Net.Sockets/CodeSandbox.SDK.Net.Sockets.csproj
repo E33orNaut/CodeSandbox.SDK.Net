@@ -133,6 +133,9 @@
     <Compile Include="Hubs\PortHub.cs" />
     <Compile Include="Hubs\SandboxFsHub.cs" />
     <Compile Include="Hubs\SetupHub.cs" />
+    <Compile Include="Hubs\ShellServiceHub.cs" />
+    <Compile Include="Hubs\SystemServiceHub.cs" />
+    <Compile Include="Hubs\TaskServiceHub.cs" />
     <Compile Include="ServerContext.cs" />
     <Compile Include="WebSocketServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

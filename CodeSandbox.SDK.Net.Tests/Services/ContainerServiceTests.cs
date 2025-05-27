@@ -55,7 +55,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         {
             // Arrange
             var request = new ContainerSetupRequest();
-            var apiEx = new ApiException("API error", 0, "Some response content");
+            var apiEx = new ApiException("API error", 400, "Some response content");
             _mockClient
                 .Setup(c => c.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, It.IsAny<CancellationToken>()))
                 .ThrowsAsync(apiEx);
