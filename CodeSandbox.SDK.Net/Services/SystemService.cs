@@ -15,7 +15,7 @@ namespace CodeSandbox.SDK.Net.Services
     /// </summary>
     public class SystemService : ISystemService
     {
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient _client;
         private readonly LoggerService _logger;
 
         /// <summary>
@@ -24,10 +24,10 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="httpClient">The HTTP client used to communicate with the CodeSandbox API. Cannot be null.</param>
         /// <param name="logger">The logger service for diagnostic output. Cannot be null.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
-        public SystemService(HttpClient httpClient, LoggerService logger)
+        public SystemService(HttpClient client, LoggerService logger)
         {
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _client = client ?? throw new ArgumentNullException(nameof(client));
+            _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = "/system/update";
                 StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
+                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
                 string json = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
@@ -97,7 +97,7 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = "/system/hibernate";
                 StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
+                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
                 string json = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
@@ -147,7 +147,7 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = "/system/metrics";
                 StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
+                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
                 string json = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)

@@ -137,6 +137,7 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxShellModels
     /// </summary>
     public enum SandboxShellProcessStatus
     {
+
         RUNNING,
         FINISHED,
         ERROR,
