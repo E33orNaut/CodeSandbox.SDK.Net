@@ -1,4 +1,12 @@
-﻿
+# THIS PACKAGE WAS DEPRICATED ON 26-05-2025 DUE TO CODESANDBOX UPDATES AND CHANGES, RENDERING IT ESSENTIALLY USELESS AT THE MOMENT
+
+
+
+## An update for this package to the new standard will happen shortly, time permitting
+
+
+
+
 # CodeSandbox.SDK.Net
 
 [![Build .NET Framework 4.7 Library](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/E33orNaut/CodeSandbox.SDK.Net/actions/workflows/dotnet-desktop.yml)  
