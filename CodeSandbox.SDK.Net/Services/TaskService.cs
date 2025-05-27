@@ -28,7 +28,7 @@ namespace CodeSandbox.SDK.Net.Services
         public TaskService(HttpClient httpClient, LoggerService logger)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _logger = logger ?? new LoggerService(LogLevel.Trace);
         }
 
         /// <summary>

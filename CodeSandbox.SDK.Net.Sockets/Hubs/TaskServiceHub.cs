@@ -10,7 +10,6 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
     public class TaskServiceHub : Hub
     {
         private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
-        private static readonly TaskService service = new TaskService(client.HttpClient, new LoggerService(LogLevel.Trace));
 
     }
 }
