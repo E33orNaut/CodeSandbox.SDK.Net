@@ -40,7 +40,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting GetPortListAsync...");
             try
             {
-                var response = await _client.PostAsync<PortSuccessResponse>("/port/list", new { }, cancellationToken);
+                PortSuccessResponse response = await _client.PostAsync<PortSuccessResponse>("/port/list", new { }, cancellationToken);
                 _logger.LogSuccess("GetPortListAsync completed successfully.");
                 return response?.Result;
             }

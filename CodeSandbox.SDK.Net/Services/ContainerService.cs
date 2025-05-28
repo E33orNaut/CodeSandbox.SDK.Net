@@ -51,7 +51,7 @@ namespace CodeSandbox.SDK.Net.Services
 
             try
             {
-                var response = await _client.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, cancellationToken);
+                ContainerSetupSuccessResponse response = await _client.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, cancellationToken);
                 _logger.LogSuccess("Container setup completed successfully.");
                 return response;
             }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
@@ -42,7 +41,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
 
         private void SetupHttpResponse(HttpMethod method, string path, HttpStatusCode statusCode, string responseContent, string mediaType = "application/json")
         {
-            _mockHttpMessageHandler
+            _ = _mockHttpMessageHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
                     "SendAsync",
@@ -71,7 +70,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Get, path, HttpStatusCode.OK, jsonResponse);
 
             // Act
-            var result = await _apiClient.GetAsync<dynamic>(path);
+            dynamic result = await _apiClient.GetAsync<dynamic>(path);
 
             // Assert
             Assert.IsNotNull(result);
@@ -89,7 +88,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Get, path, HttpStatusCode.OK, nonJsonResponse, mediaType: "text/html");
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.GetAsync<dynamic>(path));
+            ApiException ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.GetAsync<dynamic>(path));
             Assert.AreEqual("GET failed: Response content type is not JSON", ex.Message);
             Assert.AreEqual((int)HttpStatusCode.OK, ex.StatusCode);
             Assert.AreEqual(nonJsonResponse, ex.ResponseContent);
@@ -107,7 +106,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Post, path, HttpStatusCode.Created, jsonResponse);
 
             // Act
-            var result = await _apiClient.PostAsync<dynamic>(path, payload);
+            dynamic result = await _apiClient.PostAsync<dynamic>(path, payload);
 
             // Assert
             Assert.IsNotNull(result);
@@ -127,7 +126,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Post, path, HttpStatusCode.BadRequest, jsonResponse);
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.PostAsync<dynamic>(path, payload));
+            ApiException ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.PostAsync<dynamic>(path, payload));
             Assert.AreEqual("POST failed: 400", ex.Message);
             Assert.AreEqual((int)HttpStatusCode.BadRequest, ex.StatusCode);
             Assert.IsNotNull(ex.ApiErrorDetails);
@@ -146,7 +145,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Put, path, HttpStatusCode.OK, jsonResponse);
 
             // Act
-            var result = await _apiClient.PutAsync<dynamic>(path, payload);
+            dynamic result = await _apiClient.PutAsync<dynamic>(path, payload);
 
             // Assert
             Assert.IsNotNull(result);
@@ -177,7 +176,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             SetupHttpResponse(HttpMethod.Delete, path, HttpStatusCode.NotFound, jsonResponse);
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.DeleteAsync(path));
+            ApiException ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _apiClient.DeleteAsync(path));
             Assert.AreEqual("DELETE failed: 404", ex.Message);
             Assert.AreEqual((int)HttpStatusCode.NotFound, ex.StatusCode);
             Assert.IsNotNull(ex.ApiErrorDetails);
@@ -188,18 +187,18 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
         public void Constructor_WithNullBaseUrl_ThrowsUriFormatException()
         {
             // Arrange & Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new ApiClient(null));
+            _ = Assert.ThrowsException<ArgumentNullException>(() => new ApiClient(null));
         }
 
         [TestMethod]
         public void ValidatePath_EmptyPath_ThrowsArgumentException()
         {
-            var ex = Assert.ThrowsException<ArgumentException>(() => _apiClient.ValidatePathT(""));
+            ArgumentException ex = Assert.ThrowsException<ArgumentException>(() => _apiClient.ValidatePathT(""));
             Assert.AreEqual("path", ex.ParamName);
             Assert.IsTrue(ex.Message.StartsWith("Path cannot be null or empty"));
         }
 
-     
+
 
     }
 }

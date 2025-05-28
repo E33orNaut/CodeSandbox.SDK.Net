@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
@@ -126,7 +125,7 @@ namespace CodeSandbox.SDK.Net.Services
                 var payload = new { }; // Empty object payload
 
                 SandboxSystemSuccessResponse wrapper = await _client.PostAsync<SandboxSystemSuccessResponse>(url, payload, cancellationToken);
-                var metrics = JsonConvert.DeserializeObject<SandboxSystemMetricsStatus>(wrapper.Result.ToString());
+                SandboxSystemMetricsStatus metrics = JsonConvert.DeserializeObject<SandboxSystemMetricsStatus>(wrapper.Result.ToString());
 
                 _logger.LogSuccess("GetSystemMetricsAsync succeeded.");
                 return metrics;

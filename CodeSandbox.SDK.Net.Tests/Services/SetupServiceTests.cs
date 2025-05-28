@@ -28,96 +28,96 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task GetSetupProgressAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/get", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/get", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.GetSetupProgressAsync();
+            SandboxSetupSuccessResponse result = await _service.GetSetupProgressAsync();
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task SkipStepAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.SkipStepAsync(1);
+            SandboxSetupSuccessResponse result = await _service.SkipStepAsync(1);
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task SkipAllStepsAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skipAll", null, It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skipAll", null, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.SkipAllStepsAsync();
+            SandboxSetupSuccessResponse result = await _service.SkipAllStepsAsync();
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task DisableSetupAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/disable", null, It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/disable", null, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.DisableSetupAsync();
+            SandboxSetupSuccessResponse result = await _service.DisableSetupAsync();
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task EnableSetupAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/enable", null, It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/enable", null, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.EnableSetupAsync();
+            SandboxSetupSuccessResponse result = await _service.EnableSetupAsync();
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task InitializeSetupAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/init", null, It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/init", null, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.InitializeSetupAsync();
+            SandboxSetupSuccessResponse result = await _service.InitializeSetupAsync();
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task SetStepAsync_Success_ReturnsResponse()
         {
-            var expected = new SandboxSetupSuccessResponse();
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/setStep", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            SandboxSetupSuccessResponse expected = new SandboxSetupSuccessResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/setStep", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.SetStepAsync(2);
+            SandboxSetupSuccessResponse result = await _service.SetStepAsync(2);
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public async Task GetSetupProgressAsync_ApiException_ThrowsWrapped()
         {
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/get", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/get", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new ApiException("fail", 400, "err"));
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetSetupProgressAsync());
+            _ = await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetSetupProgressAsync());
         }
 
         [TestMethod]
         public async Task SkipStepAsync_UnexpectedException_ThrowsWrapped()
         {
-            _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new InvalidOperationException("fail"));
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => _service.SkipStepAsync(1));
+            _ = await Assert.ThrowsExceptionAsync<Exception>(() => _service.SkipStepAsync(1));
         }
     }
 }

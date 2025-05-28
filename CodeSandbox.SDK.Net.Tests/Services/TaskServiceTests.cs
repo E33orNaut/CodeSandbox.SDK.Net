@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,11 +32,11 @@ namespace CodeSandbox.SDK.Net.Tests.Services
 
         private void SetupHttpResponse(string url, object responseObj, HttpStatusCode status = HttpStatusCode.OK)
         {
-            var response = new HttpResponseMessage(status)
+            HttpResponseMessage response = new HttpResponseMessage(status)
             {
                 Content = new StringContent(JsonSerializer.Serialize(responseObj))
             };
-            _mockHandler.Protected()
+            _ = _mockHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>("SendAsync",
                     ItExpr.Is<HttpRequestMessage>(req => req.RequestUri.PathAndQuery.StartsWith(url)),
                     ItExpr.IsAny<CancellationToken>())
@@ -47,20 +46,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task GetTaskListAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskListResult> { Status = 0, Result = new SandboxTaskListResult() };
+            SandboxTaskSuccessResponse<SandboxTaskListResult> expected = new SandboxTaskSuccessResponse<SandboxTaskListResult> { Status = 0, Result = new SandboxTaskListResult() };
             SetupHttpResponse("/task/list", expected);
 
-            var result = await _service.GetTaskListAsync();
+            SandboxTaskSuccessResponse<SandboxTaskListResult> result = await _service.GetTaskListAsync();
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task GetTaskListAsync_ApiError_ThrowsTaskServiceException()
         {
-            var error = new SandboxTaskErrorResponse { Error = new SandboxTaskError { Code = 123, Message = "fail" } };
+            SandboxTaskErrorResponse error = new SandboxTaskErrorResponse { Error = new SandboxTaskError { Code = 123, Message = "fail" } };
             SetupHttpResponse("/task/list", error, HttpStatusCode.BadRequest);
 
-            var ex = await Assert.ThrowsExceptionAsync<TaskServiceException>(() => _service.GetTaskListAsync());
+            TaskServiceException ex = await Assert.ThrowsExceptionAsync<TaskServiceException>(() => _service.GetTaskListAsync());
             StringAssert.Contains(ex.Message, "fail");
             Assert.AreEqual(123, ex.ErrorCode);
         }
@@ -68,20 +67,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task RunTaskAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/run/task1", expected);
 
-            var result = await _service.RunTaskAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.RunTaskAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task RunTaskAsync_ApiError_ThrowsTaskServiceException()
         {
-            var error = new SandboxTaskErrorResponse { Error = new SandboxTaskError { Code = 123, Message = "fail" } };
+            SandboxTaskErrorResponse error = new SandboxTaskErrorResponse { Error = new SandboxTaskError { Code = 123, Message = "fail" } };
             SetupHttpResponse("/task/run/task1", error, HttpStatusCode.BadRequest);
 
-            var ex = await Assert.ThrowsExceptionAsync<TaskServiceException>(() => _service.RunTaskAsync("task1"));
+            TaskServiceException ex = await Assert.ThrowsExceptionAsync<TaskServiceException>(() => _service.RunTaskAsync("task1"));
             StringAssert.Contains(ex.Message, "fail");
             Assert.AreEqual(123, ex.ErrorCode);
         }
@@ -89,71 +88,71 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task RunCommandAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/run/task1", expected);
 
-            var result = await _service.RunCommandAsync("task1", "echo hi");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.RunCommandAsync("task1", "echo hi");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task StopTaskAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/stop/task1", expected);
 
-            var result = await _service.StopTaskAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.StopTaskAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task CreateTaskAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/create/task1", expected);
 
-            var result = await _service.CreateTaskAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.CreateTaskAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task UpdateTaskAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/update/task1", expected);
 
-            var result = await _service.UpdateTaskAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.UpdateTaskAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task SaveToConfigAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/save/task1", expected);
 
-            var result = await _service.SaveToConfigAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.SaveToConfigAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task GenerateConfigAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
+            SandboxTaskSuccessResponse<SandboxTaskResult> expected = new SandboxTaskSuccessResponse<SandboxTaskResult> { Status = 0, Result = new SandboxTaskResult() };
             SetupHttpResponse("/task/generate/task1", expected);
 
-            var result = await _service.GenerateConfigAsync("task1");
+            SandboxTaskSuccessResponse<SandboxTaskResult> result = await _service.GenerateConfigAsync("task1");
             Assert.AreEqual(expected.Status, result.Status);
         }
 
         [TestMethod]
         public async Task CreateSetupTasksAsync_Success_ReturnsResult()
         {
-            var expected = new SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> { Status = 0, Result = new SandboxTaskSetupTasksResult() };
+            SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> expected = new SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> { Status = 0, Result = new SandboxTaskSetupTasksResult() };
             SetupHttpResponse("/task/createSetupTasks", expected);
 
-            var req = new SandboxTaskCreateSetupTasksRequest();
-            var result = await _service.CreateSetupTasksAsync(req);
+            SandboxTaskCreateSetupTasksRequest req = new SandboxTaskCreateSetupTasksRequest();
+            SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> result = await _service.CreateSetupTasksAsync(req);
             Assert.AreEqual(expected.Status, result.Status);
         }
     }

@@ -23,7 +23,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
         [TestInitialize]
         public void Setup()
         {
-            _logOutput.Clear();
+            _ = _logOutput.Clear();
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
         [TestMethod]
         public void LogError_WithException_ShouldIncludeDetails()
         {
-            var ex = new InvalidOperationException("Invalid operation");
+            InvalidOperationException ex = new InvalidOperationException("Invalid operation");
             _logger.LogError("Operation failed", ex);
 
             string log = _logOutput.ToString();
@@ -79,28 +79,28 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             StringAssert.Contains(log, "Invalid operation");
         }
 
-        
+
         [TestMethod]
         public void LoggerService_UsesDefaultConsoleAndDebug_IfNullCustomActionProvided()
         {
-            var defaultLogger = new LoggerService(null);
+            LoggerService defaultLogger = new LoggerService(null);
             defaultLogger.LogSuccess("Test message");
             // Not testable directly, but should not throw.
         }
 
         [TestMethod]
-        public async Task LoggerService_ConcurrentLogging_ShouldRemainStable()
+        public void LoggerService_ConcurrentLogging_ShouldRemainStable()
         {
-            var concurrentOutput = new ConcurrentQueue<string>();
-            var concurrentLogger = new LoggerService(msg => concurrentOutput.Enqueue(msg), LogLevel.Trace);
+            ConcurrentQueue<string> concurrentOutput = new ConcurrentQueue<string>();
+            LoggerService concurrentLogger = new LoggerService(msg => concurrentOutput.Enqueue(msg), LogLevel.Trace);
 
-            Parallel.For(0, 1000, i =>
+            _ = Parallel.For(0, 1000, i =>
             {
                 concurrentLogger.LogInfo($"Message {i}");
             });
 
             Assert.AreEqual(1000, concurrentOutput.Count);
-            foreach (var message in concurrentOutput)
+            foreach (string message in concurrentOutput)
             {
                 StringAssert.Contains(message, "INFO");
             }
@@ -109,8 +109,8 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
         [TestMethod]
         public void LoggerService_PerformanceBenchmark_ShouldLogUnderThreshold()
         {
-            var perfLogger = new LoggerService(msg => { }, LogLevel.Trace);
-            var stopwatch = Stopwatch.StartNew();
+            LoggerService perfLogger = new LoggerService(msg => { }, LogLevel.Trace);
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             for (int i = 0; i < 10000; i++)
             {

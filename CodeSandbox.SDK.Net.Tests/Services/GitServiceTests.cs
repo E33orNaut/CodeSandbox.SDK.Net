@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http; 
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
@@ -31,11 +30,11 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task GetStatusAsync_Success_ReturnsResponse()
         {
-            var expected = new GitStatusResponse();
-            _mockClient.Setup(c => c.PostAsync<GitStatusResponse>("/git/status", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            GitStatusResponse expected = new GitStatusResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<GitStatusResponse>("/git/status", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.GetStatusAsync();
+            GitStatusResponse result = await _service.GetStatusAsync();
 
             Assert.AreEqual(expected, result);
         }
@@ -43,20 +42,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task GetStatusAsync_ApiException_ThrowsWrapped()
         {
-            _mockClient.Setup(c => c.PostAsync<GitStatusResponse>("/git/status", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<GitStatusResponse>("/git/status", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new ApiException("fail", 400, "err"));
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetStatusAsync());
+            _ = await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetStatusAsync());
         }
 
         [TestMethod]
         public async Task GetRemotesAsync_Success_ReturnsResponse()
         {
-            var expected = new GitRemotesResponse();
-            _mockClient.Setup(c => c.PostAsync<GitRemotesResponse>("/git/remotes", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            GitRemotesResponse expected = new GitRemotesResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<GitRemotesResponse>("/git/remotes", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.GetRemotesAsync();
+            GitRemotesResponse result = await _service.GetRemotesAsync();
 
             Assert.AreEqual(expected, result);
         }
@@ -64,18 +63,18 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task GetTargetDiffAsync_ThrowsOnNullBranch()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.GetTargetDiffAsync(null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.GetTargetDiffAsync(""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.GetTargetDiffAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.GetTargetDiffAsync(""));
         }
 
         [TestMethod]
         public async Task GetTargetDiffAsync_Success_ReturnsResponse()
         {
-            var expected = new GitTargetDiffResponse();
-            _mockClient.Setup(c => c.PostAsync<GitTargetDiffResponse>("/git/targetDiff", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            GitTargetDiffResponse expected = new GitTargetDiffResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<GitTargetDiffResponse>("/git/targetDiff", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.GetTargetDiffAsync("main");
+            GitTargetDiffResponse result = await _service.GetTargetDiffAsync("main");
 
             Assert.AreEqual(expected, result);
         }
@@ -83,14 +82,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostPullAsync_ThrowsOnNullBranch()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPullAsync(null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPullAsync(""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPullAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPullAsync(""));
         }
 
         [TestMethod]
         public async Task PostPullAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/pull", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/pull", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostPullAsync("main");
@@ -99,17 +98,17 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostDiscardAsync_ThrowsOnNullPaths()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => _service.PostDiscardAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => _service.PostDiscardAsync(null));
         }
 
         [TestMethod]
         public async Task PostDiscardAsync_Success_ReturnsPaths()
         {
-            var expectedPaths = new List<string> { "file1", "file2" };
-            _mockClient.Setup(c => c.PostAsync<GitDiscardResponse>("/git/discard", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            List<string> expectedPaths = new List<string> { "file1", "file2" };
+            _ = _mockClient.Setup(c => c.PostAsync<GitDiscardResponse>("/git/discard", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new GitDiscardResponse { Result = new GitDiscardResult { Paths = expectedPaths } });
 
-            var result = await _service.PostDiscardAsync(new[] { "file1", "file2" });
+            List<string> result = await _service.PostDiscardAsync(new[] { "file1", "file2" });
 
             CollectionAssert.AreEqual(expectedPaths, result);
         }
@@ -117,21 +116,21 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostCommitAsync_ThrowsOnNullMessage()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostCommitAsync(null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostCommitAsync(""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostCommitAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostCommitAsync(""));
         }
-         
+
         [TestMethod]
         public async Task PostRemoteAddAsync_ThrowsOnNullUrl()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteAddAsync(null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteAddAsync(""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteAddAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteAddAsync(""));
         }
 
         [TestMethod]
         public async Task PostRemoteAddAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/remoteAdd", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/remoteAdd", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostRemoteAddAsync("http://remote");
@@ -140,7 +139,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostPushAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/push", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/push", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostPushAsync();
@@ -149,16 +148,16 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostPushToRemoteAsync_ThrowsOnNulls()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync(null, "branch"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("url", null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("", "branch"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("url", ""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync(null, "branch"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("url", null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("", "branch"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostPushToRemoteAsync("url", ""));
         }
 
         [TestMethod]
         public async Task PostPushToRemoteAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/pushToRemote", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/pushToRemote", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostPushToRemoteAsync("url", "branch");
@@ -167,16 +166,16 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostRenameBranchAsync_ThrowsOnNulls()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync(null, "new"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("old", null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("", "new"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("old", ""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync(null, "new"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("old", null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("", "new"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRenameBranchAsync("old", ""));
         }
 
         [TestMethod]
         public async Task PostRenameBranchAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/renameBranch", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/renameBranch", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostRenameBranchAsync("old", "new");
@@ -185,20 +184,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostRemoteContentAsync_ThrowsOnNulls()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync(null, "path"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("ref", null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("", "path"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("ref", ""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync(null, "path"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("ref", null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("", "path"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostRemoteContentAsync("ref", ""));
         }
 
         [TestMethod]
         public async Task PostRemoteContentAsync_Success_ReturnsContent()
         {
-            var expectedContent = "file content";
-            _mockClient.Setup(c => c.PostAsync<GitRemoteContentResponse>("/git/remoteContent", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            string expectedContent = "file content";
+            _ = _mockClient.Setup(c => c.PostAsync<GitRemoteContentResponse>("/git/remoteContent", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new GitRemoteContentResponse { Result = new GitRemoteContentResult { Content = expectedContent } });
 
-            var result = await _service.PostRemoteContentAsync("ref", "path");
+            string result = await _service.PostRemoteContentAsync("ref", "path");
 
             Assert.AreEqual(expectedContent, result);
         }
@@ -206,20 +205,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostDiffStatusAsync_ThrowsOnNulls()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync(null, "head"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("base", null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("", "head"));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("base", ""));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync(null, "head"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("base", null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("", "head"));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostDiffStatusAsync("base", ""));
         }
 
         [TestMethod]
         public async Task PostDiffStatusAsync_Success_ReturnsResponse()
         {
-            var expected = new GitDiffStatusResponse();
-            _mockClient.Setup(c => c.PostAsync<GitDiffStatusResponse>("/git/diffStatus", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            GitDiffStatusResponse expected = new GitDiffStatusResponse();
+            _ = _mockClient.Setup(c => c.PostAsync<GitDiffStatusResponse>("/git/diffStatus", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expected);
 
-            var result = await _service.PostDiffStatusAsync("base", "head");
+            GitDiffStatusResponse result = await _service.PostDiffStatusAsync("base", "head");
 
             Assert.AreEqual(expected, result);
         }
@@ -227,7 +226,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostResetLocalWithRemoteAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/resetLocalWithRemote", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/resetLocalWithRemote", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostResetLocalWithRemoteAsync();
@@ -236,7 +235,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostCheckoutInitialBranchAsync_Success()
         {
-            _mockClient.Setup(c => c.PostAsync<object>("/git/checkoutInitialBranch", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            _ = _mockClient.Setup(c => c.PostAsync<object>("/git/checkoutInitialBranch", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new object());
 
             await _service.PostCheckoutInitialBranchAsync();
@@ -245,18 +244,18 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         [TestMethod]
         public async Task PostTransposeLinesAsync_ThrowsOnNullOrEmpty()
         {
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostTransposeLinesAsync(null));
-            await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostTransposeLinesAsync(new List<GitTransposeLinesResultItem>()));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostTransposeLinesAsync(null));
+            _ = await Assert.ThrowsExceptionAsync<ArgumentException>(() => _service.PostTransposeLinesAsync(new List<GitTransposeLinesResultItem>()));
         }
 
         [TestMethod]
         public async Task PostTransposeLinesAsync_Success_ReturnsResult()
         {
-            var expected = new List<GitTransposeLinesResultItem> { new GitTransposeLinesResultItem { Path = "a", Line = 1 } };
-            _mockClient.Setup(c => c.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            List<GitTransposeLinesResultItem> expected = new List<GitTransposeLinesResultItem> { new GitTransposeLinesResultItem { Path = "a", Line = 1 } };
+            _ = _mockClient.Setup(c => c.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new GitTransposeLinesResponse { Result = expected });
 
-            var result = await _service.PostTransposeLinesAsync(new List<GitTransposeLinesResultItem> { new GitTransposeLinesResultItem() });
+            List<GitTransposeLinesResultItem> result = await _service.PostTransposeLinesAsync(new List<GitTransposeLinesResultItem> { new GitTransposeLinesResultItem() });
 
             CollectionAssert.AreEqual(expected, result);
         }

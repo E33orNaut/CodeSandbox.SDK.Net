@@ -41,7 +41,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting WriteFileAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/writeFile", request, cancellationToken);
+                SandboxFSSuccessResponse<object> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/writeFile", request, cancellationToken);
                 _logger.LogSuccess("WriteFileAsync completed successfully.");
                 return response?.Result;
             }
@@ -69,7 +69,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting FsPathSearchAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<SandboxFSPathSearchResult>>("/fs/pathSearch", request, cancellationToken);
+                SandboxFSSuccessResponse<SandboxFSPathSearchResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<SandboxFSPathSearchResult>>("/fs/pathSearch", request, cancellationToken);
                 _logger.LogSuccess("FsPathSearchAsync completed successfully.");
                 return response?.Result;
             }
@@ -97,7 +97,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting FsUploadAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<UploadResult>>("/fs/upload", request, cancellationToken);
+                SandboxFSSuccessResponse<UploadResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<UploadResult>>("/fs/upload", request, cancellationToken);
                 _logger.LogSuccess("FsUploadAsync completed successfully.");
                 return response?.Result;
             }
@@ -125,7 +125,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting FsDownloadAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<DownloadResult>>("/fs/download", request, cancellationToken);
+                SandboxFSSuccessResponse<DownloadResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<DownloadResult>>("/fs/download", request, cancellationToken);
                 _logger.LogSuccess("FsDownloadAsync completed successfully.");
                 return response?.Result;
             }
@@ -153,7 +153,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting FsReadFileAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadFileResult>>("/fs/readFile", request, cancellationToken);
+                SandboxFSSuccessResponse<FSReadFileResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadFileResult>>("/fs/readFile", request, cancellationToken);
                 _logger.LogSuccess("FsReadFileAsync completed successfully.");
                 return response?.Result;
             }
@@ -181,7 +181,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting ReadDirAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadDirResult>>("/fs/readdir", request, cancellationToken);
+                SandboxFSSuccessResponse<FSReadDirResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadDirResult>>("/fs/readdir", request, cancellationToken);
                 _logger.LogSuccess("ReadDirAsync completed successfully.");
                 return response?.Result;
             }
@@ -209,7 +209,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting StatAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSStatResult>>("/fs/stat", request, cancellationToken);
+                SandboxFSSuccessResponse<FSStatResult> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSStatResult>>("/fs/stat", request, cancellationToken);
                 _logger.LogSuccess("StatAsync completed successfully.");
                 return response?.Result;
             }
@@ -237,7 +237,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting CopyAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/copy", request, cancellationToken);
+                SandboxFSSuccessResponse<object> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/copy", request, cancellationToken);
                 _logger.LogSuccess("CopyAsync completed successfully.");
                 return response?.Result;
             }
@@ -265,7 +265,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting RenameAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/rename", request, cancellationToken);
+                SandboxFSSuccessResponse<object> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/rename", request, cancellationToken);
                 _logger.LogSuccess("RenameAsync completed successfully.");
                 return response?.Result;
             }
@@ -293,7 +293,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting RemoveAsync...");
             try
             {
-                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/remove", request, cancellationToken);
+                SandboxFSSuccessResponse<object> response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/remove", request, cancellationToken);
                 _logger.LogSuccess("RemoveAsync completed successfully.");
                 return response?.Result;
             }

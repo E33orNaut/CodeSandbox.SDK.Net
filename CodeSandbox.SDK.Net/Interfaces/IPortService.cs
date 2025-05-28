@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models.New.PortModels;
 
 namespace CodeSandbox.SDK.Net.Interfaces
 {

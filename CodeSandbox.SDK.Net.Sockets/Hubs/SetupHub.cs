@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Services;
@@ -15,8 +14,8 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
     /// </summary>
     public class SetupHub : Hub
     {
-        private static ApiClient client = new ApiClient(ServerContext.ApiKey);
-        private static SetupService service = new SetupService(client);
+        private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
+        private static readonly SetupService service = new SetupService(client);
 
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
             new ConcurrentDictionary<string, ConcurrentBag<string>>();
@@ -28,7 +27,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 connections.Add(connectionId);
             }
 
@@ -40,18 +39,24 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             string userId = GetUserId();
             string connectionId = Context.ConnectionId;
 
-            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out var connections))
+            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections))
             {
-                var updated = new ConcurrentBag<string>();
-                foreach (var id in connections)
+                ConcurrentBag<string> updated = new ConcurrentBag<string>();
+                foreach (string id in connections)
                 {
                     if (id != connectionId)
+                    {
                         updated.Add(id);
+                    }
                 }
                 if (!updated.IsEmpty)
+                {
                     UserConnections[userId] = updated;
+                }
                 else
-                    UserConnections.TryRemove(userId, out _);
+                {
+                    _ = UserConnections.TryRemove(userId, out _);
+                }
             }
 
             return base.OnDisconnected(stopCalled);
@@ -64,9 +69,11 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 if (!connections.Contains(connectionId))
+                {
                     connections.Add(connectionId);
+                }
             }
 
             return base.OnReconnected();
@@ -74,19 +81,19 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
         private string GetUserId()
         {
-            var user = Context.User;
+            System.Security.Principal.IPrincipal user = Context.User;
             if (user?.Identity != null && user.Identity.IsAuthenticated)
+            {
                 return user.Identity.Name;
+            }
 
-            var userId = Context.QueryString["userId"];
+            string userId = Context.QueryString["userId"];
             return !string.IsNullOrEmpty(userId) ? userId : null;
         }
 
         public static string[] GetConnectionsForUser(string userId)
         {
-            if (UserConnections.TryGetValue(userId, out var connections))
-                return connections.ToArray();
-            return Array.Empty<string>();
+            return UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections) ? connections.ToArray() : Array.Empty<string>();
         }
 
         /// <summary>
@@ -96,7 +103,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.GetSetupProgressAsync();
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.GetSetupProgressAsync();
                 return result;
             }
             catch (Exception ex)
@@ -112,7 +119,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.SkipStepAsync(stepIndexToSkip);
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.SkipStepAsync(stepIndexToSkip);
                 return result;
             }
             catch (Exception ex)
@@ -128,7 +135,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.SkipAllStepsAsync();
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.SkipAllStepsAsync();
                 return result;
             }
             catch (Exception ex)
@@ -144,7 +151,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.DisableSetupAsync();
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.DisableSetupAsync();
                 return result;
             }
             catch (Exception ex)
@@ -160,7 +167,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.EnableSetupAsync();
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.EnableSetupAsync();
                 return result;
             }
             catch (Exception ex)
@@ -176,7 +183,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.InitializeSetupAsync();
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.InitializeSetupAsync();
                 return result;
             }
             catch (Exception ex)
@@ -192,7 +199,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.SetStepAsync(stepIndex);
+                Models.New.SandboxSetupModels.SandboxSetupSuccessResponse result = await service.SetStepAsync(stepIndex);
                 return result;
             }
             catch (Exception ex)

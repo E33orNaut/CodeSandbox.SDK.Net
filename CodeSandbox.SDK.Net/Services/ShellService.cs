@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models.New.SandboxShellModels;
-using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Interfaces;
+using CodeSandbox.SDK.Net.Internal;
+using CodeSandbox.SDK.Net.Models.New.SandboxShellModels;
 
 namespace CodeSandbox.SDK.Net.Services
 {
@@ -41,7 +41,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting CreateShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/create", request, cancellationToken);
+                SandboxShellSuccessResponse<SandboxOpenShellDTO> response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/create", request, cancellationToken);
                 _logger.LogSuccess("CreateShellAsync completed successfully.");
                 return response;
             }
@@ -71,7 +71,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting SendInputAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/in", request, cancellationToken);
+                SandboxShellSuccessResponse<object> response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/in", request, cancellationToken);
                 _logger.LogSuccess("SendInputAsync completed successfully.");
                 return response;
             }
@@ -100,7 +100,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting ListShellsAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellListResult>>("/shell/list", new { }, cancellationToken);
+                SandboxShellSuccessResponse<SandboxShellListResult> response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellListResult>>("/shell/list", new { }, cancellationToken);
                 _logger.LogSuccess("ListShellsAsync completed successfully.");
                 return response;
             }
@@ -130,7 +130,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting OpenShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/open", request, cancellationToken);
+                SandboxShellSuccessResponse<SandboxOpenShellDTO> response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxOpenShellDTO>>("/shell/open", request, cancellationToken);
                 _logger.LogSuccess("OpenShellAsync completed successfully.");
                 return response;
             }
@@ -160,7 +160,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting CloseShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/close", request, cancellationToken);
+                SandboxShellSuccessResponse<object> response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/close", request, cancellationToken);
                 _logger.LogSuccess("CloseShellAsync completed successfully.");
                 return response;
             }
@@ -190,7 +190,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting RestartShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/restart", request, cancellationToken);
+                SandboxShellSuccessResponse<object> response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/restart", request, cancellationToken);
                 _logger.LogSuccess("RestartShellAsync completed successfully.");
                 return response;
             }
@@ -220,7 +220,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting TerminateShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellDTO>>("/shell/terminate", request, cancellationToken);
+                SandboxShellSuccessResponse<SandboxShellDTO> response = await _client.PostAsync<SandboxShellSuccessResponse<SandboxShellDTO>>("/shell/terminate", request, cancellationToken);
                 _logger.LogSuccess("TerminateShellAsync completed successfully.");
                 return response;
             }
@@ -250,7 +250,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting ResizeShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/resize", request, cancellationToken);
+                SandboxShellSuccessResponse<object> response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/resize", request, cancellationToken);
                 _logger.LogSuccess("ResizeShellAsync completed successfully.");
                 return response;
             }
@@ -280,7 +280,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting RenameShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse>("/shell/rename", request, cancellationToken);
+                SandboxShellSuccessResponse response = await _client.PostAsync<SandboxShellSuccessResponse>("/shell/rename", request, cancellationToken);
                 _logger.LogSuccess("RenameShellAsync completed successfully.");
                 return response;
             }

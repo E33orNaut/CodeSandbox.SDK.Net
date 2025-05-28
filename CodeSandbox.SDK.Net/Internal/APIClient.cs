@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace CodeSandbox.SDK.Net.Internal
 {
-    
+
 
 
     /// <summary>
@@ -53,7 +53,7 @@ namespace CodeSandbox.SDK.Net.Internal
     /// Client to call CodeSandbox API endpoints.
     /// Supports GET, POST, PUT, and DELETE requests with JSON serialization and detailed error handling.
     /// </summary>
-    public class ApiClient : IApiClient, IDisposable 
+    public class ApiClient : IApiClient, IDisposable
     {
         private readonly HttpClient _httpClient;
         private readonly LoggerService _logger;
@@ -70,7 +70,9 @@ namespace CodeSandbox.SDK.Net.Internal
         public void ValidatePathT(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
+            {
                 throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+            }
         }
 
         /// <summary>
@@ -372,7 +374,7 @@ namespace CodeSandbox.SDK.Net.Internal
         private async Task<T> WithNetworkRetryAsync<T>(Func<Task<T>> action, string method, string path, int maxRetries = DefaultMaxRetries, int delayMs = DefaultDelayMs)
         {
             int attempt = 0;
-            for (;;)
+            for (; ; )
             {
                 try
                 {
@@ -383,14 +385,18 @@ namespace CodeSandbox.SDK.Net.Internal
                     attempt++;
                     _logger.LogWarning($"{method} {path}: Network error (attempt {attempt}): {ex.Message}");
                     if (attempt > maxRetries)
+                    {
                         throw;
+                    }
                 }
                 catch (TaskCanceledException ex) // Handles timeouts
                 {
                     attempt++;
                     _logger.LogWarning($"{method} {path}: Timeout (attempt {attempt}): {ex.Message}");
                     if (attempt > maxRetries)
+                    {
                         throw;
+                    }
                 }
                 await Task.Delay(delayMs).ConfigureAwait(false);
             }
@@ -406,7 +412,7 @@ namespace CodeSandbox.SDK.Net.Internal
         /// <param name="delayMs">Delay between retries in milliseconds.</param>
         private async Task WithNetworkRetryAsync(Func<Task> action, string method, string path, int maxRetries = DefaultMaxRetries, int delayMs = DefaultDelayMs)
         {
-            await WithNetworkRetryAsync<object>(async () => { await action(); return null; }, method, path, maxRetries, delayMs);
+            _ = await WithNetworkRetryAsync<object>(async () => { await action(); return null; }, method, path, maxRetries, delayMs);
         }
     }
-} 
+}

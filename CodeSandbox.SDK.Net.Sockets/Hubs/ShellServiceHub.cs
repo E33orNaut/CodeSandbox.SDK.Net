@@ -14,8 +14,8 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
     /// </summary>
     public class ShellServiceHub : Hub
     {
-        private static ApiClient client = new ApiClient(ServerContext.ApiKey);
-        private static ShellService service = new ShellService(client);
+        private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
+        private static readonly ShellService service = new ShellService(client);
 
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
             new ConcurrentDictionary<string, ConcurrentBag<string>>();
@@ -27,7 +27,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 connections.Add(connectionId);
             }
 
@@ -39,18 +39,24 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             string userId = GetUserId();
             string connectionId = Context.ConnectionId;
 
-            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out var connections))
+            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections))
             {
-                var updated = new ConcurrentBag<string>();
-                foreach (var id in connections)
+                ConcurrentBag<string> updated = new ConcurrentBag<string>();
+                foreach (string id in connections)
                 {
                     if (id != connectionId)
+                    {
                         updated.Add(id);
+                    }
                 }
                 if (!updated.IsEmpty)
+                {
                     UserConnections[userId] = updated;
+                }
                 else
-                    UserConnections.TryRemove(userId, out _);
+                {
+                    _ = UserConnections.TryRemove(userId, out _);
+                }
             }
 
             return base.OnDisconnected(stopCalled);
@@ -63,9 +69,11 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 if (!connections.Contains(connectionId))
+                {
                     connections.Add(connectionId);
+                }
             }
 
             return base.OnReconnected();
@@ -73,19 +81,19 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
         private string GetUserId()
         {
-            var user = Context.User;
+            System.Security.Principal.IPrincipal user = Context.User;
             if (user?.Identity != null && user.Identity.IsAuthenticated)
+            {
                 return user.Identity.Name;
+            }
 
-            var userId = Context.QueryString["userId"];
+            string userId = Context.QueryString["userId"];
             return !string.IsNullOrEmpty(userId) ? userId : null;
         }
 
         public static string[] GetConnectionsForUser(string userId)
         {
-            if (UserConnections.TryGetValue(userId, out var connections))
-                return connections.ToArray();
-            return Array.Empty<string>();
+            return UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections) ? connections.ToArray() : Array.Empty<string>();
         }
 
         /// <summary>
@@ -95,7 +103,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.CreateShellAsync(request);
+                SandboxShellSuccessResponse<SandboxOpenShellDTO> result = await service.CreateShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -111,7 +119,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.SendInputAsync(request);
+                SandboxShellSuccessResponse<object> result = await service.SendInputAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -127,7 +135,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.ListShellsAsync();
+                SandboxShellSuccessResponse<SandboxShellListResult> result = await service.ListShellsAsync();
                 return result;
             }
             catch (Exception ex)
@@ -143,7 +151,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.OpenShellAsync(request);
+                SandboxShellSuccessResponse<SandboxOpenShellDTO> result = await service.OpenShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -159,7 +167,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.CloseShellAsync(request);
+                SandboxShellSuccessResponse<object> result = await service.CloseShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -175,7 +183,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.RestartShellAsync(request);
+                SandboxShellSuccessResponse<object> result = await service.RestartShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -191,7 +199,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.TerminateShellAsync(request);
+                SandboxShellSuccessResponse<SandboxShellDTO> result = await service.TerminateShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -207,7 +215,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.ResizeShellAsync(request);
+                SandboxShellSuccessResponse<object> result = await service.ResizeShellAsync(request);
                 return result;
             }
             catch (Exception ex)
@@ -223,7 +231,7 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         {
             try
             {
-                var result = await service.RenameShellAsync(request);
+                SandboxShellSuccessResponse result = await service.RenameShellAsync(request);
                 return result;
             }
             catch (Exception ex)

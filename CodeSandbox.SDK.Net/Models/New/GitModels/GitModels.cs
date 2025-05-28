@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace CodeSandbox.SDK.Net.Models.New.GitModels
@@ -236,9 +235,9 @@ namespace CodeSandbox.SDK.Net.Models.New.GitModels
     {
         public string ShellId { get; set; }
     }
-/// <summary>
-/// 
-/// </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public class GitPushToRemoteRequest
     {
         public string Url { get; set; }

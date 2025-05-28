@@ -6,8 +6,6 @@ using Owin;
 public class WebSocketServer : IDisposable
 {
     private IDisposable _webApp;
-    private bool _isPaused;
-    private bool _isDisabled;
     private readonly int _port;
 
     // Publicly accessible API key
@@ -16,34 +14,44 @@ public class WebSocketServer : IDisposable
     public WebSocketServer(int port = 5000)
     {
         _port = port;
-        _isPaused = false;
-        _isDisabled = false;
+        IsPaused = false;
+        IsDisabled = false;
     }
 
     // Start accepts API key
     public void Start(string apiKey, int port = 5000)
     {
-        if (_isDisabled) throw new InvalidOperationException("Server is disabled.");
-        if (_webApp != null) return; // already started
+        if (IsDisabled)
+        {
+            throw new InvalidOperationException("Server is disabled.");
+        }
+
+        if (_webApp != null)
+        {
+            return; // already started
+        }
 
         ApiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
 
         string url = $"http://localhost:{_port}/";
         _webApp = WebApp.Start(url, app =>
         {
-            app.MapSignalR("/codesandbox", new HubConfiguration()
+            _ = app.MapSignalR("/codesandbox", new HubConfiguration()
             {
                 // Hub configuration here
             });
         });
 
-        _isPaused = false;
+        IsPaused = false;
         Console.WriteLine($"SignalR WebSocket server started on {url} with API key: {ApiKey}");
     }
 
     public void Stop()
     {
-        if (_webApp == null) return; // already stopped
+        if (_webApp == null)
+        {
+            return; // already stopped
+        }
 
         _webApp.Dispose();
         _webApp = null;
@@ -52,19 +60,19 @@ public class WebSocketServer : IDisposable
 
     public void Pause()
     {
-        _isPaused = true;
+        IsPaused = true;
         Console.WriteLine("SignalR server paused");
     }
 
     public void Resume()
     {
-        _isPaused = false;
+        IsPaused = false;
         Console.WriteLine("SignalR server resumed");
     }
 
     public void Disable()
     {
-        _isDisabled = true;
+        IsDisabled = true;
         Console.WriteLine("SignalR server disabled");
     }
 
@@ -73,7 +81,7 @@ public class WebSocketServer : IDisposable
         Stop();
     }
 
-    public bool IsRunning => _webApp != null && !_isPaused && !_isDisabled;
-    public bool IsPaused => _isPaused;
-    public bool IsDisabled => _isDisabled;
+    public bool IsRunning => _webApp != null && !IsPaused && !IsDisabled;
+    public bool IsPaused { get; private set; }
+    public bool IsDisabled { get; private set; }
 }

@@ -27,7 +27,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting GetStatusAsync...");
             try
             {
-                var response = await _client.PostAsync<GitStatusResponse>("/git/status", new { }, cancellationToken);
+                GitStatusResponse response = await _client.PostAsync<GitStatusResponse>("/git/status", new { }, cancellationToken);
                 _logger.LogSuccess("GetStatusAsync completed successfully.");
                 return response;
             }
@@ -54,7 +54,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting GetRemotesAsync...");
             try
             {
-                var response = await _client.PostAsync<GitRemotesResponse>("/git/remotes", new { }, cancellationToken);
+                GitRemotesResponse response = await _client.PostAsync<GitRemotesResponse>("/git/remotes", new { }, cancellationToken);
                 _logger.LogSuccess("GetRemotesAsync completed successfully.");
                 return response;
             }
@@ -79,12 +79,14 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<GitTargetDiffResponse> GetTargetDiffAsync(string branch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
+            {
                 throw new ArgumentException("Branch name cannot be null or whitespace.", nameof(branch));
+            }
 
             _logger.LogInfo($"Starting GetTargetDiffAsync for branch '{branch}'...");
             try
             {
-                var response = await _client.PostAsync<GitTargetDiffResponse>("/git/targetDiff", new { branch }, cancellationToken);
+                GitTargetDiffResponse response = await _client.PostAsync<GitTargetDiffResponse>("/git/targetDiff", new { branch }, cancellationToken);
                 _logger.LogSuccess($"GetTargetDiffAsync for branch '{branch}' completed successfully.");
                 return response;
             }
@@ -109,7 +111,9 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task PostPullAsync(string branch, bool force = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(branch))
+            {
                 throw new ArgumentException("Branch name cannot be null or whitespace.", nameof(branch));
+            }
 
             _logger.LogInfo($"Starting PostPullAsync for branch '{branch}' with force={force}...");
             try
@@ -138,12 +142,14 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<List<string>> PostDiscardAsync(string[] paths, CancellationToken cancellationToken = default)
         {
             if (paths == null)
+            {
                 throw new ArgumentNullException(nameof(paths));
+            }
 
             _logger.LogInfo($"Starting PostDiscardAsync for {paths.Length} paths...");
             try
             {
-                var discardResult = await _client.PostAsync<GitDiscardResponse>("/git/discard", new { paths }, cancellationToken);
+                GitDiscardResponse discardResult = await _client.PostAsync<GitDiscardResponse>("/git/discard", new { paths }, cancellationToken);
                 _logger.LogSuccess("PostDiscardAsync completed successfully.");
                 return discardResult?.Result?.Paths;
             }
@@ -168,12 +174,14 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<string> PostCommitAsync(string message, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(message))
+            {
                 throw new ArgumentException("Commit message cannot be null or whitespace.", nameof(message));
+            }
 
             _logger.LogInfo($"Starting PostCommitAsync with message '{message}'...");
             try
             {
-                var response = await _client.PostAsync<GitCommitResponse>("/git/commit", new { message }, cancellationToken);
+                GitCommitResponse response = await _client.PostAsync<GitCommitResponse>("/git/commit", new { message }, cancellationToken);
                 _logger.LogSuccess("PostCommitAsync completed successfully.");
                 return response?.Result?.ShellId;
             }
@@ -192,7 +200,9 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task PostRemoteAddAsync(string url, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(url))
+            {
                 throw new ArgumentException("URL cannot be null or whitespace.", nameof(url));
+            }
 
             _logger.LogInfo($"Starting PostRemoteAddAsync with URL '{url}'...");
             try
@@ -223,7 +233,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting PostPushAsync...");
             try
             {
-                await _client.PostAsync<object>("/git/push", new { }, cancellationToken);
+                _ = await _client.PostAsync<object>("/git/push", new { }, cancellationToken);
                 _logger.LogSuccess("PostPushAsync completed successfully.");
             }
             catch (ApiException ex)
@@ -241,14 +251,19 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task PostPushToRemoteAsync(string url, string branch, bool squashAllCommits = false, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(url))
+            {
                 throw new ArgumentException("URL cannot be null or whitespace.", nameof(url));
+            }
+
             if (string.IsNullOrWhiteSpace(branch))
+            {
                 throw new ArgumentException("Branch cannot be null or whitespace.", nameof(branch));
+            }
 
             _logger.LogInfo($"Starting PostPushToRemoteAsync to {url} branch {branch}...");
             try
             {
-                await _client.PostAsync<object>("/git/pushToRemote", new { url, branch, squashAllCommits }, cancellationToken);
+                _ = await _client.PostAsync<object>("/git/pushToRemote", new { url, branch, squashAllCommits }, cancellationToken);
                 _logger.LogSuccess("PostPushToRemoteAsync completed successfully.");
             }
             catch (ApiException ex)
@@ -266,14 +281,19 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task PostRenameBranchAsync(string oldBranch, string newBranch, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(oldBranch))
+            {
                 throw new ArgumentException("Old branch cannot be null or whitespace.", nameof(oldBranch));
+            }
+
             if (string.IsNullOrWhiteSpace(newBranch))
+            {
                 throw new ArgumentException("New branch cannot be null or whitespace.", nameof(newBranch));
+            }
 
             _logger.LogInfo($"Starting PostRenameBranchAsync from {oldBranch} to {newBranch}...");
             try
             {
-                await _client.PostAsync<object>("/git/renameBranch", new { oldBranch, newBranch }, cancellationToken);
+                _ = await _client.PostAsync<object>("/git/renameBranch", new { oldBranch, newBranch }, cancellationToken);
                 _logger.LogSuccess("PostRenameBranchAsync completed successfully.");
             }
             catch (ApiException ex)
@@ -291,14 +311,19 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<string> PostRemoteContentAsync(string reference, string path, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(reference))
+            {
                 throw new ArgumentException("Reference cannot be null or whitespace.", nameof(reference));
+            }
+
             if (string.IsNullOrWhiteSpace(path))
+            {
                 throw new ArgumentException("Path cannot be null or whitespace.", nameof(path));
+            }
 
             _logger.LogInfo($"Starting PostRemoteContentAsync for reference {reference} and path {path}...");
             try
             {
-                var response = await _client.PostAsync<GitRemoteContentResponse>("/git/remoteContent", new { reference, path }, cancellationToken);
+                GitRemoteContentResponse response = await _client.PostAsync<GitRemoteContentResponse>("/git/remoteContent", new { reference, path }, cancellationToken);
                 _logger.LogSuccess("PostRemoteContentAsync completed successfully.");
                 return response?.Result?.Content;
             }
@@ -317,14 +342,19 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<GitDiffStatusResponse> PostDiffStatusAsync(string baseRef, string headRef, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(baseRef))
+            {
                 throw new ArgumentException("Base reference cannot be null or whitespace.", nameof(baseRef));
+            }
+
             if (string.IsNullOrWhiteSpace(headRef))
+            {
                 throw new ArgumentException("Head reference cannot be null or whitespace.", nameof(headRef));
+            }
 
             _logger.LogInfo($"Starting PostDiffStatusAsync from {baseRef} to {headRef}...");
             try
             {
-                var response = await _client.PostAsync<GitDiffStatusResponse>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
+                GitDiffStatusResponse response = await _client.PostAsync<GitDiffStatusResponse>("/git/diffStatus", new { @base = baseRef, head = headRef }, cancellationToken);
                 _logger.LogSuccess("PostDiffStatusAsync completed successfully.");
                 return response;
             }
@@ -345,7 +375,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting PostResetLocalWithRemoteAsync...");
             try
             {
-                await _client.PostAsync<object>("/git/resetLocalWithRemote", new { }, cancellationToken);
+                _ = await _client.PostAsync<object>("/git/resetLocalWithRemote", new { }, cancellationToken);
                 _logger.LogSuccess("PostResetLocalWithRemoteAsync completed successfully.");
             }
             catch (ApiException ex)
@@ -365,7 +395,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting PostCheckoutInitialBranchAsync...");
             try
             {
-                await _client.PostAsync<object>("/git/checkoutInitialBranch", new { }, cancellationToken);
+                _ = await _client.PostAsync<object>("/git/checkoutInitialBranch", new { }, cancellationToken);
                 _logger.LogSuccess("PostCheckoutInitialBranchAsync completed successfully.");
             }
             catch (ApiException ex)
@@ -383,12 +413,14 @@ namespace CodeSandbox.SDK.Net.Services
         public async Task<List<GitTransposeLinesResultItem>> PostTransposeLinesAsync(List<GitTransposeLinesResultItem> requests, CancellationToken cancellationToken = default)
         {
             if (requests == null || requests.Count == 0)
+            {
                 throw new ArgumentException("Requests cannot be null or empty.", nameof(requests));
+            }
 
             _logger.LogInfo("Starting PostTransposeLinesAsync...");
             try
             {
-                var response = await _client.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", requests, cancellationToken);
+                GitTransposeLinesResponse response = await _client.PostAsync<GitTransposeLinesResponse>("/git/transposeLines", requests, cancellationToken);
                 _logger.LogSuccess("PostTransposeLinesAsync completed successfully.");
                 return response?.Result;
             }

@@ -49,17 +49,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = "/task/list";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskListResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskListResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskListResult>>(responseString, options);
                     _logger.LogSuccess("GetTaskList succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in GetTaskList: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -95,17 +95,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/run/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("RunTask succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in RunTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -140,22 +140,22 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/run/{taskId}";
-                var request = new SandboxTaskRunCommandRequest { Command = command };
+                SandboxTaskRunCommandRequest request = new SandboxTaskRunCommandRequest { Command = command };
                 string json = JsonSerializer.Serialize(request, new JsonSerializerOptions { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("RunCommand succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in RunCommand: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -191,17 +191,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/stop/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("StopTask succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in StopTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -237,17 +237,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/create/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("CreateTask succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in CreateTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -283,17 +283,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/update/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("UpdateTask succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in UpdateTask: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -329,17 +329,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/save/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("SaveToConfig succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in SaveToConfig: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -375,17 +375,17 @@ namespace CodeSandbox.SDK.Net.Services
                 string url = $"/task/generate/{taskId}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskResult>>(responseString, options);
                     _logger.LogSuccess("GenerateConfig succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in GenerateConfig: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }
@@ -423,17 +423,17 @@ namespace CodeSandbox.SDK.Net.Services
 
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content, cancellationToken);
                 string responseString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>>(responseString, options);
+                    SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> result = JsonSerializer.Deserialize<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>>(responseString, options);
                     _logger.LogSuccess("CreateSetupTasksAsync succeeded.");
                     return result;
                 }
                 else
                 {
-                    var error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
+                    SandboxTaskErrorResponse error = JsonSerializer.Deserialize<SandboxTaskErrorResponse>(responseString, options);
                     _logger.LogError($"API error in CreateSetupTasksAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
                     throw new TaskServiceException(error.Error?.Code ?? 0, error.Error?.Message ?? "Unknown error");
                 }

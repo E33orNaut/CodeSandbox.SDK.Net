@@ -29,14 +29,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         public async Task SetupContainerAsync_Success_ReturnsResponse()
         {
             // Arrange
-            var request = new ContainerSetupRequest();
-            var expectedResponse = new ContainerSetupSuccessResponse();
-            _mockClient
+            ContainerSetupRequest request = new ContainerSetupRequest();
+            ContainerSetupSuccessResponse expectedResponse = new ContainerSetupSuccessResponse();
+            _ = _mockClient
                 .Setup(c => c.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expectedResponse);
 
             // Act
-            var result = await _service.SetupContainerAsync(request);
+            ContainerSetupSuccessResponse result = await _service.SetupContainerAsync(request);
 
             // Assert
             Assert.AreEqual(expectedResponse, result);
@@ -48,21 +48,21 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         public async Task SetupContainerAsync_NullRequest_ThrowsArgumentNullException()
         {
             // Act
-            await _service.SetupContainerAsync(null);
+            _ = await _service.SetupContainerAsync(null);
         }
 
         [TestMethod]
         public async Task SetupContainerAsync_ApiException_ThrowsApiException()
         {
             // Arrange
-            var request = new ContainerSetupRequest();
-            var apiEx = new ApiException("API error", 400, "Some response content");
-            _mockClient
+            ContainerSetupRequest request = new ContainerSetupRequest();
+            ApiException apiEx = new ApiException("API error", 400, "Some response content");
+            _ = _mockClient
                 .Setup(c => c.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, It.IsAny<CancellationToken>()))
                 .ThrowsAsync(apiEx);
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _service.SetupContainerAsync(request));
+            ApiException ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _service.SetupContainerAsync(request));
             StringAssert.Contains(ex.Message, "API error");
             Assert.AreEqual(apiEx.StatusCode, ex.StatusCode);
             Assert.AreEqual(apiEx.ResponseContent, ex.ResponseContent);
@@ -72,14 +72,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         public async Task SetupContainerAsync_UnexpectedException_ThrowsWrappedException()
         {
             // Arrange
-            var request = new ContainerSetupRequest();
-            var unexpectedEx = new InvalidOperationException("Unexpected");
-            _mockClient
+            ContainerSetupRequest request = new ContainerSetupRequest();
+            InvalidOperationException unexpectedEx = new InvalidOperationException("Unexpected");
+            _ = _mockClient
                 .Setup(c => c.PostAsync<ContainerSetupSuccessResponse>("/container/setup", request, It.IsAny<CancellationToken>()))
                 .ThrowsAsync(unexpectedEx);
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<Exception>(() => _service.SetupContainerAsync(request));
+            Exception ex = await Assert.ThrowsExceptionAsync<Exception>(() => _service.SetupContainerAsync(request));
             StringAssert.Contains(ex.Message, "Unexpected error during container setup");
             Assert.AreEqual(unexpectedEx, ex.InnerException);
         }

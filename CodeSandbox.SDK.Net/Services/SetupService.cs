@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Models.New.SandboxSetupModels;
-using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Interfaces;
+using CodeSandbox.SDK.Net.Internal;
+using CodeSandbox.SDK.Net.Models.New.SandboxSetupModels;
 
 namespace CodeSandbox.SDK.Net.Services
 {
@@ -40,7 +40,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting GetSetupProgressAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/get", new { }, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/get", new { }, cancellationToken);
                 _logger.LogSuccess("GetSetupProgressAsync completed successfully.");
                 return response;
             }
@@ -70,7 +70,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting SkipStepAsync for step {stepIndexToSkip}...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", new { stepIndexToSkip }, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/skip", new { stepIndexToSkip }, cancellationToken);
                 _logger.LogSuccess("SkipStepAsync completed successfully.");
                 return response;
             }
@@ -99,7 +99,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting SkipAllStepsAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/skipAll", null, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/skipAll", null, cancellationToken);
                 _logger.LogSuccess("SkipAllStepsAsync completed successfully.");
                 return response;
             }
@@ -128,7 +128,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting DisableSetupAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/disable", null, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/disable", null, cancellationToken);
                 _logger.LogSuccess("DisableSetupAsync completed successfully.");
                 return response;
             }
@@ -157,7 +157,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting EnableSetupAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/enable", null, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/enable", null, cancellationToken);
                 _logger.LogSuccess("EnableSetupAsync completed successfully.");
                 return response;
             }
@@ -186,7 +186,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo("Starting InitializeSetupAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/init", null, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/init", null, cancellationToken);
                 _logger.LogSuccess("InitializeSetupAsync completed successfully.");
                 return response;
             }
@@ -216,7 +216,7 @@ namespace CodeSandbox.SDK.Net.Services
             _logger.LogInfo($"Starting SetStepAsync for step {stepIndex}...");
             try
             {
-                var response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/setStep", new { stepIndex }, cancellationToken);
+                SandboxSetupSuccessResponse response = await _client.PostAsync<SandboxSetupSuccessResponse>("/setup/setStep", new { stepIndex }, cancellationToken);
                 _logger.LogSuccess("SetStepAsync completed successfully.");
                 return response;
             }

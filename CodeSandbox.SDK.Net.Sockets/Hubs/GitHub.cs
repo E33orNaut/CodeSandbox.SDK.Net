@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.GitModels;
 using CodeSandbox.SDK.Net.Services;
@@ -17,8 +15,8 @@ using Microsoft.AspNet.SignalR;
 /// </summary>
 public class GitHib : Hub
 {
-    private static ApiClient client = new ApiClient(ServerContext.ApiKey);
-    private static GitService service = new GitService(client);
+    private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
+    private static readonly GitService service = new GitService(client);
 
     private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
         new ConcurrentDictionary<string, ConcurrentBag<string>>();
@@ -30,7 +28,7 @@ public class GitHib : Hub
 
         if (!string.IsNullOrEmpty(userId))
         {
-            var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+            ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
             connections.Add(connectionId);
         }
 
@@ -42,18 +40,24 @@ public class GitHib : Hub
         string userId = GetUserId();
         string connectionId = Context.ConnectionId;
 
-        if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out var connections))
+        if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections))
         {
-            var updated = new ConcurrentBag<string>();
-            foreach (var id in connections)
+            ConcurrentBag<string> updated = new ConcurrentBag<string>();
+            foreach (string id in connections)
             {
                 if (id != connectionId)
+                {
                     updated.Add(id);
+                }
             }
             if (!updated.IsEmpty)
+            {
                 UserConnections[userId] = updated;
+            }
             else
-                UserConnections.TryRemove(userId, out _);
+            {
+                _ = UserConnections.TryRemove(userId, out _);
+            }
         }
 
         return base.OnDisconnected(stopCalled);
@@ -66,9 +70,11 @@ public class GitHib : Hub
 
         if (!string.IsNullOrEmpty(userId))
         {
-            var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+            ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
             if (!connections.Contains(connectionId))
+            {
                 connections.Add(connectionId);
+            }
         }
 
         return base.OnReconnected();
@@ -76,49 +82,49 @@ public class GitHib : Hub
 
     private string GetUserId()
     {
-        var user = Context.User;
+        System.Security.Principal.IPrincipal user = Context.User;
         if (user?.Identity != null && user.Identity.IsAuthenticated)
+        {
             return user.Identity.Name;
+        }
 
-        var userId = Context.QueryString["userId"];
+        string userId = Context.QueryString["userId"];
         return !string.IsNullOrEmpty(userId) ? userId : null;
     }
 
     public static string[] GetConnectionsForUser(string userId)
     {
-        if (UserConnections.TryGetValue(userId, out var connections))
-            return connections.ToArray();
-        return Array.Empty<string>();
+        return UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections) ? connections.ToArray() : Array.Empty<string>();
     }
 
     /// <summary>
     /// Gets the current Git status asynchronously.
     /// </summary>
-    public async Task GetStatusAsync() 
+    public async Task GetStatusAsync()
     {
-        var response = await service.GetStatusAsync(CancellationToken.None);
-        if (response != null) 
+        GitStatusResponse response = await service.GetStatusAsync(CancellationToken.None);
+        if (response != null)
         {
             await Clients.Caller.getStatusAsync(response);
-        } 
-        else 
+        }
+        else
         {
             await Clients.Caller.sendError("Failed to retrieve status.");
         }
-         
-    } 
+
+    }
 
     /// <summary>
     /// Gets the list of Git remotes asynchronously.
     /// </summary>
-    public async Task GetRemotesAsync() 
+    public async Task GetRemotesAsync()
     {
-        var response = await service.GetRemotesAsync(CancellationToken.None);
-        if (response != null) 
+        GitRemotesResponse response = await service.GetRemotesAsync(CancellationToken.None);
+        if (response != null)
         {
             await Clients.Caller.getRemotesAsync(response);
-        } 
-        else 
+        }
+        else
         {
             await Clients.Caller.sendError("Failed to retrieve remote information.");
         }
@@ -127,14 +133,14 @@ public class GitHib : Hub
     /// <summary>
     /// Gets the diff for a target branch asynchronously.
     /// </summary>
-    public async Task GetTargetDiffAsync(string branch) 
+    public async Task GetTargetDiffAsync(string branch)
     {
-        var response = await service.GetTargetDiffAsync(branch, CancellationToken.None);
-        if (response != null) 
+        GitTargetDiffResponse response = await service.GetTargetDiffAsync(branch, CancellationToken.None);
+        if (response != null)
         {
             await Clients.Caller.getTargetDiffAsync(response);
-        } 
-        else 
+        }
+        else
         {
             await Clients.Caller.sendError("Failed to retrieve target diff.");
         }
@@ -143,18 +149,18 @@ public class GitHib : Hub
     /// <summary>
     /// Pulls changes from the specified branch asynchronously.
     /// </summary>
-    public async Task PostPullAsync(string branch) 
+    public async Task PostPullAsync(string branch)
     {
         await service.PostPullAsync(branch, force: false, CancellationToken.None);
-        
+
     }
 
     /// <summary>
     /// Discards changes for the specified paths asynchronously.
     /// </summary>
-    public async Task PostDiscardAsync(string[] paths)        
+    public async Task PostDiscardAsync(string[] paths)
     {
-        var response =  await service.PostDiscardAsync(paths, CancellationToken.None);
+        List<string> response = await service.PostDiscardAsync(paths, CancellationToken.None);
         if (response != null)
         {
             await Clients.Caller.postDiscardAsync(response);
@@ -170,7 +176,7 @@ public class GitHib : Hub
     /// </summary>
     public async Task PostCommitAsync(string message)
     {
-        var response = await service.PostCommitAsync(message, CancellationToken.None);
+        string response = await service.PostCommitAsync(message, CancellationToken.None);
         if (response != null)
         {
             await Clients.Caller.postCommitAsync(response);
@@ -186,7 +192,7 @@ public class GitHib : Hub
     /// </summary>
     public async Task PostRemoteAddAsync(string url)
     {
-        await service.PostRemoteAddAsync(url, CancellationToken.None); 
+        await service.PostRemoteAddAsync(url, CancellationToken.None);
     }
 
     /// <summary>
@@ -195,7 +201,7 @@ public class GitHib : Hub
     public async Task PostPushAsync()
     {
         await service.PostPushAsync(CancellationToken.None);
-        
+
     }
 
     /// <summary>
@@ -220,7 +226,7 @@ public class GitHib : Hub
     public async Task PostRemoteContentAsync(string refrence, string path)
 
     {
-        var response = await service.PostRemoteContentAsync(refrence, path, CancellationToken.None);
+        string response = await service.PostRemoteContentAsync(refrence, path, CancellationToken.None);
         if (response != null)
         {
             await Clients.Caller.postRemoteContentAsync(response);
@@ -236,7 +242,7 @@ public class GitHib : Hub
     /// </summary>
     public async Task PostDiffStatusAsync(string baseRef, string headRef)
     {
-        var response = await service.PostDiffStatusAsync(baseRef, headRef, CancellationToken.None);
+        GitDiffStatusResponse response = await service.PostDiffStatusAsync(baseRef, headRef, CancellationToken.None);
         if (response != null)
         {
             await Clients.Caller.postDiffStatusAsync(response);
@@ -252,7 +258,7 @@ public class GitHib : Hub
     /// </summary>
     public async Task PostResetLocalWithRemoteAsync()
     {
-               await service.PostResetLocalWithRemoteAsync(CancellationToken.None);
+        await service.PostResetLocalWithRemoteAsync(CancellationToken.None);
     }
 
     /// <summary>
@@ -260,15 +266,15 @@ public class GitHib : Hub
     /// </summary>
     public async Task PostCheckoutInitialBranchAsync()
     {
-               await service.PostCheckoutInitialBranchAsync(CancellationToken.None);
+        await service.PostCheckoutInitialBranchAsync(CancellationToken.None);
     }
 
     /// <summary>
     /// Transposes lines in a file asynchronously.
     /// </summary>
     public async Task PostTransposeLinesAsync(List<GitTransposeLinesResultItem> requests)
-    {         
-        var response = await service.PostTransposeLinesAsync(requests, CancellationToken.None);
+    {
+        List<GitTransposeLinesResultItem> response = await service.PostTransposeLinesAsync(requests, CancellationToken.None);
         if (response != null)
         {
             await Clients.Caller.postTransposeLinesAsync(response);
