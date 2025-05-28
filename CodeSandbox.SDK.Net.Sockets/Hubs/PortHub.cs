@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
@@ -70,9 +71,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             if (!string.IsNullOrEmpty(userId))
             {
                 ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
-                if (!connections.Contains(connectionId))
+                if (connections.Contains(connectionId))
                 {
-                    connections.Add(connectionId);
+                    return base.OnReconnected();
                 }
             }
 
