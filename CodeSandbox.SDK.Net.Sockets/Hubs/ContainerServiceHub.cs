@@ -1,22 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models.New.SandboxTaskModels;
+using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
 using CodeSandbox.SDK.Net.Services;
 using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
     /// <summary>
-    /// SignalR hub for managing sandbox task operations.
+    /// SignalR hub for managing sandbox container operations.
     /// Tracks user connections by userId and connectionId.
     /// </summary>
-    public class TaskServiceHub : Hub
+    public class ContainerServiceHub : Hub
     {
         private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
 
-        // Maps userId to a set of connectionIds
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
             new ConcurrentDictionary<string, ConcurrentBag<string>>();
 
