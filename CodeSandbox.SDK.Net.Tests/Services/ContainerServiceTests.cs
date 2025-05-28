@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
 using CodeSandbox.SDK.Net.Services;
@@ -12,14 +13,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
     [TestClass]
     public class ContainerServiceTests
     {
-        private Mock<ApiClient> _mockClient;
+        private Mock<IApiClient> _mockClient;
         private Mock<LoggerService> _mockLogger;
         private ContainerService _service;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockClient = new Mock<ApiClient>(MockBehavior.Strict, null);
+            _mockClient = new Mock<IApiClient>(MockBehavior.Strict);
             _mockLogger = new Mock<LoggerService>(LogLevel.Trace);
             _service = new ContainerService(_mockClient.Object, _mockLogger.Object);
         }
@@ -51,7 +52,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         }
 
         [TestMethod]
-        public async Task SetupContainerAsync_ApiException_ThrowsWrappedException()
+        public async Task SetupContainerAsync_ApiException_ThrowsApiException()
         {
             // Arrange
             var request = new ContainerSetupRequest();
@@ -61,9 +62,10 @@ namespace CodeSandbox.SDK.Net.Tests.Services
                 .ThrowsAsync(apiEx);
 
             // Act & Assert
-            var ex = await Assert.ThrowsExceptionAsync<Exception>(() => _service.SetupContainerAsync(request));
-            StringAssert.Contains(ex.Message, "API error during container setup");
-            Assert.AreEqual(apiEx, ex.InnerException);
+            var ex = await Assert.ThrowsExceptionAsync<ApiException>(() => _service.SetupContainerAsync(request));
+            StringAssert.Contains(ex.Message, "API error");
+            Assert.AreEqual(apiEx.StatusCode, ex.StatusCode);
+            Assert.AreEqual(apiEx.ResponseContent, ex.ResponseContent);
         }
 
         [TestMethod]

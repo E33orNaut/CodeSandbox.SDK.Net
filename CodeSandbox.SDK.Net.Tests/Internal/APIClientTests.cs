@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Moq.Protected;
 using Newtonsoft.Json;
-namespace CodeSandbox.SDK.Net.Tests
+namespace CodeSandbox.SDK.Net.Tests.Internal
 {
     [TestClass]
     public class ApiClientTests
