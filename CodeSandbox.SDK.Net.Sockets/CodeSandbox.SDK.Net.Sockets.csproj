@@ -127,21 +127,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hubs\AuditServiceHub.cs" />
-    <Compile Include="Hubs\ContainerServiceHub.cs" />
-    <Compile Include="Hubs\FileServiceHub.cs" />
-    <Compile Include="Hubs\GitHub.cs" />
-    <Compile Include="Hubs\ContainerHub.cs" />
-    <Compile Include="Hubs\NotificationServiceHub.cs" />
-    <Compile Include="Hubs\PortHub.cs" />
-    <Compile Include="Hubs\ProjectServiceHub.cs" />
-    <Compile Include="Hubs\SandboxFsHub.cs" />
-    <Compile Include="Hubs\SetupHub.cs" />
-    <Compile Include="Hubs\ShellServiceHub.cs" />
-    <Compile Include="Hubs\SystemServiceHub.cs" />
-    <Compile Include="Hubs\TaskServiceHub.cs" />
-    <Compile Include="Hubs\UserServiceHub.cs" />
-    <Compile Include="Hubs\WorkspaceServiceHub.cs" />
+    <Compile Include="Hubs\HubTemplate.cs" />
     <Compile Include="ServerContext.cs" />
     <Compile Include="WebSocketServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

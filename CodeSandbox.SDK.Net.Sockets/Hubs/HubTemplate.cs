@@ -13,7 +13,7 @@ using Microsoft.AspNet.SignalR;
 /// SignalR hub for managing container setup operations.
 /// Tracks user connections by userId and connectionId.
 /// </summary>
-public class ContainerHub : Hub
+public class HubTemplate : Hub
 {
     private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
     private static readonly ContainerService service = new ContainerService(client);
