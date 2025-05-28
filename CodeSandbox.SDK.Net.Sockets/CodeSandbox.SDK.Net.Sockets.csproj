@@ -127,6 +127,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hubs\ContainerServiceHub.cs" />
+    <Compile Include="Hubs\GitServiceHub.cs" />
+    <Compile Include="Hubs\SetupServiceHub.cs" />
+    <Compile Include="Hubs\SandboxFSServiceHub.cs" />
+    <Compile Include="Hubs\PortServiceHub.cs" />
     <Compile Include="Hubs\HubTemplate.cs" />
     <Compile Include="ServerContext.cs" />
     <Compile Include="WebSocketServer.cs" />

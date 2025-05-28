@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
+using CodeSandbox.SDK.Net.Models.New.PortModels;
 using CodeSandbox.SDK.Net.Services;
 using CodeSandbox.SDK.Net.Sockets;
 using Microsoft.AspNet.SignalR;
@@ -13,17 +13,18 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
 
     /// <summary>
-    /// SignalR hub for managing container setup operations.
+    /// SignalR hub for managing port operations in the sandbox.
     /// Tracks user connections by userId and connectionId.
     /// </summary>
-    public class HubTemplate : Hub
+    public class PortServiceHub : Hub
     {
         private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
-        private static readonly ContainerService service = new ContainerService(client);
+        private static readonly PortService service = new PortService(client);
 
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
             new ConcurrentDictionary<string, ConcurrentBag<string>>();
 
+        /// <inheritdoc />
         public override Task OnConnected()
         {
             string userId = GetUserId();
@@ -31,41 +32,37 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 connections.Add(connectionId);
             }
 
             return base.OnConnected();
         }
 
+        /// <inheritdoc />
         public override Task OnDisconnected(bool stopCalled)
         {
             string userId = GetUserId();
             string connectionId = Context.ConnectionId;
 
-            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections))
+            if (!string.IsNullOrEmpty(userId) && UserConnections.TryGetValue(userId, out var connections))
             {
-                ConcurrentBag<string> updated = new ConcurrentBag<string>();
-                foreach (string id in connections)
+                var updated = new ConcurrentBag<string>();
+                foreach (var id in connections)
                 {
                     if (id != connectionId)
-                    {
                         updated.Add(id);
-                    }
                 }
                 if (!updated.IsEmpty)
-                {
                     UserConnections[userId] = updated;
-                }
                 else
-                {
-                    _ = UserConnections.TryRemove(userId, out _);
-                }
+                    UserConnections.TryRemove(userId, out _);
             }
 
             return base.OnDisconnected(stopCalled);
         }
 
+        /// <inheritdoc />
         public override Task OnReconnected()
         {
             string userId = GetUserId();
@@ -73,48 +70,51 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
 
             if (!string.IsNullOrEmpty(userId))
             {
-                ConcurrentBag<string> connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
+                var connections = UserConnections.GetOrAdd(userId, _ => new ConcurrentBag<string>());
                 if (!connections.Contains(connectionId))
-                {
                     connections.Add(connectionId);
-                }
             }
 
             return base.OnReconnected();
         }
 
+        /// <summary>
+        /// Gets the userId for the current connection.
+        /// </summary>
         private string GetUserId()
         {
-            System.Security.Principal.IPrincipal user = Context.User;
+            var user = Context.User;
             if (user?.Identity != null && user.Identity.IsAuthenticated)
-            {
                 return user.Identity.Name;
-            }
 
-            string userId = Context.QueryString["userId"];
+            var userId = Context.QueryString["userId"];
             return !string.IsNullOrEmpty(userId) ? userId : null;
         }
 
+        /// <summary>
+        /// Gets all connectionIds for a given userId.
+        /// </summary>
         public static string[] GetConnectionsForUser(string userId)
         {
-            return UserConnections.TryGetValue(userId, out ConcurrentBag<string> connections) ? connections.ToArray() : Array.Empty<string>();
+            if (UserConnections.TryGetValue(userId, out var connections))
+                return connections.ToArray();
+            return Array.Empty<string>();
         }
 
         /// <summary>
-        /// Sets up a new container asynchronously.
+        /// Retrieves the list of ports and their associated URLs asynchronously.
         /// </summary>
-        /// <param name="request">The container setup request.</param>
-        /// <param name="cancellationToken">Cancellation token (optional).</param>
-        public async Task SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default)
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        public async Task GetPortListAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                ContainerSetupSuccessResponse result = await service.SetupContainerAsync(request, cancellationToken);
-                await Clients.Caller.setupContainerSuccess(result);
+                PortListResult result = await service.GetPortListAsync(cancellationToken);
+                await Clients.Caller.getPortListSuccess(result);
             }
             catch (Exception ex)
             {
-                await Clients.Caller.setupContainerError(ex.Message ?? "An error occurred during container setup.");
+                await Clients.Caller.getPortListError(ex.Message ?? "An error occurred while retrieving the port list.");
             }
         }
     }

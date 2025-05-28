@@ -8,17 +8,17 @@ using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
 using CodeSandbox.SDK.Net.Services;
 using CodeSandbox.SDK.Net.Sockets;
 using Microsoft.AspNet.SignalR;
+using CodeSandbox.SDK.Net.Interfaces;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
-
     /// <summary>
     /// SignalR hub for managing container setup operations.
     /// Tracks user connections by userId and connectionId.
     /// </summary>
-    public class HubTemplate : Hub
+    public class ContainerServiceHub : Hub
     {
-        private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
+        private static readonly IApiClient client = new ApiClient(ServerContext.ApiKey);
         private static readonly ContainerService service = new ContainerService(client);
 
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
@@ -103,8 +103,6 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         /// <summary>
         /// Sets up a new container asynchronously.
         /// </summary>
-        /// <param name="request">The container setup request.</param>
-        /// <param name="cancellationToken">Cancellation token (optional).</param>
         public async Task SetupContainerAsync(ContainerSetupRequest request, CancellationToken cancellationToken = default)
         {
             try
@@ -117,5 +115,6 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
                 await Clients.Caller.setupContainerError(ex.Message ?? "An error occurred during container setup.");
             }
         }
+
     }
 }
