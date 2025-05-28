@@ -129,10 +129,12 @@
   <ItemGroup>
     <Compile Include="Hubs\ContainerServiceHub.cs" />
     <Compile Include="Hubs\GitServiceHub.cs" />
+    <Compile Include="Hubs\SystemServiceHub.cs" />
+    <Compile Include="Hubs\ShellServiceHub.cs" />
     <Compile Include="Hubs\SetupServiceHub.cs" />
     <Compile Include="Hubs\SandboxFSServiceHub.cs" />
     <Compile Include="Hubs\PortServiceHub.cs" />
-    <Compile Include="Hubs\HubTemplate.cs" />
+    <Compile Include="Hubs\TaskServiceHub.cs" />
     <Compile Include="ServerContext.cs" />
     <Compile Include="WebSocketServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

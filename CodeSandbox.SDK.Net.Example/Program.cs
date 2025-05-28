@@ -40,7 +40,7 @@ namespace CodeSandbox.SDK.Net.Example
             }
 
             // TaskService examples
-            TaskService taskService = new TaskService(new System.Net.Http.HttpClient(), logger);
+            TaskService taskService = new TaskService(apiClient, logger);
 
             try
             {

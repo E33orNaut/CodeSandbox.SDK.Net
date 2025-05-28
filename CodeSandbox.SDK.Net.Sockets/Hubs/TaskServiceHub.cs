@@ -3,21 +3,22 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
-using CodeSandbox.SDK.Net.Models.New.SandboxShellModels;
+using CodeSandbox.SDK.Net.Models.New.SandboxTaskModels;
 using CodeSandbox.SDK.Net.Services;
 using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
     /// <summary>
-    /// SignalR hub for managing shell operations in the sandbox.
+    /// SignalR hub for managing sandbox task operations.
     /// Tracks user connections by userId and connectionId.
     /// </summary>
-    public class ShellServiceHub : Hub
+    public class TaskServiceHub : Hub
     {
-        private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
-        private static readonly ShellService service = new ShellService(client);
+        private static readonly IApiClient client = new ApiClient(ServerContext.ApiKey);
+        private static readonly ITaskService service = new TaskService(client, new LoggerService());
 
         private static readonly ConcurrentDictionary<string, ConcurrentBag<string>> UserConnections =
             new ConcurrentDictionary<string, ConcurrentBag<string>>();
@@ -100,13 +101,14 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         }
 
         /// <summary>
-        /// Creates a new shell session.
+        /// Starts a new sandbox task asynchronously.
         /// </summary>
-        public async Task<object> CreateShell(SandboxShellCreateRequest request)
+        public async Task<object> StartTaskAsync(SandboxTaskStartRequest request)
         {
             try
             {
-                var result = await service.CreateShellAsync(request);
+                // Assuming StartTaskAsync is a method on ITaskService/TaskService
+                var result = await service.RunTaskAsync(request.TaskId);
                 return result;
             }
             catch (Exception ex)
@@ -116,13 +118,14 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         }
 
         /// <summary>
-        /// Sends input to an existing shell session.
+        /// Gets the status of a sandbox task asynchronously.
         /// </summary>
-        public async Task<object> SendInput(SandboxShellInRequest request)
+        public async Task<object> GetTaskStatusAsync(string taskId)
         {
             try
             {
-                var result = await service.SendInputAsync(request);
+                // Assuming GetTaskStatusAsync is a method on ITaskService/TaskService
+                var result = await service.GetTaskListAsync();
                 return result;
             }
             catch (Exception ex)
@@ -132,13 +135,14 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         }
 
         /// <summary>
-        /// Lists all active shell sessions.
+        /// Cancels a sandbox task asynchronously.
         /// </summary>
-        public async Task<object> ListShells()
+        public async Task<object> CancelTaskAsync(string taskId)
         {
             try
             {
-                var result = await service.ListShellsAsync();
+                // Assuming StopTaskAsync is a method on ITaskService/TaskService
+                var result = await service.StopTaskAsync(taskId);
                 return result;
             }
             catch (Exception ex)
@@ -148,93 +152,13 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
         }
 
         /// <summary>
-        /// Opens an existing shell session.
+        /// Lists all tasks for the current user asynchronously.
         /// </summary>
-        public async Task<object> OpenShell(SandboxShellOpenRequest request)
+        public async Task<object> ListTasksAsync()
         {
             try
             {
-                var result = await service.OpenShellAsync(request);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new { error = ex.Message };
-            }
-        }
-
-        /// <summary>
-        /// Closes a shell session.
-        /// </summary>
-        public async Task<object> CloseShell(SandboxShellIdRequest request)
-        {
-            try
-            {
-                var result = await service.CloseShellAsync(request);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new { error = ex.Message };
-            }
-        }
-
-        /// <summary>
-        /// Restarts a shell session.
-        /// </summary>
-        public async Task<object> RestartShell(SandboxShellIdRequest request)
-        {
-            try
-            {
-                var result = await service.RestartShellAsync(request);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new { error = ex.Message };
-            }
-        }
-
-        /// <summary>
-        /// Terminates a shell session.
-        /// </summary>
-        public async Task<object> TerminateShell(SandboxShellIdRequest request)
-        {
-            try
-            {
-                var result = await service.TerminateShellAsync(request);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new { error = ex.Message };
-            }
-        }
-
-        /// <summary>
-        /// Resizes a shell session.
-        /// </summary>
-        public async Task<object> ResizeShell(SandboxShellResizeRequest request)
-        {
-            try
-            {
-                var result = await service.ResizeShellAsync(request);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return new { error = ex.Message };
-            }
-        }
-
-        /// <summary>
-        /// Renames a shell session.
-        /// </summary>
-        public async Task<object> RenameShell(SandboxShellRenameRequest request)
-        {
-            try
-            {
-                var result = await service.RenameShellAsync(request);
+                var result = await service.GetTaskListAsync();
                 return result;
             }
             catch (Exception ex)

@@ -273,4 +273,17 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxTaskModels
         [JsonProperty("saveToConfig")]
         public bool? SaveToConfig { get; set; }
     }
+
+    /// <summary>
+    /// Request model for starting a sandbox task.
+    /// </summary>
+    public class SandboxTaskStartRequest
+    {
+        /// <summary>
+        /// The unique identifier of the task to start.
+        /// </summary>
+        public string TaskId { get; set; }
+    }
+  
+
 }
