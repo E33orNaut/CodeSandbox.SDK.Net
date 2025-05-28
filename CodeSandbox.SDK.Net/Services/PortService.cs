@@ -12,7 +12,7 @@ namespace CodeSandbox.SDK.Net.Services
     /// </summary>
     public class PortService : IPortService
     {
-        private readonly ApiClient _client;
+        private readonly IApiClient _client;
         private readonly LoggerService _logger;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="client">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
         /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is null.</exception>
-        public PortService(ApiClient client, LoggerService logger = null)
+        public PortService(IApiClient client, LoggerService logger = null)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _logger = logger ?? new LoggerService(LogLevel.Trace);

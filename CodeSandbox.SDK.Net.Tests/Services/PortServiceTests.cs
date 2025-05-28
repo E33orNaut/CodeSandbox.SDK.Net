@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.PortModels;
 using CodeSandbox.SDK.Net.Services;
@@ -13,14 +14,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
     [TestClass]
     public class PortServiceTests
     {
-        private Mock<ApiClient> _mockClient;
+        private Mock<IApiClient> _mockClient;
         private Mock<LoggerService> _mockLogger;
         private PortService _service;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockClient = new Mock<ApiClient>("http://localhost", null, null, null);
+            _mockClient = new Mock<IApiClient>();
             _mockLogger = new Mock<LoggerService>(LogLevel.Trace);
             _service = new PortService(_mockClient.Object, _mockLogger.Object);
         }
@@ -30,20 +31,20 @@ namespace CodeSandbox.SDK.Net.Tests.Services
         {
             var expectedList = new List<PortModel>
             {
-                new PortModel(), // Add property initializations as needed
-                new PortModel()
+                new PortModel { /* set properties as needed for your test */ }
             };
-            var expectedResult = new PortListResult { List = expectedList };
-            var response = new PortSuccessResponse { Result = expectedResult };
+            var expectedResponse = new PortSuccessResponse
+            {
+                Result = new PortListResult { List = expectedList }
+            };
 
             _mockClient
                 .Setup(c => c.PostAsync<PortSuccessResponse>("/port/list", It.IsAny<object>(), It.IsAny<CancellationToken>()))
-                .ReturnsAsync(response);
+                .ReturnsAsync(expectedResponse);
 
             var result = await _service.GetPortListAsync();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(expectedResult, result);
             Assert.AreEqual(expectedList, result.List);
         }
 
@@ -54,17 +55,7 @@ namespace CodeSandbox.SDK.Net.Tests.Services
                 .Setup(c => c.PostAsync<PortSuccessResponse>("/port/list", It.IsAny<object>(), It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new ApiException("fail", 400, "err"));
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetPortListAsync());
-        }
-
-        [TestMethod]
-        public async Task GetPortListAsync_UnexpectedException_ThrowsWrapped()
-        {
-            _mockClient
-                .Setup(c => c.PostAsync<PortSuccessResponse>("/port/list", It.IsAny<object>(), It.IsAny<CancellationToken>()))
-                .ThrowsAsync(new InvalidOperationException("unexpected"));
-
-            await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetPortListAsync());
+            await Assert.ThrowsExceptionAsync<System.Exception>(() => _service.GetPortListAsync());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace CodeSandbox.SDK.Net.Services
     /// </summary>
     public class SandboxFsService : ISandboxFsService
     {
-        private readonly ApiClient _apiClient;
+        private readonly IApiClient _apiClient;
         private readonly LoggerService _logger;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="apiClient">The API client instance used to communicate with the CodeSandbox API. Cannot be null.</param>
         /// <param name="logger">Optional logger instance for diagnostic output. If not provided, a default logger is used.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="apiClient"/> is null.</exception>
-        public SandboxFsService(ApiClient apiClient, LoggerService logger = null)
+        public SandboxFsService(IApiClient apiClient, LoggerService logger = null)
         {
             _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
             _logger = logger ?? new LoggerService(LogLevel.Trace);

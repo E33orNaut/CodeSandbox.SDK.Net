@@ -167,6 +167,7 @@
     <Compile Include="Services\ContainerService.cs" />
     <Compile Include="Services\GitService.cs" />
     <Compile Include="Services\IGitService.cs" />
+    <Compile Include="Services\IShellService.cs" />
     <Compile Include="Services\PortService.cs" />
     <Compile Include="Services\SandboxFSService.cs" />
     <Compile Include="Services\SetupService.cs" />

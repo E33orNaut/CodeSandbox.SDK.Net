@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.SandboxSetupModels;
 using CodeSandbox.SDK.Net.Services;
@@ -12,14 +13,14 @@ namespace CodeSandbox.SDK.Net.Tests.Services
     [TestClass]
     public class SetupServiceTests
     {
-        private Mock<ApiClient> _mockClient;
+        private Mock<IApiClient> _mockClient;
         private Mock<LoggerService> _mockLogger;
         private SetupService _service;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockClient = new Mock<ApiClient>("http://localhost", null, null, null);
+            _mockClient = new Mock<IApiClient>();
             _mockLogger = new Mock<LoggerService>(LogLevel.Trace);
             _service = new SetupService(_mockClient.Object, _mockLogger.Object);
         }

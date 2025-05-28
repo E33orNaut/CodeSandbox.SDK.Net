@@ -15,16 +15,16 @@ namespace CodeSandbox.SDK.Net.Services
     /// </summary>
     public class SystemService : ISystemService
     {
-        private readonly HttpClient _client;
+        private readonly IApiClient _client;
         private readonly LoggerService _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemService"/> class.
         /// </summary>
-        /// <param name="httpClient">The HTTP client used to communicate with the CodeSandbox API. Cannot be null.</param>
+        /// <param name="IApiClient">The HTTP client used to communicate with the CodeSandbox API. Cannot be null.</param>
         /// <param name="logger">The logger service for diagnostic output. Cannot be null.</param>
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="httpClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
-        public SystemService(HttpClient client, LoggerService logger)
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="IApiClient"/> or <paramref name="logger"/> is <c>null</c>.</exception>
+        public SystemService(IApiClient client, LoggerService logger)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _logger = logger ?? new LoggerService(LogLevel.Trace);

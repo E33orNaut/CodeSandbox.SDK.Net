@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CodeSandbox.SDK.Net.Interfaces;
 using CodeSandbox.SDK.Net.Internal;
 using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
 using CodeSandbox.SDK.Net.Services;
@@ -12,17 +13,19 @@ namespace CodeSandbox.SDK.Net.Tests.Services
     [TestClass]
     public class SandboxFsServiceTests
     {
-        private Mock<ApiClient> _mockClient;
+
+        private Mock<IApiClient> _mockClient;
         private Mock<LoggerService> _mockLogger;
         private SandboxFsService _service;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockClient = new Mock<ApiClient>("http://localhost", null, null, null);
+            _mockClient = new Mock<IApiClient>();
             _mockLogger = new Mock<LoggerService>(LogLevel.Trace);
             _service = new SandboxFsService(_mockClient.Object, _mockLogger.Object);
         }
+
 
         [TestMethod]
         public async Task WriteFileAsync_Success_ReturnsResult()
