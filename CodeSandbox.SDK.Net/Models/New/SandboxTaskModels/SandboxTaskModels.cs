@@ -284,6 +284,6 @@ namespace CodeSandbox.SDK.Net.Models.New.SandboxTaskModels
         /// </summary>
         public string TaskId { get; set; }
     }
-  
+
 
 }

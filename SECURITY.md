@@ -1,18 +1,18 @@
 # Security Policy
-Right now there is no policy, its hightly experimental, this is for the future
+
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-
+Only the latest Release Candidate and stable releases of CodeSandbox.SDK.Net are actively supported.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability, please **do not** open a public issue. Instead, report it privately by emailing the maintainers or using the security advisory feature on GitHub.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- We will respond as quickly as possible.
+- Please provide as much detail as possible to help us reproduce and address the issue.
+
+## Responsible Disclosure
+
+We appreciate responsible disclosure and will credit security researchers in release notes if desired.
+
+Thank you for helping keep CodeSandbox.SDK.Net and its users safe!

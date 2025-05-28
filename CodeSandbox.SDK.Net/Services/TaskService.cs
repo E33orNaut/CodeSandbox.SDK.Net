@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Interfaces;
@@ -39,7 +36,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = "/task/list";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskListResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskListResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskListResult>>(url, cancellationToken);
                 _logger.LogSuccess("GetTaskList succeeded.");
                 return result;
             }
@@ -64,7 +61,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/run/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("RunTask succeeded.");
                 return result;
             }
@@ -89,8 +86,8 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/run/{taskId}";
-                var request = new SandboxTaskRunCommandRequest { Command = command };
-                var result = await _httpClient.PostAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, request, cancellationToken);
+                SandboxTaskRunCommandRequest request = new SandboxTaskRunCommandRequest { Command = command };
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.PostAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, request, cancellationToken);
                 _logger.LogSuccess("RunCommand succeeded.");
                 return result;
             }
@@ -115,7 +112,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/stop/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("StopTask succeeded.");
                 return result;
             }
@@ -140,7 +137,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/create/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("CreateTask succeeded.");
                 return result;
             }
@@ -165,7 +162,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/update/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("UpdateTask succeeded.");
                 return result;
             }
@@ -190,7 +187,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/save/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("SaveToConfig succeeded.");
                 return result;
             }
@@ -215,7 +212,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = $"/task/generate/{taskId}";
-                var result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskResult> result = await _httpClient.GetAsync<SandboxTaskSuccessResponse<SandboxTaskResult>>(url, cancellationToken);
                 _logger.LogSuccess("GenerateConfig succeeded.");
                 return result;
             }
@@ -240,7 +237,7 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = "/task/createSetupTasks";
-                var result = await _httpClient.PostAsync<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>>(url, request, cancellationToken);
+                SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult> result = await _httpClient.PostAsync<SandboxTaskSuccessResponse<SandboxTaskSetupTasksResult>>(url, request, cancellationToken);
                 _logger.LogSuccess("CreateSetupTasksAsync succeeded.");
                 return result;
             }
