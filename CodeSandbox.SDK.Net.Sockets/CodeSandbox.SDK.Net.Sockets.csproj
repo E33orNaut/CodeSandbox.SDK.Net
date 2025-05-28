@@ -127,7 +127,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Hubs\GitHub.cs" />
     <Compile Include="Hubs\ContainerHub.cs" />
     <Compile Include="Hubs\PortHub.cs" />

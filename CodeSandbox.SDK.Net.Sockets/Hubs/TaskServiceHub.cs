@@ -7,9 +7,11 @@ using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
+    /// <summary>
+    /// SignalR hub for managing sandbox task operations.
+    /// </summary>
     public class TaskServiceHub : Hub
     {
         private static readonly ApiClient client = new ApiClient(ServerContext.ApiKey);
-
     }
 }

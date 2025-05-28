@@ -7,11 +7,17 @@ using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
+    /// <summary>
+    /// SignalR hub for managing shell operations in the sandbox.
+    /// </summary>
     public class ShellServiceHub : Hub
     {
         private static ApiClient client = new ApiClient(ServerContext.ApiKey);
         private static ShellService service = new ShellService(client);
 
+        /// <summary>
+        /// Creates a new shell session.
+        /// </summary>
         public async Task<object> CreateShell(SandboxShellCreateRequest request)
         {
             try
@@ -25,6 +31,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Sends input to an existing shell session.
+        /// </summary>
         public async Task<object> SendInput(SandboxShellInRequest request)
         {
             try
@@ -38,6 +47,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Lists all active shell sessions.
+        /// </summary>
         public async Task<object> ListShells()
         {
             try
@@ -51,6 +63,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Opens an existing shell session.
+        /// </summary>
         public async Task<object> OpenShell(SandboxShellOpenRequest request)
         {
             try
@@ -64,6 +79,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Closes a shell session.
+        /// </summary>
         public async Task<object> CloseShell(SandboxShellIdRequest request)
         {
             try
@@ -77,6 +95,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Restarts a shell session.
+        /// </summary>
         public async Task<object> RestartShell(SandboxShellIdRequest request)
         {
             try
@@ -90,6 +111,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Terminates a shell session.
+        /// </summary>
         public async Task<object> TerminateShell(SandboxShellIdRequest request)
         {
             try
@@ -103,6 +127,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Resizes a shell session.
+        /// </summary>
         public async Task<object> ResizeShell(SandboxShellResizeRequest request)
         {
             try
@@ -116,6 +143,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Renames a shell session.
+        /// </summary>
         public async Task<object> RenameShell(SandboxShellRenameRequest request)
         {
             try

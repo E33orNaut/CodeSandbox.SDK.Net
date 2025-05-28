@@ -9,11 +9,17 @@ using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
+    /// <summary>
+    /// SignalR hub for managing setup operations in the sandbox.
+    /// </summary>
     public class SetupHub : Hub
     {
         private static ApiClient client = new ApiClient(ServerContext.ApiKey);
         private static SetupService service = new SetupService(client);
 
+        /// <summary>
+        /// Gets the current setup progress.
+        /// </summary>
         public async Task<object> GetSetupProgress()
         {
             try
@@ -27,6 +33,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Skips a specific setup step.
+        /// </summary>
         public async Task<object> SkipStep(int stepIndexToSkip)
         {
             try
@@ -40,6 +49,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Skips all setup steps.
+        /// </summary>
         public async Task<object> SkipAllSteps()
         {
             try
@@ -53,6 +65,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Disables the setup process.
+        /// </summary>
         public async Task<object> DisableSetup()
         {
             try
@@ -66,6 +81,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Enables the setup process.
+        /// </summary>
         public async Task<object> EnableSetup()
         {
             try
@@ -79,6 +97,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Initializes the setup process.
+        /// </summary>
         public async Task<object> InitializeSetup()
         {
             try
@@ -92,6 +113,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Sets the current setup step.
+        /// </summary>
         public async Task<object> SetStep(int stepIndex)
         {
             try

@@ -10,11 +10,17 @@ using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
+    /// <summary>
+    /// SignalR hub for managing sandbox file system operations.
+    /// </summary>
     public class SandboxFsHub : Hub
-    {
+    {   
         private static ApiClient client = new ApiClient(ServerContext.ApiKey);
         private static SandboxFsService service = new SandboxFsService(client);
 
+        /// <summary>
+        /// Writes a file asynchronously.
+        /// </summary>
         public async Task WriteFileAsync(SandboxFSWriteFileRequest request)
         {
             try
@@ -28,6 +34,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Searches a file system path asynchronously.
+        /// </summary>
         public async Task FsPathSearchAsync(SandboxFSPathSearchResult request)
         {
             try
@@ -41,6 +50,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Uploads a file asynchronously.
+        /// </summary>
         public async Task FsUploadAsync(UploadRequest request)
         {
             try
@@ -54,6 +66,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Downloads a file asynchronously.
+        /// </summary>
         public async Task FsDownloadAsync(DownloadRequest request)
         {
             try
@@ -67,6 +82,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Reads a file asynchronously.
+        /// </summary>
         public async Task FsReadFileAsync(FSReadFileParams request)
         {
             try
@@ -80,6 +98,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Reads a directory asynchronously.
+        /// </summary>
         public async Task ReadDirAsync(FSReadDirParams request)
         {
             try
@@ -94,6 +115,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Gets file or directory statistics asynchronously.
+        /// </summary>
         public async Task StatAsync(FSStatParams request)
         {
             try
@@ -107,6 +131,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Copies a file or directory asynchronously.
+        /// </summary>
         public async Task CopyAsync(FSCopyParams request)
         {
             try
@@ -120,6 +147,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Renames a file or directory asynchronously.
+        /// </summary>
         public async Task RenameAsync(FSRenameParams request)
         {
             try
@@ -133,6 +163,9 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
             }
         }
 
+        /// <summary>
+        /// Removes a file or directory asynchronously.
+        /// </summary>
         public async Task RemoveAsync(FSRemoveParams request)
         {
             try

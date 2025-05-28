@@ -10,12 +10,18 @@ using Microsoft.AspNet.SignalR;
 
 namespace CodeSandbox.SDK.Net.Sockets.Hubs
 {
+    /// <summary>
+    /// SignalR hub for managing port operations in the sandbox.
+    /// </summary>
     public class PortHub : Hub
     {
 
         private static ApiClient client = new ApiClient(ServerContext.ApiKey);
         private static PortService service = new PortService(client);
 
+        /// <summary>
+        /// Gets the list of available ports asynchronously.
+        /// </summary>
         public async Task GetPortListAsync()
         {
             var response = await service.GetPortListAsync(CancellationToken.None);
@@ -28,8 +34,5 @@ namespace CodeSandbox.SDK.Net.Sockets.Hubs
                 await Clients.Caller.sendError("Failed to retrieve status.");
             }
         }
-
-
-
     }
 }
