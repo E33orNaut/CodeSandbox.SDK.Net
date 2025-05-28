@@ -19,7 +19,7 @@ namespace CodeSandbox.SDK.Net.Example
             var apiClient = new ApiClient("https://api.sandbox.codesandbox.io", "api-token", logger);
 
             // SystemService examples
-            var systemService = new SystemService(new System.Net.Http.HttpClient(), logger);
+            var systemService = new SystemService(apiClient, logger);
 
             try
             {

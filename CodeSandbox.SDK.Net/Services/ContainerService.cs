@@ -61,9 +61,7 @@ namespace CodeSandbox.SDK.Net.Services
 #if DEBUG
                 _logger.LogTrace($"DEBUG - API Response Content: {apiEx.Message}");
 #endif
-                throw new Exception(
-                    $"API error during container setup: {apiEx.Message} (Status code: {apiEx.StatusCode})",
-                    apiEx);
+                throw; // Rethrow the original ApiException
             }
             catch (Exception ex)
             {

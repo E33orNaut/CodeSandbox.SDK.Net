@@ -45,35 +45,24 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = "/system/update";
-                StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
+                var payload = new { }; // Empty object payload
 
-                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
-                string json = await response.Content.ReadAsStringAsync();
+                SandboxSystemSuccessResponse response = await _client.PostAsync<SandboxSystemSuccessResponse>(url, payload, cancellationToken);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
-                    _logger.LogSuccess("UpdateSystemAsync succeeded.");
-                    return result;
-                }
-                else
-                {
-                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
-                    _logger.LogError($"API error in UpdateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                    throw new ApiException(
-                        error.Error?.Message ?? "API error",
-                        (int)response.StatusCode,
-                        json,
-                        error
-                    );
-                }
+                _logger.LogSuccess("UpdateSystemAsync succeeded.");
+                return response;
+            }
+            catch (ApiException apiEx)
+            {
+                _logger.LogError($"API error in UpdateSystemAsync: {apiEx.Message}");
+                throw;
             }
             catch (HttpRequestException httpEx)
             {
                 _logger.LogError($"HTTP request failed in UpdateSystemAsync: {httpEx.Message}");
                 throw new Exception("HTTP request failed in UpdateSystemAsync.", httpEx);
             }
-            catch (Exception ex) when (!(ex is ApiException))
+            catch (Exception ex)
             {
                 _logger.LogError($"Unexpected error in UpdateSystemAsync: {ex.Message}");
                 throw new Exception("Unexpected error in UpdateSystemAsync.", ex);
@@ -95,35 +84,24 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = "/system/hibernate";
-                StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
+                var payload = new { }; // Empty object payload
 
-                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
-                string json = await response.Content.ReadAsStringAsync();
+                SandboxSystemSuccessResponse response = await _client.PostAsync<SandboxSystemSuccessResponse>(url, payload, cancellationToken);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
-                    _logger.LogSuccess("HibernateSystemAsync succeeded.");
-                    return result;
-                }
-                else
-                {
-                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
-                    _logger.LogError($"API error in HibernateSystemAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                    throw new ApiException(
-                        error.Error?.Message ?? "API error",
-                        (int)response.StatusCode,
-                        json,
-                        error
-                    );
-                }
+                _logger.LogSuccess("HibernateSystemAsync succeeded.");
+                return response;
+            }
+            catch (ApiException apiEx)
+            {
+                _logger.LogError($"API error in HibernateSystemAsync: {apiEx.Message}");
+                throw;
             }
             catch (HttpRequestException httpEx)
             {
                 _logger.LogError($"HTTP request failed in HibernateSystemAsync: {httpEx.Message}");
                 throw new Exception("HTTP request failed in HibernateSystemAsync.", httpEx);
             }
-            catch (Exception ex) when (!(ex is ApiException))
+            catch (Exception ex)
             {
                 _logger.LogError($"Unexpected error in HibernateSystemAsync: {ex.Message}");
                 throw new Exception("Unexpected error in HibernateSystemAsync.", ex);
@@ -145,36 +123,25 @@ namespace CodeSandbox.SDK.Net.Services
             try
             {
                 string url = "/system/metrics";
-                StringContent content = new StringContent("{}", Encoding.UTF8, "application/json");
+                var payload = new { }; // Empty object payload
 
-                HttpResponseMessage response = await _client.PostAsync(url, content, cancellationToken);
-                string json = await response.Content.ReadAsStringAsync();
+                SandboxSystemSuccessResponse wrapper = await _client.PostAsync<SandboxSystemSuccessResponse>(url, payload, cancellationToken);
+                var metrics = JsonConvert.DeserializeObject<SandboxSystemMetricsStatus>(wrapper.Result.ToString());
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var wrapper = JsonConvert.DeserializeObject<SandboxSystemSuccessResponse>(json);
-                    var metrics = JsonConvert.DeserializeObject<SandboxSystemMetricsStatus>(wrapper.Result.ToString());
-                    _logger.LogSuccess("GetSystemMetricsAsync succeeded.");
-                    return metrics;
-                }
-                else
-                {
-                    var error = JsonConvert.DeserializeObject<SandboxSystemErrorResponse>(json);
-                    _logger.LogError($"API error in GetSystemMetricsAsync: Code={error.Error?.Code}, Message={error.Error?.Message}");
-                    throw new ApiException(
-                        error.Error?.Message ?? "API error",
-                        (int)response.StatusCode,
-                        json,
-                        error
-                    );
-                }
+                _logger.LogSuccess("GetSystemMetricsAsync succeeded.");
+                return metrics;
+            }
+            catch (ApiException apiEx)
+            {
+                _logger.LogError($"API error in GetSystemMetricsAsync: {apiEx.Message}");
+                throw;
             }
             catch (HttpRequestException httpEx)
             {
                 _logger.LogError($"HTTP request failed in GetSystemMetricsAsync: {httpEx.Message}");
                 throw new Exception("HTTP request failed in GetSystemMetricsAsync.", httpEx);
             }
-            catch (Exception ex) when (!(ex is ApiException))
+            catch (Exception ex)
             {
                 _logger.LogError($"Unexpected error in GetSystemMetricsAsync: {ex.Message}");
                 throw new Exception("Unexpected error in GetSystemMetricsAsync.", ex);

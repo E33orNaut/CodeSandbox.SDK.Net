@@ -24,7 +24,7 @@ namespace CodeSandbox.SDK.Net.Services
         public ShellService(IApiClient client, LoggerService logger = null)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
-            _logger = logger ?? new LoggerService(LogLevel.Trace);
+            _logger = logger ?? new LoggerService();
         }
 
         /// <summary>
@@ -272,15 +272,15 @@ namespace CodeSandbox.SDK.Net.Services
         /// <param name="request">The <see cref="SandboxShellRenameRequest"/> containing the shell ID and new name.</param>
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>
-        /// A <see cref="SandboxShellSuccessResponse{object}"/> indicating the result of the rename operation.
+        /// A <see cref="SandboxShellSuccessResponse"/> indicating the result of the rename operation.
         /// </returns>
         /// <exception cref="Exception">Thrown if the API call fails or an unexpected error occurs.</exception>
-        public async Task<SandboxShellSuccessResponse<object>> RenameShellAsync(SandboxShellRenameRequest request, CancellationToken cancellationToken = default)
+        public async Task<SandboxShellSuccessResponse> RenameShellAsync(SandboxShellRenameRequest request, CancellationToken cancellationToken = default)
         {
             _logger.LogInfo("Starting RenameShellAsync...");
             try
             {
-                var response = await _client.PostAsync<SandboxShellSuccessResponse<object>>("/shell/rename", request, cancellationToken);
+                var response = await _client.PostAsync<SandboxShellSuccessResponse>("/shell/rename", request, cancellationToken);
                 _logger.LogSuccess("RenameShellAsync completed successfully.");
                 return response;
             }

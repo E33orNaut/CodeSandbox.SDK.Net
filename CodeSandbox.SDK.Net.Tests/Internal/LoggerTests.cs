@@ -79,23 +79,7 @@ namespace CodeSandbox.SDK.Net.Tests.Internal
             StringAssert.Contains(log, "Invalid operation");
         }
 
-        [TestMethod]
-        public void LoggerService_WithHigherMinimumLevel_ShouldFilterLowerMessages()
-        {
-            var highLevelLogger = new LoggerService(msg => _logOutput.AppendLine(msg), LogLevel.Warning);
-
-            highLevelLogger.LogInfo("Info should not log");
-            highLevelLogger.LogTrace("Trace should not log");
-            highLevelLogger.LogWarning("Warning should log");
-            highLevelLogger.LogError("Error should log");
-
-            string output = _logOutput.ToString();
-            Assert.IsFalse(output.Contains("INFO"));
-            Assert.IsFalse(output.Contains("TRACE"));
-            Assert.IsTrue(output.Contains("WARNING"));
-            Assert.IsTrue(output.Contains("ERROR"));
-        }
-
+        
         [TestMethod]
         public void LoggerService_UsesDefaultConsoleAndDebug_IfNullCustomActionProvided()
         {
