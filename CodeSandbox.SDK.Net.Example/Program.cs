@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Internal;
+using CodeSandbox.SDK.Net.Models.New.SandboxContainerModels;
 using CodeSandbox.SDK.Net.Models.New.SandboxSetupModels;
 using CodeSandbox.SDK.Net.Models.New.SandboxSystemModels;
 using CodeSandbox.SDK.Net.Models.New.SandboxTaskModels;
@@ -11,8 +12,11 @@ namespace CodeSandbox.SDK.Net.Example
 {
     internal class Program
     {
-        private static async Task Main()
-        {
+ 
+
+
+        private static async Task Main(string[] args)
+        { 
             // Setup
             LoggerService logger = new LoggerService(LogLevel.Info);
             ApiClient apiClient = new ApiClient("https://api.sandbox.codesandbox.io", "api-token", logger);

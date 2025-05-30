@@ -136,6 +136,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="WorkFlow.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeSandbox.SDK.Net\CodeSandbox.SDK.Net.csproj">

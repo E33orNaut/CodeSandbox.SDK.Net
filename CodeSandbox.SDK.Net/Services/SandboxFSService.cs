@@ -306,5 +306,181 @@ namespace CodeSandbox.SDK.Net.Services
                 throw new Exception($"Error in RemoveAsync: {ex.Message}", ex);
             }
         }
+
+        /// <summary>
+        /// Asynchronously reads the latest snapshot of the server's MemoryFS file and children list.
+        /// </summary>
+        public async Task<FSReadResult> FsReadAsync(CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting FsReadAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSReadResult>>("/fs/read", new { }, cancellationToken);
+                _logger.LogSuccess("FsReadAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in FsReadAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in FsReadAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously performs a file system operation (create, delete, move).
+        /// </summary>
+        public async Task<FSOperationResult> FsOperationAsync(FSOperationRequest request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting FsOperationAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSOperationResult>>("/fs/operation", request, cancellationToken);
+                _logger.LogSuccess("FsOperationAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in FsOperationAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in FsOperationAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously searches for content in files.
+        /// </summary>
+        public async Task<SearchResult[]> FsSearchAsync(FSSearchParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting FsSearchAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<SearchResult[]>>("/fs/search", request, cancellationToken);
+                _logger.LogSuccess("FsSearchAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in FsSearchAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in FsSearchAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously starts a streaming search for content in files.
+        /// </summary>
+        public async Task<FSStreamingSearchResult> FsStreamingSearchAsync(FSStreamingSearchParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting FsStreamingSearchAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSStreamingSearchResult>>("/fs/streamingSearch", request, cancellationToken);
+                _logger.LogSuccess("FsStreamingSearchAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in FsStreamingSearchAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in FsStreamingSearchAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously cancels an ongoing streaming search.
+        /// </summary>
+        public async Task<FSCancelStreamingSearchResult> FsCancelStreamingSearchAsync(FSCancelStreamingSearchParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting FsCancelStreamingSearchAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSCancelStreamingSearchResult>>("/fs/cancelStreamingSearch", request, cancellationToken);
+                _logger.LogSuccess("FsCancelStreamingSearchAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in FsCancelStreamingSearchAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in FsCancelStreamingSearchAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously creates a new directory at the specified path.
+        /// </summary>
+        public async Task<object> MkdirAsync(FSMkdirParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting MkdirAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/mkdir", request, cancellationToken);
+                _logger.LogSuccess("MkdirAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in MkdirAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in MkdirAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously watches a file or directory for changes.
+        /// </summary>
+        public async Task<FSWatchResult> WatchAsync(FSWatchParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting WatchAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<FSWatchResult>>("/fs/watch", request, cancellationToken);
+                _logger.LogSuccess("WatchAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in WatchAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in WatchAsync: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously stops watching a file or directory for changes.
+        /// </summary>
+        public async Task<object> UnwatchAsync(FSUnwatchParams request, CancellationToken cancellationToken = default)
+        {
+            _logger.LogInfo("Starting UnwatchAsync...");
+            try
+            {
+                var response = await _apiClient.PostAsync<SandboxFSSuccessResponse<object>>("/fs/unwatch", request, cancellationToken);
+                _logger.LogSuccess("UnwatchAsync completed successfully.");
+                return response?.Result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in UnwatchAsync: {ex.Message}", ex);
+#if DEBUG
+                _logger.LogTrace(ex.ToString());
+#endif
+                throw new Exception($"Error in UnwatchAsync: {ex.Message}", ex);
+            }
+        }
     }
 }

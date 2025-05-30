@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.IO.Pipelines;
+using System.Threading;
 using System.Threading.Tasks;
 using CodeSandbox.SDK.Net.Models.New.SandboxFSModels;
 
@@ -88,5 +89,14 @@ namespace CodeSandbox.SDK.Net.Interfaces
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A task returning a success response with an optional result object.</returns>
         Task<object> RemoveAsync(FSRemoveParams request, CancellationToken cancellationToken = default);
+
+        Task<FSReadResult> FsReadAsync(CancellationToken cancellationToken = default);
+        Task<FSOperationResult> FsOperationAsync(FSOperationRequest request, CancellationToken cancellationToken = default);
+        Task<SearchResult[]> FsSearchAsync(FSSearchParams request, CancellationToken cancellationToken = default);
+        Task<FSStreamingSearchResult> FsStreamingSearchAsync(FSStreamingSearchParams request, CancellationToken cancellationToken = default);
+        Task<FSCancelStreamingSearchResult> FsCancelStreamingSearchAsync(FSCancelStreamingSearchParams request, CancellationToken cancellationToken = default);
+        Task<object> MkdirAsync(FSMkdirParams request, CancellationToken cancellationToken = default);
+        Task<FSWatchResult> WatchAsync(FSWatchParams request, CancellationToken cancellationToken = default);
+        Task<object> UnwatchAsync(FSUnwatchParams request, CancellationToken cancellationToken = default);
     }
 }

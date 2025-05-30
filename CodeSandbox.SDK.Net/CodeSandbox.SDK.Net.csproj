@@ -157,6 +157,7 @@
     <Compile Include="Models\New\GitModels\GitModels.cs" />
     <Compile Include="Models\New\PortModels\PortModels.cs" />
     <Compile Include="Models\New\SandboxContainerModels\SanboxContainerModels.cs" />
+    <Compile Include="Models\New\SandboxFSModels\ContainerFSModels.cs" />
     <Compile Include="Models\New\SandboxFSModels\SandboxFSModels.cs" />
     <Compile Include="Models\New\SandboxGitModels\SandboxGitModels.cs" />
     <Compile Include="Models\New\SandboxSetupModels\SandboxSetupModels.cs" />
